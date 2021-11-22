@@ -1,5 +1,10 @@
 <template>
-  <prismic-rich-text :field="page.content" />
+  <div>
+    <div style="height:100vh;display:flex;justify-content:center;align-items:center;">
+      <h1>ABOUT</h1>
+    </div>
+    <prismic-rich-text :field="page.content" />
+  </div>
 </template>
 
 <script>
