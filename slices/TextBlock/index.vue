@@ -1,8 +1,8 @@
 <template>
-  <section class="section">
+  <div class="section px-4 lg:px-36">
     <prismic-rich-text :field="slice.primary.title" class="title" />
     <prismic-rich-text :field="slice.primary.description" />
-  </section>
+  </div>
 </template>
 
 <script>
@@ -19,11 +19,3 @@ export default {
   },
 }
 </script>
-<style scoped>
-a {
-  color: #111;
-}
-.title {
-  margin-bottom: 2em;
-}
-</style>

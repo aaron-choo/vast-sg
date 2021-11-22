@@ -74,11 +74,11 @@ export default {
 
 .appCursor {
   transition: transform 100ms;
-  border: 1px solid #f00;
+  border: 1px solid transparent;
 }
 
 .appCursor--Small {
-  background-color: #aaa;
+  background-color: transparent;
 }
 
 </style>
