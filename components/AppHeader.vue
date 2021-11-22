@@ -7,7 +7,7 @@
     </div>
     <nav class="site-nav absolute bottom-0 right-0 transition duration-300 transform translate-y-20" :class="{ 'has-scroll-over pointer-events-none': scrollOver, 'menu-open pointer-events-auto': menuOpen }">
         <div class="site-nav-origin">
-            <div class="site-nav-body transition duration-300 relative z-10 px-6" :class="{ 'opacity-0 pointer-events-none': scrollOver, 'pointer-events-auto opacity-100': menuOpen }">
+            <div class="site-nav-body transition duration-300 relative z-10 px-6" :class="{ 'opacity-0 pointer-events-none': scrollOver, 'pointer-events-auto opacity-100 delay-200': menuOpen }">
                 <ul class="pt-6" @mouseover="menuOpen = true" @mouseleave="menuOpen = false" @click="menuOpen = false">
                     <li>
                         <nuxt-link to="/" class="relative">
