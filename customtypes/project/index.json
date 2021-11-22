@@ -1,0 +1,54 @@
+{
+  "id": "project",
+  "label": "Project",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "project_title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label": "Project Title",
+          "placeholder": "Project Title"
+        }
+      },
+      "project_date": {
+        "type": "Date",
+        "config": {
+          "label": "Project Date",
+          "placeholder": "Project Date"
+        }
+      },
+      "project_color_1": {
+        "type": "Color",
+        "config": {
+          "label": "Project Color 1"
+        }
+      },
+      "project_color_2": {
+        "type": "Color",
+        "config": {
+          "label": "Project Color 2"
+        }
+      },
+      "project_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Project Image"
+        }
+      },
+      "project_description": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "allowTargetBlank": true,
+          "label": "Project Description",
+          "placeholder": "Project Description"
+        }
+      }
+    }
+  },
+  "status": true
+}
