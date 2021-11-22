@@ -10,11 +10,29 @@
             <div class="header__nav transition-all duration-300 rounded-2xl">
                 <div class="header__nav-list" :class="{ 'scroll--hidden': !showNavbar }">
                     <ul>
-                        <li v-for="(item, index) in items" :key="index">
-                            <a :href="item.href">
-                            <span>{{ item.title }}</span>
+                        <li>
+                            <nuxt-link to="/">
+                            <span>HOME</span>
                             <span class="underline"></span>
-                            </a>
+                            </nuxt-link>
+                        </li>
+                        <li>
+                            <nuxt-link to="/projects">
+                            <span>PROJECTS</span>
+                            <span class="underline"></span>
+                            </nuxt-link>
+                        </li>
+                         <li>
+                            <nuxt-link to="/about">
+                            <span>ABOUT</span>
+                            <span class="underline"></span>
+                            </nuxt-link>
+                        </li>
+                         <li>
+                            <nuxt-link to="/contact">
+                            <span>CONTACT</span>
+                            <span class="underline"></span>
+                            </nuxt-link>
                         </li>
                     </ul>
                 </div>
@@ -38,25 +56,7 @@ export default {
         return {
         showNavbar: true,
         lastScrollPosition: 0,
-        menu: false,
-        items: [
-            {
-            title: 'HOME',
-            href: '/'
-            },
-            {
-            title: 'PROJECTS',
-            href: '/projects'
-            },
-            {
-            title: 'ABOUT',
-            href: '/about'
-            },
-            {
-            title: 'CONTACT',
-            href: '/contact'
-            }
-        ]
+        menu: false
         }
     },
     mounted () {
