@@ -17,15 +17,3 @@ export default {
     }
 }
 </script>
-
-<style>
-html {
-  font-family: "Labil Grotesk", sans-serif;
-  font-variant-ligatures: none;
-  font-feature-settings: "ss01" 0, "ss03" 1, "ss04" 1, "ss05" 1, "ss07" 0, "zero" 1;
-}
-em {
-    font-family: "Tropiline", serif;
-    font-style: normal;
-}
-</style>
