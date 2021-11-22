@@ -1,7 +1,7 @@
 <template>
   <span>
-      <span class="appCursor"></span>
-      <span class="appCursor--Small"></span>
+      <span class="appCursor transition-all duration-200 m-0 ease-out"></span>
+      <span class="appCursor--Small hidden"></span>
   </span>
 </template>
 
@@ -12,54 +12,55 @@ export default {
         dotSize: {
             default: 6
         },
-        dotColor: {
-            default: '#aaa'
-        },
         circleSize: {
-            default: 40
-        },
-        borderColor: {
-            default: '#f00'
+            default: 30
         }
     },
 
     mounted() {
         const appCursor = document.querySelector(".appCursor");
         const appCursorSmall = document.querySelector(".appCursor--Small");
+        const links = document.querySelectorAll("a, .send, button");
+        const mouseCursor = document.querySelector(".appCursor");
+        function changeCursor(a, b) {
+            mouseCursor.classList.add(a);
+            mouseCursor.classList.remove(b);
+        }
+        function enableAnimation() {
+            changeCursor("active", "inactive");
+        }
+        function disableAnimation() {
+            changeCursor("inactive", "active");
+        }
+        links.forEach(link => link.addEventListener("mouseover", enableAnimation));
+        links.forEach(link => link.addEventListener("mouseleave", disableAnimation));
+        document.addEventListener("mousedown", enableAnimation);
+        document.addEventListener("mouseup", disableAnimation);
+
         document.addEventListener("mousemove", e => {
-        const scaleElementHovered =
-            e.target &&
-            (e.target.classList.contains(this.scaleElement) ||
-            e.target.closest(`.${this.scaleElement}`));
 
         appCursor.style.cssText = `
         transform: translate3d(${e.clientX -
             this.circleSize +
             this.dotSize -
-            1}px, ${e.clientY - this.circleSize + this.dotSize - 1}px, 0) scale(${
-            scaleElementHovered ? 1 : 0.5
-        });
+            1}px, ${e.clientY - this.circleSize + this.dotSize - 1}px, 0);
             width: ${this.circleSize * 2}px;
             height: ${this.circleSize * 2}px;
-            border-color: ${this.borderColor}
+            border-color: var(--text-color)
             `;
 
         appCursorSmall.style.cssText = `
-        transform: translate3d(${e.clientX}px, ${e.clientY}px, 0) scale(${
-            scaleElementHovered ? 1 : 0.5
-        });
-        width: ${this.dotSize * 2}px;
-        height: ${this.dotSize * 2}px;
-        background-color: ${this.dotColor}`;
+            transform: translate3d(${e.clientX}px, ${e.clientY}px, 0);
+            width: ${this.dotSize * 2}px;
+            height: ${this.dotSize * 2}px;
+            background-color: var(--text-color)
+            `;
         });
     }
 }
 </script>
 
 <style>
-*{
-    cursor: none;
-}
 .appCursor,
 .appCursor--Small {
   position: fixed;
@@ -73,12 +74,18 @@ export default {
 }
 
 .appCursor {
-  transition: transform 100ms;
   border: 1px solid transparent;
 }
 
 .appCursor--Small {
   background-color: transparent;
+}
+
+.appCursor.active {
+    width:10px !important;
+    height:10px !important;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 </style>

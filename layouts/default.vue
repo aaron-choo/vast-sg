@@ -2,7 +2,7 @@
     <div>
         <AppHeader @close-menu="menuOpen = false"/>
         <nuxt />
-        <AppCursor scaleElement="logo" dotColor="#222222" borderColor="#222222"/>
+        <AppCursor/>
     </div>
 </template>
 
