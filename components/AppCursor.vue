@@ -46,14 +46,14 @@ export default {
             1}px, ${e.clientY - this.circleSize + this.dotSize - 1}px, 0);
             width: ${this.circleSize * 2}px;
             height: ${this.circleSize * 2}px;
-            border-color: var(--text-color)
+            border-color: var(--color)
             `;
 
         appCursorSmall.style.cssText = `
             transform: translate3d(${e.clientX}px, ${e.clientY}px, 0);
             width: ${this.dotSize * 2}px;
             height: ${this.dotSize * 2}px;
-            background-color: var(--text-color)
+            background-color: var(--color)
             `;
         });
     }

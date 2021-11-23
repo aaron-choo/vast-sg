@@ -25,7 +25,7 @@
                         </div>
                         </nuxt-link>
                     </li>
-                        <li>
+                    <li>
                         <nuxt-link to="/about" class="relative">
                         <span>ABOUT</span>
                         <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
@@ -33,13 +33,21 @@
                         </div>
                         </nuxt-link>
                     </li>
-                        <li>
+                    <li>
                         <nuxt-link to="/contact" class="relative">
                         <span>CONTACT</span>
                         <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
                             <div class="transition-transform duration-500 origin-left w-full h-full"></div>
                         </div>
                         </nuxt-link>
+                    </li>
+                    <li v-for="color of colors" :key="color" @click="$colorMode.preference = color" :class="color">
+                        <a class="relative">
+                        <span>{{color.toUpperCase()}}</span>
+                        <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
+                            <div class="transition-transform duration-500 origin-left w-full h-full"></div>
+                        </div>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -61,7 +69,7 @@
 </template>
 
 <script>
-import Logo from '../components/Logo';
+import Logo from '@/components/Logo';
 export default {
     name: 'AppHeader',
     components: {
@@ -69,10 +77,9 @@ export default {
     },
     data() {
         return {
-        hideOnScroll: false,
-        lastScrollPosition: 0,
         menuOpen: false,
-        scrollOver: false
+        scrollOver: false,
+        colors: ['light', 'dark']
         }
     },
     mounted () {
@@ -104,24 +111,24 @@ export default {
 </script>
 <style scoped>
 .menu-btn {
-    background-color: var(--text-color);
-    color: var(--background-color);
-    border: 1px solid var(--text-color);
+    background-color: var(--color);
+    color: var(--bg);
+    border: 1px solid var(--color);
 }
 .has-scroll-over.logo-wrap {
     transform: translate3d(0, -50%, 0);
 }
 .site-nav-bg>div {
-    background-color: var(--text-color);
+    background-color: var(--color);
 }
 .btn-txt{
     z-index: 2;
 }
 .menu-open.has-scroll-over.site-nav li a, .btn-txt {
-    color: var(--background-color);
+    color: var(--bg);
 }
 .menu-open .btn-txt {
-    color: var(--text-color);
+    color: var(--color);
 }
 .btn-txt-wrap::after, .btn-txt-wrap::before {
     content: "";
@@ -136,13 +143,13 @@ export default {
 }
 .btn-txt-wrap::before {
     z-index: 0;
-    background-color: var(--text-color);
+    background-color: var(--color);
 }
 .btn-txt-wrap::after {
     z-index: 1;
     transform: scaleX(0);
     transform-origin: right;
-    background-color: var(--background-color);
+    background-color: var(--bg);
 }
 .menu-open .btn-txt-wrap::after {
     transform: scaleX(1);
@@ -158,9 +165,12 @@ export default {
 }
 .u div {
     transform: scaleX(1);
-    background-color: var(--text-color);
+    background-color: var(--color-primary);
 }
 .has-scroll-over.menu-open .u div {
-    background-color: var(--background-color);
+    background-color: var(--bg);
+}
+.light-mode .light, .dark-mode .dark {
+    display: none;
 }
 </style>

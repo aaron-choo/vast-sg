@@ -80,9 +80,33 @@
 }
 
 :root {
-    --text-color: #222;
-    --background-color: #fff;
-    --outerGutter: 15px;
+  --color: #666;
+  --color-primary: #666;
+  --color-secondary: #0e2233;
+  --bg: #ccc;
+  --bg-secondary: #fff;
+  --border-color: #ddd;
+}
+
+.dark-mode {
+  --color: #eee;
+  --color-primary: #eee;
+  --color-secondary: #fdf9f3;
+  --bg: #111;
+  --bg-secondary: #071521;
+  --border-color: #0d2538;
+}
+
+body {
+  font-family: "Labil Grotesk", sans-serif;
+  font-variant-ligatures: none;
+  font-feature-settings: "ss01" 0, "ss03" 1, "ss04" 1, "ss05" 1, "ss07" 0, "zero" 1;
+  background-color: var(--bg);
+  color: var(--color);
+  transition: background-color 0.3s;
+}
+a {
+  color: var(--color-primary);
 }
 
 * {
@@ -108,11 +132,6 @@ h1 {
   font-size: 3rem;
 }
 
-html {
-  font-family: "Labil Grotesk", sans-serif;
-  font-variant-ligatures: none;
-  font-feature-settings: "ss01" 0, "ss03" 1, "ss04" 1, "ss05" 1, "ss07" 0, "zero" 1;
-}
 em {
     font-family: "Tropiline", serif;
     font-style: normal;

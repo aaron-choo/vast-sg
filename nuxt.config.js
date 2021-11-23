@@ -37,7 +37,8 @@ export default {
     '@nuxtjs/eslint-module', // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module', // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/prismic'
+    '@nuxtjs/prismic',
+    '@nuxtjs/color-mode'
   ],
   prismic: {
     endpoint: 'https://vast-sg.cdn.prismic.io/api/v2',
@@ -85,5 +86,8 @@ export default {
   generate: {
     fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
 
+  },
+  loading: {
+    color: 'var(--color)'
   }
 };

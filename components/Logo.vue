@@ -19,7 +19,7 @@ export default {
     padding-top: 25%;
 }
 .logo-block>div {
-    background: var(--text-color);
+    background: var(--color);
     transition: transform .3s ease;
 }
 .logo-block-v {
