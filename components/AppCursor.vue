@@ -1,6 +1,6 @@
 <template>
   <span>
-      <span class="appCursor transition-all duration-200 m-0 ease-out"></span>
+      <span class="appCursor transition-all duration-200 m-0 ease-out hidden sm:block"></span>
       <span class="appCursor--Small hidden"></span>
   </span>
 </template>

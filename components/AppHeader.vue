@@ -1,11 +1,11 @@
 <template>
-<header class="header fixed">
-    <div class="logo-wrap absolute top-0 left-0 transition duration-300" :class="{ 'has-scroll-over opacity-0': scrollOver }">
+<header class="header">
+    <div class="logo-wrap fixed top-4 left-4 transition duration-300" :class="{ 'has-scroll-over opacity-0': scrollOver }">
         <nuxt-link to='/' class="logo">
-            <Logo class="w-20 logo"/>
+            <Logo class="w-24 logo"/>
         </nuxt-link>
     </div>
-    <nav class="site-nav absolute bottom-0 right-0 transition duration-300 transform translate-y-20" :class="{ 'has-scroll-over pointer-events-none': scrollOver, 'menu-open pointer-events-auto': menuOpen }">
+    <nav class="site-nav fixed bottom-4 right-4 transition duration-300 transform translate-x-4 md:translate-x-0" :class="{ 'has-scroll-over pointer-events-none translate-y-4 md:translate-y-0': scrollOver, 'menu-open pointer-events-auto': menuOpen, 'translate-y-20 translate-x-4 md:translate-x-0': !scrollOver }">
         <div class="site-nav-origin">
             <div class="site-nav-body transition duration-300 relative z-10 px-6" :class="{ 'opacity-0 pointer-events-none': scrollOver, 'pointer-events-auto opacity-100 delay-200': menuOpen }">
                 <ul class="pt-6" @mouseover="menuOpen = true" @mouseleave="menuOpen = false" @click="menuOpen = false">
@@ -103,19 +103,10 @@ export default {
 }
 </script>
 <style scoped>
-.header {
-    top: var(--outerGutter);
-    left: var(--outerGutter);
-    right: var(--outerGutter);
-    bottom: var(--outerGutter);
-}
 .menu-btn {
     background-color: var(--text-color);
     color: var(--background-color);
     border: 1px solid var(--text-color);
-}
-.has-scroll-over.site-nav {
-    transform: translateY(0);
 }
 .has-scroll-over.logo-wrap {
     transform: translate3d(0, -50%, 0);
