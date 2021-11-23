@@ -1,9 +1,17 @@
 <template>
-<header class="header">
+<header class="header relative z-10">
     <div class="logo-wrap fixed top-4 left-4 transition duration-300" :class="{ 'has-scroll-over opacity-0': scrollOver }">
         <nuxt-link to='/' class="logo">
             <Logo class="w-24 logo"/>
         </nuxt-link>
+    </div>
+    <div class="mode-switcher fixed top-4 right-4 transition duration-300 rounded-full" :class="{ 'has-scroll-over opacity-0': scrollOver }">
+        <ul class="flex">
+            <li v-for="color of colors" :key="color.name" @click="$colorMode.preference = color.name" :class="color.name">
+                <a class="relative flex h-4 w-4 m-1 justify-center leading-none cursor-pointer">{{color.symbol}}</a>
+            </li>
+        </ul>
+        <div class="toggle bg-current absolute h-4 w-4 rounded-full top-1 left-1 pointer-events-none transition duration-300"></div>
     </div>
     <nav class="site-nav fixed bottom-4 right-4 transition duration-300 transform translate-x-4 md:translate-x-0" :class="{ 'has-scroll-over pointer-events-none translate-y-4 md:translate-y-0': scrollOver, 'menu-open pointer-events-auto': menuOpen, 'translate-y-20 translate-x-4 md:translate-x-0': !scrollOver }">
         <div class="site-nav-origin">
@@ -41,14 +49,6 @@
                         </div>
                         </nuxt-link>
                     </li>
-                    <li v-for="color of colors" :key="color" @click="$colorMode.preference = color" :class="color">
-                        <a class="relative">
-                        <span>{{color.toUpperCase()}}</span>
-                        <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
-                            <div class="transition-transform duration-500 origin-left w-full h-full"></div>
-                        </div>
-                        </a>
-                    </li>
                 </ul>
             </div>
             <div class="site-nav-footer transition duration-300 pointer-events-none opacity-0 z-10 relative transform scale-90" :class="{ 'pointer-events-auto opacity-100 scale-100': scrollOver }" @mouseover="menuOpen = true" @mouseleave="menuOpen = false" @click.prevent="menuOpen = true">
@@ -79,7 +79,7 @@ export default {
         return {
         menuOpen: false,
         scrollOver: false,
-        colors: ['light', 'dark']
+        colors: [{name: 'light', symbol: ' '}, {name: 'dark', symbol: ' '}]
         }
     },
     mounted () {
@@ -115,7 +115,7 @@ export default {
     color: var(--bg);
     border: 1px solid var(--color);
 }
-.has-scroll-over.logo-wrap {
+.has-scroll-over.logo-wrap, .has-scroll-over.mode-switcher {
     transform: translate3d(0, -50%, 0);
 }
 .site-nav-bg>div {
@@ -124,7 +124,7 @@ export default {
 .btn-txt{
     z-index: 2;
 }
-.menu-open.has-scroll-over.site-nav li a, .btn-txt {
+.mode-switcher a, .menu-open.has-scroll-over.site-nav li a, .btn-txt {
     color: var(--bg);
 }
 .menu-open .btn-txt {
@@ -170,7 +170,16 @@ export default {
 .has-scroll-over.menu-open .u div {
     background-color: var(--bg);
 }
-.light-mode .light, .dark-mode .dark {
-    display: none;
+.toggle {
+    background-color: var(--bg);
+}
+.mode-switcher {
+    background-color: var(--color);
+}
+.dark-mode .toggle{
+    transform: translateX(1.5em);
+}
+.dark-mode .mode-switcher {
+    background-color: #fec150;
 }
 </style>
