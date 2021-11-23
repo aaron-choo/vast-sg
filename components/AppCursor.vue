@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import gsap from 'gsap'
 export default {
     props: {
         scaleElement: {},
@@ -19,7 +20,6 @@ export default {
 
     mounted() {
         const appCursor = document.querySelector(".appCursor");
-        const appCursorSmall = document.querySelector(".appCursor--Small");
         const links = document.querySelectorAll("a, .send, button");
         const mouseCursor = document.querySelector(".appCursor");
         function changeCursor(a, b) {
@@ -37,26 +37,9 @@ export default {
         document.addEventListener("mousedown", enableAnimation);
         document.addEventListener("mouseup", disableAnimation);
 
-        document.addEventListener("mousemove", e => {
-
-        appCursor.style.cssText = `
-        transform: translate3d(${e.clientX -
-            this.circleSize +
-            this.dotSize -
-            1}px, ${e.clientY - this.circleSize + this.dotSize - 1}px, 0);
-            width: ${this.circleSize * 2}px;
-            height: ${this.circleSize * 2}px;
-            border-color: var(--color-primary);
-            background-color: var(--color-primary)
-            `;
-
-        appCursorSmall.style.cssText = `
-            transform: translate3d(${e.clientX}px, ${e.clientY}px, 0);
-            width: ${this.dotSize * 2}px;
-            height: ${this.dotSize * 2}px;
-            background-color: var(--color)
-            `;
-        });
+        window.addEventListener("mousemove", e => {
+            gsap.to(appCursor, 0.9, { x: e.clientX, y: e.clientY });
+        })
     }
 }
 </script>
@@ -65,13 +48,17 @@ export default {
 .appCursor,
 .appCursor--Small {
   position: fixed;
-  top: 0;
-  left: 0;
   z-index: 100000;
   border-radius: 50%;
   pointer-events: none;
   box-sizing: border-box;
   backface-visibility: hidden;
+  mix-blend-mode: exclusion;
+  background-color: var(--color);
+    width:40px;
+    height:40px;
+    left: -20px;
+    top: -20px;
 }
 
 .appCursor {
@@ -83,10 +70,11 @@ export default {
 }
 
 .appCursor.active {
-    width:10px !important;
-    height:10px !important;
-    margin-left: 20px;
-    margin-top: 20px;
+    width:10px;
+    height:10px;
+    left: -5px;
+    top: -5px;
+    opacity: 0.5;
 }
 
 </style>
