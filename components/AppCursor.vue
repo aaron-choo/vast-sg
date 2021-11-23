@@ -46,7 +46,8 @@ export default {
             1}px, ${e.clientY - this.circleSize + this.dotSize - 1}px, 0);
             width: ${this.circleSize * 2}px;
             height: ${this.circleSize * 2}px;
-            border-color: var(--color)
+            border-color: var(--color);
+            background-color: var(--color)
             `;
 
         appCursorSmall.style.cssText = `
