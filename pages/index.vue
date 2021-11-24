@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div style="height:100vh;display:flex;justify-content:center;align-items:center;">
-      <h1>HOME</h1>
-    </div>
-  <prismic-rich-text :field="page.content" />
+  <!-- <prismic-rich-text :field="page.content" /> -->
   <slice-zone type="home_page" queryType="single" />
   </div>
 </template>

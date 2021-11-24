@@ -1,5 +1,30 @@
 {
   "slices": {
-    "TextBlock": {}
+    "TextBlock": {},
+    "HomeSlider": {
+      "default-slice": {
+        "items": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          },
+          "subtitle": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        },
+        "primary": {}
+      }
+    },
+    "SliderBlock": {
+      "default-slice": {
+        "primary": {},
+        "items": {}
+      }
+    }
   }
 }
