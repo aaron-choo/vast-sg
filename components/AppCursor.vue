@@ -36,7 +36,20 @@ export default {
         links.forEach(link => link.addEventListener("mouseleave", disableAnimation));
         document.addEventListener("mousedown", enableAnimation);
         document.addEventListener("mouseup", disableAnimation);
-
+        function activateCursor(a, b) {
+            const enableCursor = function () {
+                mouseCursor.classList.add(b);
+            }
+            const disableCursor = function () {
+                mouseCursor.classList.remove(b);
+            }
+            document.querySelectorAll("." + a).forEach(link => link.addEventListener("mouseover", enableCursor));
+            document.querySelectorAll("." + a).forEach(link => link.addEventListener("mouseleave", disableCursor));
+        };
+        activateCursor("drag", "drag");
+        activateCursor("view", "view");
+        activateCursor("swiper-button-next", "next");
+        activateCursor("swiper-button-prev", "prev");
         window.addEventListener("mousemove", e => {
             gsap.to(appCursor, 0.9, { x: e.clientX, y: e.clientY });
         })
@@ -55,10 +68,10 @@ export default {
   backface-visibility: hidden;
   mix-blend-mode: exclusion;
   background-color: var(--color);
-    width:40px;
-    height:40px;
-    left: -20px;
-    top: -20px;
+    width:30px;
+    height:30px;
+    left: -15px;
+    top: -15px;
 }
 
 .appCursor {
@@ -76,5 +89,37 @@ export default {
     top: -5px;
     opacity: 0.5;
 }
+.appCursor::after {
+content: "";
+transition: 0.3s ease;
+color: var(--bg);
+font-size: 12px;
+line-height: 1;
+text-align: center;
+display: flex;
+height: 100%;
+width: 100%;
+justify-content: center;
+align-items: center;
+opacity: 0;
+text-transform: uppercase;
+}
 
+.appCursor.next,
+.appCursor.prev {
+left: -30px;
+top: -30px;
+width: 60px;
+height: 60px;
+}
+
+.appCursor.next::after {
+content: "next";
+opacity: 1;
+}
+
+.appCursor.prev::after {
+content: "prev";
+opacity: 1;
+}
 </style>
