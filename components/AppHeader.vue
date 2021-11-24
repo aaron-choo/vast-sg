@@ -128,7 +128,7 @@ export default {
     color: var(--bg);
 }
 .site-nav li a{
-    transition: .6s ease .3s;
+    transition: .6s ease .3s, color .3s ease;
 }
 .site-nav:not(.has-scroll-over) li a{
     bottom:0;
