@@ -127,11 +127,16 @@ export default {
 .mode-switcher a, .btn-txt {
     color: var(--bg);
 }
+.site-nav li a{
+    transition: .6s ease .3s;
+}
+.site-nav:not(.has-scroll-over) li a{
+    bottom:0;
+}
 .has-scroll-over.site-nav li a{
     bottom:30px;
     color: var(--bg);
     opacity: 0;
-    transition: .6s ease .3s;
 }
 .has-scroll-over.menu-open.site-nav li a{
     bottom:0;
