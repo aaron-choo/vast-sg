@@ -124,7 +124,7 @@ export default {
 .btn-txt{
     z-index: 2;
 }
-.mode-switcher a, .menu-open.has-scroll-over.site-nav li a, .btn-txt {
+.mode-switcher a, .has-scroll-over.site-nav li a, .has-scroll-over.menu-open.site-nav li a, .btn-txt {
     color: var(--bg);
 }
 .menu-open .btn-txt {
@@ -167,7 +167,7 @@ export default {
     transform: scaleX(1);
     background-color: var(--color-primary);
 }
-.has-scroll-over.menu-open .u div {
+.has-scroll-over .u div {
     background-color: var(--bg);
 }
 .toggle {
