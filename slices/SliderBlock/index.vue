@@ -1,15 +1,14 @@
 <template>
   <section class="section px-4 lg:px-40 my-24">
-    <prismic-rich-text :field="slice.primary.title" class="title" />
     <div v-swiper="swiperOption" class="relative overflow-hidden">
       <div class="swiper-wrapper">
-        <div v-for="item in slice.items" :key="item" class="swiper-slide">
+        <div v-for="(item, index) in slice.items" :key="index" class="swiper-slide">
             <img :src="item.image.url"/>  
         </div>
       </div>
-      <div class="swiper-pagination" slot="pagination"></div>
-      <div class="swiper-button-prev left-0 m-0" slot="button-prev"></div>
-      <div class="swiper-button-next right-0 m-0" slot="button-next"></div>
+      <div slot="pagination" class="swiper-pagination"></div>
+      <div slot="button-prev" class="swiper-button-prev left-0 m-0"></div>
+      <div slot="button-next" class="swiper-button-next right-0 m-0"></div>
     </div>
   </section>
 </template>
@@ -40,7 +39,6 @@ export default {
         },
         autoHeight: true,
         loop: true,
-        grabCursor: true,
         pagination: {
           el: ".swiper-pagination",
           type: 'fraction'

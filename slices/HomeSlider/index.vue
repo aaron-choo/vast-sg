@@ -1,9 +1,8 @@
 <template>
   <section class="section mb-24">
-    <prismic-rich-text :field="slice.primary.title" class="title" />
     <div v-swiper="swiperOption" class="relative overflow-hidden">
       <div class="swiper-wrapper h-screen">
-        <div v-for="item in slice.items" :key="item" class="swiper-slide">
+        <div v-for="(item, index) in slice.items" :key="index" class="swiper-slide">
             <div class="absolute top-0 left-0 bottom-0 right-0 z-10 flex flex-col justify-end p-4">
               <prismic-rich-text :field="item.title" class="text-xl serif"/>
               <prismic-rich-text :field="item.subtitle" class="text-xl serif"/>
@@ -13,8 +12,8 @@
             <img class="transition-transform animate ease-out" :src="item.image.url"/>  
         </div>
       </div>
-      <div class="swiper-button-prev left-0 m-0" slot="button-prev"></div>
-      <div class="swiper-button-next right-0 m-0" slot="button-next"></div>
+      <div slot="button-prev" class="swiper-button-prev left-0 m-0"></div>
+      <div slot="button-next" class="swiper-button-next right-0 m-0"></div>
     </div>
   </section>
 </template>
@@ -46,7 +45,6 @@ export default {
           delay: 3000,
         },
         loop: true,
-        grabCursor: true,
         pagination: {
           el: ".swiper-pagination",
           type: 'fraction'
