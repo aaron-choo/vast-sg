@@ -7,7 +7,7 @@
     </div>
     <div class="mode-switcher fixed top-4 right-4 transition duration-300 rounded-full" :class="{ 'has-scroll-over opacity-0': scrollOver }">
         <ul class="flex">
-            <li v-for="color of colors" :key="color.name" @click="$colorMode.preference = color.name" :class="color.name">
+            <li v-for="color of colors" :key="color.name" :class="color.name" @click="$colorMode.preference = color.name">
                 <a class="relative flex h-4 w-4 m-1 justify-center leading-none cursor-pointer">{{color.symbol}}</a>
             </li>
         </ul>
@@ -17,7 +17,7 @@
         <div class="site-nav-origin">
             <div class="site-nav-body transition duration-300 relative z-10 px-6" :class="{ 'opacity-0 pointer-events-none': scrollOver, 'pointer-events-auto opacity-100 delay-200': menuOpen }">
                 <ul class="pt-6" @mouseover="menuOpen = true" @mouseleave="menuOpen = false" @click="menuOpen = false">
-                    <li>
+                    <li class="overflow-hidden">
                         <nuxt-link to="/" class="relative">
                         <span>HOME</span>
                         <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
@@ -25,7 +25,7 @@
                         </div>
                         </nuxt-link>
                     </li>
-                    <li>
+                    <li class="overflow-hidden">
                         <nuxt-link to="/projects" class="relative">
                         <span>PROJECTS</span>
                         <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
@@ -33,7 +33,7 @@
                         </div>
                         </nuxt-link>
                     </li>
-                    <li>
+                    <li class="overflow-hidden">
                         <nuxt-link to="/about" class="relative">
                         <span>ABOUT</span>
                         <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
@@ -41,7 +41,7 @@
                         </div>
                         </nuxt-link>
                     </li>
-                    <li>
+                    <li class="overflow-hidden">
                         <nuxt-link to="/contact" class="relative">
                         <span>CONTACT</span>
                         <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
@@ -124,7 +124,18 @@ export default {
 .btn-txt{
     z-index: 2;
 }
-.mode-switcher a, .has-scroll-over.site-nav li a, .has-scroll-over.menu-open.site-nav li a, .btn-txt {
+.mode-switcher a, .btn-txt {
+    color: var(--bg);
+}
+.has-scroll-over.site-nav li a{
+    bottom:30px;
+    color: var(--bg);
+    opacity: 0;
+    transition: .6s ease .3s;
+}
+.has-scroll-over.menu-open.site-nav li a{
+    bottom:0;
+    opacity: 1;
     color: var(--bg);
 }
 .menu-open .btn-txt {

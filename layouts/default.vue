@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AppHeader @close-menu="menuOpen = false"/>
+        <AppHeader/>
         <nuxt />
         <AppCursor/>
         <AppFooter/>
