@@ -40,7 +40,8 @@ export default {
     '@nuxtjs/stylelint-module', // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/prismic',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    'nuxt-gsap-module'
   ],
   prismic: {
     endpoint: 'https://vast-sg.cdn.prismic.io/api/v2',
