@@ -1,5 +1,5 @@
 <template>
-  <section class="section mb-24">
+  <section class="section mb-24 relative">
     <div v-swiper="swiperOption" class="relative overflow-hidden">
       <div class="swiper-wrapper h-screen">
         <div v-for="(item, index) in slice.items" :key="index" class="swiper-slide">
@@ -11,6 +11,11 @@
         </div>
         <div slot="pagination" class="swiper-pagination w-full h-full flex justify-center items-center"></div>
       </div>
+    </div>
+    <div class="text-wrapper flex flex-col justify-end p-4 w-full h-full absolute top-0 bottom-0">
+      <span class="hero-text text-xl md:text-2xl leading-6 md:leading-8">Branding & Communication</span>
+      <span class="hero-text text-xl md:text-2xl leading-6 md:leading-8">Digital Design & Web Development</span>
+      <span class="hero-text text-xl md:text-2xl leading-6 md:leading-8">Interior Design & Architectural Visualization</span>
     </div>
   </section>
 </template>
@@ -41,7 +46,7 @@ export default {
           crossFade: false,
         },
         autoplay: {
-          delay: 80,
+          delay: 150,
           pauseOnMouseEnter: false,
         },
         loop: true,
@@ -79,6 +84,7 @@ export default {
   height:100vh;
   width: 100%;
   object-fit: contain;
+  transform: scale(1.4);
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
@@ -93,12 +99,21 @@ export default {
 .serif {
   font-family: 'Tropiline', serif;
 }
-
+.hero-text {
+  margin-right: 5em;
+  text-indent: 1em;
+}
+.hero-text:nth-child(1) {
+  text-indent: 2.5em;
+}
+.hero-text:nth-child(2) {
+  text-indent: 4em;
+}
 </style>
 
 <style>
 .slide-trigger {
-    height: 30vh;
+    height: 25vh;
     display:inline-block;
     opacity: 0;
     animation: appear .3s ease 3s forwards;
