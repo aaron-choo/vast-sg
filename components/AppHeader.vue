@@ -19,7 +19,7 @@
                 <ul class="pt-6" @mouseover="menuOpen = true" @mouseleave="menuOpen = false" @click="menuOpen = false">
                     <li class="overflow-hidden">
                         <nuxt-link to="/" class="relative">
-                        <span>HOME</span>
+                        <span class="link-text">HOME</span>
                         <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
                             <div class="transition-transform duration-500 origin-left w-full h-full"></div>
                         </div>
@@ -27,7 +27,7 @@
                     </li>
                     <li class="overflow-hidden">
                         <nuxt-link to="/projects" class="relative">
-                        <span>PROJECTS</span>
+                        <span class="link-text">PROJECTS</span>
                         <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
                             <div class="transition-transform duration-500 origin-left w-full h-full"></div>
                         </div>
@@ -35,7 +35,7 @@
                     </li>
                     <li class="overflow-hidden">
                         <nuxt-link to="/about" class="relative">
-                        <span>ABOUT</span>
+                        <span class="link-text">ABOUT</span>
                         <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
                             <div class="transition-transform duration-500 origin-left w-full h-full"></div>
                         </div>
@@ -43,7 +43,7 @@
                     </li>
                     <li class="overflow-hidden">
                         <nuxt-link to="/contact" class="relative">
-                        <span>CONTACT</span>
+                        <span class="link-text">CONTACT</span>
                         <div class="u left-px origin-right transition duration-500 absolute bottom-0 h-px">
                             <div class="transition-transform duration-500 origin-left w-full h-full"></div>
                         </div>
@@ -64,7 +64,7 @@
                 <div class="w-full h-full rounded-2xl"></div>
             </div>
         </div>  
-    </nav>  
+    </nav> 
 </header>
 </template>
 
@@ -83,13 +83,13 @@ export default {
         }
     },
     mounted () {
-    window.addEventListener('scroll', this.onScroll)
+    window.addEventListener('scroll', this.onScroll);
     },
     beforeDestroy () {
-    window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('scroll', this.onScroll);
     },
     methods: {
-    onScroll () {
+        onScroll () {
         // Get the current scroll position
         const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
         // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
@@ -105,7 +105,7 @@ export default {
         this.hideOnScroll = currentScrollPosition > this.lastScrollPosition
         // Set the current scroll position as the last scroll position
         this.lastScrollPosition = currentScrollPosition
-    }
+        }
     }
 }
 </script>
@@ -127,21 +127,38 @@ export default {
 .mode-switcher a, .btn-txt {
     color: var(--bg);
 }
-.site-nav li a{
-    transition: .6s ease .3s, color .3s ease;
+.has-scroll-over.site-nav li a{
+    bottom:1em;
+    color: var(--bg);
+    opacity: 0;
 }
 .site-nav:not(.has-scroll-over) li a{
     bottom:0;
+    transition: .6s ease .1s, color .3s ease;
 }
-.has-scroll-over.site-nav li a{
-    bottom:30px;
-    color: var(--bg);
-    opacity: 0;
+.site-nav:not(.has-scroll-over) li:nth-child(2) a{
+    transition: .6s ease .2s, color .3s ease;
+}
+.site-nav:not(.has-scroll-over) li:nth-child(3) a{
+    transition: .6s ease .3s, color .3s ease;
+}
+.site-nav:not(.has-scroll-over) li:nth-child(4) a{
+    transition: .6s ease .4s, color .3s ease;
 }
 .has-scroll-over.menu-open.site-nav li a{
     bottom:0;
     opacity: 1;
     color: var(--bg);
+    transition: .6s ease .1s, color .3s ease;
+}
+.has-scroll-over.menu-open.site-nav li:nth-child(2) a{
+    transition: .6s ease .2s, color .3s ease;
+}
+.has-scroll-over.menu-open.site-nav li:nth-child(3) a{
+    transition: .6s ease .3s, color .3s ease;
+}
+.has-scroll-over.menu-open.site-nav li:nth-child(4) a{
+    transition: .6s ease .4s, color .3s ease;
 }
 .menu-open .btn-txt {
     color: var(--color);
