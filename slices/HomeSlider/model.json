@@ -10,7 +10,38 @@
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
       "description": "HomeSlider",
-      "primary": {},
+      "primary": {
+        "branding-showcase": {
+          "config": {
+            "label": "branding-showcase",
+            "customtypes": [
+              "project"
+            ],
+            "select": "document"
+          },
+          "type": "Link"
+        },
+        "web-showcase": {
+          "config": {
+            "label": "web-showcase",
+            "customtypes": [
+              "project"
+            ],
+            "select": "document"
+          },
+          "type": "Link"
+        },
+        "interior-showcase": {
+          "config": {
+            "label": "interior-showcase",
+            "customtypes": [
+              "project"
+            ],
+            "select": "document"
+          },
+          "type": "Link"
+        }
+      },
       "items": {
         "image": {
           "config": {
