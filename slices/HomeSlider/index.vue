@@ -7,13 +7,10 @@
               <prismic-rich-text :field="item.title" class="text-xl serif"/>
               <prismic-rich-text :field="item.subtitle" class="text-xl serif"/>
             </div>
-            <img class="transition duration-700 clip-1 absolute" :src="item.image.url"/>
-            <img class="transition duration-700 clip-2 absolute" :src="item.image.url"/>
             <img class="transition-transform animate ease-out" :src="item.image.url"/>  
         </div>
+        <div slot="pagination" class="swiper-pagination w-full h-full flex justify-center items-center"></div>
       </div>
-      <div slot="button-prev" class="swiper-button-prev left-0 m-0"></div>
-      <div slot="button-next" class="swiper-button-next right-0 m-0"></div>
     </div>
   </section>
 </template>
@@ -37,44 +34,43 @@ export default {
   data() {
     return {
       swiperOption: {
+        allowTouchMove: false,
+        speed: 0,
         effect: 'fade',
         fadeEffect: {
-          crossFade: false
+          crossFade: false,
         },
         autoplay: {
-          delay: 3000,
+          delay: 80,
+          pauseOnMouseEnter: false,
         },
         loop: true,
         pagination: {
           el: ".swiper-pagination",
-          type: 'fraction'
+          bulletClass: "slide-trigger",
+          clickable: true,
         },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }
       }
     }
+  },
+  mounted() {
+    document.querySelectorAll('.slide-trigger').forEach(item => {
+      item.addEventListener('mouseover', event => {
+        console.log("test");
+        item.click();
+      })
+    })
   }
 }
 </script>
 <style scoped>
-.clip-1 {
-  clip-path: circle(30% at 80% 100%);
-  filter:contrast(1.2) saturate(1.2);
-  z-index: 1;
-}
-.clip-2 {
-  clip-path: circle(35% at 20% 0%);
-  filter:contrast(1.2) saturate(1.2);
-  z-index: 1;
-}
 .animate{
-  transform: scale(1.07);
-  transition: transform 1.5s ease-out;
+  opacity: 0;
+  transition: opacity .3s ease;
 }
 .swiper-slide-active .animate{
-  transform: scale(1);
+  opacity: 1;
+  transition: opacity 0s;
 }
 .swiper-slide, .swiper-container {
   height:auto;
@@ -82,7 +78,7 @@ export default {
 .swiper-slide img {
   height:100vh;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
@@ -96,5 +92,23 @@ export default {
 }
 .serif {
   font-family: 'Tropiline', serif;
+}
+
+</style>
+
+<style>
+.slide-trigger {
+    height: 30vh;
+    display:inline-block;
+    opacity: 0;
+    animation: appear .3s ease 3s forwards;
+}
+@keyframes appear {
+  from {
+    width:0;
+  }  
+  to {
+    width:3vw;
+  }
 }
 </style>
