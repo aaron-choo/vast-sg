@@ -3,7 +3,7 @@
     <article>
       <div class="project-header">
         <div class="w-full">
-          <div id="header-text" class="w-full flex flex-col justify-center p-4 py-32 mt-10 z-0 relative">
+          <div id="header-text" class="w-full flex flex-col justify-center p-4 py-32 mt-10 relative">
             <!-- <h1 id="header-title" class="tracking-tighter text-5xl lg:text-8xl">{{ $prismic.asText(title) }}</h1> -->
             <!-- <h1 id="header-title" class="tracking-tighter text-5xl md:text-8xl overflow-hidden"><span><span v-for="character in titleSplit" :key="character" class="inline-block">{{ character.replace(/\s/g, "&nbsp;") }}</span></h1> -->
             <h1 id="header-title" class="tracking-tighter text-5xl md:text-8xl overflow-hidden"><span v-for="word in titleWords" :key="word" class="inline-block"><span v-for="letter in Array.from(word)" :key="letter" class="inline-block">{{ letter }}</span>&nbsp;</span></h1>
@@ -16,7 +16,7 @@
               </span>
             </p>
           </div>
-          <div id="header-image" v-if="heroimage.url !== undefined" class="px-4 z-10 relative">
+          <div id="header-image" v-if="heroimage.url !== undefined" class="px-4 z-0 relative">
             <img :src="heroimage.url" class="rounded-2xl"/>
           </div>
           <div class="description-wrapper px-4">
