@@ -1,8 +1,5 @@
 <template>
-  <div>
-  <!-- <prismic-rich-text :field="page.content" /> -->
   <slice-zone type="home_page" queryType="single" />
-  </div>
 </template>
 
 <script>
