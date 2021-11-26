@@ -1,4 +1,22 @@
 @font-face {
+  font-family: 'PolySans Neutral';
+  src: url('~assets/fonts/PolySans-Neutral.woff2') format('woff2'),
+      url('~assets/fonts/PolySans-Neutral.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans Median';
+  src: url('~assets/fonts/PolySans-Median.woff2') format('woff2'),
+      url('~assets/fonts/PolySans-Median.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Labil Grotesk";
   src: url("~assets/fonts/LabilGrotesk-Light.woff2") format("woff2"),
     url("~assets/fonts/LabilGrotesk-Light.woff") format("woff");
@@ -89,12 +107,12 @@
 }
 
 .dark-mode {
-  --color: #eee;
-  --color-primary: #eee;
-  --color-secondary: #fdf9f3;
-  --bg: #111;
-  --bg-secondary: #071521;
-  --border-color: #0d2538;
+  --color: #eee !important;
+  --color-primary: #eee !important;
+  --color-secondary: #fdf9f3 !important;
+  --bg: #111 !important;
+  --bg-secondary: #071521 !important;
+  --border-color: #0d2538 !important;
 }
 
 body {
