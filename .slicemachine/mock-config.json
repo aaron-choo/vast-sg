@@ -1,6 +1,5 @@
 {
   "slices": {
-    "TextBlock": {},
     "HomeSlider": {
       "default-slice": {
         "items": {
@@ -15,16 +14,16 @@
               "patternType": "PARAGRAPH",
               "blocks": 1
             }
+          },
+          "image": {
+            "content": "https://images.prismic.io/vast-sg/ee9b6677-170c-4a1b-ace4-9f69177e8932_sequence-1.png"
           }
         },
         "primary": {}
       }
-    },
-    "SliderBlock": {
-      "default-slice": {
-        "primary": {},
-        "items": {}
-      }
     }
+  },
+  "_cts": {
+    "project": {}
   }
 }

@@ -61,7 +61,6 @@ export default {
   mounted() {
     document.querySelectorAll('.slide-trigger').forEach(item => {
       item.addEventListener('mouseover', event => {
-        console.log("test");
         item.click();
       })
     })

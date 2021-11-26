@@ -2,8 +2,16 @@
   "id": "project",
   "label": "Project",
   "repeatable": true,
+  "status": true,
   "json": {
     "Main": {
+      "uid": {
+        "config": {
+          "label": "uid",
+          "placeholder": ""
+        },
+        "type": "UID"
+      },
       "project_title": {
         "type": "StructuredText",
         "config": {
@@ -47,8 +55,21 @@
           "label": "Project Description",
           "placeholder": "Project Description"
         }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "slider_block": {
+              "type": "SharedSlice"
+            },
+            "text_block": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
-  },
-  "status": true
+  }
 }

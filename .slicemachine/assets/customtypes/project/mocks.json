@@ -1,0 +1,33 @@
+{
+  "id": "c750808c-bb96-421d-9c70-2bf3ee69c6d2",
+  "uid": "nulla-voluptas-sint",
+  "type": "project",
+  "data": {
+    "project_title": [
+      {
+        "type": "heading1",
+        "text": "Unleash efficient networks",
+        "spans": []
+      }
+    ],
+    "project_date": "2014-07-04",
+    "project_color_1": "#a5c70b",
+    "project_color_2": "#d1860b",
+    "project_image": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": "Placeholder image",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636?w=900&h=500&fit=crop"
+    },
+    "project_description": [
+      {
+        "type": "paragraph",
+        "text": "Labore tempor ipsum ad ex eu. Aliqua ea reprehenderit dolore ullamco minim ad amet officia. Eiusmod esse est ipsum laboris.",
+        "spans": []
+      }
+    ]
+  }
+}
