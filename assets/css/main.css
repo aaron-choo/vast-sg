@@ -132,7 +132,6 @@ h1 {
   font-size: 3rem;
 }
 
-em {
+.serif {
     font-family: "Tropiline", serif;
-    font-style: normal;
 }
