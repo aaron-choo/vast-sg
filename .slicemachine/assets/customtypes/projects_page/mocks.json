@@ -1,0 +1,21 @@
+{
+  "id": "ea369169-e2e1-4784-a545-10847b412f2b",
+  "uid": "consectetur-velit-qui",
+  "type": "projects_page",
+  "data": {
+    "meta_title": [
+      {
+        "type": "heading1",
+        "text": "Integrate cross-platform communities",
+        "spans": []
+      }
+    ],
+    "meta_description": [
+      {
+        "type": "paragraph",
+        "text": "Excepteur aliqua irure mollit fugiat excepteur enim qui labore. Dolore nulla est culpa ea pariatur exercitation dolore nisi ad magna tempor Lorem laboris.",
+        "spans": []
+      }
+    ]
+  }
+}

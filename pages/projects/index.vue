@@ -23,7 +23,7 @@ export default {
   },
   async asyncData({ $prismic, params, error }) {
     try {
-        const pageContent = await $prismic.api.getSingle('projects-page')
+        const pageContent = await $prismic.api.getSingle('projects_page')
         // Query projects
         const projects = await $prismic.api.query(
           $prismic.predicates.at('document.type','project')
@@ -56,13 +56,13 @@ export default {
   },
   head() {
     return {
-      title: this.$prismic.asText(this.page.data['meta-title']),
+      title: this.$prismic.asText(this.page.data.meta_title),
       meta: [
         {
           hid: 'description',
           name: 'description',
           content: this.$prismic
-            .asText(this.page.data['meta-description'])
+            .asText(this.page.data.meta_description)
             .substring(0, 158)
         }
       ]
