@@ -1,31 +1,45 @@
 {
-  "id": "c750808c-bb96-421d-9c70-2bf3ee69c6d2",
-  "uid": "nulla-voluptas-sint",
+  "id": "d62bf787-608f-413c-9756-0df804984983",
+  "uid": "quidem-vitae-et",
   "type": "project",
   "data": {
-    "project_title": [
+    "title": [
       {
-        "type": "heading1",
-        "text": "Unleash efficient networks",
+        "type": "paragraph",
+        "text": "Consequat eiusmod in labore ea excepteur Lorem incididunt nisi. Non irure commodo voluptate eu dolor. Et esse laboris dolor et est cillum dolor.",
         "spans": []
       }
     ],
-    "project_date": "2014-07-04",
-    "project_color_1": "#a5c70b",
-    "project_color_2": "#d1860b",
-    "project_image": {
+    "date": "2014-07-04",
+    "background-color": "#428bb5",
+    "text-color": "#65b8bb",
+    "image": {
       "dimensions": {
         "width": 900,
         "height": 500
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?w=900&h=500&fit=crop"
     },
-    "project_description": [
+    "description": [
       {
         "type": "paragraph",
-        "text": "Labore tempor ipsum ad ex eu. Aliqua ea reprehenderit dolore ullamco minim ad amet officia. Eiusmod esse est ipsum laboris.",
+        "text": "Sint sit ut nostrud proident esse consequat et sunt ad. Labore laboris velit ut. Nisi reprehenderit reprehenderit consequat eiusmod ut ad dolore commodo non culpa reprehenderit aliquip.",
+        "spans": []
+      }
+    ],
+    "meta-title": [
+      {
+        "type": "paragraph",
+        "text": "Labore do anim cillum duis cupidatat amet qui excepteur quis. Excepteur pariatur veniam exercitation qui adipisicing laboris magna deserunt cillum magna consectetur duis. Dolor laborum qui ad commodo laborum voluptate ullamco exercitation ad elit dolore pariatur in reprehenderit.",
+        "spans": []
+      }
+    ],
+    "meta-description": [
+      {
+        "type": "paragraph",
+        "text": "Nisi minim anim consectetur anim. Do adipisicing velit enim reprehenderit adipisicing esse occaecat laboris cupidatat excepteur.",
         "spans": []
       }
     ]
