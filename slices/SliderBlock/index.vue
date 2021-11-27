@@ -63,4 +63,9 @@ export default {
   height: 100%;
   top: 0;
 }
+.swiper-pagination {
+    position: relative;
+    text-align: right;
+    top:0;
+}
 </style>

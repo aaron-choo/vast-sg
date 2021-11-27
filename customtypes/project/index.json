@@ -50,6 +50,24 @@
           "thumbnails": []
         }
       },
+      "client": {
+        "config": {
+          "label": "client",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        },
+        "type": "StructuredText"
+      },
+      "summary": {
+        "config": {
+          "label": "summary",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        },
+        "type": "StructuredText"
+      },
       "description": {
         "type": "StructuredText",
         "config": {
@@ -58,6 +76,15 @@
           "allowTargetBlank": true,
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
+      },
+      "link": {
+        "config": {
+          "label": "link",
+          "placeholder": "",
+          "select": "web",
+          "allowTargetBlank": false
+        },
+        "type": "Link"
       },
       "slices": {
         "type": "Slices",
@@ -68,6 +95,9 @@
               "type": "SharedSlice"
             },
             "text_block": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
               "type": "SharedSlice"
             }
           }
