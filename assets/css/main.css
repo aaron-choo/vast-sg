@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'PolySans Neutral';
+  font-family: 'PolySans';
   src: url('~assets/fonts/PolySans-Neutral.woff2') format('woff2'),
       url('~assets/fonts/PolySans-Neutral.woff') format('woff');
   font-weight: normal;
@@ -8,10 +8,64 @@
 }
 
 @font-face {
-  font-family: 'PolySans Median';
+  font-family: 'PolySans';
+  src: url('~assets/fonts/PolySans-Slim.woff2') format('woff2'),
+      url('~assets/fonts/PolySans-Slim.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('~assets/fonts/PolySans-NeutralItalic.woff2') format('woff2'),
+      url('~assets/fonts/PolySans-NeutralItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('~assets/fonts/PolySans-MedianItalic.woff2') format('woff2'),
+      url('~assets/fonts/PolySans-MedianItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans';
   src: url('~assets/fonts/PolySans-Median.woff2') format('woff2'),
       url('~assets/fonts/PolySans-Median.woff') format('woff');
-  font-weight: normal;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('~assets/fonts/PolySans-SlimItalic.woff2') format('woff2'),
+      url('~assets/fonts/PolySans-SlimItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('~assets/fonts/PolySans-BulkyItalic.woff2') format('woff2'),
+      url('~assets/fonts/PolySans-BulkyItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('~assets/fonts/PolySans-Bulky.woff2') format('woff2'),
+      url('~assets/fonts/PolySans-Bulky.woff') format('woff');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
