@@ -14,7 +14,7 @@
             </p>
           </div>
           <div v-if="image.url !== undefined" id="header-image-wrapper" class="z-0 relative">
-            <img id="header-image" :src="image.url" class=""/>
+            <nuxt-img v-if="image.url" id="header-image" class="w-full" :src="image.url" sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"/>
           </div>
           <div class="description-section section my-24 px-4 lg:px-40">
             <p class="description-wrapper"><span class="summary font-light text-sm lg:text-base uppercase inline-block mr-16 mb-2 align-top">({{$prismic.asText(summary)}})</span><span class="description font-light serif text-xl lg:text-3xl">{{$prismic.asText(description)}}</span></p>
@@ -39,12 +39,11 @@
         <slice-zone type="project" :uid="$route.params.uid" />
       </section>
 
-      <section v-if="relatedProjects.length > 0" class="more-projects grid w-10/12 grid-cols-12 row-gap-16 mx-auto md:col-gap-16">
+      <section v-if="relatedProjects.length > 0" class="more-projects grid grid-cols-12 gap-4 p-4 py-52">
         <div class="col-span-12">
           <h2 class="text-2xl tracking-wider text-center uppercase text-bold">Related posts</h2>
-          <div class="w-1/12 mx-auto mt-2 border-b-4 border-gray-400"></div>
         </div>
-        <div v-for="project in relatedProjects" :key="project.id" class="col-span-12 md:col-span-4">
+        <div v-for="project in relatedProjects" :key="project.id" class="col-span-12 lg:col-span-6">
           <GridPost :projectdata="project" :imgsize="'(min-width: 768px) 25vw, 90vw'" />
         </div>
       </section>
@@ -141,7 +140,7 @@ export default {
       gsap.set("#header-title span", {y: -30, opacity: 0 });
       gsap.set("#header-scope span", {y: 15, opacity: 0 });
       gsap.set("#header-image", {y: 30, opacity: 0 });
-      gsap.to("#header-image", {y: 0, opacity: 1, duration: 1, ease: 'power4.out' })
+      gsap.to("#header-image", {y: 0, opacity: 1, duration: 1, ease: 'power4.out' }).delay(1.25)
       gsap.to("#header-title span", {y: 0, opacity: 1, stagger: 0.01, duration: 1, ease: 'power4.out' })
       gsap.to("#header-scope span", {y: 0, opacity: 1, stagger: 0.1, duration: 1, ease: 'power4.out' }).delay(0.5)
     },
