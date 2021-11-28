@@ -21,7 +21,7 @@ export default {
 }
 </script>
 <style scoped>
-footer{
+/* footer{
     min-height:100vh;
 }
 .logo::before{
@@ -29,5 +29,5 @@ footer{
     position:absolute;
     bottom:-0.2em;
     left: -3.5em;
-}
+} */
 </style>
