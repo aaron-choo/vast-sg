@@ -1,4 +1,22 @@
 @font-face {
+  font-family: 'Everett';
+  src: url('~assets/fonts/9f49d38513a667c81c0e5c62c2bc963f.woff2') format('woff2'),
+      url('~assets/fonts/9f49d38513a667c81c0e5c62c2bc963f.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Everett';
+  src: url('~assets/fonts/d3a5e1fb5250bff68eaee24e0fdd5612.woff2') format('woff2'),
+      url('~assets/fonts/d3a5e1fb5250bff68eaee24e0fdd5612.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'PolySans';
   src: url('~assets/fonts/PolySans-Neutral.woff2') format('woff2'),
       url('~assets/fonts/PolySans-Neutral.woff') format('woff');
@@ -170,7 +188,7 @@
 }
 
 body {
-  font-family: "Labil Grotesk", sans-serif;
+  font-family: "Everett", sans-serif;
   font-variant-ligatures: none;
   font-feature-settings: "ss01" 0, "ss03" 1, "ss04" 1, "ss05" 1, "ss07" 0, "zero" 1;
   background-color: var(--bg);
