@@ -45,6 +45,7 @@ export default {
   ],
   prismic: {
     endpoint: 'https://vast-sg.cdn.prismic.io/api/v2',
+    linkResolver: '@/plugins/link-resolver',
     modern: true
     /* see configuration for more */
   },
