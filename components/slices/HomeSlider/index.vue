@@ -1,5 +1,5 @@
 <template>
-  <section class="section mb-24 relative">
+  <section class="home-slider section mb-24 relative">
     <div v-swiper="swiperOption" class="relative overflow-hidden">
       <div class="swiper-wrapper h-screen">
         <div v-for="(item, index) in slice.items" :key="index" class="swiper-slide">
@@ -111,7 +111,7 @@ export default {
 </style>
 
 <style>
-.slide-trigger {
+.home-slider .slide-trigger {
     height: 25vh;
     display:inline-block;
     opacity: 0;
