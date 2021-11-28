@@ -41,8 +41,13 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/prismic',
     '@nuxtjs/color-mode',
-    'nuxt-gsap-module'
+    'nuxt-gsap-module',
+    '@nuxt/image'
   ],
+  image: {
+    provider: "prismic",
+    prismic: {}
+  },
   prismic: {
     endpoint: 'https://vast-sg.cdn.prismic.io/api/v2',
     linkResolver: '@/plugins/link-resolver',
