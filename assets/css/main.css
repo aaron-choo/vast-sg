@@ -187,6 +187,11 @@
   --border-color: #0d2538 !important;
 }
 
+::selection {
+  background: var(--color);
+  color: var(--bg);
+}
+
 body {
   font-family: "Everett", sans-serif;
   font-variant-ligatures: none;
