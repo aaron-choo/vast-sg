@@ -12,4 +12,4 @@ export default function (doc) {
     }
 
     return '/not-found';
-};
+}
