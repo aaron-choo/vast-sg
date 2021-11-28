@@ -1,12 +1,10 @@
 <template>
   <main>
-    <article>
-      <div class="project-header">
+      <section class="project-header">
         <div class="w-full">
-          <div id="header-text" class="w-full flex flex-col justify-center p-4 py-32 pt-40 relative">
-            <h1 id="header-title" class="tracking-tight text-5xl md:text-5xl uppercase overflow-hidden"><span v-for="word in titleWords" :key="word" class="inline-block"><span v-for="letter in Array.from(word)" :key="letter" class="inline-block">{{ letter }}</span>&nbsp;</span></h1>
-            <p id="header-scope" class="font-light inline-block tag capitalize text-3xl md:text-3xl transition duration-300"  :class="{ 'has-scroll-over opacity-0': scrollOver }"><span class="summary font-light text-sm lg:text-base uppercase inline-block mr-16 mb-2">(Scope)</span>
-              <span v-for="(tag, index) in tags" :key="tag" class="inline-block serif">
+          <div id="header-text" class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative">
+            <h1 id="header-title" class="tracking-tight text-5xl uppercase overflow-hidden mb-4"><span v-for="word in titleWords" :key="word" class="inline-block"><span v-for="letter in Array.from(word)" :key="letter" class="inline-block">{{ letter }}</span>&nbsp;</span></h1>
+            <p id="header-scope" class="font-light inline-block tag capitalize text-3xl transition duration-300 leading-3 transform"  :class="{ 'has-scroll-over opacity-0 translate-y-4': scrollOver }"><span class="summary font-light text-sm lg:text-base uppercase inline-block mr-16 mb-2">(Scope)</span><span v-for="(tag, index) in tags" :key="tag" class="inline-block serif">
                   {{ tag }}
                   <template v-if="Object.keys(tags).length > 1">
                   <span v-if="index != Object.keys(tags).length - 1">+</span>
@@ -15,8 +13,8 @@
               </span>
             </p>
           </div>
-          <div id="header-image" v-if="image.url !== undefined" class="px-4 z-0 relative">
-            <img :src="image.url" class="rounded-2xl"/>
+          <div v-if="image.url !== undefined" id="header-image-wrapper" class="z-0 relative">
+            <img id="header-image" :src="image.url" class=""/>
           </div>
           <div class="description-section section my-24 px-4 lg:px-40">
             <p class="description-wrapper"><span class="summary font-light text-sm lg:text-base uppercase inline-block mr-16 mb-2 align-top">({{$prismic.asText(summary)}})</span><span class="description font-light serif text-xl lg:text-3xl">{{$prismic.asText(description)}}</span></p>
@@ -35,28 +33,45 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
  
-      <div class="content">
+      <section class="content">
         <slice-zone type="project" :uid="$route.params.uid" />
-      </div>
-    </article>
+      </section>
+
+      <section v-if="relatedProjects.length > 0" class="more-projects grid w-10/12 grid-cols-12 row-gap-16 mx-auto md:col-gap-16">
+        <div class="col-span-12">
+          <h2 class="text-2xl tracking-wider text-center uppercase text-bold">Related posts</h2>
+          <div class="w-1/12 mx-auto mt-2 border-b-4 border-gray-400"></div>
+        </div>
+        <div v-for="project in relatedProjects" :key="project.id" class="col-span-12 md:col-span-4">
+          <GridPost :projectdata="project" :imgsize="'(min-width: 768px) 25vw, 90vw'" />
+        </div>
+      </section>
   </main>
 </template>
 
 <script>
 import SliceZone from 'vue-slicezone'
 import gsap from 'gsap'
+import GridPost from '~/components/GridPost'
 export default {
   name: 'Project',
   components: {
-    SliceZone
+    SliceZone,
+    GridPost
   },
   async asyncData({ $prismic, params, error }) {
     try {
         // Query post
         const project = await $prismic.api.getByUID('project', params.uid)
-    
+        const relatedprojects = await $prismic.api.query(
+          [
+            $prismic.predicates.similar(project.id, 10),
+            $prismic.predicates.at('document.type', 'project')
+          ],
+          { pageSize: 3 }
+        )
         // Returns data to be used in template
         return {
         page: project,
@@ -71,7 +86,8 @@ export default {
         backgroundColor: project.data.background_color,
         textColor: project.data.text_color,
         tags: project.tags,
-        projectLink: project.data.link.url
+        projectLink: project.data.link.url,
+        relatedProjects: relatedprojects.results
         }
 
     } catch (e) {
@@ -146,13 +162,6 @@ export default {
 }
 </script>
 <style scoped>
-#header-title{
-  line-height: 0.8;
-  margin-bottom: -.2em;
-}
-#header-title>span>span{
-    margin-bottom: 0.25em;
-}
 #header-image img{
   width: 100%;
 }
