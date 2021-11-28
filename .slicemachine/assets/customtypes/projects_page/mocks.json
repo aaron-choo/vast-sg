@@ -1,19 +1,42 @@
 {
-  "id": "ea369169-e2e1-4784-a545-10847b412f2b",
-  "uid": "consectetur-velit-qui",
+  "id": "c049fd36-5b53-4bf9-a2ea-3602a56a7de4",
+  "uid": "rerum-labore-cum",
   "type": "projects_page",
   "data": {
+    "title": [
+      {
+        "type": "paragraph",
+        "text": "Amet quis exercitation commodo in minim occaecat aute anim veniam proident aliqua voluptate.",
+        "spans": []
+      }
+    ],
+    "intro": [
+      {
+        "type": "paragraph",
+        "text": "Sunt laborum voluptate proident ipsum ut laborum fugiat sunt aliqua enim aliqua. Est reprehenderit anim nostrud eiusmod et deserunt mollit veniam quis consequat proident. Commodo velit qui fugiat sunt cillum consequat sint eiusmod consectetur.",
+        "spans": []
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Reprehenderit Lorem duis magna dolor et.",
+        "spans": []
+      }
+    ],
+    "backgroundColor": "#bac40b",
+    "textColor": "#54c8ce",
     "meta_title": [
       {
         "type": "heading1",
-        "text": "Integrate cross-platform communities",
+        "text": "Unleash virtual bandwidth",
         "spans": []
       }
     ],
     "meta_description": [
       {
         "type": "paragraph",
-        "text": "Excepteur aliqua irure mollit fugiat excepteur enim qui labore. Dolore nulla est culpa ea pariatur exercitation dolore nisi ad magna tempor Lorem laboris.",
+        "text": "Anim commodo ea enim sit proident laboris. Duis reprehenderit labore est ut sit labore.",
         "spans": []
       }
     ]

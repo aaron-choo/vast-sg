@@ -1,0 +1,44 @@
+{
+  "id": "89859467-d393-4a73-97ee-89bbdba36d48",
+  "uid": "id-exercitationem-laborum",
+  "type": "about_page",
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Maximize strategic solutions",
+        "spans": []
+      }
+    ],
+    "intro": [
+      {
+        "type": "paragraph",
+        "text": "Quis esse do labore ea sint elit. Magna ad mollit velit. Consectetur amet consequat ipsum officia mollit.",
+        "spans": []
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Mollit tempor commodo labore eiusmod excepteur. Labore id ipsum commodo eiusmod enim nulla nulla eiusmod Lorem ullamco consectetur elit.",
+        "spans": []
+      }
+    ],
+    "backgroundColor": "#dba6ab",
+    "textColor": "#910c8c",
+    "meta_title": [
+      {
+        "type": "heading1",
+        "text": "Mesh interactive experiences",
+        "spans": []
+      }
+    ],
+    "meta_description": [
+      {
+        "type": "paragraph",
+        "text": "Ad labore duis id ex consectetur consectetur excepteur nostrud. Ad dolor aliqua fugiat esse do ex consectetur magna aliqua velit adipisicing incididunt id. Irure cupidatat eiusmod ut sint consequat proident adipisicing.",
+        "spans": []
+      }
+    ]
+  }
+}

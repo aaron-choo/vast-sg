@@ -2,6 +2,7 @@
   "id": "about_page",
   "label": "About Page",
   "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
       "uid": {
@@ -19,14 +20,37 @@
           "placeholder": "Title"
         }
       },
-      "content": {
-        "type": "StructuredText",
+      "intro": {
         "config": {
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label": "intro",
+          "placeholder": "",
           "allowTargetBlank": true,
-          "label": "Content",
-          "placeholder": "Content"
-        }
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        },
+        "type": "StructuredText"
+      },
+      "description": {
+        "config": {
+          "label": "description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        },
+        "type": "StructuredText"
+      },
+      "backgroundColor": {
+        "config": {
+          "label": "backgroundColor",
+          "placeholder": ""
+        },
+        "type": "Color"
+      },
+      "textColor": {
+        "config": {
+          "label": "textColor",
+          "placeholder": ""
+        },
+        "type": "Color"
       }
     },
     "SEO": {
@@ -48,6 +72,5 @@
         }
       }
     }
-  },
-  "status": true
+  }
 }
