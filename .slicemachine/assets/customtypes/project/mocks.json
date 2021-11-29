@@ -1,18 +1,18 @@
 {
-  "id": "3c974f00-2ee8-4341-9957-925672a5cf90",
-  "uid": "sunt-omnis-fugit",
+  "id": "5eb4613d-0758-43c7-af9c-118749050261",
+  "uid": "laborum-ea-doloremque",
   "type": "project",
   "data": {
     "title": [
       {
         "type": "paragraph",
-        "text": "Culpa aliquip deserunt esse occaecat quis velit eiusmod velit ullamco exercitation in nisi minim aliquip.",
+        "text": "Tempor irure tempor esse exercitation nulla velit occaecat magna cillum cillum id consequat elit.",
         "spans": []
       }
     ],
-    "date": "2019-09-21",
-    "background-color": "#8e29ac",
-    "text-color": "#7b1efb",
+    "date": "2013-10-02",
+    "backgroundColor": "#483350",
+    "textColor": "#7f556a",
     "image": {
       "dimensions": {
         "width": 900,
@@ -20,44 +20,44 @@
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?w=900&h=500&fit=crop"
     },
     "client": [
       {
         "type": "paragraph",
-        "text": "Pariatur nulla veniam sit.",
+        "text": "Aliquip pariatur veniam labore ad in laborum in adipisicing. Officia pariatur ex nostrud ex enim anim elit occaecat quis. Aliquip veniam laboris duis tempor nisi incididunt aliquip labore labore.",
         "spans": []
       }
     ],
     "summary": [
       {
         "type": "paragraph",
-        "text": "Duis mollit velit ipsum reprehenderit ipsum pariatur voluptate ullamco aute ut eu. Ipsum sit in duis deserunt. Consequat deserunt eu aliqua magna nulla labore ullamco dolor laborum ut incididunt consequat pariatur qui adipisicing.",
+        "text": "Anim occaecat ea voluptate veniam ea reprehenderit excepteur nulla aliqua ullamco ipsum laboris quis magna irure. Qui veniam est anim veniam commodo aliqua nisi nulla nulla ullamco. Deserunt do ad deserunt ipsum ad ullamco sunt nostrud proident culpa cupidatat veniam sit quis pariatur.",
         "spans": []
       }
     ],
     "description": [
       {
         "type": "paragraph",
-        "text": "Ea incididunt et dolor velit labore ad Lorem deserunt magna exercitation ut ullamco commodo voluptate. Adipisicing aliqua aute exercitation non laboris aliquip veniam nostrud magna pariatur nulla voluptate sit mollit.",
+        "text": "Officia eu dolor sint incididunt aliqua anim laborum esse cupidatat aliqua minim. Irure amet laboris cupidatat occaecat voluptate esse qui minim pariatur nisi ipsum.",
         "spans": []
       }
     ],
     "link": {
       "link_type": "Web",
-      "url": "http://google.com"
+      "url": "http://twitter.com"
     },
-    "meta-title": [
+    "metaTitle": [
       {
         "type": "paragraph",
-        "text": "Labore sint pariatur duis do enim. Nulla reprehenderit labore aliqua pariatur ullamco aliqua mollit ad elit. Voluptate dolor nisi sit.",
+        "text": "Minim irure aliquip aliquip adipisicing in incididunt voluptate cillum aliquip cillum mollit ex deserunt aliquip. Aute eu culpa duis nulla aliqua occaecat mollit dolore dolor exercitation dolore est do.",
         "spans": []
       }
     ],
-    "meta-description": [
+    "metaDescription": [
       {
         "type": "paragraph",
-        "text": "Qui dolor culpa ipsum. Tempor incididunt ea in eu in incididunt velit non aute excepteur.",
+        "text": "Irure incididunt labore consequat culpa quis nulla. Nulla veniam ipsum velit ex aliqua fugiat commodo enim commodo. Aliqua id adipisicing ut elit qui nostrud laboris sint excepteur tempor magna duis aute sunt aliquip.",
         "spans": []
       }
     ]

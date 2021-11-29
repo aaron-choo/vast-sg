@@ -36,13 +36,13 @@
           "blocks": 1
         }
       },
-      "meta-title": {
+      "metaTitle": {
         "config": {
           "patternType": "PARAGRAPH",
           "blocks": 1
         }
       },
-      "meta-description": {
+      "metaDescription": {
         "config": {
           "patternType": "PARAGRAPH",
           "blocks": 1
@@ -79,5 +79,6 @@
     },
     "projects_page": {},
     "about_page": {}
-  }
+  },
+  "components/slices": {}
 }
