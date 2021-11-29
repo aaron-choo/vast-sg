@@ -1,8 +1,8 @@
 <template>
     <div class="site-container">
+        <AppCursor/>
         <AppHeader/>
         <nuxt />
-        <AppCursor/>
         <AppFooter/>
     </div>
 </template>
