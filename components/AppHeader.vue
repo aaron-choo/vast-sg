@@ -49,6 +49,17 @@
                         </div>
                         </nuxt-link>
                     </li>
+                    <!-- <li class="overflow-hidden">
+                        <a :class="{'active': audio}" class="audio cursor-pointer relative" @mousedown="togglebgm()">BGM:
+                        <div class="label inline-block transition duration-300">
+                            <div class="block">OFF</div>
+                            <div class="block absolute">ON</div>
+                        </div>
+                        </a>
+                        <audio loop id="bgm">
+                        <source src="/bgm.mp3" type="audio/mpeg">
+                        </audio>
+                    </li> -->
                 </ul>
             </div>
             <div class="site-nav-footer transition duration-300 pointer-events-none opacity-0 z-10 relative transform scale-90" :class="{ 'pointer-events-auto opacity-100 scale-100': scrollOver }" @mouseover="menuOpen = true" @mouseleave="menuOpen = false" @click.prevent="menuOpen = true">
@@ -79,6 +90,7 @@ export default {
         return {
         menuOpen: false,
         scrollOver: false,
+        audio: false,
         colors: [{name: 'light', symbol: ' '}, {name: 'dark', symbol: ' '}]
         }
     },
@@ -105,6 +117,14 @@ export default {
         this.hideOnScroll = currentScrollPosition > this.lastScrollPosition
         // Set the current scroll position as the last scroll position
         this.lastScrollPosition = currentScrollPosition
+        },
+        togglebgm() {
+        this.audio = !this.audio
+        if (this.audio) {
+        document.getElementById("bgm").play();
+        } else {
+        document.getElementById("bgm").pause();
+        }
         }
     }
 }
@@ -145,6 +165,9 @@ export default {
 .site-nav:not(.has-scroll-over) li:nth-child(4) a{
     transition: .6s ease .4s, color .3s ease;
 }
+.site-nav:not(.has-scroll-over) li:nth-child(5) a{
+    transition: .6s ease .5s, color .3s ease;
+}
 .has-scroll-over.menu-open.site-nav li a{
     bottom:0;
     opacity: 1;
@@ -159,6 +182,9 @@ export default {
 }
 .has-scroll-over.menu-open.site-nav li:nth-child(4) a{
     transition: .6s ease .4s, color .3s ease;
+}
+.has-scroll-over.menu-open.site-nav li:nth-child(5) a{
+    transition: .6s ease .5s, color .3s ease;
 }
 .menu-open .btn-txt {
     color: var(--color);
@@ -214,5 +240,8 @@ export default {
 }
 .dark-mode .mode-switcher {
     background-color: #fec150;
+}
+.audio.active .label {
+    transform: translateY(-1.49rem);
 }
 </style>
