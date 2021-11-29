@@ -42,7 +42,8 @@ export default {
     '@nuxtjs/prismic',
     '@nuxtjs/color-mode',
     'nuxt-gsap-module',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxtjs/moment'
   ],
   image: {
     provider: "prismic",
