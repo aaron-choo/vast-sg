@@ -266,8 +266,9 @@
 
 body {
   font-family: "Everett", sans-serif;
-  font-variant-ligatures: none;
-  font-feature-settings: "ss01" 0, "ss03" 1, "ss04" 1, "ss05" 1, "ss07" 0, "zero" 1;
+  
+  /* font-variant-ligatures: none;
+  font-feature-settings: "ss01" 0, "ss03" 1, "ss04" 1, "ss05" 1, "ss07" 0, "zero" 1; */
   background-color: var(--bg);
   color: var(--color);
   transition: background-color 0.3s;
@@ -275,7 +276,9 @@ body {
 a {
   color: var(--color-primary);
 }
-
+hr{
+  border-color: var(--color);
+}
 * {
   outline: none;
   padding: 0;
