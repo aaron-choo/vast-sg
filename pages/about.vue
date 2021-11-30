@@ -3,7 +3,7 @@
     <section class="about-header">
       <div id="header-text" class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative">
         <h1 id="header-title" class="tracking-tight text-5xl uppercase overflow-hidden mb-4"><span v-for="letter in titleSplit" :key="letter" class="inline-block">{{ letter }}</span></h1>
-        <p id="header-description" class="font-light inline-block tag text-3xl transition duration-300 leading-3 transform lg:w-10/12"  :class="{ 'has-scroll-over opacity-0 translate-y-4': scrollOver }"><span class="intro font-light text-sm lg:text-base uppercase inline-block mr-16">({{ $prismic.asText(intro) }})</span><span class="description serif leading-7"><span v-for="word in descriptionWords" :key="word" class="inline-block">{{ word }} &nbsp;</span></span>
+        <p id="header-description" class="font-light inline-block tag text-3xl transition duration-300 leading-3 transform lg:w-10/12"  :class="{ 'has-scroll-over opacity-0 translate-y-4': scrollOver }"><span class="intro font-light text-sm lg:text-base uppercase inline-block mr-16">({{ $prismic.asText(intro) }})</span><span class="description serif leading-7"><span v-for="word in descriptionWords" :key="word" class="description-words inline-block">{{ word }}</span></span>
         </p>
       </div>
     </section>
@@ -77,3 +77,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.description-words{
+  padding-right:.29em
+}
+</style>
