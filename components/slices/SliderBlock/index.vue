@@ -1,12 +1,12 @@
 <template>
   <section class="section px-4 lg:px-40 my-24" :class="slice.primary.align">
-    <div v-swiper="swiperOption" class="relative overflow-hidden rounded-lg">
+    <div v-swiper="swiperOption" class="slider-block relative overflow-hidden rounded-lg">
       <div class="swiper-wrapper">
         <div v-for="(item, index) in slice.items" :key="index" class="swiper-slide">
             <nuxt-img v-if="item.image.url" :src="item.image.url" sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw" class="image"/>
         </div>
       </div>
-      <div slot="pagination" class="swiper-pagination text-xs lg:text-sm absolute text-right top-0 left-0 h-full w-full mix-blend-difference p-2 flex justify-end items-end tabular-nums"></div>
+      <div slot="pagination" class="swiper-pagination text-xs lg:text-sm absolute text-right top-0 left-0 h-full w-full mix-blend-difference p-2 flex justify-end items-end"></div>
       <div slot="button-prev" class="swiper-button-prev left-0 m-0" @mouseover="cursorPrev()" @mouseleave="cursorReset()"></div>
       <div slot="button-next" class="swiper-button-next right-0 m-0" @mouseover="cursorNext()" @mouseleave="cursorReset()"></div>
     </div>
@@ -88,7 +88,7 @@ export default {
   top: 0;
 }
 .swiper-pagination{
-  letter-spacing: .5em;
+  letter-spacing: .2em;
 }
 section.left>div, section.right>div, section.center>div {
   width: 75%;
@@ -98,6 +98,9 @@ section.left>div {
 }
 section.right>div {
   margin-right: 0;
+}
+.slider-block {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 @media (min-width: 1024px) {
   section.left>div, section.right>div, section.center>div {

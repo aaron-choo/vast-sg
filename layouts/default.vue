@@ -22,8 +22,9 @@ export default {
 </script>
 <style scoped>
 .site-container::before {
-    animation: grain 8s steps(10) infinite;
+    animation: grain 10s steps(10) infinite;
     background-image: url(/noise.png);
+    background-size: 200px;
     content: "";
     height: 300%;
     left: -50%;
@@ -32,7 +33,7 @@ export default {
     top: -100%;
     width: 300%;
     pointer-events: none;
-    z-index: -1;
+    z-index: 100;
 }
 @keyframes grain {
   0%, 100% { transform:translate(0, 0); }
