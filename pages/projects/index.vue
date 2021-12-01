@@ -145,6 +145,9 @@ export default {
     grid-column-start: 2;
   }
 }
+.image-wrapper {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
 .image:hover{
   transform:scale(1.02);
 }
