@@ -375,9 +375,7 @@
 
 body {
   font-family: 'Freigeist', sans-serif;
-  
-  font-variant-ligatures: discretionary-ligatures;
-  font-feature-settings: "calt" 0;
+  font-feature-settings: "ss05" 1, "calt" 0;
   background-color: var(--bg);
   color: var(--color);
   transition: background-color 0.3s;
@@ -413,4 +411,5 @@ h1 {
 
 .serif {
     font-family: "Tropiline", serif;
+    font-variant-ligatures: discretionary-ligatures;
 }

@@ -5,10 +5,23 @@
             <Logo class="w-24 logo"/>
         </nuxt-link>
     </div>
+    <div class="music-switcher fixed top-4 right-16 mr-2 transition duration-300 rounded-full" :class="{ 'has-scroll-over opacity-0': scrollOver, 'active': audio }"><a class="audio relative flex h-4 w-4 m-1 justify-center leading-none cursor-pointer" @mousedown="togglebgm()">
+        
+       
+        <div class="icon block pointer-event-none"><svg height='44px' width='44px' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M65,34v9c0,0.498-0.366,0.919-0.857,0.99L51,45.867V61c0,3.309-3.589,6-8,6s-8-2.691-8-6s3.589-6,8-6  c2.39,0,4.533,0.794,6,2.045V45v-9c0-0.498,0.366-0.919,0.858-0.99l14-2C64.464,32.922,65,33.396,65,34z"></path></svg>
+        </div>
+        <div class="mute-icon block absolute h-px w-full transition duration-300 opacity-0"></div>
+                        
+                        
+                        
+
+        </a><audio loop id="bgm">
+                        <source src="/bgm.mp3" type="audio/mpeg">
+                        </audio></div>
     <div class="mode-switcher fixed top-4 right-4 transition duration-300 rounded-full" :class="{ 'has-scroll-over opacity-0': scrollOver }">
         <ul class="flex">
             <li v-for="color of colors" :key="color.name" :class="color.name" @click="$colorMode.preference = color.name">
-                <a class="relative flex h-4 w-4 m-1 justify-center leading-none cursor-pointer">{{color.symbol}}</a>
+                <a class="relative flex h-4 w-4 m-1 justify-center leading-none cursor-pointer"></a>
             </li>
         </ul>
         <div class="toggle bg-current absolute h-4 w-4 rounded-full top-1 left-1 pointer-events-none transition duration-300"></div>
@@ -49,17 +62,6 @@
                         </div>
                         </nuxt-link>
                     </li>
-                    <!-- <li class="overflow-hidden">
-                        <a :class="{'active': audio}" class="audio cursor-pointer relative" @mousedown="togglebgm()">BGM:
-                        <div class="label inline-block transition duration-300">
-                            <div class="block">OFF</div>
-                            <div class="block absolute">ON</div>
-                        </div>
-                        </a>
-                        <audio loop id="bgm">
-                        <source src="/bgm.mp3" type="audio/mpeg">
-                        </audio>
-                    </li> -->
                 </ul>
             </div>
             <div class="site-nav-footer transition duration-300 pointer-events-none opacity-0 z-10 relative transform scale-90" :class="{ 'pointer-events-auto opacity-100 scale-100': scrollOver }" @mouseover="menuOpen = true" @mouseleave="menuOpen = false" @click.prevent="menuOpen = true">
@@ -135,7 +137,7 @@ export default {
     color: var(--bg);
     border: 1px solid var(--color);
 }
-.has-scroll-over.logo-wrap, .has-scroll-over.mode-switcher {
+.has-scroll-over.logo-wrap, .has-scroll-over.mode-switcher, .has-scroll-over.music-switcher {
     transform: translate3d(0, -50%, 0);
 }
 .site-nav-bg>div {
@@ -226,14 +228,21 @@ export default {
     transform: scaleX(1);
     background-color: var(--color-primary);
 }
-.has-scroll-over .u div {
+.has-scroll-over .u div, .toggle {
     background-color: var(--bg);
 }
-.toggle {
-    background-color: var(--bg);
-}
-.mode-switcher {
+.mode-switcher, .music-switcher.active, .music-switcher:hover {
     background-color: var(--color);
+}
+.music-switcher svg{
+    fill: var(--color);
+}
+.music-switcher:hover svg {
+    fill: var(--bg);
+}
+.music-switcher.active svg {
+    fill: var(--bg);
+    animation: rotate 8s linear infinite;
 }
 .dark-mode .toggle{
     transform: translateX(1.5em);
@@ -241,7 +250,15 @@ export default {
 .dark-mode .mode-switcher {
     background-color: #fec150;
 }
-.audio.active .label {
-    transform: translateY(-1.49rem);
+.music-switcher .icon{
+    transform: translate(0, -14px);
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0)
+    }
+    to {
+        transform: rotate(360deg)
+    }
 }
 </style>

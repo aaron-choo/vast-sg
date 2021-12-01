@@ -2,7 +2,7 @@
 <footer id="footer" class="footer overflow-hidden relative">
     <div class="absolute bottom-4 left-4 right-4 w-auto flex justify-between z-10">
         <nuxt-link to="/" class="copyright">
-        <Logo class="logo w-16 transform translate-x-14"/>
+        <Logo class="logo w-16 transform translate-x-4"/>
         </nuxt-link>
     </div>
     <div class="opacity-0 absolute bottom-0 w-full z-0">
@@ -23,14 +23,17 @@ export default {
 <style scoped>
 footer{
     min-height:50vh;
-    color: #fff;
-    background-color: #000;
     z-index: -2;
 }
 .logo::before{
-    content:"© 2021";
+    content:"©";
     position:absolute;
     bottom:-0.2em;
-    left: -3.5em;
+    left: -1em;
+}
+</style>
+<style>
+#footer .logo>div{
+    background: #fff;
 }
 </style>
