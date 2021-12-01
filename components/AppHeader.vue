@@ -119,6 +119,7 @@
         "
       ></div>
     </div>
+    <ChatWidget />
     <nav
       class="
         site-nav
@@ -341,10 +342,12 @@
 
 <script>
 import Logo from '@/components/Logo'
+import ChatWidget from '@/components/ChatWidget'
 export default {
   name: 'AppHeader',
   components: {
     Logo,
+    ChatWidget
   },
   data() {
     return {
