@@ -10,7 +10,22 @@
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
       "description": "SliderBlock",
-      "primary": {},
+      "primary": {
+        "align": {
+          "config": {
+            "label": "align",
+            "placeholder": "",
+            "options": [
+              "full",
+              "left",
+              "right",
+              "center"
+            ],
+            "default_value": "full"
+          },
+          "type": "Select"
+        }
+      },
       "items": {
         "image": {
           "config": {

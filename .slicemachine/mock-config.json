@@ -80,5 +80,11 @@
     "projects_page": {},
     "about_page": {}
   },
-  "components/slices": {}
+  "components/slices": {
+    "SliderBlock": {
+      "default-slice": {
+        "primary": {}
+      }
+    }
+  }
 }
