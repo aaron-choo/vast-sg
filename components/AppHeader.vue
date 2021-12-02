@@ -37,7 +37,6 @@
         <div class="icon block pointer-event-none">
           <svg
             version="1.1"
-            id="Capa_1"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px"
@@ -66,7 +65,7 @@
           "
         ></div>
       </a>
-      <audio loop id="bgm">
+      <audio id="bgm" loop>
         <source src="/bgm.mp3" type="audio/mpeg" />
       </audio>
     </div>
@@ -119,7 +118,6 @@
         "
       ></div>
     </div>
-    <ChatWidget />
     <nav
       class="
         site-nav
@@ -342,12 +340,10 @@
 
 <script>
 import Logo from '@/components/Logo'
-import ChatWidget from '@/components/ChatWidget'
 export default {
   name: 'AppHeader',
   components: {
-    Logo,
-    ChatWidget
+    Logo
   },
   data() {
     return {
@@ -506,7 +502,7 @@ a:hover .u {
 }
 .music-switcher svg {
   fill: var(--color);
-  animation: rotate 6s linear infinite;
+  animation: rotate 2s linear infinite;
   animation-play-state: paused;
 }
 .music-switcher.active svg {

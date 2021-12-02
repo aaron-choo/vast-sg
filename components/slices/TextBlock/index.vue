@@ -1,6 +1,6 @@
 <template>
   <div class="text-block section my-24 mx-4 lg:mx-40 grid grid-cols-12 gap-4">
-    <h4 class="title tracking-tight leading-none serif text-2xl lg:text-4xl lg:leading-none col-span-12 lg:col-span-4">{{$prismic.asText(slice.primary.title)}}</h4>
+    <h4 class="title tracking-tight leading-none uppercase text-2xl lg:text-4xl lg:leading-none col-span-12 lg:col-span-4">{{$prismic.asText(slice.primary.title)}}</h4>
     <!-- <prismic-rich-text :field="slice.primary.title" class="title uppercase" /> -->
     <prismic-rich-text :field="slice.primary.description" class="leading-tight text-base lg:text-2xl lg:leading-tight col-span-12 lg:col-span-8" />
   </div>

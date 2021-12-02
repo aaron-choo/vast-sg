@@ -352,7 +352,6 @@
 
 html {
   -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
 }
 
 :root {
@@ -371,10 +370,10 @@ html {
   --bg: #111 !important;
   --bg-secondary: #071521 !important;
   --border-color: #0d2538 !important;
-  /* --nextcolor: #eee !important;
+  --nextcolor: #eee !important;
   --nextbg: #111 !important;
   --prevcolor: #eee !important;
-  --prevbg: #111 !important; */
+  --prevbg: #111 !important;
 }
 
 ::selection {
@@ -420,5 +419,4 @@ h1 {
 
 .serif {
   font-family: 'Tropiline', serif;
-  font-variant-ligatures: discretionary-ligatures;
 }

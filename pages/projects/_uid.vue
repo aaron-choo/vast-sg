@@ -23,7 +23,7 @@
               ><span
                 v-for="(letter, index2) in Array.from(word)"
                 :key="index2"
-                class=""
+                class="inline-block"
                 >{{ letter }}</span
               >&nbsp;</span
             >
@@ -62,7 +62,7 @@
               {{ tag
               }}<template v-if="Object.keys(tags).length > 1">
                 <span v-if="index != Object.keys(tags).length - 1" class="sep"
-                  >☻</span
+                  >+</span
                 >
               </template>
             </span>
@@ -76,9 +76,13 @@
           <nuxt-img
             v-if="image.url"
             id="header-image"
-            class="w-full rounded-lg"
+            format="webp"
             :src="image.url"
             sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+            :width="image.dimensions.width"
+            :height="image.dimensions.height"
+            class="w-full rounded-lg"
+            loading="lazy"
           />
         </div>
         <div class="description-section section my-24 px-4 lg:px-40">
@@ -154,7 +158,7 @@
             <span v-for="(tag, index) in tags" :key="tag"
               >{{ tag
               }}<template v-if="Object.keys(tags).length > 1"
-                ><span v-if="index != Object.keys(tags).length - 1" class="sep">☻</span></template
+                ><span v-if="index != Object.keys(tags).length - 1" class="sep">+</span></template
               ></span
             >
           </div>
@@ -364,9 +368,13 @@
             <nuxt-img
               v-if="nextProjectImage.url"
               id="next-header-image"
-              class="w-full h-full object-cover z-0"
+              format="webp"
               :src="nextProjectImage.url"
               sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+              :width="nextProjectImage.dimensions.width"
+              :height="nextProjectImage.dimensions.height"
+              class="w-full h-full object-cover z-0"
+              loading="lazy"
             />
           </div>
           <p
@@ -430,7 +438,7 @@
                   <span
                     v-if="index != Object.keys(nextProjectTags).length - 1"
                     class="sep"
-                    >☻</span
+                    >+</span
                   >
                 </template>
               </span>
@@ -458,9 +466,13 @@
             <nuxt-img
               v-if="prevProjectImage.url"
               id="next-header-image"
-              class="w-full h-full object-cover z-0"
+              format="webp"
               :src="prevProjectImage.url"
               sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+              :width="prevProjectImage.dimensions.width"
+              :height="prevProjectImage.dimensions.height"
+              class="w-full h-full object-cover z-0"
+              loading="lazy"
             />
           </div>
           <p
@@ -524,7 +536,7 @@
                   <span
                     v-if="index != Object.keys(prevProjectTags).length - 1"
                     class="sep"
-                    >☻</span
+                    >+</span
                   >
                 </template>
               </span>
@@ -691,9 +703,16 @@ export default {
       }
     },
     headerAnimation() {
-      gsap.set('#header-title span', { y: -30, opacity: 0 })
+      gsap.set('.title-words span', { y: -30, opacity: 0 })
       gsap.set('#header-scope span', { y: 15, opacity: 0 })
       gsap.set('#header-image', { y: 30, opacity: 0 })
+      gsap.to('.title-words span', {
+        y: 0,
+        opacity: 1,
+        stagger: 0.02,
+        duration: 1,
+        ease: 'power4.out',
+      })
       gsap
         .to('#header-image', {
           y: 0,
@@ -702,13 +721,6 @@ export default {
           ease: 'power4.out',
         })
         .delay(1.25)
-      gsap.to('#header-title span', {
-        y: 0,
-        opacity: 1,
-        stagger: 0.02,
-        duration: 1,
-        ease: 'power4.out',
-      })
       gsap
         .to('#header-scope span', {
           y: 0,

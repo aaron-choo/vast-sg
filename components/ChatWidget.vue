@@ -42,6 +42,7 @@ export default {
 <style scoped>
 .chat-window-wrapper {
     width: 400px;
+    display: none;
 }
 .chat-window, .title-bar {
     background: #1e1e1e;

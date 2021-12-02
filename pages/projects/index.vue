@@ -23,7 +23,7 @@
             ><span
               v-for="(letter, index2) in Array.from(word)"
               :key="index2"
-              class=""
+              class="inline-block"
               >{{ letter }}</span
             >&nbsp;</span
           ><span class="inline-block text-base align-top ml-1">{{
@@ -96,9 +96,12 @@
             <div class="image-wrapper overflow-hidden rounded-lg">
               <nuxt-img
                 v-if="project.data.image.url"
+                format="webp"
                 :src="project.data.image.url"
                 sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
-                class="image transition duration-700 w-full"
+                :width="project.data.image.dimensions.width"
+                :height="project.data.image.dimensions.height"
+                class="image transition duration-700 w-full h-full"
                 loading="lazy"
               />
             </div>
@@ -208,10 +211,17 @@ export default {
       return LinkResolver(post)
     },
     headerAnimation() {
-      gsap.set('#header-title span', { y: -30, opacity: 0 })
+      gsap.set('.title-words span', { y: -30, opacity: 0 })
       gsap.set('#header-description .intro', { y: 15, opacity: 0 })
       gsap.set('#header-description .description span', { y: 15, opacity: 0 })
       gsap.set('.project-link', { y: 30, opacity: 0 })
+      gsap.to('.title-words span', {
+        y: 0,
+        opacity: 1,
+        stagger: 0.02,
+        duration: 1,
+        ease: 'power4.out',
+      })
       gsap
         .to('.project-link', {
           y: 0,
@@ -221,13 +231,6 @@ export default {
           ease: 'power4.out',
         })
         .delay(2)
-      gsap.to('#header-title span', {
-        y: 0,
-        opacity: 1,
-        stagger: 0.02,
-        duration: 1,
-        ease: 'power4.out',
-      })
       gsap
         .to('#header-description .intro', {
           y: 0,
@@ -284,6 +287,7 @@ export default {
 }
 
 .image-wrapper {
+  mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
