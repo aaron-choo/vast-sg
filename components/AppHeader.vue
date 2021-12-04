@@ -143,6 +143,7 @@
           :class="{
             'opacity-0 pointer-events-none': scrollOver,
             'pointer-events-auto opacity-100 delay-200': menuOpen,
+            'hover': linkHover
           }"
         >
           <ul
@@ -153,7 +154,7 @@
           >
             <li class="overflow-hidden">
               <nuxt-link to="/" class="relative">
-                <span class="link-text tracking-tight">HOME</span>
+                <span class="link-text tracking-tight uppercase" @mouseover="linkHover=true" @mouseleave="linkHover=false">Home</span>
                 <div
                   class="
                     u
@@ -178,63 +179,9 @@
                 </div>
               </nuxt-link>
             </li>
-            <li class="overflow-hidden">
-              <nuxt-link to="/projects" class="relative">
-                <span class="link-text tracking-tight">PROJECTS</span>
-                <div
-                  class="
-                    u
-                    left-px
-                    origin-right
-                    transition
-                    duration-500
-                    absolute
-                    bottom-0
-                    h-px
-                  "
-                >
-                  <div
-                    class="
-                      transition-transform
-                      duration-500
-                      origin-left
-                      w-full
-                      h-full
-                    "
-                  ></div>
-                </div>
-              </nuxt-link>
-            </li>
-            <li class="overflow-hidden">
-              <nuxt-link to="/about" class="relative">
-                <span class="link-text tracking-tight">ABOUT</span>
-                <div
-                  class="
-                    u
-                    left-px
-                    origin-right
-                    transition
-                    duration-500
-                    absolute
-                    bottom-0
-                    h-px
-                  "
-                >
-                  <div
-                    class="
-                      transition-transform
-                      duration-500
-                      origin-left
-                      w-full
-                      h-full
-                    "
-                  ></div>
-                </div>
-              </nuxt-link>
-            </li>
-            <li class="overflow-hidden">
-              <nuxt-link to="/contact" class="relative">
-                <span class="link-text tracking-tight">CONTACT</span>
+            <li v-for="(link, index) in links" :key="index" class="overflow-hidden">
+              <nuxt-link :to="'/'+link" class="relative">
+                <span class="link-text tracking-tight uppercase"  @mouseover="linkHover=true" @mouseleave="linkHover=false">{{link}}</span>
                 <div
                   class="
                     u
@@ -302,7 +249,6 @@
                     justify-center
                     items-center
                     relative
-                    tracking-normal
                   "
                 >
                   MENU
@@ -350,9 +296,15 @@ export default {
       menuOpen: false,
       scrollOver: false,
       audio: false,
+      linkHover: false,
       colors: [
         { name: 'light', symbol: ' ' },
         { name: 'dark', symbol: ' ' },
+      ],
+      links: [
+        'projects',
+        'about',
+        'contact'
       ],
     }
   },
@@ -472,20 +424,20 @@ export default {
 }
 .btn-txt-wrap::after {
   z-index: 1;
-  transform: scaleX(0);
-  transform-origin: right;
+  transform: scaleY(0);
+  transform-origin: bottom;
   background-color: var(--bg);
 }
 .menu-open .btn-txt-wrap::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  transform: scaleY(1);
+  transform-origin: top;
 }
 .u {
   width: calc(100% - 1px);
   transform: scaleX(0);
 }
-.nuxt-link-exact-active .u,
-a:hover .u {
+a:hover .u , .site-nav-body:not(.hover) .nuxt-link-exact-active .u
+{
   transform: scaleX(1);
   transform-origin: left;
 }

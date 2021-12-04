@@ -17,6 +17,7 @@ export default {
 <style>
 .logo-block {
     padding-top: 25%;
+    height:auto;
 }
 .logo-block>div {
     background: var(--color);
