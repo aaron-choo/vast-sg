@@ -4,7 +4,7 @@
       class="image-block section my-24 mx-4 lg:mx-40 grid gap-4"
       :class="'grid-cols-' + slice.primary.columns"
     >
-      <div v-for="item in slice.items" :key="item" class="relative">
+      <div v-for="(item, index) in slice.items" :key="index" class="relative">
         <nuxt-img
           v-if="item.image.url"
           format="webp"
