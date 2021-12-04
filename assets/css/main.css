@@ -1,4 +1,13 @@
 @font-face {
+  font-family: 'Tusker Grotesk';
+  src: url('~assets/fonts/TuskerGrotesk-Semibold.woff2') format('woff2'),
+      url('~assets/fonts/TuskerGrotesk-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Freigeist';
   src: url('~assets/fonts/Freigeist-Thin.woff2') format('woff2'),
     url('~assets/fonts/Freigeist-Thin.woff') format('woff');
@@ -352,6 +361,7 @@
 
 html {
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 :root {
@@ -364,16 +374,16 @@ html {
 }
 
 .dark-mode {
-  --color: #eee !important;
-  --color-primary: #eee !important;
-  --color-secondary: #fdf9f3 !important;
-  --bg: #111 !important;
-  --bg-secondary: #071521 !important;
-  --border-color: #0d2538 !important;
-  --nextcolor: #eee !important;
-  --nextbg: #111 !important;
-  --prevcolor: #eee !important;
-  --prevbg: #111 !important;
+  --color: #DFDAD8 !important;
+  --color-primary: #DFDAD8 !important;
+  --color-secondary: #DFDAD8 !important;
+  --bg: #202527 !important;
+  --bg-secondary: #202527 !important;
+  --border-color: #DFDAD8 !important;
+  --nextcolor: #DFDAD8 !important;
+  --nextbg: #202527 !important;
+  --prevcolor: #DFDAD8 !important;
+  --prevbg: #202527 !important;
 }
 
 ::selection {
@@ -419,4 +429,9 @@ h1 {
 
 .serif {
   font-family: 'Tropiline', serif;
+}
+
+.narrow {
+  font-family: 'Tusker Grotesk', sans-serif;
+  font-weight: 600;
 }
