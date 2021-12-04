@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="projects-header">
+    <section class="projects-header z-0">
       <div
         id="header-text"
         class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
@@ -9,6 +9,7 @@
           id="header-title"
           class="
             tracking-tight
+            leading-none
             text-4xl
             lg:text-5xl
             uppercase
@@ -19,7 +20,7 @@
           <span
             v-for="(word, index) in titleWords"
             :key="index"
-            class="title-words inline-block"
+            class="title-words inline-block overflow-hidden"
             ><span
               v-for="(letter, index2) in Array.from(word)"
               :key="index2"
@@ -41,7 +42,6 @@
             duration-300
             leading-3
             transform
-            lg:w-10/12
           "
           :class="{ 'has-scroll-over opacity-0 translate-y-4': scrollOver }"
         >
@@ -58,24 +58,87 @@
         </p>
       </div>
     </section>
-    <hr class="h-px w-full opacity-20" />
-    <section class="content">
+    <section class="content relative">
+      <hr class="h-px w-full opacity-20" />
       <div
         v-if="projects.length > 0"
-        class="
-          grid grid-cols-12
-          px-4
-          pt-12
-          py-24
-          gap-4 gap-y-12
-          lg:gap-y-40
-          items-end
-        "
+        class="isotope project-grid px-4 pt-12 py-24"
       >
+        <div :class="allTags" class="grid-item project-link pb-2">
+          <ul
+            id="filters"
+            @mouseover="filterOpen = true"
+            @mouseleave="filterOpen = false"
+            @click="filterOpen = false"
+          >
+            <li>
+              <h3
+                class="
+                  tracking-tight
+                  leading-none
+                  uppercase
+                  text-2xl
+                  lg:text-3xl lg:leading-none
+                  mb-4
+                "
+              >
+                Now Showing
+              </h3>
+            </li>
+            <li>
+              <button
+                class="
+                  filter-button
+                  selected
+                  all
+                  uppercase
+                  text-base
+                  lg:text-xl lg:leading-tight
+                  opacity-30
+                  transition
+                  duration-700
+                "
+                data-filter="*"
+                @click="filter('*'), (currentFilter = 'filter')"
+                @mouseover="filterHover = true"
+                @mouseleave="filterHover = false"
+              >
+                All Projects
+              </button>
+            </li>
+            <li v-for="(tag, index) in allTags" :key="index">
+              <button
+                :class="'filter-button ' + tag"
+                :data-filter="tag"
+                class="
+                  uppercase
+                  text-base
+                  lg:text-xl lg:leading-tight
+                  opacity-30
+                  transition
+                  duration-700
+                "
+                @click="
+                  filter('.' + tag), (currentFilter = tag.replace('-', ' '))
+                "
+                @mouseover=";(filterHover = true), (linkHover = true)"
+                @mouseleave=";(filterHover = false), (linkHover = false)"
+              >
+                {{ tag.replace('-', ' ') }}
+              </button>
+            </li>
+          </ul>
+        </div>
+
         <div
           v-for="project in projects"
           :key="project.id"
-          class="project-link col-span-12 lg:col-span-5"
+          :class="
+            project.tags.map(function (item, index) {
+              return item.replace(' ', '-')
+            })
+          "
+          class="grid-item project-link"
         >
           <nuxt-link :to="LinkGetter(project)">
             <p class="text-sm lg:text-base uppercase inline-block mr-16 mb-2">
@@ -88,7 +151,7 @@
                   ><span
                     v-if="index != Object.keys(project.tags).length - 1"
                     class="sep"
-                    >☻</span
+                    >/</span
                   ></template
                 ></span
               >)
@@ -132,6 +195,10 @@
 <script>
 import gsap from 'gsap'
 import LinkResolver from '~/plugins/link-resolver.js'
+let Isotope
+if (process.browser) {
+  Isotope = require('isotope-layout')
+}
 export default {
   name: 'ProjectsPage',
   components: {},
@@ -160,6 +227,14 @@ export default {
         backgroundColor: pageContent.backgroundColor,
         textColor: pageContent.textColor,
         projects: projects.results,
+        allTags: [
+          'architectural-visualization',
+          'branding',
+          'interior-design',
+          'product',
+          'website',
+        ],
+        currentFilter: 'Filter',
       }
     } catch (e) {
       // Returns error page
@@ -169,7 +244,9 @@ export default {
   data() {
     return {
       page: null,
+      filterOpen: false,
       scrollOver: false,
+      linkHover: false,
     }
   },
   head() {
@@ -198,6 +275,7 @@ export default {
     this.headerAnimation()
     window.addEventListener('scroll', this.headerScroll)
     window.addEventListener('scroll', this.onScroll)
+    this.isotope()
   },
   destroyed() {
     document.documentElement.style.setProperty('--bg', '')
@@ -211,23 +289,30 @@ export default {
       return LinkResolver(post)
     },
     headerAnimation() {
-      gsap.set('.title-words span', { y: -30, opacity: 0 })
+      gsap.set('.title-words span', {
+        scaleY: 0,
+        rotate: -22,
+        rotateX: 90,
+        transformOrigin: '0% 50% -50',
+      })
       gsap.set('#header-description .intro', { y: 15, opacity: 0 })
       gsap.set('#header-description .description span', { y: 15, opacity: 0 })
-      gsap.set('.project-link', { y: 30, opacity: 0 })
+      gsap.set('.content', { y: 30, opacity: 0 })
       gsap.to('.title-words span', {
-        y: 0,
+        scaleY: 1,
+        rotate: 0,
+        rotateX: 0,
         opacity: 1,
         stagger: 0.02,
         duration: 1,
         ease: 'power4.out',
       })
       gsap
-        .to('.project-link', {
+        .to('.content', {
           y: 0,
           opacity: 1,
           duration: 1,
-          stagger: 0.2,
+          stagger: 0,
           ease: 'power4.out',
         })
         .delay(2)
@@ -254,7 +339,7 @@ export default {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
         document.getElementById('header-text').style.transform =
-          'translateY(' + document.documentElement.scrollTop / 1.8 + 'px)'
+          'translateY(' + document.documentElement.scrollTop / 2 + 'px)'
       }
     },
     onScroll() {
@@ -271,21 +356,48 @@ export default {
         this.scrollOver = false
       }
     },
+    isotope() {
+      this.iso = new Isotope('.project-grid', {
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows',
+        transitionDuration: 700,
+        fitRows: {
+          gutter: 16,
+        },
+        hiddenStyle: {
+          opacity: 0,
+        },
+        visibleStyle: {
+          opacity: 1,
+        },
+      })
+
+      this.iso.layout()
+    },
+    filter(tag) {
+      const selectedFilter = document.querySelector('.filter-button.selected')
+      const currentTag = selectedFilter.getAttribute('data-filter')
+      if (tag === currentTag) {
+        return
+      }
+      selectedFilter.classList.remove('selected')
+      if (tag === '*') {
+        document.querySelector('.filter-button.all').classList.add('selected')
+      } else {
+        document.querySelector('.filter-button' + tag).classList.add('selected')
+      }
+      // document.querySelector('#anchor').scrollIntoView({behavior: 'smooth'})
+      this.iso.arrange({
+        filter: tag,
+      })
+    },
   },
 }
 </script>
 <style scoped>
-@media (min-width: 1024px) {
-  .project-link:nth-child(4n + 4),
-  .project-link:nth-child(8n + 6) {
-    grid-column-start: 8;
-  }
-
-  .project-link:nth-child(8n + 5) {
-    grid-column-start: 2;
-  }
+main {
+  scroll-behavior: smooth;
 }
-
 .image-wrapper {
   mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -302,5 +414,33 @@ export default {
 span.sep {
   padding-right: 0.29em;
   padding-left: 0.29em;
+}
+.grid-item {
+  width: calc(100% - 32px);
+  margin-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .grid-item {
+    width: calc(50% - 24.5px);
+    margin-bottom: 8vw;
+  }
+}
+.filter-button.selected {
+  opacity: 1;
+  transform: translateX(1em);
+}
+.filter-button:hover {
+  opacity: 1;
+}
+.filter-button::before {
+  content: '→';
+  position: absolute;
+  left: -1em;
+  opacity: 0;
+  transition: opacity 0.3s ease 0s;
+}
+.filter-button.selected::before {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.6s;
 }
 </style>

@@ -10,6 +10,7 @@
             id="header-title"
             class="
               tracking-tight
+              leading-none
               text-4xl
               lg:text-5xl
               uppercase
@@ -19,7 +20,7 @@
             <span
               v-for="(word, index) in titleWords"
               :key="index"
-              class="title-words inline-block"
+              class="title-words inline-block overflow-hidden"
               ><span
                 v-for="(letter, index2) in Array.from(word)"
                 :key="index2"
@@ -56,7 +57,7 @@
               >(Scope)</span
             ><span
               v-for="(tag, index) in tags"
-              :key="tag"
+              :key="index"
               class="inline-block serif font-light"
             >
               {{ tag
@@ -155,7 +156,7 @@
             <span>{{ date.substring(0, 4) }}</span>
           </div>
           <div class="col-span-6 lg:col-span-3 text-left lg:text-right">
-            <span v-for="(tag, index) in tags" :key="tag"
+            <span v-for="(tag, index) in tags" :key="index"
               >{{ tag
               }}<template v-if="Object.keys(tags).length > 1"
                 ><span v-if="index != Object.keys(tags).length - 1" class="sep">+</span></template
@@ -243,7 +244,6 @@
                     class="emoji h-10 md:h-14 relative mx-4"
                 /></span>
               </div>
-              <!--/marquee-inner-->
               <div class="marquee-inner" aria-hidden="true">
                 <span
                   class="
@@ -266,11 +266,8 @@
                     class="emoji h-10 md:h-14 relative mx-4"
                 /></span>
               </div>
-              <!--/marquee-inner-->
             </div>
-            <!--/marquee-inner-wrap-->
           </div>
-          <!--/marquee-->
         </div>
       </nuxt-link>
       <hr class="h-px w-full opacity-20" />
@@ -310,8 +307,8 @@
             >
               <div class="marquee-inner reverse" aria-hidden="true">
                 <span
-                  v-for="project in latestProjects"
-                  :key="project"
+                  v-for="(project, index) in latestProjects"
+                  :key="index"
                   class="
                     whitespace-nowrap
                     text-4xl
@@ -328,8 +325,8 @@
               </div>
               <div class="marquee-inner reverse" aria-hidden="true">
                 <span
-                  v-for="project in latestProjects"
-                  :key="project"
+                  v-for="(project, index) in latestProjects"
+                  :key="index"
                   class="
                     whitespace-nowrap
                     text-4xl
@@ -380,8 +377,8 @@
           <p
             class="
               next-project-label
-              text-base
-              lg:text-lg
+              text-sm
+              lg:text-base
               uppercase
               z-0
               absolute
@@ -402,7 +399,7 @@
           >
             <h3
               id="next-header-title"
-              class="tracking-tight text-4xl lg:text-5xl uppercase z-0"
+              class="tracking-tight leading-none text-4xl lg:text-5xl uppercase z-0"
             >
               {{ nextProjectTitle }}
             </h3>
@@ -431,7 +428,7 @@
                 >(Scope)</span
               ><span
                 v-for="(tag, index) in nextProjectTags"
-                :key="tag"
+                :key="index"
                 class="inline-block serif font-light"
                 >{{ tag
                 }}<template v-if="Object.keys(nextProjectTags).length > 1">
@@ -478,8 +475,8 @@
           <p
             class="
               prev-project-label
-              text-base
-              lg:text-lg
+              text-sm
+              lg:text-base
               uppercase
               z-0
               absolute
@@ -500,7 +497,7 @@
           >
             <h3
               id="prev-header-title"
-              class="tracking-tight text-4xl lg:text-5xl uppercase z-0"
+              class="tracking-tight leading-none text-4xl lg:text-5xl uppercase z-0"
             >
               {{ prevProjectTitle }}
             </h3>
@@ -529,7 +526,7 @@
                 >(Scope)</span
               ><span
                 v-for="(tag, index) in prevProjectTags"
-                :key="tag"
+                :key="index"
                 class="inline-block serif font-light"
                 >{{ tag
                 }}<template v-if="Object.keys(prevProjectTags).length > 1">
@@ -699,15 +696,17 @@ export default {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
         document.getElementById('header-text').style.transform =
-          'translateY(' + document.documentElement.scrollTop / 1.8 + 'px)'
+          'translateY(' + document.documentElement.scrollTop / 2 + 'px)'
       }
     },
     headerAnimation() {
-      gsap.set('.title-words span', { y: -30, opacity: 0 })
+      gsap.set('.title-words span', { scaleY: 0, rotate: -22, rotateX: 90, transformOrigin: '0% 50% -50' })
       gsap.set('#header-scope span', { y: 15, opacity: 0 })
       gsap.set('#header-image', { y: 30, opacity: 0 })
       gsap.to('.title-words span', {
-        y: 0,
+        scaleY: 1,
+        rotate: 0,
+        rotateX: 0,
         opacity: 1,
         stagger: 0.02,
         duration: 1,

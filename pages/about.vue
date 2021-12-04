@@ -38,7 +38,6 @@
             duration-300
             leading-3
             transform
-            lg:w-10/12
           "
           :class="{ 'has-scroll-over opacity-0 translate-y-4': scrollOver }"
         >
@@ -63,7 +62,90 @@
         </p>
       </div>
     </section>
-    <section class="content"></section>
+    <section class="content">
+      <hr class="h-px w-full opacity-20" />
+      <div>
+        <div class="about-text relative overflow-hidden">
+          <div
+            id="about-copy"
+            class="
+              block
+              relative
+              text-4xl
+              sm:text-6xl
+              font-light
+              p-4
+              py-52
+            "
+          >
+            <p>We help brands generate desirability and impact through concept-driven and strategic design.</p>
+            <p>We embrace a fluid approach, and use our expertise to create longevity and value for our clients.</p>
+          </div>
+          <div
+            class="
+              marquee
+              absolute
+              top-0
+              lef-0
+              overflow-hidden
+              w-full
+              h-full
+              pointer-events-none
+            "
+          >
+            <div
+              class="marquee-inner-wrap flex overflow-hidden whitespace-nowrap"
+            >
+              <div class="marquee-inner" aria-hidden="true">
+                <span
+                  class="
+                    whitespace-nowrap
+                    text-4xl
+                    md:text-6xl
+                    py-4
+                    font-light
+                    uppercase
+                    text-center
+                    flex
+                    items-center
+                    w-max
+                  "
+                  >Like what you see?<img
+                    src="/emoji-eyes.png"
+                    class="emoji h-10 md:h-14 relative mx-4" />or just wanna say
+                  hi?<img
+                    src="/emoji-waving-hand.png"
+                    class="emoji h-10 md:h-14 relative mx-4"
+                /></span>
+              </div>
+              <div class="marquee-inner" aria-hidden="true">
+                <span
+                  class="
+                    whitespace-nowrap
+                    text-4xl
+                    md:text-6xl
+                    py-4
+                    font-light
+                    uppercase
+                    text-center
+                    flex
+                    items-center
+                    w-max
+                  "
+                  >Like what you see?<img
+                    src="/emoji-eyes.png"
+                    class="emoji h-10 md:h-14 relative mx-4" />or just wanna say
+                  hi?<img
+                    src="/emoji-waving-hand.png"
+                    class="emoji h-10 md:h-14 relative mx-4"
+                /></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <hr class="h-px w-full opacity-20" />
+    </section>
   </main>
 </template>
 
@@ -133,26 +215,23 @@ export default {
   },
   methods: {
     headerAnimation() {
-      gsap.set('.title-words span', { y: -30, opacity: 0 })
+      gsap.set('.title-words span', {
+        scaleY: 0,
+        rotate: -22,
+        rotateX: 90,
+        transformOrigin: '0% 50% -50',
+      })
       gsap.set('#header-description .intro', { y: 15, opacity: 0 })
       gsap.set('#header-description .description span', { y: 15, opacity: 0 })
-      gsap.set('.project-link', { y: 30, opacity: 0 })
       gsap.to('.title-words span', {
-        y: 0,
+        scaleY: 1,
+        rotate: 0,
+        rotateX: 0,
         opacity: 1,
         stagger: 0.02,
         duration: 1,
         ease: 'power4.out',
       })
-      gsap
-        .to('.project-link', {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.2,
-          ease: 'power4.out',
-        })
-        .delay(2)
       gsap
         .to('#header-description .intro', {
           y: 0,
@@ -199,5 +278,46 @@ export default {
 <style scoped>
 .description-words {
   padding-right: 0.29em;
+}
+#about-copy p:not(:first-child){
+  text-indent: 5em;
+}
+.marquee {
+  background: var(--color);
+  color: var(--bg);
+  transform: translate3d(0, 101%, 0);
+  transition: 0.3s ease;
+}
+
+.marquee-inner-wrap {
+  height: 100%;
+  width: 100%;
+  transform: translate3d(0, -101%, 0);
+  transition: 0.3s ease;
+}
+
+.about-text:hover .marquee,
+.about-text:hover .marquee-inner-wrap {
+  transform: translate3d(0, 0, 0);
+}
+
+.marquee-inner {
+  height: 100%;
+  width: fit-content;
+  align-items: center;
+  display: flex;
+  position: relative;
+  animation: marquee 10s linear infinite;
+  will-change: transform;
+}
+
+.marquee-inner.reverse {
+  animation: marquee 20s linear reverse infinite;
+}
+
+@keyframes marquee {
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
 }
 </style>
