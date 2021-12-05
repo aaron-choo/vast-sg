@@ -1,4 +1,31 @@
 @font-face {
+  font-family: 'Grandmaster';
+  src: url('~assets/fonts/Grandmaster-Thin.woff2') format('woff2'),
+      url('~assets/fonts/Grandmaster-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grandmaster';
+  src: url('~assets/fonts/Grandmaster-Light.woff2') format('woff2'),
+      url('~assets/fonts/Grandmaster-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grandmaster';
+  src: url('~assets/fonts/Grandmaster-Regular.woff2') format('woff2'),
+      url('~assets/fonts/Grandmaster-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Tusker Grotesk';
   src: url('~assets/fonts/TuskerGrotesk-Semibold.woff2') format('woff2'),
       url('~assets/fonts/TuskerGrotesk-Semibold.woff') format('woff');
@@ -432,6 +459,5 @@ h1 {
 }
 
 .narrow {
-  font-family: 'Tusker Grotesk', sans-serif;
-  font-weight: 600;
+  font-family: 'Grandmaster', sans-serif;
 }

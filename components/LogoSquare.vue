@@ -1,7 +1,6 @@
 <template>
-  <div>
+  <div class="logo-square">
     <svg
-      class="logo-square"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -36,8 +35,8 @@ export default {
 }
 </script>
 
-<style scoped>
-.logo-square {
+<style>
+.logo-square svg {
   height: 100%;
 }
 </style>
