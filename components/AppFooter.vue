@@ -68,7 +68,7 @@
             </span>
         </div>
         <div class="credit-entry inline-block mx-1 mb-1">
-            <span class="inline-block narrow font-light text-2xl md:text-4xl">
+            <span class="inline-block narrow tracking-wide font-normal text-2xl md:text-4xl">
                 A Vast Production
             </span>
         </div>
@@ -107,8 +107,8 @@ export default {
 </script>
 <style scoped>
 .logo {
-    width: 6em;
-    padding-top: 1.5em;
+    width: 4em;
+    padding-top: 1em;
 }
 .logo::before{
     content:"©";
@@ -116,12 +116,6 @@ export default {
     position:absolute;
     bottom:0;
     left: -1.2em;
-}
-.logo-square::before{
-    content:"©";
-    position:absolute;
-    bottom: 0.3em;
-    left: -1em;
 }
 .credits-header{
     letter-spacing: .25em;
