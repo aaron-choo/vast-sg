@@ -5,10 +5,10 @@
 <script>
 import SliceZone from 'vue-slicezone'
 export default {
+  name: 'HomePage',
   components: {
     SliceZone
   },
-   name: 'HomePage',
   async asyncData({ $prismic, error }) {
     try {
       const pageContent = (await $prismic.api.getSingle('home_page')).data
