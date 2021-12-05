@@ -1,7 +1,7 @@
 {
   "apiEndpoint": "https://vast-sg.cdn.prismic.io/api/v2",
   "libraries": [
-    "@/components/slices"
+    "@/slices"
   ],
   "_latest": "0.1.0",
   "storybook": "http://localhost:3003"
