@@ -1,4 +1,4 @@
 import Vue from "vue";
-import isotope from "vueIsotope";
+import isotope from "vueisotope";
 
-Vue.component("Isotope", isotope);
+Vue.component("isotope", isotope);
