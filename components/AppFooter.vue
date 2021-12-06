@@ -161,7 +161,7 @@
                     </li>
                     <li class="col-span-1 lg:col-span-2" @mouseenter="slowAnimation()" @mouseleave="resumeAnimation()">
                        <p class="text-base tracking-wider text-center mt-8">
-                            Special Thanks
+                            Special Thanks To
                         </p>
                         <p class="text-xs md:text-base text-center font-medium">All clients and friends of VAST</p>
                     </li>
@@ -174,14 +174,14 @@
                     <li class="col-span-1 lg:col-span-2 leading-tight mt-10" @mouseenter="slowAnimation()" @mouseleave="resumeAnimation()">
                         <div class="mx-auto block w-60 h-12 border flex">
                             <div class="w-20 border-r serif text-3xl font-bold flex items-center justify-center pt-2">
-                                NR
+                                PG
                             </div>
                             <div class="w-full h-full flex flex-col items-center justify-center">
                                <div class="w-full border-b h-6 text-sm font-medium flex items-center justify-center">
-                                Not Rated
+                                Phenomenally Good
                                 </div>
                                 <div class="w-full h-full leading-none text-xs flex items-center justify-center">
-                                The Content of this Site Has Not Been Evaluated
+                                The Contents of this Site Will Blow Your Mind
                                 </div>
                             </div>
                         </div>
@@ -322,7 +322,7 @@
                     </li>
                     <li class="col-span-1 lg:col-span-2" @mouseenter="slowAnimation()" @mouseleave="resumeAnimation()">
                        <p class="text-base tracking-wider text-center mt-8">
-                            Special Thanks
+                            Special Thanks To
                         </p>
                         <p class="text-xs md:text-base text-center font-medium">All clients and friends of VAST</p>
                     </li>
@@ -335,14 +335,14 @@
                     <li class="col-span-1 lg:col-span-2 leading-tight mt-10" @mouseenter="slowAnimation()" @mouseleave="resumeAnimation()">
                         <div class="mx-auto block w-60 h-12 border flex">
                             <div class="w-20 border-r serif text-3xl font-bold flex items-center justify-center pt-2">
-                                NR
+                                PG
                             </div>
                             <div class="w-full h-full flex flex-col items-center justify-center">
                                <div class="w-full border-b h-6 text-sm font-medium flex items-center justify-center">
-                                Not Rated
+                                Phenomenally Good
                                 </div>
                                 <div class="w-full h-full leading-none text-xs flex items-center justify-center">
-                                The Content of this Site Has Not Been Evaluated
+                                The Contents of this Site Will Blow Your Mind
                                 </div>
                             </div>
                         </div>
@@ -435,7 +435,7 @@ export default {
 }
 .fade {
 background: var(--bg);
-background: linear-gradient(0deg, transparent 0%, var(--bg) 100%); 
+-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 z-index: 1;
 }
 
