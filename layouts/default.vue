@@ -38,11 +38,10 @@ export default {
 .site-container::before {
   animation: grain 2s steps(3) infinite both;
   background-image: url(/noise.png);
-  background-size: 200px;
   content: '';
   height: 300%;
   left: -50%;
-  opacity: 0.65;
+  opacity: 0.8;
   position: fixed;
   top: -100%;
   width: 300%;
