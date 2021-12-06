@@ -46,6 +46,9 @@ export default {
     '@nuxt/image',
     '@nuxtjs/moment'
   ],
+  moment: {
+    timezone: true
+  },
   image: {
     provider: "prismic",
     prismic: {}

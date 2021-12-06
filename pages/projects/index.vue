@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="projects-header z-0">
+    <section class="projects-header z-0 overflow-hidden">
       <div
         id="header-text"
         class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
@@ -386,6 +386,7 @@ export default {
       } else {
         document.querySelector('.filter-button' + tag).classList.add('selected')
       }
+      document.querySelector('.project-grid').scrollIntoView({behavior: 'smooth'});
       // document.querySelector('#anchor').scrollIntoView({behavior: 'smooth'})
       this.iso.arrange({
         filter: tag,

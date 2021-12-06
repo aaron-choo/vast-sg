@@ -212,7 +212,7 @@
               marquee
               absolute
               top-0
-              lef-0
+              left-0
               overflow-hidden
               w-full
               h-full
@@ -295,7 +295,7 @@
               marquee
               absolute
               top-0
-              lef-0
+              left-0
               overflow-hidden
               w-full
               h-full
