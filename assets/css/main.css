@@ -401,16 +401,16 @@ html {
 }
 
 .dark-mode {
-  --color: #DFDAD8 !important;
-  --color-primary: #DFDAD8 !important;
-  --color-secondary: #DFDAD8 !important;
-  --bg: #202527 !important;
-  --bg-secondary: #202527 !important;
-  --border-color: #DFDAD8 !important;
-  --nextcolor: #DFDAD8 !important;
-  --nextbg: #202527 !important;
-  --prevcolor: #DFDAD8 !important;
-  --prevbg: #202527 !important;
+  --color: #DDD !important;
+  --color-primary: #DDD !important;
+  --color-secondary: #DDD !important;
+  --bg: #111 !important;
+  --bg-secondary: #111 !important;
+  --border-color: #DDD !important;
+  --nextcolor: #DDD !important;
+  --nextbg: #111 !important;
+  --prevcolor: #DDD !important;
+  --prevbg: #111 !important;
 }
 
 ::selection {
@@ -420,7 +420,7 @@ html {
 
 body {
   font-family: 'Freigeist', sans-serif;
-  font-feature-settings: 'calt' 0;
+  font-feature-settings: 'calt' 0, 'ss02' 1, 'ss03' 1, 'ss05' 1, 'ss06' 0;
   background-color: var(--bg);
   color: var(--color);
   transition: background-color 0.3s;
