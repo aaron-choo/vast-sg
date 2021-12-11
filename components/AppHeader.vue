@@ -1,5 +1,5 @@
 <template>
-  <header class="header relative z-10">
+  <header class="header relative z-20">
     <div
       class="logo-wrap fixed top-4 left-4 transition duration-300"
       :class="{ 'has-scroll-over opacity-0': scrollOver }"
