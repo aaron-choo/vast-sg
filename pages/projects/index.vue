@@ -62,7 +62,7 @@
       <hr class="h-px w-full opacity-20" />
       <div
         v-if="projects.length > 0"
-        class="isotope project-grid px-4 pt-12 py-24"
+        class="isotope project-grid px-4 pt-12"
       >
         <div :class="allTags" class="grid-item project-link pb-2">
           <ul
@@ -183,6 +183,44 @@
               {{ $prismic.asText(project.data.title)
               }}<span class="date font-light tracking-normal">{{
                 $moment(project.data.date).format('MM/YY')
+              }}</span>
+            </div>
+          </nuxt-link>
+        </div>
+        <div :class="allTags" class="grid-item project-link">
+          <nuxt-link to="/contact">
+            <p class="text-sm lg:text-base uppercase inline-block mr-16 mb-2">
+              (<span
+                class="inline-block"
+                >Have a great idea?</span
+              >)
+            </p>
+            <div class="image-wrapper overflow-hidden rounded-lg">
+              <nuxt-img
+                v-if="page.contactImage.url"
+                format="webp"
+                :src="page.contactImage.url"
+                sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
+                :width="page.contactImage.dimensions.width"
+                :height="page.contactImage.dimensions.height"
+                class="image transition duration-700 w-full h-full"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="
+                text-xl
+                lg:text-2xl
+                uppercase
+                title
+                my-2
+                flex
+                justify-between
+                tracking-tight
+              "
+            >
+              Let's Make Something Awesome<span class="date font-light tracking-normal">{{
+                $moment().format('MM/YY')
               }}</span>
             </div>
           </nuxt-link>
@@ -386,8 +424,6 @@ export default {
       } else {
         document.querySelector('.filter-button' + tag).classList.add('selected')
       }
-      document.querySelector('.project-grid').scrollIntoView({behavior: 'smooth'});
-      // document.querySelector('#anchor').scrollIntoView({behavior: 'smooth'})
       this.iso.arrange({
         filter: tag,
       })
@@ -403,7 +439,6 @@ main {
   mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
-
 .image:hover {
   transform: scale(1.02);
 }

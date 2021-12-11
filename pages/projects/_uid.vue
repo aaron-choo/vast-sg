@@ -116,7 +116,6 @@
             <span
               class="
                 summary
-                font-light
                 text-sm
                 lg:text-base
                 uppercase
@@ -129,7 +128,7 @@
             ><a
               :href="projectLink"
               target="_blank"
-              class="description uppercase font-light text-xl lg:text-2xl"
+              class="description uppercase font-light text-2xl lg:text-3xl"
               >Visit Website ↗</a
             >
           </p>
