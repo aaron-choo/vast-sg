@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="about-header">
+    <section class="about-header z-0 overflow-hidden">
       <div
         id="header-text"
         class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
@@ -61,28 +61,71 @@
           >
         </p>
       </div>
+      <div class="grid lg:grid-cols-2 gap-4">
+        <div
+            v-if="image.url !== undefined"
+            id="header-image-wrapper"
+            class="z-0 relative mx-4 mb-4"
+          >
+            <nuxt-img
+              v-if="image.url"
+              id="header-image"
+              format="webp"
+              :src="image.url"
+              sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+              :width="image.dimensions.width"
+              :height="image.dimensions.height"
+              class="w-full rounded-lg object-cover"
+              loading="lazy"
+            />
+            <div class="speech-bubble-position absolute">
+              <div class="speech-bubble relative left-1/2 rounded-xl p-2 px-3 uppercase text-center text-sm lg:text-base leading-none lg:leading-none">
+                Hello from the<br/>Vast lookout👋
+              </div>
+            </div>
+          </div>
+          <div class="text-xl
+              lg:text-2xl
+              uppercase
+              tracking-tight
+              leading-tight
+              lg:leading-tight
+              px-4 pb-4">
+              <span class="
+                text-sm
+                lg:text-base
+                uppercase
+                block
+                w-5/6 ml-auto lg:ml-0
+              ">(A multi-disciplinary design practice)</span>
+              <div id="about-copy">
+                <p class="w-5/6 ml-auto lg:ml-0">We’re a design practice in the business of crafting identities. From intangible ideas to tactile products; physical spaces to virtual experiences, we craft impactful responses that drive engagement and produce results.</p>
+                <p class="w-5/6 ml-auto">Always embarking on projects with the creativity and rigour of an architectural approach, we are grounded by experience and insights across multiple sectors, in a convergence of culture, innovation and commerce.</p>
+              </div>
+            </div>
+        </div>
     </section>
     <section class="content">
       <hr class="h-px w-full opacity-20" />
       <div>
         <div class="about-text relative overflow-hidden">
           <div
-            id="about-copy"
             class="
               block
               relative
-              text-4xl
-              sm:text-6xl
-              font-light
+              text-3xl
+              lg:text-4xl
               p-4
               py-52
+              grid
+              grid-cols-3
             "
           >
-            <p>We help brands generate desirability and impact through concept-driven and strategic design.</p>
-            <p>We embrace a fluid approach, and use our expertise to create longevity and value for our clients.</p>
+            
           </div>
           <div
             class="
+             hidden
               marquee
               absolute
               top-0
@@ -91,6 +134,7 @@
               w-full
               h-full
               pointer-events-none
+              mix-blend-difference
             "
           >
             <div
@@ -168,6 +212,7 @@ export default {
         intro: pageContent.intro,
         backgroundColor: pageContent.backgroundColor,
         textColor: pageContent.textColor,
+        image: pageContent.image,
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -223,6 +268,7 @@ export default {
       })
       gsap.set('#header-description .intro', { y: 15, opacity: 0 })
       gsap.set('#header-description .description span', { y: 15, opacity: 0 })
+      gsap.set('.content', { y: 30, opacity: 0 })
       gsap.to('.title-words span', {
         scaleY: 1,
         rotate: 0,
@@ -250,6 +296,15 @@ export default {
           ease: 'power4.out',
         })
         .delay(1)
+      gsap
+        .to('.content', {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0,
+          ease: 'power4.out',
+        })
+        .delay(2)
     },
     headerScroll() {
       const screenHeight = window.innerHeight
@@ -278,6 +333,30 @@ export default {
 <style scoped>
 .description-words {
   padding-right: 0.29em;
+}
+#header-image {
+  min-height: 600px;
+}
+.speech-bubble-position {
+  bottom: 52%;
+  right: 54%;
+}
+.speech-bubble {
+	background: #222;
+  color: #fff;
+}
+.speech-bubble::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: #222;
+	border-bottom: 0;
+	margin-left: -10px;
+	margin-bottom: -10px;
 }
 #about-copy p:not(:first-child){
   text-indent: 5em;
