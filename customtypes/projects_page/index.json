@@ -52,6 +52,14 @@
           "placeholder": ""
         },
         "type": "Color"
+      },
+      "contactImage": {
+        "config": {
+          "label": "contactImage",
+          "constraint": {},
+          "thumbnails": []
+        },
+        "type": "Image"
       }
     },
     "SEO": {

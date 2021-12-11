@@ -51,6 +51,14 @@
           "placeholder": ""
         },
         "type": "Color"
+      },
+      "image": {
+        "config": {
+          "label": "image",
+          "constraint": {},
+          "thumbnails": []
+        },
+        "type": "Image"
       }
     },
     "SEO": {
