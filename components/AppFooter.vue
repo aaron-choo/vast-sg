@@ -696,8 +696,7 @@ export default {
   color: var(--bg);
 }
 .speed-toggle > div {
-  border: 1px solid var(--color);
-  background: var(--bg);
+    background: var(--bg);
     mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
@@ -712,6 +711,7 @@ export default {
   left: 0;
   border-radius: 2em;
   transition: transform 0.3s;
+  border: 1px solid var(--color);
 }
 .btn-txt-wrap::before {
   z-index: 0;
