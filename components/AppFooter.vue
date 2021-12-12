@@ -696,9 +696,10 @@ export default {
   color: var(--bg);
 }
 .speed-toggle > div {
-  outline: 1px solid var(--color);
-  outline-offset: -1px;
+  border: 1px solid var(--color);
   background: var(--bg);
+    mask-image: -webkit-radial-gradient(white, black);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .btn-txt-wrap::after,
 .btn-txt-wrap::before {
