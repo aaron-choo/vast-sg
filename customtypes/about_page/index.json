@@ -59,6 +59,20 @@
           "thumbnails": []
         },
         "type": "Image"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "text_block": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "SEO": {
