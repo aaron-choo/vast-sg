@@ -97,7 +97,7 @@
                 uppercase
                 block
                 w-5/6 ml-auto lg:ml-0
-              ">(A multi-disciplinary design practice)</span>
+              ">(Multi-disciplinary design)</span>
               <div id="about-copy">
                 <p class="w-5/6 ml-auto lg:ml-0">We’re a design practice in the business of crafting identities. From intangible ideas to tactile products; physical spaces to virtual experiences, we craft impactful responses that drive engagement and produce results.</p>
                 <p class="w-5/6 ml-auto">Always embarking on projects with the creativity and rigour of an architectural approach, we are grounded by experience and insights across multiple sectors, in a convergence of culture, innovation and commerce.</p>
