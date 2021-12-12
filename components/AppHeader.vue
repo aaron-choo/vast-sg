@@ -2,7 +2,7 @@
   <header class="header relative z-20">
     <div
       class="logo-wrap fixed top-4 left-4 transition duration-300"
-      :class="{ 'has-scroll-over opacity-0': scrollOver }"
+      :class="{ 'has-scroll-over opacity-0 pointer-events-none': scrollOver }"
     >
       <nuxt-link to="/" class="logo">
         <Logo class="w-24 logo" />
@@ -19,7 +19,7 @@
         duration-300
         rounded-full
       "
-      :class="{ 'has-scroll-over opacity-0': scrollOver, active: audio }"
+      :class="{ 'has-scroll-over opacity-0 pointer-events-none': scrollOver, active: audio }"
     >
       <a
         class="
@@ -52,18 +52,6 @@
             />
           </svg>
         </div>
-        <div
-          class="
-            mute-icon
-            block
-            absolute
-            h-px
-            w-full
-            transition
-            duration-300
-            opacity-0
-          "
-        ></div>
       </a>
       <audio id="bgm" loop>
         <source src="/bgm.mp3" type="audio/mpeg" />
@@ -79,7 +67,7 @@
         duration-300
         rounded-full
       "
-      :class="{ 'has-scroll-over opacity-0': scrollOver }"
+      :class="{ 'has-scroll-over opacity-0 pointer-events-none': scrollOver }"
     >
       <ul class="flex">
         <li
