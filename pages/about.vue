@@ -61,7 +61,9 @@
           >
         </p>
       </div>
-      <div class="grid lg:grid-cols-2 gap-4">
+    </section>
+    <section class="content">
+      <div class="grid lg:grid-cols-2">
         <div
             v-if="image.url !== undefined"
             id="header-image-wrapper"
@@ -79,8 +81,11 @@
               loading="lazy"
             />
             <div class="speech-bubble-position absolute">
-              <div class="speech-bubble relative left-1/2 rounded-xl p-2 px-3 uppercase text-center text-sm lg:text-base leading-none lg:leading-none">
-                Hello from the<br/>Vast lookout👋
+              <div class="speech-bubble relative left-1/2 rounded-xl p-2 px-3 uppercase text-sm lg:text-base leading-none lg:leading-none flex">
+                <span>Hello from the<br/>Vast lookout!</span><span class="wave text-2xl lg:text-3xl leading-none lg:leading-none -mx-1">👋</span>
+              </div>
+              <div class="speech-bubble-origin relative left-1/4 bottom-2">
+                <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg" class="w-full"><path d="M0 0.516602C0 9.06769 3.26836 15.9997 13.7618 15.9997L14 16.0005C13.0623 15.2567 12.2689 14.3944 11.6314 13.4229C10.4112 11.5638 10 9.73924 10 5.406V0.516602H0Z" fill="#007aff" data-v-31c4c148=""></path></svg>
               </div>
             </div>
           </div>
@@ -104,99 +109,20 @@
               </div>
             </div>
         </div>
-    </section>
-    <section class="content">
       <hr class="h-px w-full opacity-20" />
-      <div>
-        <div class="about-text relative overflow-hidden">
-          <div
-            class="
-              block
-              relative
-              text-3xl
-              lg:text-4xl
-              p-4
-              py-52
-              grid
-              grid-cols-3
-            "
-          >
-            
-          </div>
-          <div
-            class="
-             hidden
-              marquee
-              absolute
-              top-0
-              lef-0
-              overflow-hidden
-              w-full
-              h-full
-              pointer-events-none
-              mix-blend-difference
-            "
-          >
-            <div
-              class="marquee-inner-wrap flex overflow-hidden whitespace-nowrap"
-            >
-              <div class="marquee-inner" aria-hidden="true">
-                <span
-                  class="
-                    whitespace-nowrap
-                    text-4xl
-                    md:text-6xl
-                    py-4
-                    font-light
-                    uppercase
-                    text-center
-                    flex
-                    items-center
-                    w-max
-                  "
-                  >Like what you see?<img
-                    src="/emoji-eyes.png"
-                    class="emoji h-10 md:h-14 relative mx-4" />or just wanna say
-                  hi?<img
-                    src="/emoji-waving-hand.png"
-                    class="emoji h-10 md:h-14 relative mx-4"
-                /></span>
-              </div>
-              <div class="marquee-inner" aria-hidden="true">
-                <span
-                  class="
-                    whitespace-nowrap
-                    text-4xl
-                    md:text-6xl
-                    py-4
-                    font-light
-                    uppercase
-                    text-center
-                    flex
-                    items-center
-                    w-max
-                  "
-                  >Like what you see?<img
-                    src="/emoji-eyes.png"
-                    class="emoji h-10 md:h-14 relative mx-4" />or just wanna say
-                  hi?<img
-                    src="/emoji-waving-hand.png"
-                    class="emoji h-10 md:h-14 relative mx-4"
-                /></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <hr class="h-px w-full opacity-20" />
+       <slice-zone type="about_page" queryType="single" />
     </section>
   </main>
 </template>
 
 <script>
 import gsap from 'gsap'
+import SliceZone from 'vue-slicezone'
 export default {
   name: 'AboutPage',
+  components: {
+    SliceZone
+  },
   async asyncData({ $prismic, error }) {
     try {
       const pageContent = (await $prismic.api.getSingle('about_page')).data
@@ -338,25 +264,12 @@ export default {
   min-height: 600px;
 }
 .speech-bubble-position {
-  bottom: 52%;
-  right: 54%;
+  bottom: 50%;
+  right: 50%;
 }
 .speech-bubble {
-	background: #222;
+	background: #007aff;
   color: #fff;
-}
-.speech-bubble::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 10px solid transparent;
-	border-top-color: #222;
-	border-bottom: 0;
-	margin-left: -10px;
-	margin-bottom: -10px;
 }
 #about-copy p:not(:first-child){
   text-indent: 5em;
@@ -392,6 +305,25 @@ export default {
 
 .marquee-inner.reverse {
   animation: marquee 20s linear reverse infinite;
+}
+
+.wave {
+  animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;        /* Change to speed up or slow down */
+  animation-iteration-count: infinite;  /* Never stop waving :) */
+  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
 }
 
 @keyframes marquee {
