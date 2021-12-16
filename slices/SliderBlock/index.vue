@@ -2,9 +2,9 @@
   <section class="section px-4 lg:px-40 my-24" :class="slice.primary.align">
     <div
       v-swiper="swiperOption"
-      class="slider-block relative overflow-hidden rounded-lg"
+      class="slider-block relative"
     >
-      <div class="swiper-wrapper">
+      <div class="swiper-wrapper overflow-hidden rounded-lg">
         <div
           v-for="(item, index) in slice.items"
           :key="index"
@@ -28,17 +28,7 @@
           swiper-pagination
           text-xs
           lg:text-sm
-          absolute
-          text-right
-          top-0
-          left-0
-          h-full
-          w-full
-          mix-blend-difference
-          p-2
-          flex
-          justify-end
-          items-end
+          mt-3
         "
       ></div>
       <div
@@ -133,11 +123,13 @@ export default {
 }
 .swiper-pagination {
   letter-spacing: 0.2em;
+  position: relative;
+  text-align: right;
 }
 section.left > div,
 section.right > div,
 section.center > div {
-  width: 75%;
+  width: 83%;
 }
 section.left > div {
   margin-left: 0;
