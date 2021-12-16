@@ -81,8 +81,8 @@
               loading="lazy"
             />
             <div class="speech-bubble-position absolute">
-              <div class="speech-bubble relative left-1/2 rounded-xl p-2 px-3 uppercase text-sm lg:text-base leading-none lg:leading-none flex">
-                <span>Hello from the<br/>Vast lookout!</span><span class="wave text-2xl lg:text-3xl leading-none lg:leading-none -mx-1">👋</span>
+              <div class="speech-bubble relative left-1/2 rounded-xl p-2 px-3 flex items-center">
+                <span class="text-sm lg:text-base leading-none lg:leading-none">Hello from the<br/>VAST lookout!</span><span class="wave text-2xl lg:text-3xl leading-none lg:leading-none -mx-1">👋</span>
               </div>
               <div class="speech-bubble-origin relative left-1/4 bottom-2">
                 <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg" class="w-full"><path d="M0 0.516602C0 9.06769 3.26836 15.9997 13.7618 15.9997L14 16.0005C13.0623 15.2567 12.2689 14.3944 11.6314 13.4229C10.4112 11.5638 10 9.73924 10 5.406V0.516602H0Z" fill="#007aff" data-v-31c4c148=""></path></svg>
