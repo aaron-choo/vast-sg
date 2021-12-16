@@ -27,11 +27,13 @@ export default {
     script: []
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["~/assets/css/main.css"],
+  css: [
+    '~/assets/css/main.css'
+  ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
-    { src: "@/plugins/isotope.js", mode: 'client' }
+    { src: '~plugins/vue-awesome-swiper', mode: 'client' },
+    { src: "~plugins/isotope.js", mode: 'client' }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

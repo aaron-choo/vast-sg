@@ -686,7 +686,7 @@ export default {
     to(rgba(0, 0, 0, 0))
   );
   z-index: 1;
-  transition: background .3s ease;
+  transition: background 0.3s ease;
 }
 .btn-txt {
   color: var(--color);
@@ -696,8 +696,8 @@ export default {
   color: var(--bg);
 }
 .speed-toggle > div {
-    background: var(--bg);
-    mask-image: -webkit-radial-gradient(white, black);
+  background: var(--bg);
+  mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .btn-txt-wrap::after,
