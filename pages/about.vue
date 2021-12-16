@@ -80,9 +80,9 @@
               class="w-full rounded-lg object-cover"
               loading="lazy"
             />
-            <div class="speech-bubble-position absolute">
+            <div class="speech-bubble-position absolute w-44">
               <div class="speech-bubble relative left-1/2 rounded-xl p-2 px-3 flex items-center">
-                <span class="text-sm lg:text-base leading-none lg:leading-none">Hello from the<br/>VAST lookout!</span><span class="wave text-2xl lg:text-3xl leading-none lg:leading-none -mx-1">👋</span>
+                <span class="text-sm lg:text-base leading-none lg:leading-none">Hello From The<br/>VAST Lookout!</span><span class="wave text-2xl lg:text-3xl leading-none lg:leading-none ml-2 -mr-1">👋</span>
               </div>
               <div class="speech-bubble-origin relative left-1/4 bottom-2">
                 <svg width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg" class="w-full"><path d="M0 0.516602C0 9.06769 3.26836 15.9997 13.7618 15.9997L14 16.0005C13.0623 15.2567 12.2689 14.3944 11.6314 13.4229C10.4112 11.5638 10 9.73924 10 5.406V0.516602H0Z" fill="#007aff" data-v-31c4c148=""></path></svg>
@@ -247,7 +247,7 @@ export default {
           end: 'bottom 60%',
           scrub: false,
           pin: false,
-          markers: true,
+          markers: false,
           toggleActions: 'restart none reverse none'
         },
         opacity: 1,
@@ -298,39 +298,6 @@ export default {
 #about-copy p:not(:first-child){
   text-indent: 5em;
 }
-.marquee {
-  background: var(--color);
-  color: var(--bg);
-  transform: translate3d(0, 101%, 0);
-  transition: 0.3s ease;
-}
-
-.marquee-inner-wrap {
-  height: 100%;
-  width: 100%;
-  transform: translate3d(0, -101%, 0);
-  transition: 0.3s ease;
-}
-
-.about-text:hover .marquee,
-.about-text:hover .marquee-inner-wrap {
-  transform: translate3d(0, 0, 0);
-}
-
-.marquee-inner {
-  height: 100%;
-  width: fit-content;
-  align-items: center;
-  display: flex;
-  position: relative;
-  animation: marquee 10s linear infinite;
-  will-change: transform;
-}
-
-.marquee-inner.reverse {
-  animation: marquee 20s linear reverse infinite;
-}
-
 .wave {
   animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
   animation-duration: 2.5s;        /* Change to speed up or slow down */
@@ -338,7 +305,6 @@ export default {
   transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
   display: inline-block;
 }
-
 @keyframes wave-animation {
     0% { transform: rotate( 0.0deg) }
    10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
@@ -348,11 +314,5 @@ export default {
    50% { transform: rotate(10.0deg) }
    60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
   100% { transform: rotate( 0.0deg) }
-}
-
-@keyframes marquee {
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
 }
 </style>
