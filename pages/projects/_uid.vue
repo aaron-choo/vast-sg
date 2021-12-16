@@ -679,6 +679,9 @@ export default {
     document.documentElement.style.setProperty('--prevbg', this.prevBackgroundColor)
     document.documentElement.style.setProperty('--prevcolor', this.prevTextColor)
   },
+  updated() {
+    this.$ScrollTrigger.refresh()
+  },
   destroyed() {
     document.documentElement.style.setProperty('--bg', '')
     document.documentElement.style.setProperty('--color-primary', '')

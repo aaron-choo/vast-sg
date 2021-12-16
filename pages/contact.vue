@@ -43,6 +43,9 @@ export default {
         }
       ]
     }
-  }
+  },
+  updated() {
+    this.$ScrollTrigger.refresh()
+  },
 }
 </script>

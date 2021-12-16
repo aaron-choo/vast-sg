@@ -48,6 +48,15 @@ export default {
     '@nuxt/image',
     '@nuxtjs/moment'
   ],
+  gsap: {
+    extraPlugins: {
+      scrollTo: true,
+      scrollTrigger: true
+    },
+    extraEases: {
+      expoScaleEase: true
+    }
+  },
   moment: {
     timezone: true
   },

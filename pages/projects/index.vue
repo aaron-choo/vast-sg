@@ -315,6 +315,9 @@ export default {
     window.addEventListener('scroll', this.onScroll)
     this.isotope()
   },
+  updated() {
+    this.$ScrollTrigger.refresh()
+  },
   destroyed() {
     document.documentElement.style.setProperty('--bg', '')
     document.documentElement.style.setProperty('--color-primary', '')
@@ -374,11 +377,11 @@ export default {
         .delay(1)
     },
     headerScroll() {
-      const screenHeight = window.innerHeight
-      if (document.documentElement.scrollTop < screenHeight) {
-        document.getElementById('header-text').style.transform =
-          'translateY(' + document.documentElement.scrollTop / 2 + 'px)'
-      }
+      // const screenHeight = window.innerHeight
+      // if (document.documentElement.scrollTop < screenHeight) {
+      //   document.getElementById('header-text').style.transform =
+      //     'translateY(' + document.documentElement.scrollTop / 2 + 'px)'
+      // }
     },
     onScroll() {
       // Get the current scroll position

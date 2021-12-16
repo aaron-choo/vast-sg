@@ -174,8 +174,14 @@ export default {
   },
   mounted() {
     this.headerAnimation()
+    this.speechAnimation()
     window.addEventListener('scroll', this.headerScroll)
     window.addEventListener('scroll', this.onScroll)
+    const gsap = this.$gsap
+    const ExpoScaleEase = this.$ExpoScaleEase
+    const ScrollToPlugin = this.$ScrollToPlugin
+    const ScrollTrigger = this.$ScrollTrigger
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
   },
   destroyed() {
     document.documentElement.style.setProperty('--bg', '')
@@ -231,6 +237,24 @@ export default {
           ease: 'power4.out',
         })
         .delay(2)
+    },
+    speechAnimation() {
+      gsap.set('.speech-bubble-position', { opacity: 0, scale: .9, transformOrigin: 'right' })
+      gsap.to('.speech-bubble-position', {
+        scrollTrigger: {
+          trigger: '.speech-bubble-position',
+          start: 'top 60%',
+          end: 'bottom 60%',
+          scrub: false,
+          pin: false,
+          markers: true,
+          toggleActions: 'restart none reverse none'
+        },
+        opacity: 1,
+        scale: 1,
+        ease: 'elastic',
+        duration: 1
+      })
     },
     headerScroll() {
       const screenHeight = window.innerHeight

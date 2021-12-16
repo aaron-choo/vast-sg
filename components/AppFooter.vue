@@ -592,14 +592,37 @@ export default {
     }
   },
   mounted() {
+    const gsap = this.$gsap
+    const ExpoScaleEase = this.$ExpoScaleEase
+    const ScrollToPlugin = this.$ScrollToPlugin
+    const ScrollTrigger = this.$ScrollTrigger
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
     const tl = gsap.timeline({ repeat: -1 })
     tl.to('#credits-roll .marquee-inner', {
       y: '-100%',
       duration: this.creditsSpeed,
       ease: 'linear',
     }).timeScale(1)
+    this.creditsAppear()
   },
   methods: {
+     creditsAppear(){
+      gsap.set('#footer', { opacity: 0 })
+      gsap.to('#footer', {
+        scrollTrigger: {
+          trigger: '#footer',
+          start: 'top center',
+          end: 'center bottom',
+          scrub: false,
+          pin: false,
+          markers: false,
+          toggleActions: 'restart none reverse none'
+        },
+        opacity: 1,
+        ease: 'none',
+        duration: .3
+      })
+    },
     speedAnimation() {
       const currentY =
         -gsap.getProperty('#credits-roll .marquee-inner', 'y') / 100
