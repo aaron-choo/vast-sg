@@ -53,8 +53,8 @@
             >({{ $prismic.asText(intro) }})</span
           ><span class="description serif leading-7 font-light"
             ><span
-              v-for="word in descriptionWords"
-              :key="word"
+              v-for="(word, index) in descriptionWords"
+              :key="index"
               class="description-words inline-block"
               >{{ word }}</span
             ></span
