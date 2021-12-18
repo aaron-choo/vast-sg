@@ -11,10 +11,9 @@
             class="
               tracking-tight
               leading-none
-              text-4xl
-              lg:text-5xl
+              text-5xl
+              lg:text-8xl
               uppercase
-              overflow-hidden
             "
           >
             <span
@@ -42,7 +41,7 @@
               transform
               leading-6
             "
-            :class="{ 'has-scroll-over opacity-0 translate-y-4': scrollOver }"
+            :class="{ 'has-scroll-over': scrollOver }"
           >
             <span
               class="
@@ -72,7 +71,7 @@
         <div
           v-if="image.url !== undefined"
           id="header-image-wrapper"
-          class="z-0 relative mx-4"
+          class="z-0 relative mx-4 overflow-hidden rounded-lg"
         >
           <nuxt-img
             v-if="image.url"
@@ -82,7 +81,7 @@
             sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
             :width="image.dimensions.width"
             :height="image.dimensions.height"
-            class="w-full rounded-lg"
+            class="w-full"
             loading="lazy"
           />
         </div>
@@ -128,8 +127,8 @@
             ><a
               :href="projectLink"
               target="_blank"
-              class="description uppercase font-light text-2xl lg:text-3xl"
-              >Visit Website ↗</a
+              class="live-link uppercase font-light text-2xl lg:text-3xl"
+              >Visit Website <span class="live-link-arrow inline-block">↗</span></a
             >
           </p>
         </div>
@@ -345,201 +344,203 @@
         </div>
       </nuxt-link>
       <hr class="h-px w-full opacity-20" />
-      <nuxt-link
-        v-if="nextProject !== undefined"
-        id="next-project-section"
-        :to="$prismic.linkResolver(nextProject)"
-        class="next-project-section sticky top-4 block"
-      >
-        <div class="w-auto relative m-4">
-          <div
-            v-if="nextProjectImage.url !== undefined"
-            id="next-header-image-wrapper"
-            class="z-0 absolute overflow-hidden w-full rounded-lg h-full"
-          >
+      <div class="next-prev-projects">
+        <nuxt-link
+          v-if="nextProject !== undefined"
+          id="next-project-section"
+          :to="$prismic.linkResolver(nextProject)"
+          class="next-project-section top-4 block sticky"
+        >
+          <div class="w-auto relative m-4">
             <div
-              id="next-project-bg"
-              class="absolute h-full w-full pointer-events-none opacity-70 z-10"
-            ></div>
-            <nuxt-img
-              v-if="nextProjectImage.url"
-              id="next-header-image"
-              format="webp"
-              :src="nextProjectImage.url"
-              sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-              :width="nextProjectImage.dimensions.width"
-              :height="nextProjectImage.dimensions.height"
-              class="w-full h-full object-cover z-0"
-              loading="lazy"
-            />
-          </div>
-          <p
-            class="
-              next-project-label
-              text-sm
-              lg:text-base
-              uppercase
-              z-0
-              absolute
-              top-0
-              left-0
-              m-4
-              px-2
-              rounded-2xl
-              tracking-tight
-              font-medium
-            "
-          >
-            Up next
-          </p>
-          <div
-            id="next-header-text"
-            class="w-full flex flex-col justify-center p-4 py-12 z-0"
-          >
-            <h3
-              id="next-header-title"
-              class="tracking-tight leading-none text-4xl lg:text-5xl uppercase z-0"
+              v-if="nextProjectImage.url !== undefined"
+              id="next-header-image-wrapper"
+              class="z-0 absolute overflow-hidden w-full rounded-lg h-full"
             >
-              {{ nextProjectTitle }}
-            </h3>
+              <div
+                id="next-project-bg"
+                class="absolute h-full w-full pointer-events-none opacity-70 z-10"
+              ></div>
+              <nuxt-img
+                v-if="nextProjectImage.url"
+                id="next-header-image"
+                format="webp"
+                :src="nextProjectImage.url"
+                sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+                :width="nextProjectImage.dimensions.width"
+                :height="nextProjectImage.dimensions.height"
+                class="w-full h-full object-cover z-0"
+                loading="lazy"
+              />
+            </div>
             <p
-              id="next-header-scope"
               class="
-                inline-block
-                tag
-                capitalize
-                text-2xl
-                lg:text-3xl
-                leading-6
+                next-project-label
+                text-sm
+                lg:text-base
+                uppercase
                 z-0
+                absolute
+                top-0
+                left-0
+                m-4
+                px-2
+                rounded-2xl
+                tracking-tight
+                font-medium
               "
             >
-              <span
-                class="
-                  summary
-                  text-sm
-                  lg:text-base
-                  uppercase
-                  inline-block
-                  mr-16
-                  -mb-4
-                "
-                >(Scope)</span
-              ><span
-                v-for="(tag, index) in nextProjectTags"
-                :key="index"
-                class="inline-block serif font-light"
-                >{{ tag
-                }}<template v-if="Object.keys(nextProjectTags).length > 1">
-                  <span
-                    v-if="index != Object.keys(nextProjectTags).length - 1"
-                    class="sep"
-                    >+</span
-                  >
-                </template>
-              </span>
+              Up next
             </p>
+            <div
+              id="next-header-text"
+              class="w-full flex flex-col justify-center p-4 py-12 z-0"
+            >
+              <h3
+                id="next-header-title"
+                class="tracking-tight leading-none text-5xl lg:text-8xl uppercase z-0"
+              >
+                {{ nextProjectTitle }}
+              </h3>
+              <p
+                id="next-header-scope"
+                class="
+                  inline-block
+                  tag
+                  capitalize
+                  text-2xl
+                  lg:text-3xl
+                  leading-6
+                  z-0
+                "
+              >
+                <span
+                  class="
+                    summary
+                    text-sm
+                    lg:text-base
+                    uppercase
+                    inline-block
+                    mr-16
+                    -mb-4
+                  "
+                  >(Scope)</span
+                ><span
+                  v-for="(tag, index) in nextProjectTags"
+                  :key="index"
+                  class="inline-block serif font-light"
+                  >{{ tag
+                  }}<template v-if="Object.keys(nextProjectTags).length > 1">
+                    <span
+                      v-if="index != Object.keys(nextProjectTags).length - 1"
+                      class="sep"
+                      >+</span
+                    >
+                  </template>
+                </span>
+              </p>
+            </div>
           </div>
-        </div>
-      </nuxt-link>
+        </nuxt-link>
 
-      <nuxt-link
-        v-if="prevProject !== undefined"
-        id="prev-project-section"
-        :to="$prismic.linkResolver(prevProject)"
-        class="prev-project-section sticky top-4 block"
-      >
-        <div class="w-auto relative m-4">
-          <div
-            v-if="prevProjectImage.url !== undefined"
-            id="prev-header-image-wrapper"
-            class="z-0 absolute overflow-hidden w-full rounded-lg h-full"
-          >
+        <nuxt-link
+          v-if="prevProject !== undefined"
+          id="prev-project-section"
+          :to="$prismic.linkResolver(prevProject)"
+          class="prev-project-section top-4 block"
+        >
+          <div class="w-auto relative m-4">
             <div
-              id="prev-project-bg"
-              class="absolute h-full w-full pointer-events-none opacity-70 z-10"
-            ></div>
-            <nuxt-img
-              v-if="prevProjectImage.url"
-              id="next-header-image"
-              format="webp"
-              :src="prevProjectImage.url"
-              sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-              :width="prevProjectImage.dimensions.width"
-              :height="prevProjectImage.dimensions.height"
-              class="w-full h-full object-cover z-0"
-              loading="lazy"
-            />
-          </div>
-          <p
-            class="
-              prev-project-label
-              text-sm
-              lg:text-base
-              uppercase
-              z-0
-              absolute
-              top-0
-              left-0
-              m-4
-              px-2
-              rounded-2xl
-              tracking-tight
-              font-medium
-            "
-          >
-            Previously on
-          </p>
-          <div
-            id="prev-header-text"
-            class="w-full flex flex-col justify-center p-4 py-12 z-10"
-          >
-            <h3
-              id="prev-header-title"
-              class="tracking-tight leading-none text-4xl lg:text-5xl uppercase z-0"
+              v-if="prevProjectImage.url !== undefined"
+              id="prev-header-image-wrapper"
+              class="z-0 absolute overflow-hidden w-full rounded-lg h-full"
             >
-              {{ prevProjectTitle }}
-            </h3>
+              <div
+                id="prev-project-bg"
+                class="absolute h-full w-full pointer-events-none opacity-70 z-10"
+              ></div>
+              <nuxt-img
+                v-if="prevProjectImage.url"
+                id="next-header-image"
+                format="webp"
+                :src="prevProjectImage.url"
+                sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+                :width="prevProjectImage.dimensions.width"
+                :height="prevProjectImage.dimensions.height"
+                class="w-full h-full object-cover z-0"
+                loading="lazy"
+              />
+            </div>
             <p
-              id="prev-header-scope"
               class="
-                inline-block
-                tag
-                capitalize
-                text-2xl
-                lg:text-3xl
-                leading-6
+                prev-project-label
+                text-sm
+                lg:text-base
+                uppercase
                 z-0
+                absolute
+                top-0
+                left-0
+                m-4
+                px-2
+                rounded-2xl
+                tracking-tight
+                font-medium
               "
             >
-              <span
-                class="
-                  summary
-                  text-sm
-                  lg:text-base
-                  uppercase
-                  inline-block
-                  mr-16
-                  -mb-4
-                "
-                >(Scope)</span
-              ><span
-                v-for="(tag, index) in prevProjectTags"
-                :key="index"
-                class="inline-block serif font-light"
-                >{{ tag
-                }}<template v-if="Object.keys(prevProjectTags).length > 1">
-                  <span
-                    v-if="index != Object.keys(prevProjectTags).length - 1"
-                    class="sep"
-                    >+</span
-                  >
-                </template>
-              </span>
+              Previously on
             </p>
+            <div
+              id="prev-header-text"
+              class="w-full flex flex-col justify-center p-4 py-12 z-10"
+            >
+              <h3
+                id="prev-header-title"
+                class="tracking-tight leading-none text-5xl lg:text-8xl uppercase z-0"
+              >
+                {{ prevProjectTitle }}
+              </h3>
+              <p
+                id="prev-header-scope"
+                class="
+                  inline-block
+                  tag
+                  capitalize
+                  text-2xl
+                  lg:text-3xl
+                  leading-6
+                  z-0
+                "
+              >
+                <span
+                  class="
+                    summary
+                    text-sm
+                    lg:text-base
+                    uppercase
+                    inline-block
+                    mr-16
+                    -mb-4
+                  "
+                  >(Scope)</span
+                ><span
+                  v-for="(tag, index) in prevProjectTags"
+                  :key="index"
+                  class="inline-block serif font-light"
+                  >{{ tag
+                  }}<template v-if="Object.keys(prevProjectTags).length > 1">
+                    <span
+                      v-if="index != Object.keys(prevProjectTags).length - 1"
+                      class="sep"
+                      >+</span
+                    >
+                  </template>
+                </span>
+              </p>
+            </div>
           </div>
-        </div>
-      </nuxt-link>
+        </nuxt-link>
+      </div>
     </section>
   </main>
 </template>
@@ -547,7 +548,6 @@
 <script>
 import SliceZone from 'vue-slicezone'
 import gsap from 'gsap'
-// import GridPost from '~/components/GridPost'
 export default {
   name: 'Project',
   components: {
@@ -671,13 +671,13 @@ export default {
     )
   },
   mounted() {
-    this.headerAnimation()
-    window.addEventListener('scroll', this.headerScroll)
+    window.addEventListener('scroll', this.animations)
     window.addEventListener('scroll', this.onScroll)
     document.documentElement.style.setProperty('--nextbg', this.nextBackgroundColor)
     document.documentElement.style.setProperty('--nextcolor', this.nextTextColor)
     document.documentElement.style.setProperty('--prevbg', this.prevBackgroundColor)
     document.documentElement.style.setProperty('--prevcolor', this.prevTextColor)
+    this.loadAnimations()
   },
   updated() {
     this.$ScrollTrigger.refresh()
@@ -690,18 +690,49 @@ export default {
     document.documentElement.style.setProperty('--nextcolor', '')
     document.documentElement.style.setProperty('--prevbg', '')
     document.documentElement.style.setProperty('--prevcolor', '')
-    window.removeEventListener('scroll', this.headerScroll)
+    window.removeEventListener('scroll', this.animations)
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
-    headerScroll() {
+    animations() {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
-        document.getElementById('header-text').style.transform =
-          'translateY(' + document.documentElement.scrollTop / 2 + 'px)'
+        gsap.to('.title-words span', {
+          translateY: document.documentElement.scrollTop/4,
+          stagger: 0.025,
+          duration: 1,
+          ease: 'power4.out',
+        })
       }
+      gsap.set('#header-image-wrapper', { margin: '0 1rem', borderRadius: '0.5rem' })
+      gsap.to('#header-image-wrapper', {
+        scrollTrigger: {
+          trigger: '#header-image-wrapper',
+          start: 'top 50%',
+          end: 'top top',
+          scrub: true,
+          pin: false,
+        },
+        borderRadius: 0,
+        margin: 0,
+        ease: 'none',
+        duration: 1
+      })
+      gsap.set('#header-image-wrapper img', { scale: 1 })
+      gsap.to('#header-image-wrapper img', {
+        scrollTrigger: {
+          trigger: '#header-image-wrapper',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+          pin: false,
+        },
+        scale: 1.2,
+        ease: 'none',
+        duration: 1
+      })
     },
-    headerAnimation() {
+    loadAnimations() {
       gsap.set('.title-words span', { scaleY: 0, rotate: -22, rotateX: 90, transformOrigin: '0% 50% -50' })
       gsap.set('#header-scope span', { y: 15, opacity: 0 })
       gsap.set('#header-image', { y: 30, opacity: 0 })

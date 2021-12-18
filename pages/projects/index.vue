@@ -11,9 +11,8 @@
             tracking-tight
             leading-none
             text-4xl
-            lg:text-5xl
+            lg:text-8xl
             uppercase
-            overflow-hidden
             mb-4
           "
         >
@@ -26,10 +25,10 @@
               :key="index2"
               class="inline-block"
               >{{ letter }}</span
-            >&nbsp;</span
-          ><span class="inline-block text-base align-top ml-1">{{
+            >&nbsp;<span class="inline-block text-base align-top tracking-wider">{{
             projects.length
-          }}</span>
+          }}</span></span
+          >
         </h1>
         <p
           id="header-description"
@@ -43,7 +42,7 @@
             leading-3
             transform
           "
-          :class="{ 'has-scroll-over opacity-0 translate-y-4': scrollOver }"
+          :class="{ 'has-scroll-over': scrollOver }"
         >
           <span class="intro text-sm lg:text-base uppercase inline-block mr-16"
             >({{ $prismic.asText(intro) }})</span
@@ -377,11 +376,15 @@ export default {
         .delay(1)
     },
     headerScroll() {
-      // const screenHeight = window.innerHeight
-      // if (document.documentElement.scrollTop < screenHeight) {
-      //   document.getElementById('header-text').style.transform =
-      //     'translateY(' + document.documentElement.scrollTop / 2 + 'px)'
-      // }
+      const screenHeight = window.innerHeight
+      if (document.documentElement.scrollTop < screenHeight) {
+        gsap.to('.title-words span', {
+          translateY: document.documentElement.scrollTop/4,
+          stagger: 0.025,
+          duration: 1,
+          ease: 'power4.out',
+        })
+      }
     },
     onScroll() {
       // Get the current scroll position
@@ -430,8 +433,8 @@ export default {
       this.iso.arrange({
         filter: tag,
       })
-    },
-  },
+    }
+  }
 }
 </script>
 <style scoped>

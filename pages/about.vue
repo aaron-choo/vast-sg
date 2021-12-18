@@ -10,16 +10,15 @@
           class="
             tracking-tight
             text-4xl
-            lg:text-5xl
+            lg:text-8xl
             uppercase
-            overflow-hidden
             mb-4
           "
         >
           <span
             v-for="(word, index) in titleWords"
             :key="index"
-            class="title-words inline-block"
+            class="title-words inline-block overflow-hidden"
             ><span
               v-for="(letter, index2) in Array.from(word)"
               :key="index2"
@@ -39,7 +38,7 @@
             leading-3
             transform
           "
-          :class="{ 'has-scroll-over opacity-0 translate-y-4': scrollOver }"
+          :class="{ 'has-scroll-over': scrollOver }"
         >
           <span
             class="
@@ -244,7 +243,7 @@ export default {
         scrollTrigger: {
           trigger: '.speech-bubble-position',
           start: 'top 60%',
-          end: 'bottom 60%',
+          end: 'top 60%',
           scrub: false,
           pin: false,
           markers: false,
@@ -259,8 +258,12 @@ export default {
     headerScroll() {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
-        document.getElementById('header-text').style.transform =
-          'translateY(' + document.documentElement.scrollTop / 1.8 + 'px)'
+        gsap.to('.title-words span', {
+          translateY: document.documentElement.scrollTop/4,
+          stagger: 0.025,
+          duration: 1,
+          ease: 'power4.out',
+        })
       }
     },
     onScroll() {
