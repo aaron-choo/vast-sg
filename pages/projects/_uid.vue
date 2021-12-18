@@ -671,12 +671,13 @@ export default {
     )
   },
   mounted() {
-    window.addEventListener('scroll', this.animations)
+    window.addEventListener('scroll', this.scrollAnimations)
     window.addEventListener('scroll', this.onScroll)
     document.documentElement.style.setProperty('--nextbg', this.nextBackgroundColor)
     document.documentElement.style.setProperty('--nextcolor', this.nextTextColor)
     document.documentElement.style.setProperty('--prevbg', this.prevBackgroundColor)
     document.documentElement.style.setProperty('--prevcolor', this.prevTextColor)
+    this.animations()
     this.loadAnimations()
   },
   updated() {
@@ -695,15 +696,6 @@ export default {
   },
   methods: {
     animations() {
-      const screenHeight = window.innerHeight
-      if (document.documentElement.scrollTop < screenHeight) {
-        gsap.to('.title-words span', {
-          translateY: document.documentElement.scrollTop/4,
-          stagger: 0.025,
-          duration: 1,
-          ease: 'power4.out',
-        })
-      }
       gsap.set('#header-image-wrapper', { margin: '0 1rem', borderRadius: '0.5rem' })
       gsap.to('#header-image-wrapper', {
         scrollTrigger: {
@@ -731,6 +723,57 @@ export default {
         ease: 'none',
         duration: 1
       })
+      gsap.set('#next-project-section', { y: 300 })
+      gsap.to('#next-project-section', {
+        scrollTrigger: {
+          trigger: '#next-project-section',
+          start: 'top bottom',
+          end: 'top bottom',
+          scrub: false,
+          markers: false,
+          toggleActions: 'play none reverse none'
+        },
+        y: 0,
+        ease: 'Power4.easeOut',
+        duration: 1
+      })
+      gsap.set('#next-header-text', { opacity: 0 })
+      gsap.to('#next-header-text', {
+        scrollTrigger: {
+          trigger: '#next-project-section',
+          start: 'top center',
+          end: 'top center',
+          scrub: false,
+          markers: false,
+          toggleActions: 'play none reverse none'
+        },
+        opacity: 1,
+        duration: .3
+      })
+      gsap.set('#prev-header-text', { opacity: 0 })
+      gsap.to('#prev-header-text', {
+        scrollTrigger: {
+          trigger: '#prev-project-section',
+          start: 'top 10%',
+          end: 'top 10%',
+          scrub: false,
+          markers: false,
+          toggleActions: 'play none reverse none'
+        },
+        opacity: 1,
+        duration: .3
+      })
+    },
+    scrollAnimations() {
+      const screenHeight = window.innerHeight
+      if (document.documentElement.scrollTop < screenHeight) {
+        gsap.to('.title-words span', {
+          translateY: document.documentElement.scrollTop/4,
+          stagger: 0.025,
+          duration: 1,
+          ease: 'power4.out',
+        })
+      }
     },
     loadAnimations() {
       gsap.set('.title-words span', { scaleY: 0, rotate: -22, rotateX: 90, transformOrigin: '0% 50% -50' })
