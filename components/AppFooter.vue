@@ -1,7 +1,7 @@
 <template>
   <footer id="footer" class="footer overflow-hidden relative">
-    <hr id="footer-hr" class="h-px w-full opacity-20" />
-    <div class="fade absolute top-px w-full h-40 pointer-events-none"></div>
+    <!-- <hr id="footer-hr" class="h-px w-full opacity-20" /> -->
+    <div class="fade absolute top-0 w-full h-40 pointer-events-none"></div>
     <div
       class="fade absolute bottom-0 w-full h-40 transform rotate-180 pointer-events-none"
     ></div>
@@ -612,7 +612,7 @@ export default {
         scrollTrigger: {
           trigger: '#footer',
           start: 'top center',
-          end: 'center bottom',
+          end: 'top center',
           scrub: false,
           pin: false,
           markers: false,
