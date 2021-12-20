@@ -296,7 +296,7 @@
                       class="w-full h-full flex flex-col items-center justify-center"
                     >
                       <div
-                        class="w-full border-b h-5 text-sm font-medium flex items-center justify-center"
+                        class="w-full border-b h-4 text-sm font-medium flex items-center justify-center"
                       >
                         Phenomenally Good
                       </div>
@@ -554,7 +554,7 @@
                       class="w-full h-full flex flex-col items-center justify-center"
                     >
                       <div
-                        class="w-full border-b h-5 text-sm font-medium flex items-center justify-center"
+                        class="w-full border-b h-4 text-sm font-medium flex items-center justify-center"
                       >
                         Phenomenally Good
                       </div>
@@ -613,53 +613,57 @@ export default {
         scrollTrigger: {
           trigger: '#footer',
           start: 'top bottom',
-          end: 'top bottom',
-          scrub: false,
-          pin: false,
-          markers: false,
+          end: 'top top',
           toggleActions: 'restart none reverse none',
           snap: {
             snapTo: 1,
-            duration: {min: 0.5, max: 0.8},
+            duration: {min: 0.5, max: 1},
             delay: 0,
-            ease: "Expo.easeOut"  
+            ease: "Power2.easeInOut"  
             },
+        }
+      })
+      gsap.to('#footer', {
+        scrollTrigger: {
+          trigger: '#footer',
+          start: 'top 1',
+          end: 'top 1',
+          toggleActions: 'restart none reverse none',
         },
         padding: 0,
-        ease: 'none',
+        ease: 'Expo.easeOut',
+        duration: .3
+      })
+      gsap.set('.speed-toggle', {opacity: 0, y: 15})
+      gsap.to('.speed-toggle', {
+        scrollTrigger: {
+          trigger: '#footer',
+          start: 'top 1',
+          end: 'top 1',
+          toggleActions: 'restart none reverse none',
+        },
+        y: 0,
+        opacity: 1,
+        ease: 'Expo.easeOut',
         duration: .3,
-        delay: 1
+        delay: .3,
       })
       gsap.to('.footer-container', {
         scrollTrigger: {
           trigger: '#footer',
-          start: 'top bottom',
-          end: 'top top',
-          scrub: false,
-          pin: false,
-          markers: false,
+          start: 'top 1',
+          end: 'top 1',
           toggleActions: 'restart none reverse none',
-          snap: {
-            snapTo: 1,
-            duration: {min: 0.5, max: 0.8},
-            delay: 0,
-            ease: "Expo.easeOut"  
-            },
         },
-        padding: '0 1rem',
+        padding: '1rem',
         borderRadius: 0,
-        ease: 'none',
-        duration: .3,
-        delay: 1
+        ease: 'Expo.easeOut',
+        duration: .3
       })
     },
     speedAnimation() {
       const currentY =
         -gsap.getProperty('#credits-roll .marquee-inner', 'y') / 100
-      // console.log(currentY)
-      // console.log(this.creditsSpeed)
-      // const tl = gsap.timeline({repeat: -1})
-      // tl.fromTo("#credits-roll .marquee-inner", {y: '0%'}, {y: '-100%', duration: this.creditsSpeed, ease: 'linear'}).timeScale(0.2).seek(currentY*this.creditsSpeed);
       this.creditsFast = true
       const tween = gsap
         .timeline({ repeat: -1 })
@@ -673,10 +677,7 @@ export default {
       gsap.to(tween, { timeScale: 8, duration: 1 })
     },
     resumeAnimation() {
-      // const tl = gsap.timeline({repeat: -1})
       const newY = -gsap.getProperty('#credits-roll .marquee-inner', 'y') / 100
-      // // console.log(newY)
-      // tl.fromTo("#credits-roll .marquee-inner", {y: '0%'}, {y: '-100%', duration: this.creditsSpeed, ease: 'linear'}).timeScale(1).seek(newY*this.creditsSpeed);
       this.creditsFast = false
       const tween = gsap
         .timeline({ repeat: -1 })
@@ -694,19 +695,19 @@ export default {
 </script>
 <style>
 footer svg path{
-  fill: var(--bg) !important;
+  fill: var(--footer-color) !important;
 }
 footer .logo-block>div{
-  background: var(--bg);
+  background: var(--footer-color);
 }
 </style>
 <style scoped>
 .footer-container {
-  background: var(--color);
-  color: var(--bg);
+  background: var(--footer-bg);
+  color: var(--footer-color);
 }
 a {
-  color: var(--bg);
+  color: var(--footer-color);
 }
 .logo {
   width: 8em;
@@ -738,14 +739,14 @@ a {
   letter-spacing: 0.05em;
 }
 .rating * {
-  border-color: var(--bg);
+  border-color: var(--footer-color);
 }
 .marquee-inner-wrap {
   height: 100%;
   width: 100%;
 }
 .fade {
-  background: var(--color);
+  background: var(--footer-bg);
   -webkit-mask-image: -webkit-gradient(
     linear,
     left top,
@@ -757,14 +758,14 @@ a {
   transition: background 0.3s ease;
 }
 .btn-txt {
-  color: var(--bg);
+  color: var(--footer-color);
   z-index: 2;
 }
 .speed-toggle:hover .btn-txt {
-  color: var(--color);
+  color: var(--footer-bg);
 }
 .speed-toggle > div {
-  background: var(--color);
+  background: var(--footer-bg);
   mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
@@ -779,7 +780,7 @@ a {
   left: 0;
   border-radius: 2em;
   transition: transform 0.3s;
-  border: 1px solid var(--bg);
+  border: 1px solid var(--footer-color);
 }
 .btn-txt-wrap::before {
   z-index: 0;
@@ -788,13 +789,13 @@ a {
   z-index: 1;
   transform: scaleY(0);
   transform-origin: top;
-  background-color: var(--bg);
+  background-color: var(--footer-color);
 }
 .down .btn-txt-wrap::after {
   z-index: 1;
   transform: scaleY(0);
   transform-origin: bottom;
-  background-color: var(--bg);
+  background-color: var(--footer-color);
 }
 .up:hover .btn-txt-wrap::after {
   transform: scaleY(1);
