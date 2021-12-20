@@ -1,7 +1,7 @@
 <template>
   <main>
     <section class="project-header">
-      <div class="w-full">
+      <div class="w-full overflow-hidden">
         <div
           id="header-text"
           class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"

@@ -407,6 +407,8 @@ html {
   --bg: #ccc;
   --bg-secondary: #fff;
   --border-color: #ddd;
+  --footer-bg: #222;
+  --footer-color: #ccc;
 }
 
 .dark-mode {

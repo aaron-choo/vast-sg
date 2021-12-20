@@ -182,6 +182,9 @@ export default {
     const ScrollTrigger = this.$ScrollTrigger
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
   },
+  updated() {
+    this.$ScrollTrigger.refresh()
+  },
   destroyed() {
     document.documentElement.style.setProperty('--bg', '')
     document.documentElement.style.setProperty('--color-primary', '')
