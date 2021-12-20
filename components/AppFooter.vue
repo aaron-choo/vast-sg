@@ -611,12 +611,18 @@ export default {
       gsap.to('#footer', {
         scrollTrigger: {
           trigger: '#footer',
-          start: 'top center',
-          end: 'top center',
+          start: 'top bottom',
+          end: 'top top',
           scrub: false,
           pin: false,
           markers: false,
-          toggleActions: 'restart none reverse none'
+          toggleActions: 'restart none reverse none',
+          snap: {
+            snapTo: 1,
+            duration: {min: 0.5, max: 0.8},
+            delay: 0,
+            ease: "Expo.easeOut"  
+            },
         },
         opacity: 1,
         ease: 'none',

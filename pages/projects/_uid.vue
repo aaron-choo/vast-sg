@@ -349,9 +349,9 @@
           v-if="nextProject !== undefined"
           id="next-project-section"
           :to="$prismic.linkResolver(nextProject)"
-          class="next-project-section top-4 block sticky"
+          class="next-project-section top-0 p-4 block sticky"
         >
-          <div class="w-auto relative m-4">
+          <div class="w-auto relative">
             <div
               v-if="nextProjectImage.url !== undefined"
               id="next-header-image-wrapper"
@@ -400,7 +400,17 @@
                 id="next-header-title"
                 class="tracking-tight leading-none text-5xl lg:text-8xl uppercase z-0"
               >
-                {{ nextProjectTitle }}
+              <span
+              v-for="(word, index) in nextProjectTitleWords"
+              :key="index"
+              class="next-title-words inline-block overflow-hidden"
+              ><span
+                v-for="(letter, index2) in Array.from(word)"
+                :key="index2"
+                class="inline-block"
+                >{{ letter }}</span
+              >&nbsp;</span
+            >
               </h3>
               <p
                 id="next-header-scope"
@@ -447,9 +457,9 @@
           v-if="prevProject !== undefined"
           id="prev-project-section"
           :to="$prismic.linkResolver(prevProject)"
-          class="prev-project-section top-4 block"
+          class="prev-project-section p-4 block"
         >
-          <div class="w-auto relative m-4">
+          <div class="w-auto relative">
             <div
               v-if="prevProjectImage.url !== undefined"
               id="prev-header-image-wrapper"
@@ -498,7 +508,17 @@
                 id="prev-header-title"
                 class="tracking-tight leading-none text-5xl lg:text-8xl uppercase z-0"
               >
-                {{ prevProjectTitle }}
+                <span
+              v-for="(word, index) in prevProjectTitleWords"
+              :key="index"
+              class="prev-title-words inline-block overflow-hidden"
+              ><span
+                v-for="(letter, index2) in Array.from(word)"
+                :key="index2"
+                class="inline-block"
+                >{{ letter }}</span
+              >&nbsp;</span
+            >
               </h3>
               <p
                 id="prev-header-scope"
@@ -620,13 +640,13 @@ export default {
         projectLink: project.data.link.url,
         relatedProjects: relatedProjects.results,
         nextProject: NextProject,
-        nextProjectTitle: $prismic.asText(NextProject.data.title),
+        nextProjectTitleWords: Array.from($prismic.asText(NextProject.data.title).split(' ')),
         nextProjectTags: NextProject.tags,
         nextProjectImage: NextProject.data.image,
         nextTextColor: NextProject.data.textColor,
         nextBackgroundColor: NextProject.data.backgroundColor,
         prevProject: PrevProject,
-        prevProjectTitle: $prismic.asText(PrevProject.data.title),
+        prevProjectTitleWords: Array.from($prismic.asText(PrevProject.data.title).split(' ')),
         prevProjectTags: PrevProject.tags,
         prevProjectImage: PrevProject.data.image,
         prevTextColor: PrevProject.data.textColor,
@@ -678,6 +698,7 @@ export default {
     document.documentElement.style.setProperty('--prevbg', this.prevBackgroundColor)
     document.documentElement.style.setProperty('--prevcolor', this.prevTextColor)
     this.animations()
+    this.nextPrevAnimations()
     this.loadAnimations()
   },
   updated() {
@@ -696,22 +717,8 @@ export default {
   },
   methods: {
     animations() {
-      gsap.set('#header-image-wrapper', { margin: '0 1rem', borderRadius: '0.5rem' })
+      gsap.set('#header-image-wrapper', { scale: 1, borderRadius: '0.5rem', transformOrigin: 'bottom' })
       gsap.to('#header-image-wrapper', {
-        scrollTrigger: {
-          trigger: '#header-image-wrapper',
-          start: 'top 50%',
-          end: 'top top',
-          scrub: true,
-          pin: false,
-        },
-        borderRadius: 0,
-        margin: 0,
-        ease: 'none',
-        duration: 1
-      })
-      gsap.set('#header-image-wrapper img', { scale: 1 })
-      gsap.to('#header-image-wrapper img', {
         scrollTrigger: {
           trigger: '#header-image-wrapper',
           start: 'top top',
@@ -719,49 +726,135 @@ export default {
           scrub: true,
           pin: false,
         },
+        borderRadius: 0,
         scale: 1.2,
         ease: 'none',
         duration: 1
       })
-      gsap.set('#next-project-section', { y: 300 })
+    },
+    nextPrevAnimations() {
       gsap.to('#next-project-section', {
         scrollTrigger: {
           trigger: '#next-project-section',
           start: 'top bottom',
-          end: 'top bottom',
-          scrub: false,
-          markers: false,
-          toggleActions: 'play none reverse none'
-        },
-        y: 0,
-        ease: 'Power4.easeOut',
-        duration: 1
+          end: 'top top',
+          toggleActions: 'play none reverse none',
+          snap: {
+            snapTo: 1,
+            duration: {min: 0.5, max: 0.8},
+            delay: 0,
+            ease: "Expo.easeOut"  
+            }
+        }
       })
-      gsap.set('#next-header-text', { opacity: 0 })
-      gsap.to('#next-header-text', {
-        scrollTrigger: {
-          trigger: '#next-project-section',
-          start: 'top center',
-          end: 'top center',
-          scrub: false,
-          markers: false,
-          toggleActions: 'play none reverse none'
-        },
-        opacity: 1,
-        duration: .3
-      })
-      gsap.set('#prev-header-text', { opacity: 0 })
-      gsap.to('#prev-header-text', {
+       gsap.to('#prev-project-section', {
         scrollTrigger: {
           trigger: '#prev-project-section',
-          start: 'top 10%',
-          end: 'top 10%',
+          start: 'top bottom',
+          end: 'top top',
+          toggleActions: 'play none reverse none',
+          snap: {
+            snapTo: 1,
+            duration: {min: 0.5, max: 0.8},
+            delay: 0,
+            ease: "Expo.easeOut"  
+            },
+        }
+      })      
+      gsap.set('.next-title-words span, .prev-title-words span', { scaleY: 0, rotate: -22, rotateX: 90, transformOrigin: '0% 50% -50' })
+      gsap.set('#next-header-scope span, #prev-header-scope span', { y: 15, opacity: 0 })
+      gsap.set('#next-project-bg,#prev-project-bg', { opacity: 0 })
+      gsap.to('.next-title-words span, #next-header-scope span', {
+        scrollTrigger: {
+          trigger: '#next-project-section',
+          start: 'top 5%',
+          end: 'top 5%',
           scrub: false,
           markers: false,
-          toggleActions: 'play none reverse none'
+          toggleActions: 'restart none reverse none'
         },
+        scaleY: 1,
+        rotate: 0,
+        rotateX: 0,
+        stagger: 0.02,
+        duration: 1,
+        ease: 'power4.out',
+        delay: .5
+      })
+      gsap.to('#next-header-scope span', {
+        scrollTrigger: {
+          trigger: '#next-project-section',
+          start: 'top 5%',
+          end: 'top 5%',
+          scrub: false,
+          markers: false,
+          toggleActions: 'restart none reverse none'
+        },
+        y: 0,
         opacity: 1,
-        duration: .3
+        stagger: 0.1,
+        duration: .3,
+        ease: 'power4.out',
+        delay: .5
+      })
+      gsap.to('#next-project-bg', {
+        scrollTrigger: {
+          trigger: '#next-project-section',
+          start: 'top 5%',
+          end: 'top 5%',
+          scrub: false,
+          markers: false,
+          toggleActions: 'restart none reverse none'
+        },
+        opacity: .7,
+        duration: .5,
+        delay: .3
+      })
+      gsap.to('.prev-title-words span, #prev-header-scope span', {
+        scrollTrigger: {
+          trigger: '#prev-project-section',
+          start: 'top 5%',
+          end: 'top 5%',
+          scrub: false,
+          markers: false,
+          toggleActions: 'restart none reverse none'
+        },
+        scaleY: 1,
+        rotate: 0,
+        rotateX: 0,
+        stagger: 0.02,
+        duration: 1,
+        ease: 'power4.out',
+        delay: .5
+      })
+      gsap.to('#prev-header-scope span', {
+        scrollTrigger: {
+          trigger: '#prev-project-section',
+          start: 'top 5%',
+          end: 'top 5%',
+          scrub: false,
+          markers: false,
+          toggleActions: 'restart none reverse none'
+        },
+        y: 0,
+        opacity: 1,
+        stagger: 0.1,
+        duration: .3,
+        ease: 'power4.out',
+        delay: .5
+      })
+      gsap.to('#prev-project-bg', {
+        scrollTrigger: {
+          trigger: '#prev-project-section',
+          start: 'top 5%',
+          end: 'top 5%',
+          scrub: false,
+          markers: false,
+          toggleActions: 'restart none reverse none'
+        },
+        opacity: .7,
+        duration: .5,
+        delay: .3
       })
     },
     scrollAnimations() {
@@ -834,7 +927,7 @@ a.prev-project-section img {
 }
 a.next-project-section:hover img,
 a.prev-project-section:hover img {
-  transform: scale(1.02);
+  transform: scale(1);
 }
 .marquee {
   background: var(--color);
