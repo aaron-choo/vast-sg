@@ -2,12 +2,12 @@
   <footer id="footer" class="footer relative h-screen p-4">
     <div class="footer-container relative h-full rounded-lg">
       <!-- <hr id="footer-hr" class="h-px w-full opacity-20" /> -->
-      <div class="fade absolute top-0 w-full h-40 pointer-events-none rounded-t-lg"></div>
+      <!-- <div class="fade absolute top-0 w-full h-40 pointer-events-none rounded-t-lg"></div>
       <div
         class="fade absolute bottom-0 w-full h-40 transform rotate-180 pointer-events-none rounded-t-lg"
-      ></div>
+      ></div> -->
       <div
-        class="absolute bottom-7 w-full z-10 flex justify-center align-center md:bottom-11 transition duration-300"
+        class="absolute bottom-7 left-0 right-0 w-full z-10 flex justify-center align-center md:bottom-11 transition duration-300"
       >
         <button
           :class="{ hidden: !creditsFast }"
@@ -613,7 +613,7 @@ export default {
         scrollTrigger: {
           trigger: '#footer',
           start: 'top bottom',
-          end: 'top top',
+          end: 'top bottom',
           scrub: false,
           pin: false,
           markers: false,
@@ -692,10 +692,21 @@ export default {
   },
 }
 </script>
+<style>
+footer svg path{
+  fill: var(--bg) !important;
+}
+footer .logo-block>div{
+  background: var(--bg);
+}
+</style>
 <style scoped>
 .footer-container {
-  background: var(--footer-bg);
-  color: var(--footer-color);
+  background: var(--color);
+  color: var(--bg);
+}
+a {
+  color: var(--bg);
 }
 .logo {
   width: 8em;
@@ -727,14 +738,14 @@ export default {
   letter-spacing: 0.05em;
 }
 .rating * {
-  border-color: var(--footer-color);
+  border-color: var(--bg);
 }
 .marquee-inner-wrap {
   height: 100%;
   width: 100%;
 }
 .fade {
-  background: var(--footer-bg);
+  background: var(--color);
   -webkit-mask-image: -webkit-gradient(
     linear,
     left top,
@@ -746,14 +757,14 @@ export default {
   transition: background 0.3s ease;
 }
 .btn-txt {
-  color: var(--footer-color);
+  color: var(--bg);
   z-index: 2;
 }
 .speed-toggle:hover .btn-txt {
-  color: var(--footer-bg);
+  color: var(--color);
 }
 .speed-toggle > div {
-  background: var(--footer-bg);
+  background: var(--color);
   mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
@@ -768,7 +779,7 @@ export default {
   left: 0;
   border-radius: 2em;
   transition: transform 0.3s;
-  border: 1px solid var(--footer-color);
+  border: 1px solid var(--bg);
 }
 .btn-txt-wrap::before {
   z-index: 0;
@@ -777,13 +788,13 @@ export default {
   z-index: 1;
   transform: scaleY(0);
   transform-origin: top;
-  background-color: var(--footer-color);
+  background-color: var(--bg);
 }
 .down .btn-txt-wrap::after {
   z-index: 1;
   transform: scaleY(0);
   transform-origin: bottom;
-  background-color: var(--footer-color);
+  background-color: var(--bg);
 }
 .up:hover .btn-txt-wrap::after {
   transform: scaleY(1);

@@ -733,129 +733,129 @@ export default {
       })
     },
     nextPrevAnimations() {
-      gsap.to('#next-project-section', {
-        scrollTrigger: {
-          trigger: '#next-project-section',
-          start: 'top bottom',
-          end: 'top top',
-          toggleActions: 'play none reverse none',
-          snap: {
-            snapTo: 1,
-            duration: {min: 0.5, max: 0.8},
-            delay: 0,
-            ease: "Expo.easeOut"  
-            }
-        }
-      })
-       gsap.to('#prev-project-section', {
-        scrollTrigger: {
-          trigger: '#prev-project-section',
-          start: 'top bottom',
-          end: 'top top',
-          toggleActions: 'play none reverse none',
-          snap: {
-            snapTo: 1,
-            duration: {min: 0.5, max: 0.8},
-            delay: 0,
-            ease: "Expo.easeOut"  
-            },
-        }
-      })      
-      gsap.set('.next-title-words span, .prev-title-words span', { scaleY: 0, rotate: -22, rotateX: 90, transformOrigin: '0% 50% -50' })
-      gsap.set('#next-header-scope span, #prev-header-scope span', { y: 15, opacity: 0 })
-      gsap.set('#next-project-bg,#prev-project-bg', { opacity: 0 })
-      gsap.to('.next-title-words span, #next-header-scope span', {
-        scrollTrigger: {
-          trigger: '#next-project-section',
-          start: 'top 5%',
-          end: 'top 5%',
-          scrub: false,
-          markers: false,
-          toggleActions: 'restart none reverse none'
-        },
-        scaleY: 1,
-        rotate: 0,
-        rotateX: 0,
-        stagger: 0.02,
-        duration: 1,
-        ease: 'power4.out',
-        delay: .5
-      })
-      gsap.to('#next-header-scope span', {
-        scrollTrigger: {
-          trigger: '#next-project-section',
-          start: 'top 5%',
-          end: 'top 5%',
-          scrub: false,
-          markers: false,
-          toggleActions: 'restart none reverse none'
-        },
-        y: 0,
-        opacity: 1,
-        stagger: 0.1,
-        duration: .3,
-        ease: 'power4.out',
-        delay: .5
-      })
-      gsap.to('#next-project-bg', {
-        scrollTrigger: {
-          trigger: '#next-project-section',
-          start: 'top 5%',
-          end: 'top 5%',
-          scrub: false,
-          markers: false,
-          toggleActions: 'restart none reverse none'
-        },
-        opacity: .7,
-        duration: .5,
-        delay: .3
-      })
-      gsap.to('.prev-title-words span, #prev-header-scope span', {
-        scrollTrigger: {
-          trigger: '#prev-project-section',
-          start: 'top 5%',
-          end: 'top 5%',
-          scrub: false,
-          markers: false,
-          toggleActions: 'restart none reverse none'
-        },
-        scaleY: 1,
-        rotate: 0,
-        rotateX: 0,
-        stagger: 0.02,
-        duration: 1,
-        ease: 'power4.out',
-        delay: .5
-      })
-      gsap.to('#prev-header-scope span', {
-        scrollTrigger: {
-          trigger: '#prev-project-section',
-          start: 'top 5%',
-          end: 'top 5%',
-          scrub: false,
-          markers: false,
-          toggleActions: 'restart none reverse none'
-        },
-        y: 0,
-        opacity: 1,
-        stagger: 0.1,
-        duration: .3,
-        ease: 'power4.out',
-        delay: .5
-      })
-      gsap.to('#prev-project-bg', {
-        scrollTrigger: {
-          trigger: '#prev-project-section',
-          start: 'top 5%',
-          end: 'top 5%',
-          scrub: false,
-          markers: false,
-          toggleActions: 'restart none reverse none'
-        },
-        opacity: .7,
-        duration: .5,
-        delay: .3
-      })
+      // gsap.to('#next-project-section', {
+      //   scrollTrigger: {
+      //     trigger: '#next-project-section',
+      //     start: 'top bottom',
+      //     end: 'top top',
+      //     toggleActions: 'play none reverse none',
+      //     snap: {
+      //       snapTo: 1,
+      //       duration: {min: 0.5, max: 0.8},
+      //       delay: 0,
+      //       ease: "Expo.easeOut"  
+      //       }
+      //   }
+      // })
+      //  gsap.to('#prev-project-section', {
+      //   scrollTrigger: {
+      //     trigger: '#prev-project-section',
+      //     start: 'top bottom',
+      //     end: 'top top',
+      //     toggleActions: 'play none reverse none',
+      //     snap: {
+      //       snapTo: 1,
+      //       duration: {min: 0.5, max: 0.8},
+      //       delay: 0,
+      //       ease: "Expo.easeOut"  
+      //       },
+      //   }
+      // })      
+      // gsap.set('.next-title-words span, .prev-title-words span', { scaleY: 0, rotate: -22, rotateX: 90, transformOrigin: '0% 50% -50' })
+      // gsap.set('#next-header-scope span, #prev-header-scope span', { y: 15, opacity: 0 })
+      // gsap.set('#next-project-bg,#prev-project-bg', { opacity: 0 })
+      // gsap.to('.next-title-words span, #next-header-scope span', {
+      //   scrollTrigger: {
+      //     trigger: '#next-project-section',
+      //     start: 'top 5%',
+      //     end: 'top 5%',
+      //     scrub: false,
+      //     markers: false,
+      //     toggleActions: 'restart none reverse none'
+      //   },
+      //   scaleY: 1,
+      //   rotate: 0,
+      //   rotateX: 0,
+      //   stagger: 0.02,
+      //   duration: 1,
+      //   ease: 'power4.out',
+      //   delay: .5
+      // })
+      // gsap.to('#next-header-scope span', {
+      //   scrollTrigger: {
+      //     trigger: '#next-project-section',
+      //     start: 'top 5%',
+      //     end: 'top 5%',
+      //     scrub: false,
+      //     markers: false,
+      //     toggleActions: 'restart none reverse none'
+      //   },
+      //   y: 0,
+      //   opacity: 1,
+      //   stagger: 0.1,
+      //   duration: .3,
+      //   ease: 'power4.out',
+      //   delay: .5
+      // })
+      // gsap.to('#next-project-bg', {
+      //   scrollTrigger: {
+      //     trigger: '#next-project-section',
+      //     start: 'top 5%',
+      //     end: 'top 5%',
+      //     scrub: false,
+      //     markers: false,
+      //     toggleActions: 'restart none reverse none'
+      //   },
+      //   opacity: .7,
+      //   duration: .5,
+      //   delay: .3
+      // })
+      // gsap.to('.prev-title-words span, #prev-header-scope span', {
+      //   scrollTrigger: {
+      //     trigger: '#prev-project-section',
+      //     start: 'top 5%',
+      //     end: 'top 5%',
+      //     scrub: false,
+      //     markers: false,
+      //     toggleActions: 'restart none reverse none'
+      //   },
+      //   scaleY: 1,
+      //   rotate: 0,
+      //   rotateX: 0,
+      //   stagger: 0.02,
+      //   duration: 1,
+      //   ease: 'power4.out',
+      //   delay: .5
+      // })
+      // gsap.to('#prev-header-scope span', {
+      //   scrollTrigger: {
+      //     trigger: '#prev-project-section',
+      //     start: 'top 5%',
+      //     end: 'top 5%',
+      //     scrub: false,
+      //     markers: false,
+      //     toggleActions: 'restart none reverse none'
+      //   },
+      //   y: 0,
+      //   opacity: 1,
+      //   stagger: 0.1,
+      //   duration: .3,
+      //   ease: 'power4.out',
+      //   delay: .5
+      // })
+      // gsap.to('#prev-project-bg', {
+      //   scrollTrigger: {
+      //     trigger: '#prev-project-section',
+      //     start: 'top 5%',
+      //     end: 'top 5%',
+      //     scrub: false,
+      //     markers: false,
+      //     toggleActions: 'restart none reverse none'
+      //   },
+      //   opacity: .7,
+      //   duration: .5,
+      //   delay: .3
+      // })
     },
     scrollAnimations() {
       const screenHeight = window.innerHeight
