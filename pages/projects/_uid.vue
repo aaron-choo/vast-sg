@@ -8,13 +8,7 @@
         >
           <h1
             id="header-title"
-            class="
-              tracking-tight
-              leading-none
-              text-5xl
-              lg:text-8xl
-              uppercase
-            "
+            class="tracking-tight leading-none text-5xl lg:text-8xl uppercase"
           >
             <span
               v-for="(word, index) in titleWords"
@@ -30,29 +24,11 @@
           </h1>
           <p
             id="header-scope"
-            class="
-              inline-block
-              tag
-              capitalize
-              text-2xl
-              lg:text-3xl
-              transition
-              duration-300
-              transform
-              leading-6
-            "
+            class="inline-block tag capitalize text-2xl lg:text-3xl transition duration-300 transform leading-6"
             :class="{ 'has-scroll-over': scrollOver }"
           >
             <span
-              class="
-                summary
-                text-sm
-                lg:text-base
-                uppercase
-                inline-block
-                mr-16
-                -mb-4
-              "
+              class="summary text-sm lg:text-base uppercase inline-block mr-16 -mb-4"
               >(Scope)</span
             ><span
               v-for="(tag, index) in tags"
@@ -88,16 +64,7 @@
         <div class="description-section section my-24 px-4 lg:px-40">
           <p class="description-wrapper">
             <span
-              class="
-                summary
-                text-sm
-                lg:text-base
-                uppercase
-                inline-block
-                mr-16
-                mb-2
-                align-top
-              "
+              class="summary text-sm lg:text-base uppercase inline-block mr-16 mb-2 align-top"
               >({{ $prismic.asText(summary) }})</span
             ><span
               v-for="(paragraph, index) in description"
@@ -113,39 +80,21 @@
         >
           <p class="description-wrapper mt-6">
             <span
-              class="
-                summary
-                text-sm
-                lg:text-base
-                uppercase
-                inline-block
-                mr-16
-                mb-2
-                align-top
-              "
+              class="summary text-sm lg:text-base uppercase inline-block mr-16 mb-2 align-top"
               >(Live)</span
             ><a
               :href="projectLink"
               target="_blank"
               class="live-link uppercase font-light text-2xl lg:text-3xl"
-              >Visit Website <span class="live-link-arrow inline-block">↗</span></a
+              >Visit Website
+              <span class="live-link-arrow inline-block">↗</span></a
             >
           </p>
         </div>
         <hr class="h-px w-full opacity-20" />
         <div
           id="header-separator"
-          class="
-            uppercase
-            mt-4
-            mb-24
-            mx-4
-            pb-4
-            relative
-            grid-cols-6
-            gap-x-4
-            grid
-          "
+          class="uppercase mt-4 mb-24 mx-4 pb-4 relative grid-cols-6 gap-x-4 grid"
         >
           <div class="col-span-4 lg:col-span-2">
             <span>{{ $prismic.asText(client) }}</span>
@@ -157,7 +106,9 @@
             <span v-for="(tag, index) in tags" :key="index"
               >{{ tag
               }}<template v-if="Object.keys(tags).length > 1"
-                ><span v-if="index != Object.keys(tags).length - 1" class="sep">+</span></template
+                ><span v-if="index != Object.keys(tags).length - 1" class="sep"
+                  >+</span
+                ></template
               ></span
             >
           </div>
@@ -171,16 +122,7 @@
 
     <section id="more-projects" class="mt-80">
       <div
-        class="
-          block
-          relative
-          text-5xl
-          sm:text-8xl
-          font-light
-          p-4
-          serif
-          text-center
-        "
+        class="block relative text-5xl sm:text-8xl font-light p-4 serif text-center"
       >
         That's all folks!
       </div>
@@ -189,51 +131,19 @@
         <div class="all-projects relative overflow-hidden">
           <div
             id="contact-link"
-            class="
-              contact-link
-              block
-              relative
-              tracking-tighter
-              whitespace-nowrap
-              text-4xl
-              sm:text-6xl
-              font-light
-              p-4
-              uppercase
-              text-right
-            "
+            class="contact-link block relative tracking-tighter whitespace-nowrap text-4xl sm:text-6xl font-light p-4 uppercase text-right"
           >
             Let's Chat
           </div>
           <div
-            class="
-              marquee
-              absolute
-              top-0
-              left-0
-              overflow-hidden
-              w-full
-              h-full
-              pointer-events-none
-            "
+            class="marquee absolute top-0 left-0 overflow-hidden w-full h-full pointer-events-none"
           >
             <div
               class="marquee-inner-wrap flex overflow-hidden whitespace-nowrap"
             >
               <div class="marquee-inner" aria-hidden="true">
                 <span
-                  class="
-                    whitespace-nowrap
-                    text-4xl
-                    md:text-6xl
-                    py-4
-                    font-light
-                    uppercase
-                    text-center
-                    flex
-                    items-center
-                    w-max
-                  "
+                  class="whitespace-nowrap text-4xl md:text-6xl py-4 font-light uppercase text-center flex items-center w-max"
                   >Like what you see?<img
                     src="/emoji-eyes.png"
                     class="emoji h-10 md:h-14 relative mx-4" />or just wanna say
@@ -244,18 +154,7 @@
               </div>
               <div class="marquee-inner" aria-hidden="true">
                 <span
-                  class="
-                    whitespace-nowrap
-                    text-4xl
-                    md:text-6xl
-                    py-4
-                    font-light
-                    uppercase
-                    text-center
-                    flex
-                    items-center
-                    w-max
-                  "
+                  class="whitespace-nowrap text-4xl md:text-6xl py-4 font-light uppercase text-center flex items-center w-max"
                   >Like what you see?<img
                     src="/emoji-eyes.png"
                     class="emoji h-10 md:h-14 relative mx-4" />or just wanna say
@@ -273,32 +172,12 @@
         <div class="all-projects relative overflow-hidden">
           <div
             id="all-projects-link"
-            class="
-              all-projects-link
-              block
-              relative
-              tracking-tighter
-              whitespace-nowrap
-              text-4xl
-              sm:text-6xl
-              font-light
-              p-4
-              uppercase
-            "
+            class="all-projects-link block relative tracking-tighter whitespace-nowrap text-4xl sm:text-6xl font-light p-4 uppercase"
           >
             ← All Projects
           </div>
           <div
-            class="
-              marquee
-              absolute
-              top-0
-              left-0
-              overflow-hidden
-              w-full
-              h-full
-              pointer-events-none
-            "
+            class="marquee absolute top-0 left-0 overflow-hidden w-full h-full pointer-events-none"
           >
             <div
               class="marquee-inner-wrap flex overflow-hidden whitespace-nowrap"
@@ -307,16 +186,7 @@
                 <span
                   v-for="(project, index) in latestProjects"
                   :key="index"
-                  class="
-                    whitespace-nowrap
-                    text-4xl
-                    md:text-6xl
-                    py-4
-                    font-light
-                    uppercase
-                    text-center
-                    flex
-                  "
+                  class="whitespace-nowrap text-4xl md:text-6xl py-4 font-light uppercase text-center flex"
                   >{{ $prismic.asText(project.data.title)
                   }}<span class="spinner relative mx-4">✺</span></span
                 >
@@ -325,16 +195,7 @@
                 <span
                   v-for="(project, index) in latestProjects"
                   :key="index"
-                  class="
-                    whitespace-nowrap
-                    text-4xl
-                    md:text-6xl
-                    py-4
-                    font-light
-                    uppercase
-                    text-center
-                    flex
-                  "
+                  class="whitespace-nowrap text-4xl md:text-6xl py-4 font-light uppercase text-center flex"
                   >{{ $prismic.asText(project.data.title)
                   }}<span class="spinner relative mx-4">✺</span></span
                 >
@@ -344,232 +205,192 @@
         </div>
       </nuxt-link>
       <hr class="h-px w-full opacity-20" />
-      <div class="next-prev-projects">
-        <nuxt-link
-          v-if="nextProject !== undefined"
-          id="next-project-section"
-          :to="$prismic.linkResolver(nextProject)"
-          class="next-project-section top-0 p-4 block sticky"
-        >
-          <div class="w-auto relative">
-            <div
-              v-if="nextProjectImage.url !== undefined"
-              id="next-header-image-wrapper"
-              class="z-0 absolute overflow-hidden w-full rounded-lg h-full"
-            >
-              <div
-                id="next-project-bg"
-                class="absolute h-full w-full pointer-events-none opacity-70 z-10"
-              ></div>
-              <nuxt-img
-                v-if="nextProjectImage.url"
-                id="next-header-image"
-                format="webp"
-                :src="nextProjectImage.url"
-                sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-                :width="nextProjectImage.dimensions.width"
-                :height="nextProjectImage.dimensions.height"
-                class="w-full h-full object-cover z-0"
-                loading="lazy"
-              />
-            </div>
-            <p
-              class="
-                next-project-label
-                text-sm
-                lg:text-base
-                uppercase
-                z-0
-                absolute
-                top-0
-                left-0
-                m-4
-                px-2
-                rounded-2xl
-                tracking-tight
-                font-medium
-              "
-            >
-              Up next
-            </p>
-            <div
-              id="next-header-text"
-              class="w-full flex flex-col justify-center p-4 py-12 z-0"
-            >
-              <h3
-                id="next-header-title"
-                class="tracking-tight leading-none text-5xl lg:text-8xl uppercase z-0"
+      <div class="next-prev-projects top-0 sticky">
+        <div v-swiper="swiperOption">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <nuxt-link
+                v-if="nextProject !== undefined"
+                id="next-project-section"
+                :to="$prismic.linkResolver(nextProject)"
+                class="next-project-section my-4 block"
               >
-              <span
-              v-for="(word, index) in nextProjectTitleWords"
-              :key="index"
-              class="next-title-words inline-block overflow-hidden"
-              ><span
-                v-for="(letter, index2) in Array.from(word)"
-                :key="index2"
-                class="inline-block"
-                >{{ letter }}</span
-              >&nbsp;</span
-            >
-              </h3>
-              <p
-                id="next-header-scope"
-                class="
-                  inline-block
-                  tag
-                  capitalize
-                  text-2xl
-                  lg:text-3xl
-                  leading-6
-                  z-0
-                "
-              >
-                <span
-                  class="
-                    summary
-                    text-sm
-                    lg:text-base
-                    uppercase
-                    inline-block
-                    mr-16
-                    -mb-4
-                  "
-                  >(Scope)</span
-                ><span
-                  v-for="(tag, index) in nextProjectTags"
-                  :key="index"
-                  class="inline-block serif font-light"
-                  >{{ tag
-                  }}<template v-if="Object.keys(nextProjectTags).length > 1">
-                    <span
-                      v-if="index != Object.keys(nextProjectTags).length - 1"
-                      class="sep"
-                      >+</span
+                <div class="w-auto relative">
+                  <div
+                    v-if="nextProjectImage.url !== undefined"
+                    id="next-header-image-wrapper"
+                    class="z-0 absolute overflow-hidden w-full rounded-lg h-full"
+                  >
+                    <div
+                      id="next-project-bg"
+                      class="absolute h-full w-full pointer-events-none opacity-70 z-10"
+                    ></div>
+                    <nuxt-img
+                      v-if="nextProjectImage.url"
+                      id="next-header-image"
+                      format="webp"
+                      :src="nextProjectImage.url"
+                      sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+                      :width="nextProjectImage.dimensions.width"
+                      :height="nextProjectImage.dimensions.height"
+                      class="w-full h-full object-cover z-0 pointer-events-none"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p
+                    class="next-project-label text-sm lg:text-base uppercase z-0 absolute top-0 left-0 m-4 px-2 rounded-2xl tracking-tight font-medium"
+                  >
+                    Up next
+                  </p>
+                  <div
+                    id="next-header-text"
+                    class="w-full flex flex-col justify-center p-4 py-12 z-0"
+                  >
+                    <h3
+                      id="next-header-title"
+                      class="tracking-tight leading-none text-5xl lg:text-8xl uppercase z-0"
                     >
-                  </template>
-                </span>
-              </p>
+                      <span
+                        v-for="(word, index) in nextProjectTitleWords"
+                        :key="index"
+                        class="next-title-words inline-block overflow-hidden"
+                        ><span
+                          v-for="(letter, index2) in Array.from(word)"
+                          :key="index2"
+                          class="inline-block"
+                          >{{ letter }}</span
+                        >&nbsp;</span
+                      >
+                    </h3>
+                    <p
+                      id="next-header-scope"
+                      class="inline-block tag capitalize text-2xl lg:text-3xl leading-6 z-0"
+                    >
+                      <span
+                        class="summary text-sm lg:text-base uppercase inline-block mr-16 -mb-4"
+                        >(Scope)</span
+                      ><span
+                        v-for="(tag, index) in nextProjectTags"
+                        :key="index"
+                        class="inline-block serif font-light"
+                        >{{ tag
+                        }}<template
+                          v-if="Object.keys(nextProjectTags).length > 1"
+                        >
+                          <span
+                            v-if="
+                              index != Object.keys(nextProjectTags).length - 1
+                            "
+                            class="sep"
+                            >+</span
+                          >
+                        </template>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </nuxt-link>
+            </div>
+            <div class="swiper-slide">
+              <nuxt-link
+                v-if="prevProject !== undefined"
+                id="prev-project-section"
+                :to="$prismic.linkResolver(prevProject)"
+                class="prev-project-section my-4 block"
+              >
+                <div class="w-auto relative">
+                  <div
+                    v-if="prevProjectImage.url !== undefined"
+                    id="prev-header-image-wrapper"
+                    class="z-0 absolute overflow-hidden w-full rounded-lg h-full"
+                  >
+                    <div
+                      id="prev-project-bg"
+                      class="absolute h-full w-full pointer-events-none opacity-70 z-10"
+                    ></div>
+                    <nuxt-img
+                      v-if="prevProjectImage.url"
+                      id="next-header-image"
+                      format="webp"
+                      :src="prevProjectImage.url"
+                      sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+                      :width="prevProjectImage.dimensions.width"
+                      :height="prevProjectImage.dimensions.height"
+                      class="w-full h-full object-cover z-0  pointer-events-none"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p
+                    class="prev-project-label text-sm lg:text-base uppercase z-0 absolute top-0 left-0 m-4 px-2 rounded-2xl tracking-tight font-medium"
+                  >
+                    Previously on
+                  </p>
+                  <div
+                    id="prev-header-text"
+                    class="w-full flex flex-col justify-center p-4 py-12 z-10"
+                  >
+                    <h3
+                      id="prev-header-title"
+                      class="tracking-tight leading-none text-5xl lg:text-8xl uppercase z-0"
+                    >
+                      <span
+                        v-for="(word, index) in prevProjectTitleWords"
+                        :key="index"
+                        class="prev-title-words inline-block overflow-hidden"
+                        ><span
+                          v-for="(letter, index2) in Array.from(word)"
+                          :key="index2"
+                          class="inline-block"
+                          >{{ letter }}</span
+                        >&nbsp;</span
+                      >
+                    </h3>
+                    <p
+                      id="prev-header-scope"
+                      class="inline-block tag capitalize text-2xl lg:text-3xl leading-6 z-0"
+                    >
+                      <span
+                        class="summary text-sm lg:text-base uppercase inline-block mr-16 -mb-4"
+                        >(Scope)</span
+                      ><span
+                        v-for="(tag, index) in prevProjectTags"
+                        :key="index"
+                        class="inline-block serif font-light"
+                        >{{ tag
+                        }}<template
+                          v-if="Object.keys(prevProjectTags).length > 1"
+                        >
+                          <span
+                            v-if="
+                              index != Object.keys(prevProjectTags).length - 1
+                            "
+                            class="sep"
+                            >+</span
+                          >
+                        </template>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </nuxt-link>
             </div>
           </div>
-        </nuxt-link>
-
-        <nuxt-link
-          v-if="prevProject !== undefined"
-          id="prev-project-section"
-          :to="$prismic.linkResolver(prevProject)"
-          class="prev-project-section p-4 block"
-        >
-          <div class="w-auto relative">
-            <div
-              v-if="prevProjectImage.url !== undefined"
-              id="prev-header-image-wrapper"
-              class="z-0 absolute overflow-hidden w-full rounded-lg h-full"
-            >
-              <div
-                id="prev-project-bg"
-                class="absolute h-full w-full pointer-events-none opacity-70 z-10"
-              ></div>
-              <nuxt-img
-                v-if="prevProjectImage.url"
-                id="next-header-image"
-                format="webp"
-                :src="prevProjectImage.url"
-                sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-                :width="prevProjectImage.dimensions.width"
-                :height="prevProjectImage.dimensions.height"
-                class="w-full h-full object-cover z-0"
-                loading="lazy"
-              />
-            </div>
-            <p
-              class="
-                prev-project-label
-                text-sm
-                lg:text-base
-                uppercase
-                z-0
-                absolute
-                top-0
-                left-0
-                m-4
-                px-2
-                rounded-2xl
-                tracking-tight
-                font-medium
-              "
-            >
-              Previously on
-            </p>
-            <div
-              id="prev-header-text"
-              class="w-full flex flex-col justify-center p-4 py-12 z-10"
-            >
-              <h3
-                id="prev-header-title"
-                class="tracking-tight leading-none text-5xl lg:text-8xl uppercase z-0"
-              >
-                <span
-              v-for="(word, index) in prevProjectTitleWords"
-              :key="index"
-              class="prev-title-words inline-block overflow-hidden"
-              ><span
-                v-for="(letter, index2) in Array.from(word)"
-                :key="index2"
-                class="inline-block"
-                >{{ letter }}</span
-              >&nbsp;</span
-            >
-              </h3>
-              <p
-                id="prev-header-scope"
-                class="
-                  inline-block
-                  tag
-                  capitalize
-                  text-2xl
-                  lg:text-3xl
-                  leading-6
-                  z-0
-                "
-              >
-                <span
-                  class="
-                    summary
-                    text-sm
-                    lg:text-base
-                    uppercase
-                    inline-block
-                    mr-16
-                    -mb-4
-                  "
-                  >(Scope)</span
-                ><span
-                  v-for="(tag, index) in prevProjectTags"
-                  :key="index"
-                  class="inline-block serif font-light"
-                  >{{ tag
-                  }}<template v-if="Object.keys(prevProjectTags).length > 1">
-                    <span
-                      v-if="index != Object.keys(prevProjectTags).length - 1"
-                      class="sep"
-                      >+</span
-                    >
-                  </template>
-                </span>
-              </p>
-            </div>
-          </div>
-        </nuxt-link>
+        </div>
       </div>
+      <div class="h-8"></div>
     </section>
   </main>
 </template>
 
 <script>
+import { directive } from 'vue-awesome-swiper'
 import SliceZone from 'vue-slicezone'
 import gsap from 'gsap'
 export default {
   name: 'Project',
+  directives: {
+    swiper: directive,
+  },
   components: {
     SliceZone,
   },
@@ -640,13 +461,17 @@ export default {
         projectLink: project.data.link.url,
         relatedProjects: relatedProjects.results,
         nextProject: NextProject,
-        nextProjectTitleWords: Array.from($prismic.asText(NextProject.data.title).split(' ')),
+        nextProjectTitleWords: Array.from(
+          $prismic.asText(NextProject.data.title).split(' ')
+        ),
         nextProjectTags: NextProject.tags,
         nextProjectImage: NextProject.data.image,
         nextTextColor: NextProject.data.textColor,
         nextBackgroundColor: NextProject.data.backgroundColor,
         prevProject: PrevProject,
-        prevProjectTitleWords: Array.from($prismic.asText(PrevProject.data.title).split(' ')),
+        prevProjectTitleWords: Array.from(
+          $prismic.asText(PrevProject.data.title).split(' ')
+        ),
         prevProjectTags: PrevProject.tags,
         prevProjectImage: PrevProject.data.image,
         prevTextColor: PrevProject.data.textColor,
@@ -662,6 +487,18 @@ export default {
     return {
       page: null,
       scrollOver: false,
+      swiperOption: {
+        effect: 'slide',
+        preventInteractionOnTransition: true,
+        slidesPerView: 1.2,
+        speed: 800,
+        slidesOffsetBefore: 16,
+        slidesOffsetAfter: 16,
+        spaceBetween: 16,
+        mousewheel: {
+          releaseOnEdges: true,
+        },
+      },
     }
   },
   head() {
@@ -693,12 +530,24 @@ export default {
   mounted() {
     window.addEventListener('scroll', this.scrollAnimations)
     window.addEventListener('scroll', this.onScroll)
-    document.documentElement.style.setProperty('--nextbg', this.nextBackgroundColor)
-    document.documentElement.style.setProperty('--nextcolor', this.nextTextColor)
-    document.documentElement.style.setProperty('--prevbg', this.prevBackgroundColor)
-    document.documentElement.style.setProperty('--prevcolor', this.prevTextColor)
+    window.addEventListener('scroll', this.nextPrevAnimations)
+    document.documentElement.style.setProperty(
+      '--nextbg',
+      this.nextBackgroundColor
+    )
+    document.documentElement.style.setProperty(
+      '--nextcolor',
+      this.nextTextColor
+    )
+    document.documentElement.style.setProperty(
+      '--prevbg',
+      this.prevBackgroundColor
+    )
+    document.documentElement.style.setProperty(
+      '--prevcolor',
+      this.prevTextColor
+    )
     this.animations()
-    this.nextPrevAnimations()
     this.loadAnimations()
   },
   updated() {
@@ -717,7 +566,11 @@ export default {
   },
   methods: {
     animations() {
-      gsap.set('#header-image-wrapper', { scale: 1, borderRadius: '0.5rem', transformOrigin: 'bottom' })
+      gsap.set('#header-image-wrapper', {
+        scale: 1,
+        borderRadius: '0.5rem',
+        transformOrigin: 'bottom',
+      })
       gsap.to('#header-image-wrapper', {
         scrollTrigger: {
           trigger: '#header-image-wrapper',
@@ -729,139 +582,27 @@ export default {
         borderRadius: 0,
         scale: 1.2,
         ease: 'none',
-        duration: 1
+        duration: 1,
       })
     },
     nextPrevAnimations() {
-      // gsap.to('#next-project-section', {
-      //   scrollTrigger: {
-      //     trigger: '#next-project-section',
-      //     start: 'top bottom',
-      //     end: 'top top',
-      //     toggleActions: 'play none reverse none',
-      //     snap: {
-      //       snapTo: 1,
-      //       duration: {min: 0.5, max: 0.8},
-      //       delay: 0,
-      //       ease: "Expo.easeOut"  
-      //       }
-      //   }
-      // })
-      //  gsap.to('#prev-project-section', {
-      //   scrollTrigger: {
-      //     trigger: '#prev-project-section',
-      //     start: 'top bottom',
-      //     end: 'top top',
-      //     toggleActions: 'play none reverse none',
-      //     snap: {
-      //       snapTo: 1,
-      //       duration: {min: 0.5, max: 0.8},
-      //       delay: 0,
-      //       ease: "Expo.easeOut"  
-      //       },
-      //   }
-      // })      
-      // gsap.set('.next-title-words span, .prev-title-words span', { scaleY: 0, rotate: -22, rotateX: 90, transformOrigin: '0% 50% -50' })
-      // gsap.set('#next-header-scope span, #prev-header-scope span', { y: 15, opacity: 0 })
-      // gsap.set('#next-project-bg,#prev-project-bg', { opacity: 0 })
-      // gsap.to('.next-title-words span, #next-header-scope span', {
-      //   scrollTrigger: {
-      //     trigger: '#next-project-section',
-      //     start: 'top 5%',
-      //     end: 'top 5%',
-      //     scrub: false,
-      //     markers: false,
-      //     toggleActions: 'restart none reverse none'
-      //   },
-      //   scaleY: 1,
-      //   rotate: 0,
-      //   rotateX: 0,
-      //   stagger: 0.02,
-      //   duration: 1,
-      //   ease: 'power4.out',
-      //   delay: .5
-      // })
-      // gsap.to('#next-header-scope span', {
-      //   scrollTrigger: {
-      //     trigger: '#next-project-section',
-      //     start: 'top 5%',
-      //     end: 'top 5%',
-      //     scrub: false,
-      //     markers: false,
-      //     toggleActions: 'restart none reverse none'
-      //   },
-      //   y: 0,
-      //   opacity: 1,
-      //   stagger: 0.1,
-      //   duration: .3,
-      //   ease: 'power4.out',
-      //   delay: .5
-      // })
-      // gsap.to('#next-project-bg', {
-      //   scrollTrigger: {
-      //     trigger: '#next-project-section',
-      //     start: 'top 5%',
-      //     end: 'top 5%',
-      //     scrub: false,
-      //     markers: false,
-      //     toggleActions: 'restart none reverse none'
-      //   },
-      //   opacity: .7,
-      //   duration: .5,
-      //   delay: .3
-      // })
-      // gsap.to('.prev-title-words span, #prev-header-scope span', {
-      //   scrollTrigger: {
-      //     trigger: '#prev-project-section',
-      //     start: 'top 5%',
-      //     end: 'top 5%',
-      //     scrub: false,
-      //     markers: false,
-      //     toggleActions: 'restart none reverse none'
-      //   },
-      //   scaleY: 1,
-      //   rotate: 0,
-      //   rotateX: 0,
-      //   stagger: 0.02,
-      //   duration: 1,
-      //   ease: 'power4.out',
-      //   delay: .5
-      // })
-      // gsap.to('#prev-header-scope span', {
-      //   scrollTrigger: {
-      //     trigger: '#prev-project-section',
-      //     start: 'top 5%',
-      //     end: 'top 5%',
-      //     scrub: false,
-      //     markers: false,
-      //     toggleActions: 'restart none reverse none'
-      //   },
-      //   y: 0,
-      //   opacity: 1,
-      //   stagger: 0.1,
-      //   duration: .3,
-      //   ease: 'power4.out',
-      //   delay: .5
-      // })
-      // gsap.to('#prev-project-bg', {
-      //   scrollTrigger: {
-      //     trigger: '#prev-project-section',
-      //     start: 'top 5%',
-      //     end: 'top 5%',
-      //     scrub: false,
-      //     markers: false,
-      //     toggleActions: 'restart none reverse none'
-      //   },
-      //   opacity: .7,
-      //   duration: .5,
-      //   delay: .3
-      // })
+      //  const elementPosition = document.querySelector('.next-prev-projects').offsetTop
+      //  const scrollPosition = document.documentElement.scrollTop
+      //  console.log(elementPosition)
+      //  console.log(scrollPosition)
+      //  if (elementPosition <=  scrollPosition) {
+      //    this.$swiper.mousewheel.enable()
+      //    console.log('enabled')
+      //  } else {
+      //    this.$swiper.mousewheel.disable()
+      //    console.log('disabled')
+      //  }
     },
     scrollAnimations() {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
         gsap.to('.title-words span', {
-          translateY: document.documentElement.scrollTop/4,
+          translateY: document.documentElement.scrollTop / 4,
           stagger: 0.025,
           duration: 1,
           ease: 'power4.out',
@@ -869,7 +610,12 @@ export default {
       }
     },
     loadAnimations() {
-      gsap.set('.title-words span', { scaleY: 0, rotate: -22, rotateX: 90, transformOrigin: '0% 50% -50' })
+      gsap.set('.title-words span', {
+        scaleY: 0,
+        rotate: -22,
+        rotateX: 90,
+        transformOrigin: '0% 50% -50',
+      })
       gsap.set('#header-scope span', { y: 15, opacity: 0 })
       gsap.set('#header-image', { y: 30, opacity: 0 })
       gsap.to('.title-words span', {
@@ -987,13 +733,15 @@ span.sep {
   padding-right: 0.29em;
   padding-left: 0.29em;
 }
-#next-project-section, #next-header-text {
+#next-project-section,
+#next-header-text {
   color: var(--nextcolor);
 }
 #next-project-bg {
   background: var(--nextbg);
 }
-#prev-project-section, #prev-header-text {
+#prev-project-section,
+#prev-header-text {
   color: var(--prevcolor);
 }
 #prev-project-bg {
@@ -1009,5 +757,16 @@ span.sep {
 }
 .dark-mode #next-project-bg {
   background-color: var(--bg) !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: none;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  width: 25%;
+  height: 100%;
+  top: 0;
 }
 </style>
