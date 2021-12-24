@@ -266,6 +266,16 @@
                       Tropiline (Cahya Sofyan)
                     </a>
                   </p>
+                  <p class="text-xs md:text-base text-right font-medium"></p>
+                  <p class="text-xs md:text-base text-left">
+                    <a
+                      href="https://abcdinamo.com/typefaces/whyte"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Whyte Inktrap (Dinamo)
+                    </a>
+                  </p>
                 </li>
                 <li class="col-span-1 lg:col-span-2">
                   <p
@@ -522,6 +532,16 @@
                       rel="noopener"
                     >
                       Tropiline (Cahya Sofyan)
+                    </a>
+                  </p>
+                  <p class="text-xs md:text-base text-right font-medium"></p>
+                  <p class="text-xs md:text-base text-left">
+                    <a
+                      href="https://abcdinamo.com/typefaces/whyte"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Whyte Inktrap (Dinamo)
                     </a>
                   </p>
                 </li>
