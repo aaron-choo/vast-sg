@@ -345,15 +345,15 @@ export default {
         opacity: 1,
         stagger: 0.02,
         duration: 1,
-        ease: 'power4.out',
+        ease: 'power4.easeOut',
       })
       gsap
         .to('.content', {
           y: 0,
           opacity: 1,
-          duration: 1,
+          duration: .5,
           stagger: 0,
-          ease: 'power4.out',
+          ease: 'power4.easeOut',
         })
         .delay(2)
       gsap
@@ -362,7 +362,7 @@ export default {
           opacity: 1,
           stagger: 0.1,
           duration: 1,
-          ease: 'power4.out',
+          ease: 'power4.easeOut',
         })
         .delay(0.5)
       gsap
@@ -371,7 +371,7 @@ export default {
           opacity: 1,
           stagger: 0.05,
           duration: 1,
-          ease: 'power4.out',
+          ease: 'power4.easeOut',
         })
         .delay(1)
     },
@@ -382,7 +382,7 @@ export default {
           translateY: document.documentElement.scrollTop/4,
           stagger: 0.025,
           duration: 1,
-          ease: 'power4.out',
+          ease: 'power4.easeOut',
         })
       }
     },

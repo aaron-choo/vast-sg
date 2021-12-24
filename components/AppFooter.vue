@@ -629,25 +629,26 @@ export default {
   },
   methods: {
      creditsAppear(){
+      // gsap.to('#footer', {
+      //   scrollTrigger: {
+      //     trigger: '#footer',
+      //     start: 'top bottom',
+      //     end: 'top top',
+      //     toggleActions: 'restart none reverse none',
+      //     snap: {
+      //       snapTo: 1,
+      //       duration: {min: 0.5, max: 1},
+      //       delay: 0,
+      //       ease: "Power2.easeInOut"  
+      //       },
+      //   }
+      // })
       gsap.to('#footer', {
         scrollTrigger: {
           trigger: '#footer',
-          start: 'top bottom',
-          end: 'top top',
-          toggleActions: 'restart none reverse none',
-          snap: {
-            snapTo: 1,
-            duration: {min: 0.5, max: 1},
-            delay: 0,
-            ease: "Power2.easeInOut"  
-            },
-        }
-      })
-      gsap.to('#footer', {
-        scrollTrigger: {
-          trigger: '#footer',
-          start: 'top 1',
-          end: 'top 1',
+          start: 'top 5%',
+          end: 'bottom bottom',
+          scrub: .5,
           toggleActions: 'restart none reverse none',
         },
         padding: 0,
@@ -658,21 +659,22 @@ export default {
       gsap.to('.speed-toggle', {
         scrollTrigger: {
           trigger: '#footer',
-          start: 'top 1',
-          end: 'top 1',
+          start: 'top top',
+          end: 'top top',
           toggleActions: 'restart none reverse none',
         },
         y: 0,
         opacity: 1,
         ease: 'Expo.easeOut',
-        duration: .3,
+        duration: 1,
         delay: .3,
       })
       gsap.to('.footer-container', {
         scrollTrigger: {
           trigger: '#footer',
-          start: 'top 1',
-          end: 'top 1',
+          start: 'top 5%',
+          end: 'bottom bottom',
+          scrub: .5,
           toggleActions: 'restart none reverse none',
         },
         padding: '1rem',

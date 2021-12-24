@@ -567,7 +567,8 @@ export default {
   methods: {
     animations() {
       gsap.set('#header-image-wrapper', {
-        scale: 1,
+        marginLeft: '1rem',
+        marginRight: '1rem',
         borderRadius: '0.5rem',
         transformOrigin: 'bottom',
       })
@@ -575,29 +576,12 @@ export default {
         scrollTrigger: {
           trigger: '#header-image-wrapper',
           start: 'top center',
-          end: 'bottom top',
-          scrub: 1,
-          pin: false,
+          end: 'bottom bottom',
+          scrub: true,
         },
         borderRadius: 0,
-        scale: 1.2,
-        ease: "Power2.easeInOut",
-        duration: 1,
-      })
-      gsap.to('.next-prev-projects', {
-        scrollTrigger: {
-          trigger: '.next-prev-projects',
-          start: 'top bottom',
-          end: 'top top',
-          toggleActions: 'restart none reverse none',
-          scrub: false,
-          snap: {
-            snapTo: 1,
-            duration: {min: 0.5, max: 1},
-            delay: 0,
-            ease: "Power2.easeInOut"  
-            },
-        },
+        marginLeft: 0,
+        marginRight: 0,
         ease: "Power2.easeInOut",
         duration: 1,
       })
@@ -618,12 +602,28 @@ export default {
     scrollAnimations() {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
-        gsap.to('.title-words span', {
-          translateY: document.documentElement.scrollTop / 4,
-          stagger: 0.025,
-          duration: 1,
-          ease: 'power4.out',
-        })
+        if (document.documentElement.scrollTop > 0) {
+          gsap.to('.title-words span', {
+            scaleY: 0,
+            rotate: -22,
+            rotateX: 90,
+            stagger: 0.02,
+            opacity: 0,
+            duration: 1,
+            ease: 'power4.easeOut',
+          })
+        }
+        else {
+          gsap.to('.title-words span', {
+            scaleY: 1,
+            rotate: 0,
+            rotateX: 0,
+            opacity: 1,
+            stagger: 0.02,
+            duration: 1,
+            ease: 'power4.easeOut',
+          })
+        }
       }
     },
     loadAnimations() {
@@ -642,14 +642,14 @@ export default {
         opacity: 1,
         stagger: 0.02,
         duration: 1,
-        ease: 'power4.out',
+        ease: 'power4.easeOut',
       })
       gsap
         .to('#header-image', {
           y: 0,
           opacity: 1,
-          duration: 1,
-          ease: 'power4.out',
+          duration: .5,
+          ease: 'power4.easeOut',
         })
         .delay(1.25)
       gsap
@@ -658,7 +658,7 @@ export default {
           opacity: 1,
           stagger: 0.1,
           duration: 1,
-          ease: 'power4.out',
+          ease: 'power4.easeOut',
         })
         .delay(0.5)
     },

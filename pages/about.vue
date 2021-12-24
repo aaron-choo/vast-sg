@@ -210,7 +210,7 @@ export default {
         opacity: 1,
         stagger: 0.02,
         duration: 1,
-        ease: 'power4.out',
+        ease: 'power4.easeOut',
       })
       gsap
         .to('#header-description .intro', {
@@ -218,7 +218,7 @@ export default {
           opacity: 1,
           stagger: 0.1,
           duration: 1,
-          ease: 'power4.out',
+          ease: 'power4.easeOut',
         })
         .delay(0.5)
       gsap
@@ -227,7 +227,7 @@ export default {
           opacity: 1,
           stagger: 0.05,
           duration: 1,
-          ease: 'power4.out',
+          ease: 'power4.easeOut',
         })
         .delay(1)
       gsap
@@ -236,7 +236,7 @@ export default {
           opacity: 1,
           duration: 1,
           stagger: 0,
-          ease: 'power4.out',
+          ease: 'power4.easeOut',
         })
         .delay(2)
     },
@@ -265,7 +265,7 @@ export default {
           translateY: document.documentElement.scrollTop/4,
           stagger: 0.025,
           duration: 1,
-          ease: 'power4.out',
+          ease: 'power4.easeOut',
         })
       }
     },
