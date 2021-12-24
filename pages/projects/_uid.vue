@@ -574,14 +574,31 @@ export default {
       gsap.to('#header-image-wrapper', {
         scrollTrigger: {
           trigger: '#header-image-wrapper',
-          start: 'top top',
+          start: 'top center',
           end: 'bottom top',
-          scrub: true,
+          scrub: 1,
           pin: false,
         },
         borderRadius: 0,
         scale: 1.2,
-        ease: 'none',
+        ease: "Power2.easeInOut",
+        duration: 1,
+      })
+      gsap.to('.next-prev-projects', {
+        scrollTrigger: {
+          trigger: '.next-prev-projects',
+          start: 'top bottom',
+          end: 'top top',
+          toggleActions: 'restart none reverse none',
+          scrub: false,
+          snap: {
+            snapTo: 1,
+            duration: {min: 0.5, max: 1},
+            delay: 0,
+            ease: "Power2.easeInOut"  
+            },
+        },
+        ease: "Power2.easeInOut",
         duration: 1,
       })
     },
