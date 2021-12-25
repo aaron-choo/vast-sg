@@ -435,6 +435,7 @@ body {
   background-color: var(--bg);
   color: var(--color);
   transition: background-color 0.3s;
+  overflow-x: hidden;
 }
 a {
   color: var(--color-primary);

@@ -205,15 +205,12 @@
         </div>
       </nuxt-link>
       <hr class="h-px w-full opacity-20" />
-      <div class="next-prev-projects top-0 sticky">
-        <div v-swiper="swiperOption">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
+      <div class="next-prev-projects flex">
               <nuxt-link
                 v-if="nextProject !== undefined"
                 id="next-project-section"
                 :to="$prismic.linkResolver(nextProject)"
-                class="next-project-section my-4 block"
+                class="next-project-section project-panel p-4 block w-1/2"
               >
                 <div class="w-auto relative">
                   <div
@@ -290,13 +287,11 @@
                   </div>
                 </div>
               </nuxt-link>
-            </div>
-            <div class="swiper-slide">
               <nuxt-link
                 v-if="prevProject !== undefined"
                 id="prev-project-section"
                 :to="$prismic.linkResolver(prevProject)"
-                class="prev-project-section my-4 block"
+                class="prev-project-section project-panel p-4 block w-1/2"
               >
                 <div class="w-auto relative">
                   <div
@@ -373,11 +368,7 @@
                   </div>
                 </div>
               </nuxt-link>
-            </div>
           </div>
-        </div>
-      </div>
-      <div class="h-8"></div>
     </section>
   </main>
 </template>
@@ -488,15 +479,20 @@ export default {
       page: null,
       scrollOver: false,
       swiperOption: {
-        effect: 'slide',
-        preventInteractionOnTransition: true,
+        slideToClickedSlide: true,
         slidesPerView: 1.2,
         speed: 800,
         slidesOffsetBefore: 16,
         slidesOffsetAfter: 16,
         spaceBetween: 16,
         mousewheel: {
-          releaseOnEdges: true,
+          releaseOnEdges: false,
+          sensitivity: 2,
+        },
+        freeMode: {
+          enabled: true,
+          sticky: false,
+          momentumBounce: false,
         },
       },
     }
@@ -530,7 +526,6 @@ export default {
   mounted() {
     window.addEventListener('scroll', this.scrollAnimations)
     window.addEventListener('scroll', this.onScroll)
-    window.addEventListener('scroll', this.nextPrevAnimations)
     document.documentElement.style.setProperty(
       '--nextbg',
       this.nextBackgroundColor
@@ -561,7 +556,7 @@ export default {
     document.documentElement.style.setProperty('--nextcolor', '')
     document.documentElement.style.setProperty('--prevbg', '')
     document.documentElement.style.setProperty('--prevcolor', '')
-    window.removeEventListener('scroll', this.animations)
+    window.removeEventListener('scroll', this.scrollAnimations)
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
@@ -570,60 +565,42 @@ export default {
         marginLeft: '1rem',
         marginRight: '1rem',
         borderRadius: '0.5rem',
-        transformOrigin: 'bottom',
       })
       gsap.to('#header-image-wrapper', {
         scrollTrigger: {
           trigger: '#header-image-wrapper',
-          start: 'top center',
-          end: 'bottom bottom',
+          start: 'top 500',
+          end: 'top top',
           scrub: true,
         },
         borderRadius: 0,
         marginLeft: 0,
         marginRight: 0,
-        ease: "Power2.easeInOut",
         duration: 1,
       })
-    },
-    nextPrevAnimations() {
-      //  const elementPosition = document.querySelector('.next-prev-projects').offsetTop
-      //  const scrollPosition = document.documentElement.scrollTop
-      //  console.log(elementPosition)
-      //  console.log(scrollPosition)
-      //  if (elementPosition <=  scrollPosition) {
-      //    this.$swiper.mousewheel.enable()
-      //    console.log('enabled')
-      //  } else {
-      //    this.$swiper.mousewheel.disable()
-      //    console.log('disabled')
-      //  }
+      const sections = gsap.utils.toArray(".project-panel");
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".next-prev-projects",
+          pin: true,
+          scrub: 1,
+          // snap: 1 / (sections.length - 1),
+          // base vertical scrolling on how wide the container is so it feels more natural.
+          end: "+=800",
+        }
+      });
     },
     scrollAnimations() {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
-        if (document.documentElement.scrollTop > 0) {
-          gsap.to('.title-words span', {
-            scaleY: 0,
-            rotate: -22,
-            rotateX: 90,
-            stagger: 0.02,
-            opacity: 0,
-            duration: 1,
-            ease: 'power4.easeOut',
-          })
-        }
-        else {
-          gsap.to('.title-words span', {
-            scaleY: 1,
-            rotate: 0,
-            rotateX: 0,
-            opacity: 1,
-            stagger: 0.02,
-            duration: 1,
-            ease: 'power4.easeOut',
-          })
-        }
+        gsap.to('.title-words span', {
+          translateY: document.documentElement.scrollTop/4,
+          stagger: 0.025,
+          duration: 1,
+          ease: 'power4.easeOut',
+        })
       }
     },
     loadAnimations() {
@@ -775,15 +752,7 @@ span.sep {
 .dark-mode #next-project-bg {
   background-color: var(--bg) !important;
 }
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  content: none;
-}
-.swiper-button-next,
-.swiper-button-prev {
-  width: 25%;
-  height: 100%;
-  top: 0;
+.next-prev-projects{
+    width: 200%;
 }
 </style>
