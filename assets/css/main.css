@@ -1,4 +1,25 @@
 @font-face {
+  font-family: 'Swear Variable';
+  src: url('~assets/fonts/SwearRomanVariable.woff2') format('woff2-variations');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Swear Variable';
+  src: url('~assets/fonts/SwearItalicVariable.woff2') format('woff2-variations');
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Swear Cilati Variable';
+  src: url('~assets/fonts/SwearCilatiVariable.woff2') format('woff2-variations');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Whyte Inktrap Book';
   src: url('~assets/fonts/WhyteInktrap-Book.woff2') format('woff2'),
       url('~assets/fonts/WhyteInktrap-Book.woff') format('woff');
@@ -435,7 +456,6 @@ body {
   background-color: var(--bg);
   color: var(--color);
   transition: background-color 0.3s;
-  overflow-x: hidden;
 }
 a {
   color: var(--color-primary);
@@ -464,6 +484,8 @@ hr {
 
 .serif {
   font-family: 'Tropiline', serif;
+  font-family: 'Swear Cilati Variable', serif;
+  font-variation-settings: "wght" 150, "opsz" 1000;
 }
 
 h1, h2, h3, h4, h5 ,h6 {

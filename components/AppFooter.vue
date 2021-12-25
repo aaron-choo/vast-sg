@@ -296,7 +296,7 @@
                   />
                 </li>
                 <li class="rating col-span-1 lg:col-span-2 leading-tight mt-10">
-                  <div class="mx-auto block w-60 h-12 border flex">
+                  <div class="mx-auto w-60 h-12 border flex">
                     <div
                       class="w-20 border-r serif text-3xl font-bold flex items-center justify-center pt-2"
                     >
@@ -564,7 +564,7 @@
                   />
                 </li>
                 <li class="rating col-span-1 lg:col-span-2 leading-tight mt-10">
-                  <div class="mx-auto block w-60 h-12 border flex">
+                  <div class="mx-auto w-60 h-12 border flex">
                     <div
                       class="w-20 border-r serif text-3xl font-bold flex items-center justify-center pt-2"
                     >
@@ -646,10 +646,9 @@ export default {
       gsap.to('#footer', {
         scrollTrigger: {
           trigger: '#footer',
-          start: 'top 5%',
+          start: 'top 10%',
           end: 'bottom bottom',
           scrub: .5,
-          toggleActions: 'restart none reverse none',
         },
         padding: 0,
         ease: 'Expo.easeOut',
@@ -659,9 +658,9 @@ export default {
       gsap.to('.speed-toggle', {
         scrollTrigger: {
           trigger: '#footer',
-          start: 'top top',
-          end: 'top top',
-          toggleActions: 'restart none reverse none',
+          start: 'top 10%',
+          end: 'bottom bottom',
+          scrub: .5,
         },
         y: 0,
         opacity: 1,
@@ -672,10 +671,9 @@ export default {
       gsap.to('.footer-container', {
         scrollTrigger: {
           trigger: '#footer',
-          start: 'top 5%',
+          start: 'top 10%',
           end: 'bottom bottom',
           scrub: .5,
-          toggleActions: 'restart none reverse none',
         },
         padding: '1rem',
         borderRadius: 0,

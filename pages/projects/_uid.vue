@@ -205,12 +205,12 @@
         </div>
       </nuxt-link>
       <hr class="h-px w-full opacity-20" />
-      <div class="next-prev-projects flex">
+      <div class="next-prev-projects">
               <nuxt-link
                 v-if="nextProject !== undefined"
                 id="next-project-section"
                 :to="$prismic.linkResolver(nextProject)"
-                class="next-project-section project-panel p-4 block w-1/2"
+                class="next-project-section project-panel p-4 block top-0 sticky"
               >
                 <div class="w-auto relative">
                   <div
@@ -291,7 +291,7 @@
                 v-if="prevProject !== undefined"
                 id="prev-project-section"
                 :to="$prismic.linkResolver(prevProject)"
-                class="prev-project-section project-panel p-4 block w-1/2"
+                class="prev-project-section project-panel p-4 block"
               >
                 <div class="w-auto relative">
                   <div
@@ -578,19 +578,6 @@ export default {
         marginRight: 0,
         duration: 1,
       })
-      const sections = gsap.utils.toArray(".project-panel");
-      gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".next-prev-projects",
-          pin: true,
-          scrub: 1,
-          // snap: 1 / (sections.length - 1),
-          // base vertical scrolling on how wide the container is so it feels more natural.
-          end: "+=800",
-        }
-      });
     },
     scrollAnimations() {
       const screenHeight = window.innerHeight
@@ -751,8 +738,5 @@ span.sep {
 }
 .dark-mode #next-project-bg {
   background-color: var(--bg) !important;
-}
-.next-prev-projects{
-    width: 200%;
 }
 </style>
