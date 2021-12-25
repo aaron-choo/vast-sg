@@ -1,8 +1,22 @@
 @font-face {
+	font-family:'GT Flexa VAR';
+  src: url('~assets/fonts/GT_Flexa_VAR.woff2') format('woff2-variations');
+	font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+	src: url('~assets/fonts/TiltWarp-HROT_VROT.woff2') format('woff2-variations');
+	font-family:'Tilt Warp';
+	font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Swear Variable';
   src: url('~assets/fonts/SwearRomanVariable.woff2') format('woff2-variations');
   font-style: normal;
-  font-display: swap;
+  
 }
 
 @font-face {
@@ -484,8 +498,6 @@ hr {
 
 .serif {
   font-family: 'Tropiline', serif;
-  font-family: 'Swear Cilati Variable', serif;
-  font-variation-settings: "wght" 150, "opsz" 1000;
 }
 
 h1, h2, h3, h4, h5 ,h6 {
