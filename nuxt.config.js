@@ -48,6 +48,9 @@ export default {
     '@nuxt/image',
     '@nuxtjs/moment'
   ],
+  colorMode: {
+    preference: 'light'
+  },
   gsap: {
     extraPlugins: {
       scrollTo: true,
