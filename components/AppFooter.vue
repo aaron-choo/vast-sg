@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="footer relative h-screen p-4">
+  <footer id="footer" class="footer relative h-screen px-4">
     <div class="footer-container relative h-full rounded-lg">
       <!-- <hr id="footer-hr" class="h-px w-full opacity-20" /> -->
       <!-- <div class="fade absolute top-0 w-full h-40 pointer-events-none rounded-t-lg"></div>
@@ -619,30 +619,16 @@ export default {
     const ScrollToPlugin = this.$ScrollToPlugin
     const ScrollTrigger = this.$ScrollTrigger
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
-    const tl = gsap.timeline({ repeat: -1 })
-    tl.to('#credits-roll .marquee-inner', {
-      y: '-100%',
-      duration: this.creditsSpeed,
-      ease: 'linear',
-    }).timeScale(1)
     this.creditsAppear()
   },
   methods: {
      creditsAppear(){
-      // gsap.to('#footer', {
-      //   scrollTrigger: {
-      //     trigger: '#footer',
-      //     start: 'top bottom',
-      //     end: 'top top',
-      //     toggleActions: 'restart none reverse none',
-      //     snap: {
-      //       snapTo: 1,
-      //       duration: {min: 0.5, max: 1},
-      //       delay: 0,
-      //       ease: "Power2.easeInOut"  
-      //       },
-      //   }
-      // })
+      const tl = gsap.timeline({ repeat: -1 })
+      tl.to('#credits-roll .marquee-inner', {
+        y: '-100%',
+        duration: this.creditsSpeed,
+        ease: 'linear',
+      }).timeScale(1)
       gsap.to('#footer', {
         scrollTrigger: {
           trigger: '#footer',
@@ -651,7 +637,7 @@ export default {
           scrub: .5,
         },
         padding: 0,
-        ease: 'Expo.easeOut',
+        ease: 'Power4.easeOut',
         duration: .3
       })
       gsap.set('.speed-toggle', {opacity: 0, y: 15})
@@ -659,12 +645,12 @@ export default {
         scrollTrigger: {
           trigger: '#footer',
           start: 'top 10%',
-          end: 'bottom bottom',
-          scrub: .5,
+          end: 'top 10%',
+          toggleActions: "restart none reverse none",
         },
         y: 0,
         opacity: 1,
-        ease: 'Expo.easeOut',
+        ease: 'Power4.easeOut',
         duration: 1,
         delay: .3,
       })
@@ -675,9 +661,9 @@ export default {
           end: 'bottom bottom',
           scrub: .5,
         },
-        padding: '1rem',
+        padding: '0 1rem',
         borderRadius: 0,
-        ease: 'Expo.easeOut',
+        ease: 'Power4.easeOut',
         duration: .3
       })
     },
