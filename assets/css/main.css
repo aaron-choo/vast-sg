@@ -504,3 +504,8 @@ h1, h2, h3, h4, h5 ,h6 {
   font-family: 'Whyte Inktrap Book', sans-serif;
   font-feature-settings: 'ss04';
 }
+
+.text-outline{
+  -webkit-text-stroke: 1px currentColor;
+  -webkit-text-fill-color: transparent;
+}

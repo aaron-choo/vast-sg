@@ -32,7 +32,8 @@
           class="
             inline-block
             tag
-            text-3xl
+            text-2xl
+            lg:text-3xl
             transition
             duration-300
             leading-3
