@@ -31,6 +31,15 @@ export default {
   ░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░       ▓▓▓▓▓▓▓▓▓▓▓▓       
      ░▒▓▓▓▓▓▓▓▓▓▓▓▓▒░     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░        ▓▓▓▓▓▓▓▓▓▓▓▓       
 `)
+    if ( this.$device.isDesktop === true ) {
+      document.documentElement.classList.add('desktop');
+    }
+    if ( this.$device.isTablet === true ) {
+      document.documentElement.classList.add('tablet');
+    }
+    if ( this.$device.isMobile === true ) {
+      document.documentElement.classList.add('mobile');
+    }
   }
 }
 </script>

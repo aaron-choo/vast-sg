@@ -46,7 +46,8 @@ export default {
     '@nuxtjs/color-mode',
     'nuxt-gsap-module',
     '@nuxt/image',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    '@nuxtjs/device'
   ],
   colorMode: {
     preference: 'light'
