@@ -73,7 +73,8 @@
       }
     },
     "projects_page": {},
-    "about_page": {}
+    "about_page": {},
+    "contactPage": {}
   },
   "components/slices": {
     "SliderBlock": {
