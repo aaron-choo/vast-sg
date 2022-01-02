@@ -25,7 +25,7 @@
               :key="index2"
               class="inline-block"
               >{{ letter }}</span
-            >&nbsp;<span class="inline-block text-base align-top tracking-wider relative lg:top-3">{{
+            >&nbsp;<span class="inline-block text-base align-top tracking-wider relative lg:top-1">{{
             projects.length
           }}</span></span
           >
