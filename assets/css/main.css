@@ -1,4 +1,116 @@
 @font-face {
+  font-family: 'PP Neue Machina';
+  src: url('~assets/fonts/PPNeueMachina-Light.woff2') format('woff2'),
+      url('~assets/fonts/PPNeueMachina-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Machina';
+  src: url('~assets/fonts/PPNeueMachina-Medium.woff2') format('woff2'),
+      url('~assets/fonts/PPNeueMachina-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Machina';
+  src: url('~assets/fonts/PPNeueMachina-Regular.woff2') format('woff2'),
+      url('~assets/fonts/PPNeueMachina-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Machina';
+  src: url('~assets/fonts/PPNeueMachina-Ultrabold.woff2') format('woff2'),
+      url('~assets/fonts/PPNeueMachina-Ultrabold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ogg';
+  src: url('~assets/fonts/Ogg-Italic.woff2') format('woff2'),
+      url('~assets/fonts/Ogg-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ogg';
+  src: url('~assets/fonts/Ogg-Roman.woff2') format('woff2'),
+      url('~assets/fonts/Ogg-Roman.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Trash';
+  src: url('~assets/fonts/Trash-Medium.woff2') format('woff2'),
+      url('~assets/fonts/Trash-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Trash';
+  src: url('~assets/fonts/Trash.woff2') format('woff2'),
+      url('~assets/fonts/Trash.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Trash';
+  src: url('~assets/fonts/Trash-Light.woff2') format('woff2'),
+      url('~assets/fonts/Trash-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Trash';
+  src: url('~assets/fonts/Trash-BoldItalic.woff2') format('woff2'),
+      url('~assets/fonts/Trash-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Trash';
+  src: url('~assets/fonts/Trash-Bold.woff2') format('woff2'),
+      url('~assets/fonts/Trash-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Trash';
+  src: url('~assets/fonts/Trash-Regular.woff2') format('woff2'),
+      url('~assets/fonts/Trash-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
   font-family: 'Faktum Wide';
   src: url('~assets/fonts/Faktum-WideRegular.woff2') format('woff2'),
       url('~assets/fonts/Faktum-WideRegular.woff') format('woff');
@@ -683,8 +795,7 @@ hr {
 }
 
 h1, h2, h3, h4, h5 ,h6 {
-  font-family: 'Whyte Inktrap', sans-serif;
-  font-feature-settings: 'ss04';
+  font-family: 'PP Neue Machina', sans-serif;
 }
 
 .text-outline{
