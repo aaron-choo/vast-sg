@@ -5,7 +5,7 @@
       :class="{ 'has-scroll-over opacity-0 pointer-events-none': scrollOver }"
     >
       <nuxt-link to="/" class="logo">
-        <Logo class="w-24 logo" />
+        <Logo class="w-28 logo" />
       </nuxt-link>
     </div>
     <div
@@ -13,8 +13,7 @@
         music-switcher
         fixed
         top-4
-        right-16
-        mr-4
+        right-4
         transition
         duration-300
         rounded-full
@@ -41,8 +40,8 @@
             xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px"
             y="0px"
-            height="24"
-            width="24"
+            height="28"
+            width="28"
             viewBox="0 0 60 60"
             style="enable-background: new 0 0 60 60"
             xml:space="preserve"
@@ -62,7 +61,7 @@
         mode-switcher
         fixed
         top-4
-        right-4
+        right-16
         transition
         duration-300
         rounded-full
@@ -80,8 +79,8 @@
             class="
               relative
               flex
-              h-4
-              w-4
+              h-5
+              w-5
               m-1
               justify-center
               leading-none
@@ -95,8 +94,8 @@
           toggle
           bg-current
           absolute
-          h-4
-          w-4
+          h-5
+          w-5
           rounded-full
           top-1
           left-1
@@ -110,21 +109,68 @@
       class="
         site-nav
         fixed
-        bottom-4
+        top-4
         right-4
         transition
         duration-300
         transform
-        translate-x-4
-        md:translate-x-0
       "
       :class="{
-        'has-scroll-over pointer-events-none translate-y-4 md:translate-y-0':
+        'has-scroll-over pointer-events-none -translate-y-4 md:translate-y-0 translate-x-4 md:translate-x-0':
           scrollOver,
         'menu-open pointer-events-auto': menuOpen,
-        'translate-y-20 translate-x-4 md:translate-x-0': !scrollOver,
+        '-translate-y-10': !scrollOver,
       }"
     >
+      <div
+          class="
+            site-nav-footer
+            transition
+            duration-300
+            pointer-events-none
+            opacity-0
+            z-10
+            relative
+            transform
+            scale-90
+          "
+          :class="{ 'pointer-events-auto opacity-100 scale-100': scrollOver }"
+          @mouseover="menuOpen = true"
+          @mouseleave="menuOpen = false"
+          @click.prevent="menuOpen = true"
+        >
+          <a href="#" class="flex justify-center items-center px-2 h-20 w-full">
+            <div class="menu-btn rounded-full text-center overflow-hidden">
+              <div
+                class="
+                  btn-txt-wrap
+                  h-auto
+                  rounded-full
+                  overflow-visible
+                  transition
+                  duration-300
+                  relative
+                "
+              >
+                <div
+                  class="
+                    btn-txt
+                    transition
+                    duration-300
+                    px-2
+                    h-auto
+                    flex
+                    justify-center
+                    items-center
+                    relative
+                  "
+                >
+                  MENU
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
       <div class="site-nav-origin">
         <div
           class="site-nav-body transition duration-300 relative z-10 px-6"
@@ -135,7 +181,7 @@
           }"
         >
           <ul
-            class="pt-6"
+            class="pb-6"
             @mouseover="menuOpen = true"
             @mouseleave="menuOpen = false"
             @click="menuOpen = false"
@@ -196,55 +242,7 @@
             </li>
           </ul>
         </div>
-        <div
-          class="
-            site-nav-footer
-            transition
-            duration-300
-            pointer-events-none
-            opacity-0
-            z-10
-            relative
-            transform
-            scale-90
-          "
-          :class="{ 'pointer-events-auto opacity-100 scale-100': scrollOver }"
-          @mouseover="menuOpen = true"
-          @mouseleave="menuOpen = false"
-          @click.prevent="menuOpen = true"
-        >
-          <a href="#" class="flex justify-center items-center px-2 h-20 w-full">
-            <div class="menu-btn rounded-full text-center overflow-hidden">
-              <div
-                class="
-                  btn-txt-wrap
-                  h-auto
-                  rounded-full
-                  overflow-visible
-                  transition
-                  duration-300
-                  relative
-                "
-              >
-                <div
-                  class="
-                    btn-txt
-                    transition
-                    duration-300
-                    px-2
-                    h-auto
-                    flex
-                    justify-center
-                    items-center
-                    relative
-                  "
-                >
-                  MENU
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
+        
         <div
           class="
             site-nav-bg
@@ -339,9 +337,15 @@ export default {
 }
 .has-scroll-over.logo-wrap,
 .has-scroll-over.mode-switcher,
-.has-scroll-over.music-switcher {
+.has-scroll-over.music-switcher  {
   transform: translate3d(0, -50%, 0);
 }
+
+.music-switcher,
+.mode-switcher {
+  z-index: 99;
+}
+
 .site-nav-bg > div {
   background-color: var(--color);
 }
@@ -373,6 +377,7 @@ export default {
 .site-nav:not(.has-scroll-over) li:nth-child(5) a {
   transition: 0.6s ease 0.5s, color 0.3s ease;
 }
+
 .has-scroll-over.menu-open.site-nav li a {
   bottom: 0;
   opacity: 1;
@@ -449,7 +454,7 @@ a:hover .u , .site-nav-body:not(.hover) .nuxt-link-exact-active .u
   animation-play-state: running;
 }
 .dark-mode .toggle {
-  transform: translateX(1.5em);
+  transform: translateX(1.75em);
 }
 .dark-mode .mode-switcher {
   background-color: #fec150;
