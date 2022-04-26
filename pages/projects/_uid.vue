@@ -644,6 +644,10 @@ export default {
 }
 </script>
 <style scoped>
+.title-words:nth-child(n+2){
+  margin-top: -.4em;
+}
+
 #next-header-text,
 #prev-header-text {
   min-height: calc(100vh - 2em);
