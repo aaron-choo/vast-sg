@@ -1,6 +1,6 @@
 <template>
   <div id="app-cursor" class="relative z-50 mix-blend-difference">
-      <span class="cursor-small hidden md:block"></span>
+      <span class="cursor-small hidden"></span>
       <span class="cursor hidden md:block"></span>
   </div>
 </template>
