@@ -119,7 +119,7 @@
         'has-scroll-over pointer-events-none -translate-y-4 md:translate-y-0 translate-x-4 md:translate-x-0':
           scrollOver,
         'menu-open pointer-events-auto': menuOpen,
-        '-translate-y-10': !scrollOver,
+        '-translate-y-8': !scrollOver,
       }"
     >
       <div
@@ -139,7 +139,7 @@
           @mouseleave="menuOpen = false"
           @click.prevent="menuOpen = true"
         >
-          <a href="#" class="flex justify-center items-center px-2 h-20 w-full">
+          <a href="#" class="flex justify-center items-center px-2 h-14 mt-4 w-full">
             <div class="menu-btn rounded-full text-center overflow-hidden">
               <div
                 class="
