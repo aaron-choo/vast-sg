@@ -1,11 +1,11 @@
 <template>
-  <footer id="footer" class="footer relative px-4">
+  <footer id="footer" class="footer relative p-4">
     <div class="footer-container relative grid lg:gap-y-3 uppercase">
       <p class="text-sm lg:text-base uppercase">(Socials)</p>
-      <p class="font-light text-3xl lg:text-6xl header-font">
+      <p class="font-light text-3xl lg:text-5xl header-font">
         <a class="relative inline-block" href="https://facebook.com/vast.sg" target="_blank"
           aria-label="Connect with us on Facebook" tabindex="0" tabposition="bottom" rel="noopener"><span
-            class="link-text"></span>FB</span>
+            class="link-text"></span>Facebook</span>
           <div class="
                   u
                   left-px
@@ -24,9 +24,9 @@
                     h-full
                   "></div>
           </div>
-        </a>/<a class="relative inline-block" href="https://instagram.com/vast.sg" target="_blank"
+        </a><br><a class="relative inline-block" href="https://instagram.com/vast.sg" target="_blank"
           aria-label="Connect with us on Instagram" tabindex="0" tabposition="bottom" rel="noopener"><span
-            class="link-text"></span>IG</span>
+            class="link-text"></span>Instagram</span>
           <div class="
                   u
                   left-px
@@ -45,9 +45,9 @@
                     h-full
                   "></div>
           </div>
-        </a>/<a class="relative inline-block" href="https://www.linkedin.com/company/vast-sg/" target="_blank"
+        </a><br><a class="relative inline-block" href="https://www.linkedin.com/company/vast-sg/" target="_blank"
           aria-label="Connect with us on LinkedIn" tabindex="0" tabposition="bottom" rel="noopener"><span
-            class="link-text"></span>LI</span>
+            class="link-text"></span>LinkedIn</span>
           <div class="
                   u
                   left-px
@@ -66,9 +66,9 @@
                     h-full
                   "></div>
           </div>
-        </a>/<a class="relative inline-block" href="https://dribbble.com/vastdesign" target="_blank"
+        </a><br><a class="relative inline-block" href="https://dribbble.com/vastdesign" target="_blank"
           aria-label="Connect with us on Dribbble" tabindex="0" tabposition="bottom" rel="noopener"><span
-            class="link-text"></span>DR</span>
+            class="link-text"></span>Dribbble</span>
           <div class="
                   u
                   left-px
@@ -90,7 +90,7 @@
         </a>
       </p>
       <p class="text-sm lg:text-base uppercase">(Email)</p>
-      <p class="font-light text-3xl lg:text-6xl header-font"><a class="relative inline-block"
+      <p class="font-light text-3xl lg:text-5xl header-font"><a class="relative inline-block"
           href="mailto:hello@vast.sg" aria-label="Email us" rel="noopener">
           <span class="link-text">hello@vast.sg</span>
           <div class="
@@ -114,7 +114,7 @@
         </a>
       </p>
       <p class="text-sm lg:text-base uppercase">(Phone)</p>
-      <p class="font-light text-3xl lg:text-6xl header-font"><a class="relative inline-block" href="tel:+6569424062"
+      <p class="font-light text-3xl lg:text-5xl header-font"><a class="relative inline-block" href="tel:+6569424062"
           aria-label="Call us" rel="noopener"><span class="link-text">+65 6942 4062</span>
           <div class="
                   u
@@ -137,7 +137,7 @@
         </a>
       </p>
       <p class="text-sm lg:text-base uppercase">(Studio)</p>
-      <p class="font-light text-3xl lg:text-6xl header-font"><a class="relative inline-block"
+      <p class="font-light text-3xl lg:text-5xl header-font"><a class="relative inline-block"
           href="https://maps.google.com/?q=VAST%20632%20Veerasamy%20Road%20#19-102" target="_blank"
           aria-label="View on map" rel="noopener"><span class="link-text">1°18’22”N<br />103°51’16”E</span>
           <div class="
@@ -161,9 +161,10 @@
         </a>
       </p>
     </div>
-    <div class="footer-logo-container pb-4 mt-20 overflow-hidden">
+    <div class="footer-logo-container mt-20 mb-4 overflow-hidden">
       <Logo class="logo" />
     </div>
+    <p class="text-sm lg:text-base uppercase text-right">© 2021-2022 · VAST</p>
   </footer>
 </template>
 <script>
@@ -184,59 +185,103 @@ export default {
   methods: {
     animations() {
       gsap.set('#footer .logo-block div', {
-        translateY: '20vw',
-        opacity:0,
+        translateY: '25vw',
+        borderRadius: 0,
+        width: '25%',
+      })
+      gsap.set('#footer .logo-block-t-bottom', {
+        left: '75%',
       })
       gsap.to('#footer .logo-block-v', {
         scrollTrigger: {
           trigger: '.footer-logo-container',
-          start: 'top 90%',
-          end: 'top 90%',
-          toggleActions: "play none reverse reset"
+          start: 'top bottom',
+          end: '20% bottom',
+          scrub:true,
         },
-        opacity:1,
         translateY: 0,
-        duration: .3,
-        ease: 'power4.easeOut',
+        ease:"none",
+      })
+      gsap.to('#footer .logo-block-v', {
+        scrollTrigger: {
+          trigger: '.footer-logo-container',
+          start: '80% bottom',
+          end: 'bottom bottom',
+          scrub:2,
+        },
+        ease:"none",
+        borderRadius: '0 0 50% 50%',
       })
       gsap.to('#footer .logo-block-a', {
         scrollTrigger: {
           trigger: '.footer-logo-container',
-          start: 'top 90%',
-          end: 'top 90%',
-          toggleActions: "play none reverse reset"
+          start: '20% bottom',
+          end: '40% bottom',
+          scrub:true,
         },
-        opacity:1,
         translateY: 0,
-        duration: .3,
-        delay:.15,
-        ease: 'power4.easeOut',
+        ease:"none",
+      })
+      gsap.to('#footer .logo-block-a', {
+        scrollTrigger: {
+          trigger: '.footer-logo-container',
+          start: '80% bottom',
+          end: 'bottom bottom',
+          scrub:2,
+        },
+        ease:"none",
+        borderRadius: '50% 50% 0 0',
       })
       gsap.to('#footer .logo-block-s', {
         scrollTrigger: {
           trigger: '.footer-logo-container',
-          start: 'top 90%',
-          end: 'top 90%',
-          toggleActions: "play none reverse reset"
+          start: '40% bottom',
+          end: '60% bottom',
+          scrub:true,
         },
-        opacity:1,
         translateY: 0,
-        duration: .3,
-        delay:.3,
-        ease: 'power4.easeOut',
+        ease:"none",
+      })
+      gsap.to('#footer .logo-block-s-top', {
+        scrollTrigger: {
+          trigger: '.footer-logo-container',
+          start: '80% bottom',
+          end: 'bottom bottom',
+          scrub:2,
+        },
+        ease:"none",
+        borderRadius: '6.25vw 0 0 6.25vw',
+      })
+      gsap.to('#footer .logo-block-s-bottom', {
+        scrollTrigger: {
+          trigger: '.footer-logo-container',
+          start: '80% bottom',
+          end: 'bottom bottom',
+          scrub:2,
+        },
+        ease:"none",
+        borderRadius: '6.25vw',
       })
       gsap.to('#footer .logo-block-t', {
         scrollTrigger: {
           trigger: '.footer-logo-container',
-          start: 'top 90%',
-          end: 'top 90%',
-          toggleActions: "play none reverse reset"
+          start: '60% bottom',
+          end: '80% bottom',
+          scrub:true,
         },
-        opacity:1,
         translateY: 0,
-        duration: .3,
-        delay:.45,
-        ease: 'power4.easeOut',
+        ease:"none",
+      })
+       gsap.to('#footer .logo-block-t-bottom', {
+        scrollTrigger: {
+          trigger: '.footer-logo-container',
+          start: '80% bottom',
+          end: 'bottom bottom',
+          scrub:2,
+        },
+        width: '12.5%',
+        left: '81.25%',
+        ease:"none",
       })
     },
   },
@@ -244,7 +289,7 @@ export default {
 </script>
 <style scoped>
 .footer-container {
-  grid-template-columns: 10em 1fr;
+  grid-template-columns: 9em 1fr;
 }
 
 .u {
