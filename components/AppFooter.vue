@@ -5,9 +5,9 @@
     >
       Get in touch
     </div>
-    <div class="footer-container relative grid lg:gap-y-3">
+    <div class="footer-container relative grid lg:gap-y-3 my-4">
       <p class="text-sm lg:text-base uppercase">(Socials)</p>
-      <p class="font-light text-3xl lg:text-5xl">
+      <p class="font-light text-2xl sm:text-3xl lg:text-5xl">
         <a
           class="relative inline-block mb-1"
           href="https://facebook.com/vast.sg"
@@ -75,7 +75,7 @@
         </a>
       </p>
       <p class="text-sm lg:text-base uppercase">(Email)</p>
-      <p class="font-light text-3xl lg:text-5xl">
+      <p class="font-light text-2xl sm:text-3xl lg:text-5xl">
         <a
           class="relative inline-block"
           href="mailto:hello@vast.sg"
@@ -93,7 +93,7 @@
         </a>
       </p>
       <p class="text-sm lg:text-base uppercase">(Phone)</p>
-      <p class="font-light text-3xl lg:text-5xl">
+      <p class="font-light text-2xl sm:text-3xl lg:text-5xl">
         <a
           class="relative inline-block"
           href="tel:+6569424062"
@@ -110,7 +110,7 @@
         </a>
       </p>
       <p class="text-sm lg:text-base uppercase">(Studio)</p>
-      <p class="font-light text-3xl lg:text-5xl">
+      <p class="font-light text-2xl sm:text-3xl lg:text-5xl">
         <a
           class="relative inline-block"
           href="https://maps.google.com/?q=VAST%20632%20Veerasamy%20Road%20#19-102"
@@ -257,7 +257,12 @@ export default {
 </script>
 <style scoped>
 .footer-container {
-  grid-template-columns: 9em 1fr;
+  grid-template-columns: 7em 1fr;
+}
+@media (min-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 9em 1fr;
+  }
 }
 
 .u {
