@@ -7,14 +7,7 @@
       >
         <h1
           id="header-title"
-          class="
-            tracking-tight
-            leading-none
-            text-4xl
-            lg:text-8xl
-            uppercase
-            mb-4
-          "
+          class="tracking-tight leading-none text-5xl lg:text-8xl uppercase mb-4"
         >
           <span
             v-for="(word, index) in titleWords"
@@ -25,23 +18,15 @@
               :key="index2"
               class="inline-block"
               >{{ letter }}</span
-            >&nbsp;<span class="inline-block text-base align-top tracking-wider relative lg:top-1">{{
-            projects.length
-          }}</span></span
+            >&nbsp;<span
+              class="inline-block text-base align-top tracking-wider relative lg:top-1"
+              >{{ projects.length }}</span
+            ></span
           >
         </h1>
         <p
           id="header-description"
-          class="
-            inline-block
-            tag
-            text-2xl
-            lg:text-3xl
-            transition
-            duration-300
-            leading-3
-            transform
-          "
+          class="inline-block tag text-2xl lg:text-3xl transition duration-300 leading-3 transform"
           :class="{ 'has-scroll-over': scrollOver }"
         >
           <span class="intro text-sm lg:text-base uppercase inline-block mr-16"
@@ -59,10 +44,7 @@
     </section>
     <section class="content relative">
       <hr class="h-px w-full opacity-20" />
-      <div
-        v-if="projects.length > 0"
-        class="isotope project-grid px-4 pt-12"
-      >
+      <div v-if="projects.length > 0" class="isotope project-grid px-4 pt-12">
         <div :class="allTags" class="grid-item project-link pb-2">
           <ul
             id="filters"
@@ -72,31 +54,14 @@
           >
             <li>
               <h3
-                class="
-                  tracking-tight
-                  leading-none
-                  uppercase
-                  text-2xl
-                  lg:text-3xl lg:leading-none
-                  mb-4
-                "
+                class="tracking-tight leading-none uppercase text-2xl lg:text-3xl lg:leading-none mb-4"
               >
                 Now Showing
               </h3>
             </li>
             <li>
               <button
-                class="
-                  filter-button
-                  selected
-                  all
-                  uppercase
-                  text-base
-                  lg:text-xl lg:leading-tight
-                  opacity-30
-                  transition
-                  duration-700
-                "
+                class="filter-button selected all uppercase text-base lg:text-xl lg:leading-tight opacity-30 transition duration-700"
                 data-filter="*"
                 @click="filter('*'), (currentFilter = 'filter')"
                 @mouseover="filterHover = true"
@@ -109,14 +74,7 @@
               <button
                 :class="'filter-button ' + tag"
                 :data-filter="tag"
-                class="
-                  uppercase
-                  text-base
-                  lg:text-xl lg:leading-tight
-                  opacity-30
-                  transition
-                  duration-700
-                "
+                class="uppercase text-base lg:text-xl lg:leading-tight opacity-30 transition duration-700"
                 @click="
                   filter('.' + tag), (currentFilter = tag.replace('-', ' '))
                 "
@@ -168,16 +126,7 @@
               />
             </div>
             <div
-              class="
-                text-xl
-                lg:text-2xl
-                uppercase
-                title
-                my-2
-                flex
-                justify-between
-                tracking-tight
-              "
+              class="text-xl lg:text-2xl uppercase title my-2 flex justify-between tracking-tight"
             >
               {{ $prismic.asText(project.data.title)
               }}<span class="date font-light tracking-normal">{{
@@ -189,10 +138,7 @@
         <div :class="allTags" class="grid-item project-link">
           <nuxt-link to="/contact">
             <p class="text-sm lg:text-base uppercase inline-block mr-16 mb-2">
-              (<span
-                class="inline-block"
-                >Have a great idea?</span
-              >)
+              (<span class="inline-block">Have a great idea?</span>)
             </p>
             <div class="image-wrapper overflow-hidden rounded-lg">
               <nuxt-img
@@ -207,20 +153,12 @@
               />
             </div>
             <div
-              class="
-                text-xl
-                lg:text-2xl
-                uppercase
-                title
-                my-2
-                flex
-                justify-between
-                tracking-tight
-              "
+              class="text-xl lg:text-2xl uppercase title my-2 flex justify-between tracking-tight"
             >
-              Let's Make Something Awesome<span class="date font-light tracking-normal">{{
-                $moment().format('MM/YY')
-              }}</span>
+              Let's Make Something Awesome<span
+                class="date font-light tracking-normal"
+                >{{ $moment().format('MM/YY') }}</span
+              >
             </div>
           </nuxt-link>
         </div>
@@ -351,7 +289,7 @@ export default {
         .to('.content', {
           y: 0,
           opacity: 1,
-          duration: .5,
+          duration: 0.5,
           stagger: 0,
           ease: 'power4.easeOut',
         })
@@ -379,7 +317,7 @@ export default {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
         gsap.to('.title-words span', {
-          translateY: document.documentElement.scrollTop/4,
+          translateY: document.documentElement.scrollTop / 4,
           stagger: 0.025,
           duration: 1,
           ease: 'power4.easeOut',
@@ -433,8 +371,8 @@ export default {
       this.iso.arrange({
         filter: tag,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>
