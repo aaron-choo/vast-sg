@@ -1,7 +1,8 @@
 <template>
-  <footer id="footer" class="footer relative p-4">
+  <footer id="footer" class="footer relative">
+    <hr class="h-px w-full opacity-20" />
     <div
-      class="my-4 tracking-tight leading-none text-4xl lg:text-7xl uppercase header-font footer-header-container overflow-hidden"
+      class="m-4 font-light tracking-tight leading-none text-4xl lg:text-7xl uppercase header-font footer-header-container overflow-hidden"
     >
       <div class="footer-header">
         <span
@@ -17,9 +18,9 @@
         >
       </div>
     </div>
-    <div class="footer-container relative grid gap-y-2 lg:gap-y-3 my-4">
+    <div class="footer-container relative grid gap-y-2 lg:gap-y-3 m-4 mb-8">
       <p class="text-sm lg:text-base uppercase">(Socials)</p>
-      <p class="font-light text-3xl sm:text-4xl lg:text-5xl flex gap-x-2">
+      <p class="font-light text-2xl sm:text-4xl lg:text-5xl flex gap-x-2">
         <a
           class="facebook relative inline-block"
           href="https://facebook.com/vast.sg"
@@ -106,7 +107,7 @@
         </a>
       </p>
       <p class="text-sm lg:text-base uppercase">(Email)</p>
-      <p class="font-light text-3xl sm:text-4xl lg:text-5xl">
+      <p class="font-light text-2xl sm:text-4xl lg:text-5xl">
         <a
           class="relative inline-flex"
           href="mailto:hello@vast.sg"
@@ -127,7 +128,7 @@
         </a>
       </p>
       <p class="text-sm lg:text-base uppercase">(Phone)</p>
-      <p class="font-light text-3xl sm:text-4xl lg:text-5xl">
+      <p class="font-light text-2xl sm:text-4xl lg:text-5xl">
         <a
           class="relative inline-flex"
           href="tel:+6569424062"
@@ -148,7 +149,7 @@
         </a>
       </p>
       <p class="text-sm lg:text-base uppercase">(Location)</p>
-      <p class="font-light text-3xl sm:text-4xl lg:text-5xl">
+      <p class="font-light text-2xl sm:text-4xl lg:text-5xl">
         <a
           class="relative inline-flex"
           href="https://maps.google.com/?q=VAST%20632%20Veerasamy%20Road%20#19-102"
@@ -170,7 +171,7 @@
         </a>
       </p>
     </div>
-    <div class="copyright flex items-end justify-end">
+    <div class="copyright flex items-end justify-end m-4">
       <div class="copyright-text text-base mr-px">©</div>
       <div class="footer-logo-container h-6 w-24">
         <Logo class="logo" />
@@ -218,6 +219,9 @@ export default {
 }
 </script>
 <style scoped>
+#footer {
+  max-width: 100vw;
+}
 .footer-container {
   grid-template-columns: 6em 1fr;
 }
