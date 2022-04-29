@@ -1,69 +1,92 @@
 <template>
-  <div id="app-cursor" class="relative z-50 mix-blend-difference">
-      <span class="cursor-small hidden"></span>
-      <span class="cursor hidden md:block"></span>
+  <div
+    id="app-cursor"
+    class="fixed z-50 mix-blend-exclusion left-0 right-0 top-0 bottom-0 pointer-events-none"
+  >
+    <svg></svg>
   </div>
 </template>
 
 <script>
 import gsap from 'gsap'
 export default {
-    mounted() {
-        const cursor = document.querySelector(".cursor");
-        const cursorSmall = document.querySelector(".cursor-small");
-        window.addEventListener("mousemove", e => {
-            gsap.to(cursor, 0.2, { x: e.clientX, y: e.clientY });
-            gsap.to(cursorSmall, 0.5, { x: e.clientX, y: e.clientY });
-        });
-        const activeCursor = {height: 8, width: 8, top: -4, left: -4}
-        const mainCursor = {height: 16, width: 16, top: -8, left: -8}
-        window.addEventListener("mousedown", e => {
-            gsap.to(cursor, 0.1,  activeCursor );
-            gsap.to(cursorSmall, 0.1,  activeCursor );
-        });
-        window.addEventListener("mouseup", e => {
-            gsap.to(cursor, 0.1, mainCursor);
-            gsap.to(cursorSmall, 0.1, mainCursor);
-        });        
+  mounted() {
+    gsap.defaults({ ease: 'none' })
+
+    const svgns = 'http://www.w3.org/2000/svg'
+    const root = document.querySelector('svg')
+    const ease = 0.8
+
+    const pointer = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
     }
+
+    window.addEventListener('mousemove', function (event) {
+      pointer.x = event.clientX
+      pointer.y = event.clientY
+    })
+
+    let leader = pointer
+
+    const total = 20
+    for (let i = 0; i < total; i++) {
+      leader = createLine(leader, i)
+    }
+
+    function createLine(leader, i) {
+      const line = document.createElementNS(svgns, 'line')
+      root.appendChild(line)
+
+      gsap.set(line, { x: -15, y: -15, alpha: (total - i) / total })
+
+      gsap.to(line, {
+        duration: 100,
+        x: '+=1',
+        y: '+=1',
+        repeat: -1,
+        modifiers: {
+          x() {
+            const posX = gsap.getProperty(line, 'x')
+            const leaderX = gsap.getProperty(leader, 'x')
+            const x = posX + (leaderX - posX) * ease
+            line.setAttribute('x2', leaderX - x)
+            return x
+          },
+          y() {
+            const posY = gsap.getProperty(line, 'y')
+            const leaderY = gsap.getProperty(leader, 'y')
+            const y = posY + (leaderY - posY) * ease
+            line.setAttribute('y2', leaderY - y)
+            return y
+          },
+        },
+      })
+
+      return line
+    }
+  },
 }
 </script>
 
-<style scoped>
-.cursor,
-.cursor-small {
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    box-sizing: border-box;
-    backface-visibility: hidden;
-    background-color: var(--color);
-    width:16px;
-    height:16px;
-    left: -8px;
-    top: -8px;
-    border: 1px solid transparent;
+<style>
+#app-cursor {
+  display: none;
 }
-.cursor::before {
-    content: '';
-    font-weight: 300;
-    font-size: 48px;
-    display: block;
-    position: relative;
-    bottom: .2em;
-    left: .22em;
-    width: 100%;
-    color: var(--bg);
-    opacity:0;
-    transition: .3s ease;
+.desktop #app-cursor {
+  display: initial;
 }
-.next .cursor::before {
-    content: '→';
-    opacity:1;
+#app-cursor svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
-.prev .cursor::before {
-    content: '←';
-    left: .22em;
-    opacity:1;
+#app-cursor line {
+  stroke: var(--color);
+  stroke-width: 24;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 </style>
