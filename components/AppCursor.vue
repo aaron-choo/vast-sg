@@ -1,7 +1,7 @@
 <template>
   <div
     id="app-cursor"
-    class="fixed z-50 mix-blend-exclusion left-0 right-0 top-0 bottom-0 pointer-events-none"
+    class="fixed z-50 mix-blend-difference left-0 right-0 top-0 bottom-0 pointer-events-none"
   >
     <svg></svg>
   </div>
@@ -29,7 +29,7 @@ export default {
 
     let leader = pointer
 
-    const total = 20
+    const total = 80
     for (let i = 0; i < total; i++) {
       leader = createLine(leader, i)
     }
@@ -38,7 +38,7 @@ export default {
       const line = document.createElementNS(svgns, 'line')
       root.appendChild(line)
 
-      gsap.set(line, { x: -15, y: -15, alpha: (total - i) / total })
+      gsap.set(line, { x: -15, y: -15, alpha: (total - i + i) / total })
 
       gsap.to(line, {
         duration: 100,
