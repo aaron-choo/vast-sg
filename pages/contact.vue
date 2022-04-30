@@ -1,19 +1,13 @@
 <template>
   <main>
-   <section class="contact-header z-0 overflow-hidden">
+    <section class="contact-header z-0 overflow-hidden">
       <div
         id="header-text"
         class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
       >
         <h1
           id="header-title"
-          class="
-            tracking-tight
-            text-4xl
-            lg:text-8xl
-            uppercase
-            mb-4
-          "
+          class="tracking-tight text-5xl lg:text-8xl uppercase mb-4"
         >
           <span
             v-for="(word, index) in titleWords"
@@ -29,34 +23,18 @@
         </h1>
         <p
           id="header-description"
-          class="
-            inline-block
-            tag
-            text-2xl
-            lg:text-3xl
-            transition
-            duration-300
-            leading-3
-            transform
-          "
+          class="inline-block tag text-2xl lg:text-3xl transition duration-300 leading-3 transform"
           :class="{ 'has-scroll-over': scrollOver }"
         >
-          <span
-            class="
-              intro
-              text-sm
-              lg:text-base
-              uppercase
-              inline-block
-              mr-16
-            "
+          <span class="intro text-sm lg:text-base uppercase inline-block mr-16"
             >({{ $prismic.asText(intro) }})</span
           ><span class="description serif leading-7 font-light"
             ><span
               v-for="(word, index) in descriptionWords"
               :key="index"
               class="description-words inline-block"
-              >{{ word }}</span></span
+              >{{ word }}</span
+            ></span
           >
         </p>
       </div>
@@ -67,9 +45,7 @@
 <script>
 export default {
   name: 'ContactPage',
-  components: {
-    
-  },
+  components: {},
   async asyncData({ $prismic, error }) {
     try {
       const pageContent = (await $prismic.api.getSingle('contactPage')).data
@@ -93,7 +69,7 @@ export default {
   },
   data() {
     return {
-      page: null
+      page: null,
     }
   },
   head() {
@@ -105,9 +81,9 @@ export default {
           name: 'description',
           content: this.$prismic
             .asText(this.page.metaDescription)
-            .substring(0, 158)
-        }
-      ]
+            .substring(0, 158),
+        },
+      ],
     }
   },
   beforeMount() {
