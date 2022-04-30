@@ -44,49 +44,57 @@
     </section>
     <section class="content relative">
       <hr class="h-px w-full opacity-20" />
-      <div v-if="projects.length > 0" class="isotope project-grid px-4 pt-12">
-        <div :class="allTags" class="grid-item project-link pb-2">
-          <ul
-            id="filters"
-            @mouseover="filterOpen = true"
-            @mouseleave="filterOpen = false"
-            @click="filterOpen = false"
-          >
-            <li>
-              <h3
-                class="tracking-tight leading-none uppercase text-2xl lg:text-3xl lg:leading-none mb-4"
-              >
-                Now Showing
-              </h3>
-            </li>
-            <li>
+      <div :class="allTags" class="m-4 mt-5">
+        <ul
+          id="filters"
+          @mouseover="filterOpen = true"
+          @mouseleave="filterOpen = false"
+          @click="filterOpen = false"
+        >
+          <li class="inline-block mb-1">
+            <div class="filter-btn rounded-full text-center overflow-hidden">
               <button
-                class="filter-button selected all uppercase text-base lg:text-xl lg:leading-tight opacity-30 transition duration-700"
+                class="filter-button selected all btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
                 data-filter="*"
                 @click="filter('*'), (currentFilter = 'filter')"
                 @mouseover="filterHover = true"
                 @mouseleave="filterHover = false"
               >
-                All Projects
+                <div
+                  class="btn-txt transition duration-300 px-2 md:px-3 lg:px-4 h-auto flex justify-center items-center relative text-xl lg:text-2xl uppercase tracking-tight"
+                >
+                  All Projects
+                </div>
               </button>
-            </li>
-            <li v-for="(tag, index) in allTags" :key="index">
+            </div>
+          </li>
+          <li
+            v-for="(tag, index) in allTags"
+            :key="index"
+            class="inline-block mr-1 mb-1"
+          >
+            <div class="filter-btn rounded-full text-center overflow-hidden">
               <button
                 :class="'filter-button ' + tag"
                 :data-filter="tag"
-                class="uppercase text-base lg:text-xl lg:leading-tight opacity-30 transition duration-700"
+                class="btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
                 @click="
                   filter('.' + tag), (currentFilter = tag.replace('-', ' '))
                 "
                 @mouseover=";(filterHover = true), (linkHover = true)"
                 @mouseleave=";(filterHover = false), (linkHover = false)"
               >
-                {{ tag.replace('-', ' ') }}
+                <div
+                  class="btn-txt transition duration-300 px-2 md:px-3 lg:px-4 h-auto flex justify-center items-center relative text-xl lg:text-2xl uppercase tracking-tight"
+                >
+                  {{ tag.replace('-', ' ') }}
+                </div>
               </button>
-            </li>
-          </ul>
-        </div>
-
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div v-if="projects.length > 0" class="isotope project-grid px-4 pt-12">
         <div
           v-for="project in projects"
           :key="project.id"
@@ -405,22 +413,44 @@ span.sep {
     margin-bottom: 8vw;
   }
 }
-.filter-button.selected {
-  opacity: 1;
-  transform: translateX(1em);
+
+.filter-btn {
+  transform: translateZ(0);
+  border: 1px solid var(--color);
 }
-.filter-button:hover {
-  opacity: 1;
-}
-.filter-button::before {
-  content: '→';
+
+.btn-txt-wrap::after,
+.btn-txt-wrap::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  left: -1em;
-  opacity: 0;
-  transition: opacity 0.3s ease 0s;
+  top: 0;
+  left: 0;
+  border-radius: 1em;
+  transition: transform 0.3s, background 0.3s;
 }
-.filter-button.selected::before {
-  opacity: 1;
-  transition: opacity 0.3s ease 0.6s;
+
+.btn-txt-wrap::after {
+  z-index: 1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  background: var(--color);
+}
+
+.btn-txt {
+  z-index: 2;
+  min-width: 1.8em;
+}
+
+.filter-btn .btn-txt:hover,
+.btn-txt-wrap.selected .btn-txt {
+  color: var(--bg);
+}
+.btn-txt-wrap:hover::after,
+.btn-txt-wrap.selected::after {
+  transform: scaleY(1);
+  transform-origin: top;
 }
 </style>
