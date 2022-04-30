@@ -2,7 +2,7 @@
   <footer id="footer" class="footer relative">
     <hr class="h-px w-full opacity-20" />
     <div
-      class="m-4 font-light tracking-tight leading-none text-4xl lg:text-7xl uppercase header-font footer-header-container overflow-hidden"
+      class="m-4 font-light tracking-tight leading-none text-4xl sm:text-5xl lg:text-7xl uppercase header-font footer-header-container overflow-hidden"
     >
       <div class="footer-header">
         <span
@@ -30,7 +30,9 @@
           tabposition="bottom"
           rel="noopener"
         >
-          <div class="social-btn rounded-full text-center overflow-hidden">
+          <div
+            class="social-btn footer-btn rounded-full text-center overflow-hidden"
+          >
             <div
               class="btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
             >
@@ -51,7 +53,9 @@
           tabposition="bottom"
           rel="noopener"
         >
-          <div class="social-btn rounded-full text-center overflow-hidden">
+          <div
+            class="social-btn footer-btn rounded-full text-center overflow-hidden"
+          >
             <div
               class="btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
             >
@@ -72,14 +76,16 @@
           tabposition="bottom"
           rel="noopener"
         >
-          <div class="social-btn rounded-full text-center overflow-hidden">
+          <div
+            class="social-btn footer-btn rounded-full text-center overflow-hidden"
+          >
             <div
               class="btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
             >
               <div
                 class="btn-txt transition duration-300 px-2 md:px-3 lg:px-4 h-auto flex justify-center items-center relative"
               >
-                LI
+                IN
               </div>
             </div>
           </div>
@@ -93,7 +99,9 @@
           tabposition="bottom"
           rel="noopener"
         >
-          <div class="social-btn rounded-full text-center overflow-hidden">
+          <div
+            class="social-btn footer-btn rounded-full text-center overflow-hidden"
+          >
             <div
               class="btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
             >
@@ -114,7 +122,7 @@
           aria-label="Email us"
           rel="noopener"
         >
-          <div class="rounded-full text-center overflow-hidden">
+          <div class="footer-btn rounded-full text-center overflow-hidden">
             <div
               class="btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
             >
@@ -135,7 +143,7 @@
           aria-label="Call us"
           rel="noopener"
         >
-          <div class="rounded-full text-center overflow-hidden">
+          <div class="footer-btn rounded-full text-center overflow-hidden">
             <div
               class="btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
             >
@@ -157,7 +165,7 @@
           aria-label="View on map"
           rel="noopener"
         >
-          <div class="rounded-full text-center overflow-hidden">
+          <div class="footer-btn rounded-full text-center overflow-hidden">
             <div
               class="btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
             >
@@ -189,13 +197,14 @@ export default {
   },
   data() {
     return {
-      footerHeaderWords: Array.from(
-        'Looking to build something awesome?'.split(' ')
-      ),
+      footerHeaderWords: Array.from('Building something awesome?'.split(' ')),
     }
   },
   mounted() {
     this.animations()
+  },
+  updated() {
+    this.$ScrollTrigger.refresh()
   },
   methods: {
     animations() {
@@ -210,7 +219,7 @@ export default {
           scrub: 2,
         },
         translateY: 0,
-        stagger: 0.1,
+        stagger: 0.025,
         duration: 1,
         ease: 'power4.easeOut',
       })
@@ -234,6 +243,10 @@ export default {
 
 .footer-header .word:nth-child(n + 2) {
   margin-top: -0.4em;
+}
+
+.footer-btn {
+  transform: translateZ(0);
 }
 
 .btn-txt-wrap::after,
@@ -281,7 +294,7 @@ export default {
 
 .instagram .btn-txt-wrap::after {
   background: linear-gradient(
-    200deg,
+    225deg,
     rgba(79, 91, 213, 1) 0%,
     rgba(150, 47, 191, 1) 25%,
     rgba(214, 41, 118, 1) 50%,
@@ -293,35 +306,17 @@ export default {
 .linkedin .btn-txt-wrap::after {
   background: #2867b2;
 }
-
 .dribbble .btn-txt-wrap::after {
   background: linear-gradient(
-    200deg,
+    225deg,
     rgb(219, 73, 130) 0%,
     rgb(169, 31, 85) 100%
   );
 }
-
 .btn-txt-wrap:hover::after {
   transform: scaleY(1);
   transform-origin: bottom;
 }
-
-.u {
-  width: calc(100% - 1px);
-  transform: scaleX(0);
-}
-
-a:hover .u {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-.u div {
-  transform: scaleX(1);
-  background-color: var(--color-primary);
-}
-
 .copyright-text {
   line-height: 0.7;
 }
