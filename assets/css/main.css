@@ -760,7 +760,6 @@ html {
 
 body {
   font-family: 'Freigeist', sans-serif;
-  font-feature-settings: 'calt' 0, 'ss02' 1, 'ss03' 1, 'ss05' 1, 'ss06' 0;
   background-color: var(--bg);
   color: var(--color);
   transition: background-color 0.3s;
