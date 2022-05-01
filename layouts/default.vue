@@ -31,16 +31,16 @@ export default {
   ░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░       ▓▓▓▓▓▓▓▓▓▓▓▓       
      ░▒▓▓▓▓▓▓▓▓▓▓▓▓▒░     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░        ▓▓▓▓▓▓▓▓▓▓▓▓       
 `)
-    if ( this.$device.isDesktop === true ) {
-      document.documentElement.classList.add('desktop');
+    if (this.$device.isDesktop === true) {
+      document.documentElement.classList.add('desktop')
     }
-    if ( this.$device.isTablet === true ) {
-      document.documentElement.classList.add('tablet');
+    if (this.$device.isTablet === true) {
+      document.documentElement.classList.add('tablet')
     }
-    if ( this.$device.isMobile === true ) {
-      document.documentElement.classList.add('mobile');
+    if (this.$device.isMobile === true) {
+      document.documentElement.classList.add('mobile')
     }
-  }
+  },
 }
 </script>
 <style scoped>
@@ -48,12 +48,12 @@ export default {
   animation: grain 2s steps(3) infinite both;
   background-image: url(/noise.png);
   content: '';
-  height: 300%;
-  left: -50%;
-  opacity: 0.8;
+  left: -150%;
+  opacity: 0.6;
   position: fixed;
-  top: -100%;
+  top: -150%;
   width: 300%;
+  height: 300%;
   pointer-events: none;
   z-index: 100;
 }
