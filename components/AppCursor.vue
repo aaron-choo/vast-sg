@@ -1,7 +1,7 @@
 <template>
   <div
     id="app-cursor"
-    class="fixed z-50 mix-blend-difference left-0 right-0 top-0 bottom-0 pointer-events-none"
+    class="fixed z-50 mix-blend-difference left-0 right-0 top-0 bottom-0 pointer-events-none opacity-0"
   >
     <svg></svg>
   </div>
@@ -15,7 +15,7 @@ export default {
 
     const svgns = 'http://www.w3.org/2000/svg'
     const root = document.querySelector('svg')
-    const ease = 0.8
+    const ease = 0.9
 
     const pointer = {
       x: window.innerWidth / 2,
@@ -71,10 +71,20 @@ export default {
 
 <style>
 #app-cursor {
-  display: none;
+  animation: fade-in 0.3s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
-.desktop #app-cursor {
-  display: initial;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+html:not(.desktop) #app-cursor {
+  display: none;
 }
 #app-cursor svg {
   position: absolute;
