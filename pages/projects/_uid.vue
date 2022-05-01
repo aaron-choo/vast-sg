@@ -122,63 +122,65 @@
 
     <section id="more-projects" class="mt-40 overflow-hidden">
       <hr class="h-px w-full opacity-20 mb-10 lg:mb-20" />
-      <p
-        class="next-project-label text-sm lg:text-lg uppercase z-0 m-4 px-2 text-center"
-      >
-        Next Project
-      </p>
-      <div
-        id="next-header-text"
-        class="w-full flex justify-center px-4 lg:px-40 py-4 lg:py-12 z-0 text-center z-10 relative"
-      >
-        <h3
-          id="next-header-title"
-          class="tracking-tight leading-none text-5xl lg:text-8xl uppercase z-0"
+      <div class="more-projects-container">
+        <p
+          class="next-project-label text-sm lg:text-lg uppercase z-0 m-4 px-2 text-center"
         >
-          <span
-            v-for="(word, index) in nextProjectTitleWords"
-            :key="index"
-            class="next-title-words inline-block overflow-hidden align-top"
-            ><span
-              v-for="(letter, index2) in Array.from(word)"
-              :key="index2"
-              class="inline-block"
-              >{{ letter }}</span
-            ></span
+          Next Project
+        </p>
+        <div
+          id="next-header-text"
+          class="w-full flex justify-center px-4 lg:px-40 py-4 lg:py-12 z-0 text-center z-10 relative"
+        >
+          <h3
+            id="next-header-title"
+            class="tracking-tight leading-none text-5xl lg:text-8xl uppercase z-0"
           >
-        </h3>
-      </div>
-
-      <nuxt-link
-        v-if="nextProject !== undefined"
-        id="next-project-section"
-        :to="$prismic.linkResolver(nextProject)"
-        class="next-project-section project-panel pb-4 px-4 lg:px-40 block transition duration-700"
-      >
-        <div class="w-auto relative">
-          <div
-            v-if="nextProjectImage.url !== undefined"
-            id="next-header-image-wrapper"
-            class="z-0 overflow-hidden w-full rounded-lg h-full"
-          >
-            <div
-              id="next-project-bg"
-              class="h-full w-full pointer-events-none opacity-30 z-10"
-            ></div>
-            <nuxt-img
-              v-if="nextProjectImage.url"
-              id="next-header-image"
-              format="webp"
-              :src="nextProjectImage.url"
-              sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-              :width="nextProjectImage.dimensions.width"
-              :height="nextProjectImage.dimensions.height"
-              class="w-full h-full object-cover z-0 pointer-events-none transform transition duration-700"
-              loading="lazy"
-            />
-          </div>
+            <span
+              v-for="(word, index) in nextProjectTitleWords"
+              :key="index"
+              class="next-title-words inline-block overflow-hidden align-top"
+              ><span
+                v-for="(letter, index2) in Array.from(word)"
+                :key="index2"
+                class="inline-block"
+                >{{ letter }}</span
+              ></span
+            >
+          </h3>
         </div>
-      </nuxt-link>
+
+        <nuxt-link
+          v-if="nextProject !== undefined"
+          id="next-project-section"
+          :to="$prismic.linkResolver(nextProject)"
+          class="next-project-section project-panel pb-4 mx-4 lg:mx-40 block transition duration-700"
+        >
+          <div class="w-auto relative">
+            <div
+              v-if="nextProjectImage.url !== undefined"
+              id="next-header-image-wrapper"
+              class="z-0 overflow-hidden w-full rounded-lg h-full"
+            >
+              <div
+                id="next-project-bg"
+                class="h-full w-full pointer-events-none opacity-30 z-10"
+              ></div>
+              <nuxt-img
+                v-if="nextProjectImage.url"
+                id="next-header-image"
+                format="webp"
+                :src="nextProjectImage.url"
+                sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+                :width="nextProjectImage.dimensions.width"
+                :height="nextProjectImage.dimensions.height"
+                class="w-full h-full object-cover z-0 pointer-events-none transform transition duration-700"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </nuxt-link>
+      </div>
     </section>
   </main>
 </template>
@@ -388,6 +390,19 @@ export default {
         marginRight: 0,
         duration: 1,
       })
+      gsap.set('.more-projects-container', {
+        marginTop: '-25vh',
+      })
+      gsap.to('.more-projects-container', {
+        scrollTrigger: {
+          trigger: '#more-projects',
+          start: 'top bottom',
+          end: 'top 50%',
+          scrub: true,
+        },
+        marginTop: 0,
+        duration: 1,
+      })
     },
     scrollAnimations() {
       const screenHeight = window.innerHeight
@@ -466,6 +481,9 @@ export default {
     margin-top: -6.55em;
     transform: translateY(6.55em);
   }
+}
+#next-header-image-wrapper {
+  transform: translateZ(0);
 }
 .next-project-section:hover {
   transform: translateY(0);
