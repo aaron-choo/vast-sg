@@ -21,6 +21,20 @@
         },
         "primary": {}
       }
+    },
+    "ImageBlock": {
+      "default-slice": {
+        "items": {
+          "image": {
+            "content": "https://images.prismic.io/vast-sg/3cad0de3-05fc-4847-9110-450e1438136e_christophe-meyer-czQvX1aa5RI-unsplash.jpg"
+          }
+        },
+        "primary": {
+          "columns": {
+            "content": 1
+          }
+        }
+      }
     }
   },
   "_cts": {
