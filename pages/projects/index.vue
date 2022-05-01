@@ -18,8 +18,8 @@
               :key="index2"
               class="inline-block"
               >{{ letter }}</span
-            >&nbsp;<span
-              class="inline-block text-base align-top tracking-wider relative lg:top-1"
+            ><span
+              class="inline-block text-base align-top tracking-wider relative ml-2"
               >{{ projects.length }}</span
             ></span
           >
@@ -163,10 +163,9 @@
             <div
               class="text-xl lg:text-2xl uppercase title my-2 flex justify-between tracking-tight"
             >
-              Let's Make Something Awesome<span
-                class="date font-light tracking-normal"
-                >{{ $moment().format('MM/YY') }}</span
-              >
+              Let's get to work!<span class="date font-light tracking-normal">{{
+                $moment().format('MM/YY')
+              }}</span>
             </div>
           </nuxt-link>
         </div>
