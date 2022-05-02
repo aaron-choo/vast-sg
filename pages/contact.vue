@@ -21,24 +21,23 @@
       <div class="m-4 mb-24 grid gap-8 md:grid-cols-2 text-3xl lg:text-4xl font-light uppercase">
         <div class="grid gap-8">
           <div>
-            <p class="text-sm lg:text-base uppercase">(Address)</p>
+            <p class="text-sm lg:text-base uppercase">(Locate Us)</p>
             <a class="inline-block" href="https://maps.google.com/?q=VAST%20632%20Veerasamy%20Road%20#19-102"
               target="_blank" aria-label="View on map" rel="noopener">
-              <h2>Vast Design</h2>
-              <p>1°18’22”N<br>
-                103°51’16”E</p>
+              <h2>1°18’22”N<br>
+                103°51’16”E</h2>
             </a>
           </div>
         </div>
         <div class="grid gap-8">
           <div>
-            <p class="text-sm lg:text-base uppercase">(Phone)</p>
+            <p class="text-sm lg:text-base uppercase">(Phone Us)</p>
             <a class="inline-block" href="tel:+6569424062" aria-label="Call us" rel="noopener">
               <h2>+65 6942 4062</h2>
             </a>
           </div>
           <div>
-            <p class="text-sm lg:text-base uppercase">(Electronic Mail)</p>
+            <p class="text-sm lg:text-base uppercase">(Email Us)</p>
             <a class="inline-block" href="mailto:hello@vast.sg" aria-label="Email us" rel="noopener">
               <h2>hello@vast.sg</h2>
             </a>
