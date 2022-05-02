@@ -179,7 +179,7 @@
         </a>
       </p>
     </div>
-    <div class="copyright flex items-end justify-end p-4">
+    <div class="copyright flex items-end justify-end p-4 opacity-50">
       <div class="copyright-text text-base mr-px">©</div>
       <div class="footer-logo-container h-6 w-24">
         <Logo class="logo" />
