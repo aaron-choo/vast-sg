@@ -21,7 +21,7 @@
       <hr class="h-px w-full opacity-20" />
       <div :class="allTags" class="m-4 mt-5">
         <ul id="filters" @mouseover="filterOpen = true" @mouseleave="filterOpen = false" @click="filterOpen = false">
-          <li class="inline-block mb-1">
+          <li class="inline-block mb-2 mr-1">
             <div class="filter-btn rounded-full text-center overflow-hidden">
               <button
                 class="filter-button selected all btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
@@ -34,7 +34,7 @@
               </button>
             </div>
           </li>
-          <li v-for="(tag, index) in allTags" :key="index" class="inline-block mr-1 mb-1">
+          <li v-for="(tag, index) in allTags" :key="index" class="inline-block mr-2 mb-2">
             <div class="filter-btn rounded-full text-center overflow-hidden">
               <button :class="'filter-button ' + tag" :data-filter="tag"
                 class="btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative" @click="
@@ -303,6 +303,7 @@ export default {
       this.iso.arrange({
         filter: tag,
       })
+      this.$ScrollTrigger.refresh()
     },
   },
 }
