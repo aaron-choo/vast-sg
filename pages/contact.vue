@@ -22,46 +22,172 @@
         <div class="grid gap-8">
           <div>
             <p class="text-sm lg:text-base uppercase">(Locate Us)</p>
-            <a class="inline-block" href="https://maps.google.com/?q=VAST%20632%20Veerasamy%20Road%20#19-102"
+            <a class="inline-block relative" href="https://maps.google.com/?q=VAST%20632%20Veerasamy%20Road%20#19-102"
               target="_blank" aria-label="View on map" rel="noopener">
               <h2>1°18’22”N<br>
                 103°51’16”E</h2>
+              <div class="
+                    u
+                    left-px
+                    origin-right
+                    transition
+                    duration-500
+                    absolute
+                    bottom-0
+                    h-px
+                  ">
+                <div class="
+                      transition-transform
+                      duration-500
+                      origin-left
+                      w-full
+                      h-full
+                    "></div>
+              </div>
             </a>
           </div>
         </div>
         <div class="grid gap-8">
           <div>
             <p class="text-sm lg:text-base uppercase">(Phone Us)</p>
-            <a class="inline-block" href="tel:+6569424062" aria-label="Call us" rel="noopener">
+            <a class="inline-block relative" href="tel:+6569424062" aria-label="Call us" rel="noopener">
               <h2>+65 6942 4062</h2>
+              <div class="
+                    u
+                    left-px
+                    origin-right
+                    transition
+                    duration-500
+                    absolute
+                    bottom-0
+                    h-px
+                  ">
+                <div class="
+                      transition-transform
+                      duration-500
+                      origin-left
+                      w-full
+                      h-full
+                    "></div>
+              </div>
             </a>
           </div>
           <div>
             <p class="text-sm lg:text-base uppercase">(Email Us)</p>
-            <a class="inline-block" href="mailto:hello@vast.sg" aria-label="Email us" rel="noopener">
+            <a class="inline-block relative" href="mailto:hello@vast.sg" aria-label="Email us" rel="noopener">
               <h2>hello@vast.sg</h2>
+              <div class="
+                    u
+                    left-px
+                    origin-right
+                    transition
+                    duration-500
+                    absolute
+                    bottom-0
+                    h-px
+                  ">
+                <div class="
+                      transition-transform
+                      duration-500
+                      origin-left
+                      w-full
+                      h-full
+                    "></div>
+              </div>
             </a>
           </div>
           <div>
             <p class="text-sm lg:text-base uppercase">(Follow Us)</p>
-            <a class="inline-block" href="https://facebook.com/vast.sg" target="_blank"
+            <a class="inline-block relative" href="https://facebook.com/vast.sg" target="_blank"
               aria-label="Connect with us on Facebook" tabindex="0" tabposition="bottom" rel="noopener">
               <h2>Facebook</h2>
+              <div class="
+                    u
+                    left-px
+                    origin-right
+                    transition
+                    duration-500
+                    absolute
+                    bottom-0
+                    h-px
+                  ">
+                <div class="
+                      transition-transform
+                      duration-500
+                      origin-left
+                      w-full
+                      h-full
+                    "></div>
+              </div>
             </a>
             <br />
-            <a class="inline-block" href="https://instagram.com/vast.sg" target="_blank"
+            <a class="inline-block relative" href="https://instagram.com/vast.sg" target="_blank"
               aria-label="Connect with us on Instagram" tabindex="0" tabposition="bottom" rel="noopener">
               <h2>Instagram</h2>
+              <div class="
+                    u
+                    left-px
+                    origin-right
+                    transition
+                    duration-500
+                    absolute
+                    bottom-0
+                    h-px
+                  ">
+                <div class="
+                      transition-transform
+                      duration-500
+                      origin-left
+                      w-full
+                      h-full
+                    "></div>
+              </div>
             </a>
             <br />
-            <a class="inline-block" href="https://www.linkedin.com/company/vast-sg/" target="_blank"
+            <a class="inline-block relative" href="https://www.linkedin.com/company/vast-sg/" target="_blank"
               aria-label="Connect with us on LinkedIn" tabindex="0" tabposition="bottom" rel="noopener">
               <h2>LinkedIn</h2>
+              <div class="
+                    u
+                    left-px
+                    origin-right
+                    transition
+                    duration-500
+                    absolute
+                    bottom-0
+                    h-px
+                  ">
+                <div class="
+                      transition-transform
+                      duration-500
+                      origin-left
+                      w-full
+                      h-full
+                    "></div>
+              </div>
             </a>
             <br />
-            <a class="inline-block" href="https://dribbble.com/vastdesign" target="_blank"
+            <a class="inline-block relative" href="https://dribbble.com/vastdesign" target="_blank"
               aria-label="Connect with us on Dribbble" tabindex="0" tabposition="bottom" rel="noopener">
               <h2>Dribbble</h2>
+              <div class="
+                    u
+                    left-px
+                    origin-right
+                    transition
+                    duration-500
+                    absolute
+                    bottom-0
+                    h-px
+                  ">
+                <div class="
+                      transition-transform
+                      duration-500
+                      origin-left
+                      w-full
+                      h-full
+                    "></div>
+              </div>
             </a>
           </div>
         </div>
@@ -140,5 +266,21 @@ export default {
 <style scoped>
 .description-words {
   padding-right: 0.29em;
+}
+
+.u {
+  width: calc(100% - 1px);
+  transform: scaleX(0);
+}
+
+a:hover .u,
+.site-nav-body:not(.hover) .nuxt-link-exact-active .u {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.u div {
+  transform: scaleX(1);
+  background-color: var(--color-primary);
 }
 </style>
