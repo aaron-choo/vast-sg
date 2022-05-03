@@ -250,8 +250,9 @@ export default {
     )
   },
   mounted() {
-    window.addEventListener('scroll', this.scrollAnimations)
-    window.addEventListener('scroll', this.onScroll)
+    this.animations()
+    this.headerAnimation()
+    window.addEventListener('scroll', this.headerScroll)
     document.documentElement.style.setProperty(
       '--nextbg',
       this.nextBackgroundColor
@@ -268,22 +269,18 @@ export default {
       '--prevcolor',
       this.prevTextColor
     )
-    this.animations()
-    this.loadAnimations()
+    const gsap = this.$gsap
+    const ExpoScaleEase = this.$ExpoScaleEase
+    const ScrollToPlugin = this.$ScrollToPlugin
+    const ScrollTrigger = this.$ScrollTrigger
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
+    this.$ScrollTrigger.refresh()
   },
   updated() {
     this.$ScrollTrigger.refresh()
   },
   destroyed() {
-    document.documentElement.style.setProperty('--bg', '')
-    document.documentElement.style.setProperty('--color-primary', '')
-    document.documentElement.style.setProperty('--color', '')
-    document.documentElement.style.setProperty('--nextbg', '')
-    document.documentElement.style.setProperty('--nextcolor', '')
-    document.documentElement.style.setProperty('--prevbg', '')
-    document.documentElement.style.setProperty('--prevcolor', '')
-    window.removeEventListener('scroll', this.scrollAnimations)
-    window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('scroll', this.headerScroll)
   },
   methods: {
     animations() {
@@ -304,9 +301,6 @@ export default {
         marginRight: 0,
         duration: 1,
       })
-      gsap.set('.more-projects-container', {
-        marginTop: '-25vh',
-      })
       gsap.to('.more-projects-container', {
         scrollTrigger: {
           trigger: '#more-projects',
@@ -318,7 +312,7 @@ export default {
         duration: 1,
       })
     },
-    scrollAnimations() {
+    headerScroll() {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
         gsap.to('.title-words span', {
@@ -329,7 +323,7 @@ export default {
         })
       }
     },
-    loadAnimations() {
+    headerAnimation() {
       gsap.set('.title-words span', {
         scaleY: 0,
         rotate: -22,
@@ -364,20 +358,6 @@ export default {
           ease: 'power4.easeOut',
         })
         .delay(0.5)
-    },
-    onScroll() {
-      // Get the current scroll position
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop
-      // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
-      if (currentScrollPosition < 0) {
-        return
-      }
-      if (currentScrollPosition > 0) {
-        this.scrollOver = true
-      } else {
-        this.scrollOver = false
-      }
     },
   },
 }

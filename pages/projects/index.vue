@@ -158,14 +158,12 @@ export default {
   },
   head() {
     return {
-      title: this.$prismic.asText(this.page.meta_title),
+      title: this.page.metaTitle,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.$prismic
-            .asText(this.page.meta_description)
-            .substring(0, 158),
+          content: this.page.metaDescription
         },
       ],
     }
@@ -181,18 +179,19 @@ export default {
   mounted() {
     this.headerAnimation()
     window.addEventListener('scroll', this.headerScroll)
-    window.addEventListener('scroll', this.onScroll)
     this.isotope()
+    const gsap = this.$gsap
+    const ExpoScaleEase = this.$ExpoScaleEase
+    const ScrollToPlugin = this.$ScrollToPlugin
+    const ScrollTrigger = this.$ScrollTrigger
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
+    this.$ScrollTrigger.refresh()
   },
   updated() {
     this.$ScrollTrigger.refresh()
   },
   destroyed() {
-    document.documentElement.style.setProperty('--bg', '')
-    document.documentElement.style.setProperty('--color-primary', '')
-    document.documentElement.style.setProperty('--color', '')
     window.removeEventListener('scroll', this.headerScroll)
-    window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
     LinkGetter(post) {
@@ -254,20 +253,6 @@ export default {
           duration: 1,
           ease: 'power4.easeOut',
         })
-      }
-    },
-    onScroll() {
-      // Get the current scroll position
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop
-      // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
-      if (currentScrollPosition < 0) {
-        return
-      }
-      if (currentScrollPosition > 0) {
-        this.scrollOver = true
-      } else {
-        this.scrollOver = false
       }
     },
     isotope() {
