@@ -449,7 +449,32 @@ a:hover .u,
   left: 16px;
   bottom: 16px !important;
   box-shadow: none !important;
-  ;
+  color: var(--bg) !important;
+  background: var(--color) !important;
+}
+
+.tf-v1-popover-wrapper {
+  border-radius: 8px !important;
+}
+
+.tf-v1-popover-wrapper::after {
+  content: '';
+  background: var(--color);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  mix-blend-mode: hard-light;
+  opacity: .4;
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+.tf-v1-spinner {
+  border: 3px solid #ffffff50 !important;
+  border-top-color: var(--color) !important;
 }
 
 .tf-v1-popover:not(.open) .tf-v1-popover-button {
