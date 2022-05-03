@@ -1,46 +1,24 @@
 <template>
   <main>
     <section class="about-header z-0 overflow-hidden">
-      <div
-        id="header-text"
-        class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
-      >
-        <h1
-          id="header-title"
-          class="tracking-tight text-5xl lg:text-8xl uppercase mb-4"
-        >
-          <span
-            v-for="(word, index) in titleWords"
-            :key="index"
-            class="title-words inline-block overflow-hidden"
-            ><span
-              v-for="(letter, index2) in Array.from(word)"
-              :key="index2"
-              class="inline-block"
-              >{{ letter }}</span
-            >&nbsp;</span
-          >
+      <div id="header-text" class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative">
+        <h1 id="header-title" class="tracking-tight text-5xl lg:text-8xl uppercase mb-4">
+          <span v-for="(word, index) in titleWords" :key="index" class="title-words inline-block overflow-hidden"><span
+              v-for="(letter, index2) in Array.from(word)" :key="index2" class="inline-block">{{ letter
+              }}</span>&nbsp;</span>
         </h1>
-        <p
-          id="header-description"
+        <p id="header-description"
           class="inline-block tag text-2xl lg:text-3xl transition duration-300 leading-3 transform"
-          :class="{ 'has-scroll-over': scrollOver }"
-        >
-          <span class="intro text-sm lg:text-base uppercase inline-block mr-16"
-            >({{ $prismic.asText(intro) }})</span
-          ><span class="description serif leading-7 font-light"
-            ><span
-              v-for="(word, index) in descriptionWords"
-              :key="index"
-              class="description-words inline-block"
-              >{{ word }}</span
-            ></span
-          >
+          :class="{ 'has-scroll-over': scrollOver }">
+          <span class="intro text-sm lg:text-base uppercase inline-block mr-16">({{ $prismic.asText(intro)
+          }})</span><span class="description serif leading-7 font-light"><span
+              v-for="(word, index) in descriptionWords" :key="index" class="description-words inline-block">{{ word
+              }}</span></span>
         </p>
       </div>
     </section>
     <section class="content">
-      <div class="grid lg:grid-cols-2">
+      <!-- <div class="grid lg:grid-cols-2">
         <div
           v-if="image.url !== undefined"
           id="header-image-wrapper"
@@ -108,8 +86,8 @@
             </p>
           </div>
         </div>
-      </div>
-      <hr class="h-px w-full opacity-20" />
+      </div> -->
+      <!-- <hr class="h-px w-full opacity-20" /> -->
       <slice-zone type="about_page" queryType="single" />
     </section>
   </main>
@@ -296,51 +274,40 @@ export default {
 .description-words {
   padding-right: 0.29em;
 }
+
 #header-image {
   min-height: 600px;
 }
+
 .speech-bubble-position {
   bottom: 50%;
   right: 50%;
 }
+
 .speech-bubble {
   background: #007aff;
   color: #fff;
 }
+
 #about-copy p:not(:first-child) {
   text-indent: 5em;
 }
-.wave {
-  animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
-  animation-duration: 2.5s; /* Change to speed up or slow down */
-  animation-iteration-count: infinite; /* Never stop waving :) */
-  transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
-  display: inline-block;
+</style>
+<style>
+.default-slice:nth-child(3) .image-block {
+  margin-bottom: -5rem;
 }
-@keyframes wave-animation {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(14deg);
-  } /* The following five values can be played with to make the waving more or less extreme */
-  20% {
-    transform: rotate(-8deg);
-  }
-  30% {
-    transform: rotate(14deg);
-  }
-  40% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-  60% {
-    transform: rotate(0deg);
-  } /* Reset for the last half to pause */
-  100% {
-    transform: rotate(0deg);
-  }
+
+section.section:first-child {
+  margin-top: 0;
+}
+
+h5 {
+  opacity: 0.5;
+}
+
+.text-block:nth-child(5),
+.text-block:nth-child(6) {
+  margin-bottom: -4rem;
 }
 </style>
