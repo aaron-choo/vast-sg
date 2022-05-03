@@ -1,8 +1,6 @@
 <template>
-  <div
-    id="app-cursor"
-    class="fixed z-50 mix-blend-difference left-0 right-0 top-0 bottom-0 pointer-events-none opacity-0"
-  >
+  <div id="app-cursor"
+    class="fixed z-50 mix-blend-difference left-0 right-0 top-0 bottom-0 pointer-events-none opacity-0">
     <svg></svg>
   </div>
 </template>
@@ -29,7 +27,7 @@ export default {
 
     let leader = pointer
 
-    const total = 80
+    const total = 40
     for (let i = 0; i < total; i++) {
       leader = createLine(leader, i)
     }
@@ -75,17 +73,21 @@ export default {
   animation-delay: 1s;
   animation-fill-mode: forwards;
 }
+
 @keyframes fade-in {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 html:not(.desktop) #app-cursor {
   display: none;
 }
+
 #app-cursor svg {
   position: absolute;
   top: 0;
@@ -93,10 +95,12 @@ html:not(.desktop) #app-cursor {
   height: 100%;
   width: 100%;
 }
+
 #app-cursor line {
   stroke: var(--color);
   stroke-width: 24;
   stroke-linecap: round;
   stroke-linejoin: round;
+  shape-rendering: geometricPrecision;
 }
 </style>
