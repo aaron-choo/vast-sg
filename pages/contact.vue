@@ -1,20 +1,23 @@
 <template>
   <main>
     <section class="contact-header z-0 overflow-hidden">
-      <div id="header-text" class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative">
-        <h1 id="header-title" class="tracking-tight text-5xl lg:text-8xl uppercase mb-4">
-          <span v-for="(word, index) in titleWords" :key="index" class="title-words inline-block overflow-hidden"><span
-              v-for="(letter, index2) in Array.from(word)" :key="index2" class="inline-block">{{ letter
-              }}</span>&nbsp;</span>
-        </h1>
-        <p id="header-description"
-          class="inline-block tag text-2xl lg:text-3xl transition duration-300 leading-3 transform"
-          :class="{ 'has-scroll-over': scrollOver }">
-          <span class="intro text-sm lg:text-base uppercase inline-block mr-16">({{ $prismic.asText(intro)
-          }})</span><span class="description serif leading-7 font-light"><span
-              v-for="(word, index) in descriptionWords" :key="index" class="description-words inline-block">{{ word
-              }}</span></span>
-        </p>
+      <div class="w-full overflow-hidden">
+        <div id="header-text" class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative">
+          <h1 id="header-title" class="tracking-tight text-5xl lg:text-8xl uppercase mb-4">
+            <span v-for="(word, index) in titleWords" :key="index"
+              class="title-words inline-block overflow-hidden"><span v-for="(letter, index2) in Array.from(word)"
+                :key="index2" class="inline-block">{{ letter
+                }}</span>&nbsp;</span>
+          </h1>
+          <p id="header-description"
+            class="inline-block tag text-2xl lg:text-3xl transition duration-300 leading-3 transform"
+            :class="{ 'has-scroll-over': scrollOver }">
+            <span class="intro text-sm lg:text-base uppercase inline-block mr-16">({{ $prismic.asText(intro)
+            }})</span><span class="description serif leading-7 font-light"><span
+                v-for="(word, index) in descriptionWords" :key="index" class="description-words inline-block">{{ word
+                }}</span></span>
+          </p>
+        </div>
       </div>
     </section>
     <section class="content">
@@ -202,6 +205,7 @@
 </template>
 
 <script>
+import gsap from 'gsap'
 export default {
   name: 'ContactPage',
   components: {},
@@ -233,14 +237,12 @@ export default {
   },
   head() {
     return {
-      title: this.$prismic.asText(this.page.metaTitle),
+      title: this.page.metaTitle,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.$prismic
-            .asText(this.page.metaDescription)
-            .substring(0, 158),
+          content: this.page.metaDescription
         },
       ],
     }
@@ -253,13 +255,81 @@ export default {
     )
     document.documentElement.style.setProperty('--color', this.textColor)
   },
+  mounted() {
+    this.headerAnimation()
+    window.addEventListener('scroll', this.headerScroll)
+    const gsap = this.$gsap
+    const ExpoScaleEase = this.$ExpoScaleEase
+    const ScrollToPlugin = this.$ScrollToPlugin
+    const ScrollTrigger = this.$ScrollTrigger
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
+    this.$ScrollTrigger.refresh()
+  },
   updated() {
     this.$ScrollTrigger.refresh()
   },
   destroyed() {
-    document.documentElement.style.setProperty('--bg', '')
-    document.documentElement.style.setProperty('--color-primary', '')
-    document.documentElement.style.setProperty('--color', '')
+    window.removeEventListener('scroll', this.headerScroll)
+  },
+  methods: {
+    headerAnimation() {
+      gsap.set('.title-words span', {
+        scaleY: 0,
+        rotate: -22,
+        rotateX: 90,
+        transformOrigin: '0% 50% -50',
+      })
+      gsap.set('#header-description .intro', { y: 15, opacity: 0 })
+      gsap.set('#header-description .description span', { y: 15, opacity: 0 })
+      gsap.set('.content', { y: 30, opacity: 0 })
+      gsap.to('.title-words span', {
+        scaleY: 1,
+        rotate: 0,
+        rotateX: 0,
+        opacity: 1,
+        stagger: 0.02,
+        duration: 1,
+        ease: 'power4.easeOut',
+      })
+      gsap
+        .to('#header-description .intro', {
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          duration: 1,
+          ease: 'power4.easeOut',
+        })
+        .delay(0.5)
+      gsap
+        .to('#header-description .description span', {
+          y: 0,
+          opacity: 1,
+          stagger: 0.05,
+          duration: 1,
+          ease: 'power4.easeOut',
+        })
+        .delay(1)
+      gsap
+        .to('.content', {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0,
+          ease: 'power4.easeOut',
+        })
+        .delay(2)
+    },
+    headerScroll() {
+      const screenHeight = window.innerHeight
+      if (document.documentElement.scrollTop < screenHeight) {
+        gsap.to('.title-words span', {
+          translateY: document.documentElement.scrollTop / 4,
+          stagger: 0.025,
+          duration: 1,
+          ease: 'power4.easeOut',
+        })
+      }
+    },
   },
 }
 </script>
