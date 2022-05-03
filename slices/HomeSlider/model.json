@@ -10,38 +10,7 @@
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
       "description": "HomeSlider",
-      "primary": {
-        "branding-showcase": {
-          "config": {
-            "label": "branding-showcase",
-            "customtypes": [
-              "project"
-            ],
-            "select": "document"
-          },
-          "type": "Link"
-        },
-        "web-showcase": {
-          "config": {
-            "label": "web-showcase",
-            "customtypes": [
-              "project"
-            ],
-            "select": "document"
-          },
-          "type": "Link"
-        },
-        "interior-showcase": {
-          "config": {
-            "label": "interior-showcase",
-            "customtypes": [
-              "project"
-            ],
-            "select": "document"
-          },
-          "type": "Link"
-        }
-      },
+      "primary": {},
       "items": {
         "image": {
           "config": {
@@ -69,7 +38,7 @@
           },
           "type": "StructuredText"
         },
-        "content-link": {
+        "contentLink": {
           "config": {
             "label": "content-link",
             "customtypes": [
@@ -78,8 +47,16 @@
             "select": "document"
           },
           "type": "Link"
+        },
+        "color": {
+          "type": "Color",
+          "config": {
+            "label": "Color",
+            "placeholder": ""
+          }
         }
-      }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]
 }

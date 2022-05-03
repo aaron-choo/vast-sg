@@ -1,31 +1,31 @@
 {
-  "id": "dff63dbe-4c63-406a-bb54-74ffa7862fac",
-  "uid": "repudiandae-qui-qui",
+  "id": "19ea5a97-717d-4672-b889-89bd1855b0ec",
+  "uid": "facilis-ratione-labore",
   "type": "about_page",
   "data": {
     "title": [
       {
         "type": "heading1",
-        "text": "Harness best-of-breed paradigms",
+        "text": "Envisioneer distributed niches",
         "spans": []
       }
     ],
     "intro": [
       {
         "type": "paragraph",
-        "text": "Enim mollit ullamco ea do nulla commodo eu do fugiat commodo deserunt.",
+        "text": "Esse sunt commodo ut ipsum ad in elit consectetur fugiat eiusmod culpa. Nisi et veniam fugiat cillum anim elit duis aute ipsum officia nulla officia occaecat aliqua in.",
         "spans": []
       }
     ],
     "description": [
       {
         "type": "paragraph",
-        "text": "Ut amet do eu. Laboris veniam tempor eu ad officia duis ad nulla.",
+        "text": "Mollit labore dolor aliquip eu ea do non laboris incididunt dolor et laboris incididunt aute ullamco. Irure minim enim eiusmod adipisicing magna. Culpa ullamco eiusmod amet aute aliqua culpa nulla consectetur duis aute id excepteur officia do.",
         "spans": []
       }
     ],
-    "backgroundColor": "#6da178",
-    "textColor": "#336a48",
+    "backgroundColor": "#db5366",
+    "textColor": "#fe1608",
     "image": {
       "dimensions": {
         "width": 900,
@@ -33,19 +33,19 @@
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6?w=900&h=500&fit=crop"
     },
     "meta_title": [
       {
         "type": "heading1",
-        "text": "Engage turn-key e-tailers",
+        "text": "Disintermediate bricks-and-clicks mindshare",
         "spans": []
       }
     ],
     "meta_description": [
       {
         "type": "paragraph",
-        "text": "Pariatur elit irure consequat tempor cupidatat aute dolor commodo sit sint adipisicing. Incididunt do sit aliquip mollit id cillum aliqua dolor non labore exercitation commodo aliqua amet. Duis fugiat laborum excepteur fugiat dolore do.",
+        "text": "Occaecat sint eiusmod anim ex dolore ipsum occaecat dolore aliquip aliquip pariatur.",
         "spans": []
       }
     ]

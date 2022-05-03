@@ -35,6 +35,18 @@
           }
         }
       }
+    },
+    "TextBlock": {
+      "default-slice": {
+        "primary": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
     }
   },
   "_cts": {
@@ -88,7 +100,8 @@
     },
     "projects_page": {},
     "about_page": {},
-    "contactPage": {}
+    "contactPage": {},
+    "home_page": {}
   },
   "components/slices": {
     "SliderBlock": {

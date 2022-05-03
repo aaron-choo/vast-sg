@@ -2,6 +2,7 @@
   "id": "home_page",
   "label": "Home Page",
   "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
       "uid": {
@@ -30,11 +31,10 @@
       },
       "body": {
         "type": "Slices",
-        "fieldset": "Slice zone",
+        "fieldset": "Slice Zone",
         "config": {
-          "labels": {},
           "choices": {
-            "banner": {
+            "home_slider": {
               "type": "SharedSlice"
             }
           }
@@ -60,6 +60,5 @@
         }
       }
     }
-  },
-  "status": true
+  }
 }

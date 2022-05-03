@@ -70,6 +70,9 @@
             },
             "text_block": {
               "type": "SharedSlice"
+            },
+            "slider_block": {
+              "type": "SharedSlice"
             }
           }
         }

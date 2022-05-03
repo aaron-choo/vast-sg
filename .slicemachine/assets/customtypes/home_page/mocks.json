@@ -1,0 +1,35 @@
+{
+  "id": "920d422a-facc-4d59-8ad6-1efd7bca3b9b",
+  "uid": "odit-labore-ad",
+  "type": "home_page",
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Reinvent real-time vortals",
+        "spans": []
+      }
+    ],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Nostrud et ipsum id commodo non do duis. Ullamco mollit et officia do occaecat nisi nostrud dolor proident.",
+        "spans": []
+      }
+    ],
+    "meta_title": [
+      {
+        "type": "heading1",
+        "text": "Seize transparent portals",
+        "spans": []
+      }
+    ],
+    "meta_description": [
+      {
+        "type": "paragraph",
+        "text": "Enim sit nostrud minim qui ullamco anim ex nulla laboris do dolore eiusmod dolor officia. Proident voluptate qui Lorem sunt eu aliquip excepteur velit occaecat occaecat mollit.",
+        "spans": []
+      }
+    ]
+  }
+}
