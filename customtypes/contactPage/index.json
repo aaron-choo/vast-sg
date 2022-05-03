@@ -64,22 +64,18 @@
     },
     "SEO": {
       "metaTitle": {
+        "type": "Text",
         "config": {
-          "label": "metaTitle",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        },
-        "type": "StructuredText"
+          "label": "Meta Title",
+          "placeholder": ""
+        }
       },
       "metaDescription": {
+        "type": "Text",
         "config": {
-          "label": "metaDescription",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        },
-        "type": "StructuredText"
+          "label": "Meta Description",
+          "placeholder": ""
+        }
       }
     }
   }
