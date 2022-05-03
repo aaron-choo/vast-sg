@@ -1,31 +1,31 @@
 {
-  "id": "ccfd95a6-032f-4e1f-9a62-1edcf05ab2b2",
-  "uid": "ratione-culpa-sunt",
+  "id": "0536822a-ae74-46ef-8047-81ed128c2902",
+  "uid": "sed-velit-rerum",
   "type": "projects_page",
   "data": {
     "title": [
       {
         "type": "paragraph",
-        "text": "Adipisicing ullamco est id magna aliquip pariatur dolore. Labore sit proident nulla officia sunt ea laboris do tempor proident ullamco cupidatat et. Aliqua laboris do culpa dolore laboris deserunt ut ea exercitation laboris elit exercitation nulla.",
+        "text": "Ut sunt nostrud Lorem pariatur aliqua pariatur anim aliqua qui velit officia sunt Lorem. Pariatur commodo proident nisi do deserunt esse elit laboris.",
         "spans": []
       }
     ],
     "intro": [
       {
         "type": "paragraph",
-        "text": "Qui adipisicing laboris excepteur duis excepteur minim voluptate occaecat culpa quis. Aliquip exercitation incididunt ut labore reprehenderit irure id elit ullamco quis id est veniam Lorem cupidatat.",
+        "text": "Aliqua enim exercitation ut amet esse velit cillum nulla cillum qui nostrud reprehenderit ex. Ex exercitation nisi ad velit nostrud minim dolor est elit elit do adipisicing commodo pariatur. Dolore incididunt fugiat consectetur culpa.",
         "spans": []
       }
     ],
     "description": [
       {
         "type": "paragraph",
-        "text": "Ad ipsum est nostrud. Ut consequat velit tempor amet velit aute eu cupidatat commodo reprehenderit. Consectetur nisi Lorem veniam eiusmod mollit Lorem qui nisi pariatur nulla anim sint aliquip fugiat id.",
+        "text": "Eiusmod laborum incididunt culpa minim deserunt sit Lorem et voluptate ea aliqua labore ea incididunt eiusmod.",
         "spans": []
       }
     ],
-    "backgroundColor": "#60bfe7",
-    "textColor": "#a37c5a",
+    "backgroundColor": "#15e257",
+    "textColor": "#dc35dd",
     "contactImage": {
       "dimensions": {
         "width": 900,
@@ -33,21 +33,9 @@
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=900&h=500&fit=crop"
     },
-    "meta_title": [
-      {
-        "type": "heading1",
-        "text": "Morph world-class ROI",
-        "spans": []
-      }
-    ],
-    "meta_description": [
-      {
-        "type": "paragraph",
-        "text": "Eu amet laboris sint incididunt dolore cupidatat minim dolor cillum. Sit in commodo labore voluptate.",
-        "spans": []
-      }
-    ]
+    "metaTitle": "matrix interactive infomediaries",
+    "metaDescription": "monetize impactful systems"
   }
 }

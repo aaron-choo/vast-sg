@@ -1,31 +1,31 @@
 {
-  "id": "206afae9-7800-4504-bfaf-ea1aee556158",
-  "uid": "deserunt-est-necessitatibus",
+  "id": "1cd60aca-e1b0-4c7f-aa37-f479b80ea5ca",
+  "uid": "earum-totam-dicta",
   "type": "contactPage",
   "data": {
     "title": [
       {
         "type": "paragraph",
-        "text": "Duis est amet elit consequat in laborum quis reprehenderit duis dolore sit officia consequat.",
+        "text": "Incididunt dolore nisi officia ullamco nostrud dolor.",
         "spans": []
       }
     ],
     "intro": [
       {
         "type": "paragraph",
-        "text": "Nulla amet fugiat esse anim. Lorem ad fugiat laborum.",
+        "text": "Mollit do anim nulla nostrud aute occaecat aute in do ex ipsum quis anim quis. Reprehenderit irure irure commodo adipisicing amet qui sunt. Quis occaecat nostrud et occaecat deserunt sint consectetur ut ipsum consectetur.",
         "spans": []
       }
     ],
     "description": [
       {
         "type": "paragraph",
-        "text": "Magna sunt dolore non ad deserunt aliquip nulla commodo velit velit Lorem. Deserunt cillum proident est incididunt est velit deserunt anim velit.",
+        "text": "Ipsum ullamco occaecat mollit amet qui pariatur. Occaecat qui magna ut deserunt est do quis velit ex officia voluptate laboris officia amet duis. Sit laboris irure duis do pariatur ex ipsum nisi proident irure aliqua in nulla enim ad.",
         "spans": []
       }
     ],
-    "backgroundColor": "#709579",
-    "textColor": "#8f939c",
+    "backgroundColor": "#b80e42",
+    "textColor": "#bd6eb0",
     "image": {
       "dimensions": {
         "width": 900,
@@ -33,21 +33,9 @@
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89?w=900&h=500&fit=crop"
     },
-    "metaTitle": [
-      {
-        "type": "paragraph",
-        "text": "Eu ipsum nisi adipisicing veniam labore commodo enim occaecat elit reprehenderit ipsum enim labore eu.",
-        "spans": []
-      }
-    ],
-    "metaDescription": [
-      {
-        "type": "paragraph",
-        "text": "Et et consectetur commodo veniam Lorem dolor aute sit nisi quis id et anim aliqua incididunt. Anim elit proident tempor nostrud.",
-        "spans": []
-      }
-    ]
+    "metaTitle": "synergize customized vortals",
+    "metaDescription": "recontextualize compelling web services"
   }
 }

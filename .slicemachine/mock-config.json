@@ -56,18 +56,6 @@
           "patternType": "PARAGRAPH",
           "blocks": 1
         }
-      },
-      "metaTitle": {
-        "config": {
-          "patternType": "PARAGRAPH",
-          "blocks": 1
-        }
-      },
-      "metaDescription": {
-        "config": {
-          "patternType": "PARAGRAPH",
-          "blocks": 1
-        }
       }
     },
     "projects": {

@@ -79,21 +79,18 @@
       }
     },
     "SEO": {
-      "meta_title": {
-        "type": "StructuredText",
+      "metaTitle": {
+        "type": "Text",
         "config": {
-          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
           "label": "Meta Title",
-          "placeholder": "Meta Title"
+          "placeholder": ""
         }
       },
-      "meta_description": {
-        "type": "StructuredText",
+      "metaDescription": {
+        "type": "Text",
         "config": {
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-          "allowTargetBlank": true,
           "label": "Meta Description",
-          "placeholder": "Meta Description"
+          "placeholder": ""
         }
       }
     }

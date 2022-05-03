@@ -1,31 +1,31 @@
 {
-  "id": "19ea5a97-717d-4672-b889-89bd1855b0ec",
-  "uid": "facilis-ratione-labore",
+  "id": "ac9d188c-f3b8-47be-8f43-f6c44f8d987c",
+  "uid": "autem-similique-assumenda",
   "type": "about_page",
   "data": {
     "title": [
       {
         "type": "heading1",
-        "text": "Envisioneer distributed niches",
+        "text": "Envisioneer open-source e-markets",
         "spans": []
       }
     ],
     "intro": [
       {
         "type": "paragraph",
-        "text": "Esse sunt commodo ut ipsum ad in elit consectetur fugiat eiusmod culpa. Nisi et veniam fugiat cillum anim elit duis aute ipsum officia nulla officia occaecat aliqua in.",
+        "text": "Ullamco pariatur do fugiat veniam ut nisi laboris irure tempor. Enim irure dolore ad officia veniam proident cillum officia minim dolor labore eu.",
         "spans": []
       }
     ],
     "description": [
       {
         "type": "paragraph",
-        "text": "Mollit labore dolor aliquip eu ea do non laboris incididunt dolor et laboris incididunt aute ullamco. Irure minim enim eiusmod adipisicing magna. Culpa ullamco eiusmod amet aute aliqua culpa nulla consectetur duis aute id excepteur officia do.",
+        "text": "Anim minim esse exercitation irure veniam sint nostrud veniam consectetur nulla.",
         "spans": []
       }
     ],
-    "backgroundColor": "#db5366",
-    "textColor": "#fe1608",
+    "backgroundColor": "#0a1042",
+    "textColor": "#5ad95b",
     "image": {
       "dimensions": {
         "width": 900,
@@ -33,21 +33,9 @@
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=900&h=500&fit=crop"
     },
-    "meta_title": [
-      {
-        "type": "heading1",
-        "text": "Disintermediate bricks-and-clicks mindshare",
-        "spans": []
-      }
-    ],
-    "meta_description": [
-      {
-        "type": "paragraph",
-        "text": "Occaecat sint eiusmod anim ex dolore ipsum occaecat dolore aliquip aliquip pariatur.",
-        "spans": []
-      }
-    ]
+    "metaTitle": "mesh dynamic initiatives",
+    "metaDescription": "utilize ubiquitous mindshare"
   }
 }

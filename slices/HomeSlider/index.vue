@@ -44,6 +44,95 @@ export default {
       },
     },
   },
+  async asyncData({ $prismic, params, error }) {
+    try {
+      // Query post
+      const project = await $prismic.api.getByUID('project', params.uid)
+      const relatedProjects = await $prismic.api.query(
+        [
+          $prismic.predicates.similar(project.id, 10),
+          $prismic.predicates.at('document.type', 'project'),
+        ],
+        { pageSize: 3 }
+      )
+      const NextProject =
+        (
+          await $prismic.api.query(
+            $prismic.predicates.at('document.type', 'project'),
+            {
+              pageSize: 1,
+              after: `${project.id}`,
+              orderings: '[my.project.date desc]',
+            }
+          )
+        ).results[0] ||
+        (
+          await $prismic.api.query(
+            $prismic.predicates.at('document.type', 'project'),
+            { pageSize: 1, orderings: '[my.project.date desc]' }
+          )
+        ).results[0]
+      const PrevProject =
+        (
+          await $prismic.api.query(
+            $prismic.predicates.at('document.type', 'project'),
+            {
+              pageSize: 1,
+              after: `${project.id}`,
+              orderings: '[my.project.date]',
+            }
+          )
+        ).results[0] ||
+        (
+          await $prismic.api.query(
+            $prismic.predicates.at('document.type', 'project'),
+            { pageSize: 1, orderings: '[my.project.date]' }
+          )
+        ).results[0]
+      const LatestProjects = (
+        await $prismic.api.query(
+          $prismic.predicates.at('document.type', 'project'),
+          { pageSize: 4, orderings: '[my.project.date]' }
+        )
+      ).results
+      // Returns data to be used in template
+      return {
+        page: project,
+        title: project.data.title,
+        titleWords: Array.from($prismic.asText(project.data.title).split(' ')),
+        date: project.data.date,
+        description: project.data.description,
+        summary: project.data.summary,
+        client: project.data.client,
+        image: project.data.image,
+        backgroundColor: project.data.backgroundColor,
+        textColor: project.data.textColor,
+        tags: project.tags,
+        projectLink: project.data.link.url,
+        relatedProjects: relatedProjects.results,
+        nextProject: NextProject,
+        nextProjectTitleWords: Array.from(
+          $prismic.asText(NextProject.data.title).split(' ')
+        ),
+        nextProjectTags: NextProject.tags,
+        nextProjectImage: NextProject.data.image,
+        nextTextColor: NextProject.data.textColor,
+        nextBackgroundColor: NextProject.data.backgroundColor,
+        prevProject: PrevProject,
+        prevProjectTitleWords: Array.from(
+          $prismic.asText(PrevProject.data.title).split(' ')
+        ),
+        prevProjectTags: PrevProject.tags,
+        prevProjectImage: PrevProject.data.image,
+        prevTextColor: PrevProject.data.textColor,
+        prevBackgroundColor: PrevProject.data.backgroundColor,
+        latestProjects: LatestProjects,
+      }
+    } catch (e) {
+      // Returns error page
+      error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
   data() {
     return {
       swiperOption: {

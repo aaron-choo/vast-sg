@@ -1,18 +1,18 @@
 {
-  "id": "5eb4613d-0758-43c7-af9c-118749050261",
-  "uid": "laborum-ea-doloremque",
+  "id": "b86cdcc2-9f7b-4351-a665-cbd05ed2bbcd",
+  "uid": "quod-quasi-quis",
   "type": "project",
   "data": {
     "title": [
       {
         "type": "paragraph",
-        "text": "Tempor irure tempor esse exercitation nulla velit occaecat magna cillum cillum id consequat elit.",
+        "text": "Reprehenderit commodo eu excepteur dolor incididunt ipsum ut. Mollit anim do do reprehenderit culpa sunt. Lorem sit dolore esse reprehenderit enim ipsum minim qui eiusmod labore.",
         "spans": []
       }
     ],
-    "date": "2013-10-02",
-    "backgroundColor": "#483350",
-    "textColor": "#7f556a",
+    "date": "2012-04-02",
+    "backgroundColor": "#ec765b",
+    "textColor": "#9eda4e",
     "image": {
       "dimensions": {
         "width": 900,
@@ -20,46 +20,34 @@
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
     },
     "client": [
       {
         "type": "paragraph",
-        "text": "Aliquip pariatur veniam labore ad in laborum in adipisicing. Officia pariatur ex nostrud ex enim anim elit occaecat quis. Aliquip veniam laboris duis tempor nisi incididunt aliquip labore labore.",
+        "text": "Officia fugiat anim minim eu. Qui irure deserunt mollit commodo commodo laborum duis deserunt aute cupidatat tempor aliquip anim. Aliqua duis consequat laboris.",
         "spans": []
       }
     ],
     "summary": [
       {
         "type": "paragraph",
-        "text": "Anim occaecat ea voluptate veniam ea reprehenderit excepteur nulla aliqua ullamco ipsum laboris quis magna irure. Qui veniam est anim veniam commodo aliqua nisi nulla nulla ullamco. Deserunt do ad deserunt ipsum ad ullamco sunt nostrud proident culpa cupidatat veniam sit quis pariatur.",
+        "text": "Nisi commodo ut deserunt exercitation qui commodo incididunt. Labore ea cillum dolore ut. Ullamco est irure Lorem fugiat ex ullamco.",
         "spans": []
       }
     ],
     "description": [
       {
         "type": "paragraph",
-        "text": "Officia eu dolor sint incididunt aliqua anim laborum esse cupidatat aliqua minim. Irure amet laboris cupidatat occaecat voluptate esse qui minim pariatur nisi ipsum.",
+        "text": "Enim commodo proident Lorem minim.",
         "spans": []
       }
     ],
     "link": {
       "link_type": "Web",
-      "url": "http://twitter.com"
+      "url": "http://google.com"
     },
-    "metaTitle": [
-      {
-        "type": "paragraph",
-        "text": "Minim irure aliquip aliquip adipisicing in incididunt voluptate cillum aliquip cillum mollit ex deserunt aliquip. Aute eu culpa duis nulla aliqua occaecat mollit dolore dolor exercitation dolore est do.",
-        "spans": []
-      }
-    ],
-    "metaDescription": [
-      {
-        "type": "paragraph",
-        "text": "Irure incididunt labore consequat culpa quis nulla. Nulla veniam ipsum velit ex aliqua fugiat commodo enim commodo. Aliqua id adipisicing ut elit qui nostrud laboris sint excepteur tempor magna duis aute sunt aliquip.",
-        "spans": []
-      }
-    ]
+    "metaTitle": "envisioneer B2C web-readiness",
+    "metaDescription": "utilize holistic platforms"
   }
 }
