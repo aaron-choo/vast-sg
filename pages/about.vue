@@ -130,14 +130,12 @@ export default {
   },
   head() {
     return {
-      title: this.$prismic.asText(this.page.meta_title),
+      title: this.page.metaTitle,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.$prismic
-            .asText(this.page.meta_description)
-            .substring(0, 158),
+          content: this.page.metaDescription
         },
       ],
     }
@@ -152,24 +150,12 @@ export default {
   },
   mounted() {
     this.headerAnimation()
-    this.speechAnimation()
     window.addEventListener('scroll', this.headerScroll)
-    window.addEventListener('scroll', this.onScroll)
-    const gsap = this.$gsap
-    const ExpoScaleEase = this.$ExpoScaleEase
-    const ScrollToPlugin = this.$ScrollToPlugin
-    const ScrollTrigger = this.$ScrollTrigger
-    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
   },
   updated() {
-    this.$ScrollTrigger.refresh()
   },
   destroyed() {
-    document.documentElement.style.setProperty('--bg', '')
-    document.documentElement.style.setProperty('--color-primary', '')
-    document.documentElement.style.setProperty('--color', '')
     window.removeEventListener('scroll', this.headerScroll)
-    window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
     headerAnimation() {
@@ -219,29 +205,6 @@ export default {
         })
         .delay(2)
     },
-    speechAnimation() {
-      gsap.set('.speech-bubble-position', {
-        opacity: 0,
-        scale: 0.9,
-        transformOrigin: 'right',
-      })
-      gsap.to('.speech-bubble-position', {
-        scrollTrigger: {
-          trigger: '.speech-bubble-position',
-          start: 'top 60%',
-          end: 'top 60%',
-          scrub: false,
-          pin: false,
-          markers: false,
-          toggleActions: 'restart none reverse none',
-        },
-        opacity: 1,
-        scale: 1,
-        ease: 'elastic',
-        delay: 0.5,
-        duration: 1,
-      })
-    },
     headerScroll() {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
@@ -251,20 +214,6 @@ export default {
           duration: 1,
           ease: 'power4.easeOut',
         })
-      }
-    },
-    onScroll() {
-      // Get the current scroll position
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop
-      // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
-      if (currentScrollPosition < 0) {
-        return
-      }
-      if (currentScrollPosition > 0) {
-        this.scrollOver = true
-      } else {
-        this.scrollOver = false
       }
     },
   },
