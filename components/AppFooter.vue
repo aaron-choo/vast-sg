@@ -121,21 +121,35 @@ export default {
   },
   mounted() {
     this.animations()
+    const gsap = this.$gsap
+    const ExpoScaleEase = this.$ExpoScaleEase
+    const ScrollToPlugin = this.$ScrollToPlugin
+    const ScrollTrigger = this.$ScrollTrigger
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
   },
   updated() {
+    this.animations()
   },
   destroyed() {
   },
   methods: {
     animations() {
+      gsap.set('.footer-header .letter', {
+        translateY: -500
+      })
       window.onscroll = function (ev) {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
           gsap.to('.footer-header .letter', {
             translateY: - (document.body.offsetHeight - window.innerHeight - window.scrollY) / 4,
-            stagger: 0.015,
+            // scaleY: 1 - ((document.body.offsetHeight - (window.innerHeight + window.scrollY)) / 490),
+            // opacity: 1 - ((document.body.offsetHeight - (window.innerHeight + window.scrollY)) / 490),
+            // rotate: ((document.body.offsetHeight - (window.innerHeight + window.scrollY)) / 490) * -22,
+            // rotateX: ((document.body.offsetHeight - (window.innerHeight + window.scrollY)) / 490) * 90,
+            stagger: 0.02,
             duration: 1,
-            ease: 'power4.easeOut',
+            ease: 'Expo.easeOut',
           })
+
         }
       };
     },
