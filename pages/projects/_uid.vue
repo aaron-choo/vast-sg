@@ -319,7 +319,7 @@ export default {
           translateY: document.documentElement.scrollTop / 4,
           stagger: 0.025,
           duration: 1,
-          ease: 'power4.easeOut',
+          ease: 'Power4.easeOut',
         })
       }
     },
@@ -339,14 +339,14 @@ export default {
         opacity: 1,
         stagger: 0.02,
         duration: 1,
-        ease: 'power4.easeOut',
+        ease: 'Power4.easeOut',
       })
       gsap
         .to('#header-image', {
           y: 0,
           opacity: 1,
           duration: 0.5,
-          ease: 'power4.easeOut',
+          ease: 'Power4.easeOut',
         })
         .delay(1.25)
       gsap
@@ -355,7 +355,7 @@ export default {
           opacity: 1,
           stagger: 0.1,
           duration: 1,
-          ease: 'power4.easeOut',
+          ease: 'Power4.easeOut',
         })
         .delay(0.5)
     },
@@ -367,14 +367,24 @@ export default {
   margin: 0 0.125em;
 }
 
-.next-project-section {
+.macos .next-project-section {
   margin-top: -2.75em;
   transform: translateY(2.75em);
 }
 
+.windows .next-project-section {
+  margin-top: -2.35em;
+  transform: translateY(2.35em);
+}
+
 @media (min-width: 1024px) {
-  .next-project-section {
+  .macos .next-project-section {
     margin-top: -6.55em;
+    transform: translateY(6.55em);
+  }
+
+  .windows .next-project-section {
+    margin-top: -5.65em;
     transform: translateY(6.55em);
   }
 }
