@@ -1,5 +1,24 @@
 <template>
   <main>
+    <iframe src='https://my.spline.design/interactivespherescopy-d614f3e62aa145d3db710f071c6a575b/' frameborder='0'
+      width='100%' height='100%' class="h-screen"></iframe>
+    <!-- <section class="home-header z-0 overflow-hidden">
+      <div id="header-text" class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative">
+        <h1 id="header-title" class="tracking-tight leading-none text-3xl lg:text-6xl uppercase mb-4">
+          <span v-for="(word, index) in titleWords" :key="index" class="title-words inline-block overflow-hidden"><span
+              v-for="(letter, index2) in Array.from(word)" :key="index2" class="inline-block">{{ letter
+              }}</span>&nbsp;</span>
+        </h1>
+        <p id="header-description"
+          class="inline-block tag text-2xl lg:text-3xl transition duration-300 leading-3 transform"
+          :class="{ 'has-scroll-over': scrollOver }">
+          <span class="intro text-sm lg:text-base uppercase inline-block mr-16">({{ $prismic.asText(intro)
+          }})</span><span class="description serif font-light leading-7"><span
+              v-for="(word, index2) in descriptionWords" :key="index2" class="description-words inline-block">{{ word
+              }}</span></span>
+        </p>
+      </div>
+    </section> -->
     <section class="home-slider section mb-24 relative">
       <div v-swiper="swiperOption" class="relative overflow-hidden">
         <div class="swiper-wrapper h-screen">
@@ -8,11 +27,11 @@
             <div
               class="absolute top-0 left-0 bottom-0 right-0 z-10 flex flex-col justify-center items-start p-4 pointer-events-none">
               <div class="absolute top-0 left-0 bottom-0 right-0 opacity-50 transition-colors duration-300"
-                style="background: var(--bg)">
+                :style="'background:' + project.data.backgroundColor">
               </div>
-              <prismic-rich-text :field="project.data.title"
+              <prismic-rich-text :field="project.data.title" :style="'color:' + project.data.textColor"
                 class="title tracking-tight leading-none text-5xl lg:text-8xl uppercase header-font inline-block z-10" />
-              <prismic-rich-text :field="project.data.summary"
+              <prismic-rich-text :field="project.data.summary" :style="'color:' + project.data.textColor"
                 class="summary text-sm lg:text-base uppercase inline-block z-10" />
             </div>
             <nuxt-link :to="LinkGetter(project)">
@@ -57,7 +76,7 @@ export default {
       )
       return {
         page: pageContent,
-        titleWords: Array.from("We craft brands, spaces, and experiences. We are VAST.".split(' ')),
+        titleWords: Array.from("We craft experiences across the realms of analog and digital.".split(' ')),
         backgroundColor: pageContent.backgroundColor,
         textColor: pageContent.textColor,
         projects: projects.results,
@@ -117,25 +136,25 @@ export default {
 
 
 
-    // Function to add css variables
-    function setBodyProperty(a, b) {
-      document.documentElement.style.setProperty(a, b);
-    };
+    // // Function to add css variables
+    // function setBodyProperty(a, b) {
+    //   document.documentElement.style.setProperty(a, b);
+    // };
 
-    // Function to change colors
-    const changeColorOnSwipe = function () {
-      const changeColor = document.querySelector('.change-color.swiper-slide-active');
-      const color = changeColor.dataset.color;
-      const backgroundcolor = changeColor.dataset.background;
-      setBodyProperty('--color', color);
-      setBodyProperty('--color-primary', color);
-      setBodyProperty('--bg', backgroundcolor);
-    }
-    // Change colors when page loaded
-    document.addEventListener('DOMContentLoaded', changeColorOnSwipe);
-    // Change colors when scrolling between projects
-    this.$swiper.on('imagesReady', changeColorOnSwipe);
-    this.$swiper.on('transitionStart', changeColorOnSwipe);
+    // // Function to change colors
+    // const changeColorOnSwipe = function () {
+    //   const changeColor = document.querySelector('.change-color.swiper-slide-active');
+    //   const color = changeColor.dataset.color;
+    //   const backgroundcolor = changeColor.dataset.background;
+    //   setBodyProperty('--color', color);
+    //   setBodyProperty('--color-primary', color);
+    //   setBodyProperty('--bg', backgroundcolor);
+    // }
+    // // Change colors when page loaded
+    // document.addEventListener('DOMContentLoaded', changeColorOnSwipe);
+    // // Change colors when scrolling between projects
+    // this.$swiper.on('imagesReady', changeColorOnSwipe);
+    // this.$swiper.on('transitionStart', changeColorOnSwipe);
 
 
 
@@ -163,10 +182,10 @@ export default {
       const screenHeight = window.innerHeight
       if (document.documentElement.scrollTop < screenHeight) {
         gsap.to('.title-words span', {
-          translateY: document.documentElement.scrollTop / 4,
-          stagger: 0.025,
-          duration: 1,
-          ease: 'power4.easeOut',
+          // translateY: document.documentElement.scrollTop / 4,
+          // stagger: 0.025,
+          // duration: 1,
+          // ease: 'Power4.easeOut',
         })
       }
     },
