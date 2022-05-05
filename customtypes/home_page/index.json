@@ -50,6 +50,9 @@
           "choices": {
             "home_slider": {
               "type": "SharedSlice"
+            },
+            "text_block": {
+              "type": "SharedSlice"
             }
           }
         }
