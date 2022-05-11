@@ -330,7 +330,6 @@ span.sep {
 
 .filter-btn {
   transform: translateZ(0);
-  box-shadow: 0 0 0 1px var(--color);
 }
 
 .btn-txt-wrap::after,
@@ -344,6 +343,11 @@ span.sep {
   left: 0;
   border-radius: 1em;
   transition: transform 0.3s, background 0.3s;
+}
+
+.btn-txt-wrap::before {
+  background: var(--color);
+  opacity: .2;
 }
 
 .btn-txt-wrap::after {
