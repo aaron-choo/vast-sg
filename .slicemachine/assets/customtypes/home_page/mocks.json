@@ -1,25 +1,25 @@
 {
-  "id": "5085759f-fe2d-40b3-bd1c-039f690d8888",
-  "uid": "voluptate-et-ad",
+  "id": "af8c2952-bcef-45cd-98c0-039461ab58d8",
+  "uid": "non-iusto-natus",
   "type": "home_page",
   "data": {
     "title": [
       {
-        "type": "heading1",
-        "text": "Exploit proactive niches",
+        "type": "paragraph",
+        "text": "Non enim commodo aute aliqua ea aliquip ullamco est deserunt et mollit. Tempor irure exercitation cupidatat reprehenderit esse cillum magna in laborum exercitation veniam culpa excepteur. Labore aliqua minim voluptate proident cupidatat nisi velit amet.",
         "spans": []
       }
     ],
-    "content": [
+    "intro": [
       {
         "type": "paragraph",
-        "text": "Cupidatat aliqua velit commodo duis adipisicing.",
+        "text": "Laboris laborum labore pariatur ullamco.",
         "spans": []
       }
     ],
-    "backgroundColor": "#1e76b2",
-    "textColor": "#1d12e8",
-    "metaTitle": "synthesize front-end channels",
-    "metaDescription": "utilize synergistic portals"
+    "backgroundColor": "#2116c1",
+    "textColor": "#2b1384",
+    "metaTitle": "orchestrate sticky initiatives",
+    "metaDescription": "seize 24/365 platforms"
   }
 }

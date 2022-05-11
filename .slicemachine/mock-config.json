@@ -95,7 +95,20 @@
     "projects_page": {},
     "about_page": {},
     "contactPage": {},
-    "home_page": {}
+    "home_page": {
+      "intro": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "title": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    }
   },
   "components/slices": {
     "SliderBlock": {

@@ -15,18 +15,19 @@
       "title": {
         "type": "StructuredText",
         "config": {
-          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
           "label": "Title",
-          "placeholder": "Title"
+          "placeholder": "Title",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "content": {
+      "intro": {
         "type": "StructuredText",
         "config": {
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label": "Intro",
+          "placeholder": "Intro",
           "allowTargetBlank": true,
-          "label": "Content",
-          "placeholder": "Content"
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
       "backgroundColor": {
