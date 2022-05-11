@@ -390,18 +390,6 @@ export default {
       }
     },
     heroAnimation() {
-      gsap.set('.home-hero-logo.logo-v', {
-        translateX: '75%',
-      })
-      gsap.set('.home-hero-logo.logo-a', {
-        translateX: '25%',
-      })
-      gsap.set('.home-hero-logo.logo-s', {
-        translateX: '-25%',
-      })
-      gsap.set('.home-hero-logo.logo-t', {
-        translateX: '-75%',
-      })
       gsap.set('.title-words:nth-child(n+6) span', {
         opacity: 0,
         translateY: '-.2em',
@@ -410,7 +398,6 @@ export default {
         opacity: 0,
         translateY: '-.2em',
       })
-      gsap.set('.home-hero-logo', { opacity: 0.05 })
       gsap.to('.home-hero-logo', {
         scrollTrigger: {
           trigger: '.home-header',
@@ -460,6 +447,21 @@ export default {
 }
 </script>
 <style scoped>
+.home-hero-logo {
+  opacity: 0.05;
+}
+.home-hero-logo.logo-v {
+  transform: translateX(75%);
+}
+.home-hero-logo.logo-a {
+  transform: translateX(25%);
+}
+.home-hero-logo.logo-s {
+  transform: translateX(-25%);
+}
+.home-hero-logo.logo-t {
+  transform: translateX(-75%);
+}
 #header-text {
   max-width: 65em;
   margin: 0 auto;
