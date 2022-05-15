@@ -111,9 +111,9 @@
         </svg>
       </div>
       <a
-        href="#header-text"
+        onclick="document.querySelector('#header-text').scrollIntoView({behavior: 'smooth'});"
         class="
-          scroll-down
+          scroll-down-button scroll-down
           absolute
           right-4
           bottom-4
@@ -121,9 +121,10 @@
           items-center
           gap-2
           leading-none
+          cursor-pointer
         "
       >
-        <p>SCROLL</p>
+        <p>EXPLORE</p>
         <div class="scroll-down-icon rounded-full w-3 h-3 relative">
           <div
             class="
@@ -197,7 +198,7 @@
                 <g clip-path="url(#underlinemask)">
                   <path
                     d="M1 10.9999C14.5 7.33321 47.8 3.3 71 4.5C94.2 5.7 111.5 6 145 10.9998C125.5 11.3332 101.586 13.0133 71 14C40 15 28.5 17.5 15 21.4998C21.3333 20.9998 37.9 20.1 49.5 22.5C61.1 24.9 70.3333 29.5 73.5 31"
-                    stroke="var(--color)"
+                    stroke="#ec7535"
                     stroke-width="7"
                     style="stroke-linecap: round; stroke-linejoin: round"
                   ></path>
@@ -247,7 +248,95 @@
         </p>
       </div>
     </section>
-    <section class="home-slider section mb-24 relative">
+    <section class="home-scroller section mb-24 relative">
+      <div class="relative">
+        <div class="scroller-wrapper">
+          <div
+            v-for="project in projects"
+            :key="project.id"
+            class="scroller-slide relative overflow-hidden"
+            :data-color="project.data.textColor"
+            :data-background="project.data.backgroundColor"
+          >
+            <div
+              class="
+                absolute
+                top-0
+                left-0
+                bottom-0
+                right-0
+                z-10
+                flex flex-col
+                justify-center
+                items-start
+                p-4
+                pointer-events-none
+              "
+            >
+              <div
+                class="
+                  absolute
+                  top-0
+                  left-0
+                  bottom-0
+                  right-0
+                  opacity-50
+                  transition-colors
+                  duration-300
+                "
+                :style="'background:' + project.data.backgroundColor"
+              ></div>
+              <div class="scroller-title flex flex-col">
+                <prismic-rich-text
+                  :field="project.data.title"
+                  :style="'color:' + project.data.textColor"
+                  class="
+                    title
+                    tracking-tight
+                    leading-none
+                    text-5xl
+                    lg:text-8xl
+                    uppercase
+                    header-font
+                    inline-block
+                    z-10
+                  "
+                />
+                <prismic-rich-text
+                  :field="project.data.summary"
+                  :style="'color:' + project.data.textColor"
+                  class="
+                    summary
+                    text-sm
+                    lg:text-base
+                    uppercase
+                    inline-block
+                    z-10
+                  "
+                />
+              </div>
+            </div>
+            <nuxt-link
+              :to="LinkGetter(project)"
+              class="block h-screen overflow-hidden"
+            >
+              <nuxt-img
+                v-if="project.data.image.url"
+                format="webp"
+                :src="project.data.image.url"
+                sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+                :width="project.data.image.dimensions.width"
+                :height="project.data.image.dimensions.height"
+                class="scroller-image image w-full object-cover"
+                loading="lazy"
+              />
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="home-slider section mb-24 relative">
       <div v-swiper="swiperOption" class="relative overflow-hidden">
         <div class="swiper-wrapper h-screen">
           <div
@@ -314,14 +403,8 @@
                 sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
                 :width="project.data.image.dimensions.width"
                 :height="project.data.image.dimensions.height"
-                class="
-                  image
-                  transition
-                  duration-700
-                  w-full
-                  h-screen
-                  object-cover
-                "
+                class="image transition duration-700 w-full object-cover"
+                style="height: 50vw"
                 loading="lazy"
               />
             </nuxt-link>
@@ -330,7 +413,7 @@
           <div class="swiper-button-next"></div>
         </div>
       </div>
-    </section>
+    </section> -->
     <slice-zone type="home_page" queryType="single" />
   </main>
 </template>
@@ -377,12 +460,10 @@ export default {
       page: null,
       swiperOption: {
         effect: 'fade',
-        fadeEffect: {
-          crossFade: true,
-        },
+
         autoplay: {
-          delay: 5000,
-          pauseOnMouseEnter: true,
+          delay: 1000,
+          disableOnInteraction: true,
         },
         loop: true,
         navigation: {
@@ -421,53 +502,16 @@ export default {
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
     this.$ScrollTrigger.refresh()
     this.heroAnimation()
-
-    // // Function to add css variables
-    // function setBodyProperty(a, b) {
-    //   document.documentElement.style.setProperty(a, b);
-    // };
-
-    // // Function to change colors
-    // const changeColorOnSwipe = function () {
-    //   const changeColor = document.querySelector('.change-color.swiper-slide-active');
-    //   const color = changeColor.dataset.color;
-    //   const backgroundcolor = changeColor.dataset.background;
-    //   setBodyProperty('--color', color);
-    //   setBodyProperty('--color-primary', color);
-    //   setBodyProperty('--bg', backgroundcolor);
-    // }
-    // // Change colors when page loaded
-    // document.addEventListener('DOMContentLoaded', changeColorOnSwipe);
-    // // Change colors when scrolling between projects
-    // this.$swiper.on('imagesReady', changeColorOnSwipe);
-    // this.$swiper.on('transitionStart', changeColorOnSwipe);
   },
   updated() {
     this.$ScrollTrigger.refresh()
   },
   destroyed() {
     window.removeEventListener('scroll', this.headerScroll)
-    function setBodyProperty(a, b) {
-      document.getElementsByTagName('BODY')[0].style.setProperty(a, b)
-    }
-    setBodyProperty('--color', '')
-    setBodyProperty('--color-primary', '')
-    setBodyProperty('--bg', '')
   },
   methods: {
     LinkGetter(post) {
       return LinkResolver(post)
-    },
-    headerScroll() {
-      const screenHeight = window.innerHeight
-      if (document.documentElement.scrollTop < screenHeight) {
-        gsap.to('.title-words span', {
-          // translateY: document.documentElement.scrollTop / 4,
-          // stagger: 0.025,
-          // duration: 1,
-          // ease: 'Power4.easeOut',
-        })
-      }
     },
     heroAnimation() {
       gsap.set('.title-words:nth-child(n+6)', {
@@ -524,8 +568,8 @@ export default {
       gsap.to('#markerunderline', {
         scrollTrigger: {
           trigger: '.title-words:nth-child(11)',
-          start: 'bottom 50%',
-          end: 'bottom 50%',
+          start: 'top 50%',
+          end: 'top 50%',
           scrub: 1,
         },
         strokeDashoffset: 0,
@@ -533,8 +577,8 @@ export default {
       gsap.to('.digital-underline', {
         scrollTrigger: {
           trigger: '.title-words:nth-child(13)',
-          start: 'bottom 50%',
-          end: 'bottom 50%',
+          start: 'top 50%',
+          end: 'top 50%',
           scrub: 1,
         },
         width: '92%',
@@ -549,6 +593,46 @@ export default {
         opacity: 1,
         duration: 1,
       })
+      gsap.to('.scroll-down-button', {
+        scrollTrigger: {
+          trigger: '#header-text',
+          start: 'top bottom',
+          end: 'top 50%',
+          scrub: 1,
+        },
+        opacity: 0,
+        duration: 1,
+      })
+      const scrollerslides = document.getElementsByClassName('scroller-slide')
+      const scrollertitles = document.getElementsByClassName('scroller-title')
+      const scrollerimages = document.getElementsByClassName('scroller-image')
+
+      for (let i = 0; i < scrollerslides.length; i++) {
+        gsap.set(scrollertitles[i], {
+          y: '-85vh',
+        })
+        gsap.to(scrollertitles[i], {
+          scrollTrigger: {
+            trigger: scrollerslides[i],
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+          y: '85vh',
+        })
+        gsap.set(scrollerimages[i], {
+          y: '-20vh',
+        })
+        gsap.to(scrollerimages[i], {
+          scrollTrigger: {
+            trigger: scrollerslides[i],
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+          y: '20vh',
+        })
+      }
     },
   },
 }
@@ -579,6 +663,7 @@ export default {
 }
 .title-words {
   vertical-align: baseline;
+  margin-right: -0.15em;
 }
 .title-words:first-child {
   margin-left: 4em;
@@ -587,7 +672,7 @@ export default {
 .title-words:nth-child(5) {
   font-family: 'Tropiline', serif;
   line-height: 0;
-  margin-right: 0.34em;
+  margin-right: 0.2em;
 }
 .title-words:nth-child(11) {
   font-family: 'Hiatus', serif;
@@ -646,15 +731,20 @@ export default {
   right: 8%;
   left: auto;
   height: 0.5em;
-  background: var(--color);
+  background: rgb(0, 255, 117);
+  background: linear-gradient(
+    45deg,
+    rgba(0, 255, 117, 1) 0%,
+    rgba(53, 204, 189, 1) 100%
+  );
 }
 
 .scroll-down-icon {
-  background: var(--color);
+  background: currentColor;
 }
 
 .scroll-down-icon-helper {
-  background: var(--color);
+  background: currentColor;
   animation: scroll-down 1.5s ease infinite;
 }
 @keyframes scroll-down {
