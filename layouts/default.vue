@@ -51,7 +51,7 @@ export default {
 </script>
 <style scoped>
 .site-container::before {
-  animation: grain 2s steps(3) infinite both;
+  animation: grain 3s steps(3) infinite both;
   background-image: url(/noise.png);
   content: '';
   left: -150%;
