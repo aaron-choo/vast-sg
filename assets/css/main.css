@@ -218,7 +218,6 @@
 html {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 :root {
