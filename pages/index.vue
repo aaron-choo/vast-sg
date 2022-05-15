@@ -248,77 +248,47 @@
         </p>
       </div>
     </section>
-    <section class="home-scroller section mb-24 relative">
+    <section class="home-scroller section relative">
       <div class="relative">
-        <div class="scroller-wrapper">
+        <div class="scroller-wrapper m-4 grid lg:grid-cols-12 gap-4 items-top">
+          <!-- <div
+            class="
+              lg:col-start-1 lg:col-end-7 lg:row-start-1 lg:row-end-1
+              self-center
+              z-10
+              mix-blend-difference
+              tracking-tight
+              leading-none
+              uppercase
+              text-5xl
+              sm:text-7xl
+              md:text-8xl
+              lg:text-7xl
+              xl:text-8xl
+              2xl:text-9xl
+              lg:mr-12
+            "
+          >
+            <h2 class="text-right">Recent</h2>
+            <h2 class="text-left">Projects</h2>
+          </div> -->
           <div
-            v-for="project in projects"
+            v-for="project in recentprojects"
             :key="project.id"
-            class="scroller-slide relative overflow-hidden"
+            class="
+              scroller-slide
+              relative
+              overflow-hidden
+              rounded-lg
+              self-start
+              lg:col-span-7
+            "
             :data-color="project.data.textColor"
             :data-background="project.data.backgroundColor"
           >
-            <div
-              class="
-                absolute
-                top-0
-                left-0
-                bottom-0
-                right-0
-                z-10
-                flex flex-col
-                justify-center
-                items-start
-                p-4
-                pointer-events-none
-              "
-            >
-              <div
-                class="
-                  absolute
-                  top-0
-                  left-0
-                  bottom-0
-                  right-0
-                  opacity-50
-                  transition-colors
-                  duration-300
-                "
-                :style="'background:' + project.data.backgroundColor"
-              ></div>
-              <div class="scroller-title flex flex-col">
-                <prismic-rich-text
-                  :field="project.data.title"
-                  :style="'color:' + project.data.textColor"
-                  class="
-                    title
-                    tracking-tight
-                    leading-none
-                    text-5xl
-                    lg:text-8xl
-                    uppercase
-                    header-font
-                    inline-block
-                    z-10
-                  "
-                />
-                <prismic-rich-text
-                  :field="project.data.summary"
-                  :style="'color:' + project.data.textColor"
-                  class="
-                    summary
-                    text-sm
-                    lg:text-base
-                    uppercase
-                    inline-block
-                    z-10
-                  "
-                />
-              </div>
-            </div>
             <nuxt-link
               :to="LinkGetter(project)"
-              class="block h-screen overflow-hidden"
+              class="scroller-image-container block overflow-hidden"
             >
               <nuxt-img
                 v-if="project.data.image.url"
@@ -330,104 +300,117 @@
                 class="scroller-image image w-full object-cover"
                 loading="lazy"
               />
-            </nuxt-link>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- <section class="home-slider section mb-24 relative">
-      <div v-swiper="swiperOption" class="relative overflow-hidden">
-        <div class="swiper-wrapper h-screen">
-          <div
-            v-for="project in projects"
-            :key="project.id"
-            class="swiper-slide change-color"
-            :data-color="project.data.textColor"
-            :data-background="project.data.backgroundColor"
-          >
-            <div
-              class="
-                absolute
-                top-0
-                left-0
-                bottom-0
-                right-0
-                z-10
-                flex flex-col
-                justify-center
-                items-start
-                p-4
-                pointer-events-none
-              "
-            >
               <div
                 class="
+                  scroller-title
                   absolute
                   top-0
                   left-0
                   bottom-0
                   right-0
-                  opacity-50
-                  transition-colors
-                  duration-300
-                "
-                :style="'background:' + project.data.backgroundColor"
-              ></div>
-              <prismic-rich-text
-                :field="project.data.title"
-                :style="'color:' + project.data.textColor"
-                class="
-                  title
-                  tracking-tight
-                  leading-none
-                  text-5xl
-                  lg:text-8xl
-                  uppercase
-                  header-font
-                  inline-block
                   z-10
+                  flex flex-col
+                  justify-end
+                  items-start
+                  p-4
+                  pointer-events-none
                 "
-              />
-              <prismic-rich-text
-                :field="project.data.summary"
-                :style="'color:' + project.data.textColor"
-                class="summary text-sm lg:text-base uppercase inline-block z-10"
-              />
-            </div>
-            <nuxt-link :to="LinkGetter(project)">
-              <nuxt-img
-                v-if="project.data.image.url"
-                format="webp"
-                :src="project.data.image.url"
-                sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-                :width="project.data.image.dimensions.width"
-                :height="project.data.image.dimensions.height"
-                class="image transition duration-700 w-full object-cover"
-                style="height: 50vw"
-                loading="lazy"
-              />
+              >
+                <div
+                  class="
+                    absolute
+                    top-0
+                    left-0
+                    bottom-0
+                    right-0
+                    opacity-50
+                    transition-colors
+                    duration-300
+                  "
+                  :style="'background:' + project.data.backgroundColor"
+                ></div>
+                <div class="flex flex-col gap-1">
+                  <prismic-rich-text
+                    :field="project.data.title"
+                    :style="'color:' + project.data.textColor"
+                    class="
+                      title
+                      tracking-tight
+                      leading-none
+                      text-3xl
+                      xl:text-4xl
+                      uppercase
+                      header-font
+                      inline-block
+                      z-10
+                    "
+                  />
+                  <prismic-rich-text
+                    :field="project.data.summary"
+                    :style="'color:' + project.data.textColor"
+                    class="
+                      summary
+                      text-sm
+                      lg:text-base
+                      leading-none
+                      lg:leading-none
+                      uppercase
+                      inline-block
+                      z-10
+                    "
+                  />
+                </div>
+              </div>
             </nuxt-link>
           </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
         </div>
       </div>
-    </section> -->
-    <slice-zone type="home_page" queryType="single" />
+    </section>
+    <section>
+      <div class="description-section section my-24 px-4 lg:px-40">
+        <p
+          id="home-description"
+          class="
+            inline-block
+            text-2xl
+            lg:text-3xl
+            transition
+            duration-300
+            transform
+            leading-6
+          "
+          :class="{ 'has-scroll-over': scrollOver }"
+        >
+          <span
+            class="
+              summary
+              text-sm
+              lg:text-base
+              uppercase
+              inline-block
+              mr-16
+              -mb-4
+            "
+            >(Who we are)</span
+          ><span
+            v-for="(word, index) in homedescription"
+            :key="index"
+            class="home-description-words inline-block serif font-light"
+            >{{ word }}&nbsp;
+          </span>
+        </p>
+      </div>
+    </section>
   </main>
 </template>
 
 <script>
 import gsap from 'gsap'
-import SliceZone from 'vue-slicezone'
 import { directive } from 'vue-awesome-swiper'
 import LinkResolver from '~/plugins/link-resolver.js'
 export default {
   name: 'HomePage',
-  components: {
-    SliceZone,
-  },
+  components: {},
   directives: {
     swiper: directive,
   },
@@ -435,7 +418,7 @@ export default {
     try {
       const pageContent = (await $prismic.api.getSingle('home_page')).data
       // Query projects
-      const projects = await $prismic.api.query(
+      const recentprojects = await $prismic.api.query(
         $prismic.predicates.at('document.type', 'project'),
         {
           orderings: '[my.project.date desc]',
@@ -448,8 +431,13 @@ export default {
         titleWords: Array.from($prismic.asText(pageContent.title).split(' ')),
         backgroundColor: pageContent.backgroundColor,
         textColor: pageContent.textColor,
-        projects: projects.results,
+        recentprojects: recentprojects.results,
         intro: pageContent.intro,
+        homedescription: Array.from(
+          'Vast is a design studio with a focus on branding and communication, digital design and web development, as well as interior design and architectural visualization.'.split(
+            ' '
+          )
+        ),
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -462,8 +450,7 @@ export default {
         effect: 'fade',
 
         autoplay: {
-          delay: 1000,
-          disableOnInteraction: true,
+          delay: 100,
         },
         loop: true,
         navigation: {
@@ -595,9 +582,9 @@ export default {
       })
       gsap.to('.scroll-down-button', {
         scrollTrigger: {
-          trigger: '#header-text',
-          start: 'top bottom',
-          end: 'top 50%',
+          trigger: '.scroll-down-button',
+          start: 'bottom bottom',
+          end: 'bottom 50%',
           scrub: 1,
         },
         opacity: 0,
@@ -606,31 +593,46 @@ export default {
       const scrollerslides = document.getElementsByClassName('scroller-slide')
       const scrollertitles = document.getElementsByClassName('scroller-title')
       const scrollerimages = document.getElementsByClassName('scroller-image')
-
+      const scrollerimagecontainers = document.getElementsByClassName(
+        'scroller-image-container'
+      )
       for (let i = 0; i < scrollerslides.length; i++) {
         gsap.set(scrollertitles[i], {
-          y: '-85vh',
+          opacity: 0,
         })
         gsap.to(scrollertitles[i], {
           scrollTrigger: {
-            trigger: scrollerslides[i],
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
+            trigger: scrollerimagecontainers[i],
+            start: '50% 50%',
+            end: '50% 50%',
+            scrub: 1,
           },
-          y: '85vh',
+          opacity: 1,
         })
-        gsap.set(scrollerimages[i], {
-          y: '-20vh',
+        gsap.set(scrollerslides[i], {
+          y: '0%',
         })
-        gsap.to(scrollerimages[i], {
+        gsap.to(scrollerslides[i], {
           scrollTrigger: {
             trigger: scrollerslides[i],
             start: 'top bottom',
             end: 'bottom top',
+            scrub: 2,
+          },
+          y: '-50%',
+        })
+        gsap.set(scrollerimages[i], {
+          y: '-20%',
+          scale: 1.4,
+        })
+        gsap.to(scrollerimages[i], {
+          scrollTrigger: {
+            trigger: scrollerimagecontainers[i],
+            start: 'top bottom',
+            end: 'bottom top',
             scrub: true,
           },
-          y: '20vh',
+          y: '20%',
         })
       }
     },
@@ -686,40 +688,6 @@ export default {
   font-size: 1.05em;
   letter-spacing: -0.02em;
 }
-.swiper-button-next,
-.swiper-button-prev {
-  height: 100%;
-  top: 0;
-  width: 25%;
-  margin: 0;
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  display: none;
-}
-
-.swiper-button-prev {
-  left: 0;
-}
-
-.swiper-button-next {
-  right: 0;
-}
-</style>
-<style>
-.title *,
-.summary * {
-  display: inline-block;
-}
-
-.summary p::before {
-  content: '(';
-}
-
-.summary p::after {
-  content: ')';
-}
 
 #markerunderline {
   stroke-dasharray: 400;
@@ -756,5 +724,45 @@ export default {
     opacity: 0.8;
     transform: translateY(0);
   }
+}
+.home-description-words {
+  padding-right: 0.29em;
+}
+@media (max-width: 1023px) {
+  .scroller-slide {
+    transform: none !important;
+  }
+}
+@media (min-width: 1024px) {
+  .scroller-slide:nth-child(1) {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+  .scroller-slide:nth-child(2) {
+    grid-column-start: 6;
+    grid-row-start: 1;
+  }
+  .scroller-slide:nth-child(3) {
+    grid-column-start: 1;
+    grid-row-start: 4;
+  }
+  .scroller-slide:nth-child(4) {
+    grid-column-start: 6;
+    grid-row-start: 3;
+  }
+}
+</style>
+<style>
+.title *,
+.summary * {
+  display: inline-block;
+}
+
+.summary p::before {
+  content: '(';
+}
+
+.summary p::after {
+  content: ')';
 }
 </style>
