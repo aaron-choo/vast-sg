@@ -110,6 +110,46 @@
           </defs>
         </svg>
       </div>
+      <a
+        href="#header-text"
+        class="
+          scroll-down
+          absolute
+          right-4
+          bottom-4
+          flex
+          items-center
+          gap-2
+          leading-none
+        "
+      >
+        <p>SCROLL</p>
+        <div class="scroll-down-icon rounded-full w-3 h-3 relative">
+          <div
+            class="
+              scroll-down-icon-helper
+              absolute
+              rounded-full
+              top-0
+              left-0
+              w-full
+              h-full
+            "
+          ></div>
+          <div
+            class="
+              scroll-down-icon-helper
+              absolute
+              rounded-full
+              top-0
+              left-0
+              w-full
+              h-full
+            "
+            style="animation-delay: 0.25s"
+          ></div>
+        </div>
+      </a>
       <div
         id="header-text"
         class="w-full h-screen flex flex-col justify-center p-4 relative"
@@ -132,18 +172,18 @@
             v-for="(word, index) in titleWords"
             :key="index"
             class="title-words inline-block align-top relative"
-            ><span
-              v-for="(letter, index2) in Array.from(word)"
-              :key="index2"
-              class="inline-block relative"
-              :data-text="letter"
-              >{{ letter }}</span
-            >
+            >{{ word }}
             <div
               v-if="index === 10"
               :key="index"
-              class="absolute left-0 w-9/12 opacity-70"
-              style="bottom: -15%"
+              class="
+                marker-underline
+                absolute
+                left-0
+                w-9/12
+                mix-blend-difference
+              "
+              style="bottom: -10%"
             >
               <svg
                 width="290"
@@ -158,7 +198,7 @@
                   <path
                     d="M1 10.9999C14.5 7.33321 47.8 3.3 71 4.5C94.2 5.7 111.5 6 145 10.9998C125.5 11.3332 101.586 13.0133 71 14C40 15 28.5 17.5 15 21.4998C21.3333 20.9998 37.9 20.1 49.5 22.5C61.1 24.9 70.3333 29.5 73.5 31"
                     stroke="var(--color)"
-                    stroke-width="10"
+                    stroke-width="7"
                     style="stroke-linecap: round; stroke-linejoin: round"
                   ></path>
                 </g>
@@ -172,6 +212,11 @@
                 </defs>
               </svg>
             </div>
+            <div
+              v-if="index === 12"
+              :key="index"
+              class="digital-underline absolute left-0 w-0 mix-blend-difference"
+            ></div>
             &nbsp;</span
           >
         </h1>
@@ -425,7 +470,7 @@ export default {
       }
     },
     heroAnimation() {
-      gsap.set('.title-words:nth-child(n+6) span', {
+      gsap.set('.title-words:nth-child(n+6)', {
         opacity: 0,
       })
       gsap.set('#header-text', {
@@ -454,7 +499,7 @@ export default {
         },
         translateY: '-8em',
       })
-      gsap.to('.title-words:nth-child(n+6) span', {
+      gsap.to('.title-words:nth-child(n+6)', {
         scrollTrigger: {
           trigger: '#header-text',
           start: 'top 25%',
@@ -465,7 +510,7 @@ export default {
         duration: 1,
         stagger: 0.2,
       })
-      gsap.to('.title-words:not(:nth-child(n+6)) span', {
+      gsap.to('.title-words:not(:nth-child(n+6))', {
         scrollTrigger: {
           trigger: '#header-text',
           start: 'top 25%',
@@ -485,14 +530,14 @@ export default {
         },
         strokeDashoffset: 0,
       })
-      gsap.to('.title-words:nth-child(13)', {
+      gsap.to('.digital-underline', {
         scrollTrigger: {
           trigger: '.title-words:nth-child(13)',
           start: 'bottom 50%',
           end: 'bottom 50%',
           scrub: 1,
         },
-        animationPlayState: 'running',
+        width: '92%',
       })
       gsap.to('.intro', {
         scrollTrigger: {
@@ -538,18 +583,19 @@ export default {
 .title-words:first-child {
   margin-left: 4em;
 }
-.title-words:nth-child(3) > span,
-.title-words:nth-child(5) > span {
+.title-words:nth-child(3),
+.title-words:nth-child(5) {
   font-family: 'Tropiline', serif;
   line-height: 0;
+  margin-right: 0.34em;
 }
-.title-words:nth-child(11) > span {
+.title-words:nth-child(11) {
   font-family: 'Hiatus', serif;
   font-size: 1.1em;
   vertical-align: text-bottom;
   letter-spacing: -0.02em;
 }
-.title-words:nth-child(13) > span {
+.title-words:nth-child(13) {
   font-family: 'PP Mondwest', serif;
   font-style: italic;
   font-size: 1.05em;
@@ -595,317 +641,30 @@ export default {
   stroke-dashoffset: 400;
 }
 
-.title-words:nth-child(13) {
-  animation: glitch2 2s steps(100) infinite;
-  animation-play-state: paused;
+.digital-underline {
+  bottom: 5%;
+  right: 8%;
+  left: auto;
+  height: 0.5em;
+  background: var(--color);
 }
 
-@keyframes glitch2 {
+.scroll-down-icon {
+  background: var(--color);
+}
+
+.scroll-down-icon-helper {
+  background: var(--color);
+  animation: scroll-down 1.5s ease infinite;
+}
+@keyframes scroll-down {
   0% {
-    text-shadow: 0 0 0 #3e3f52, 0 0 0 #e1beb9;
-  }
-  1% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  2% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  3% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  4% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  5% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  6% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  7% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  8% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  9% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  10% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  11% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  12% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  13% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  14% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  15% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  16% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  17% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  18% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  19% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  20% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  21% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  22% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  23% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  24% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  25% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  26% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  27% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  28% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  29% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  30% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  31% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  32% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  33% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  34% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  35% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  36% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  37% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  38% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  39% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  40% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  41% {
-    text-shadow: 10px 0 0 #e1beb9, -10px 0 0 #e1beb9;
-  }
-  42% {
-    text-shadow: 0 0 0 #e1beb9, 0 0 0 #e1beb9;
-  }
-  43% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  44% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  45% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  46% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  47% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  48% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  49% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  50% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  51% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  52% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  53% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  54% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  55% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  56% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  57% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  58% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  59% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
+    opacity: 0;
+    transform: translateY(-200%);
   }
   60% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  61% {
-    text-shadow: 5px 0 0 #3e3f52, -5px 0 0 #e1beb9;
-  }
-  62% {
-    text-shadow: 0 0 0 #3e3f52, 0 0 0 #e1beb9;
-  }
-  63% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  64% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  65% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  66% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  67% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  68% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  69% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  70% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  71% {
-    text-shadow: 10px 0 0 #3e3f52, -10px 0 0 #e1beb9;
-  }
-  72% {
-    text-shadow: 0 0 0 #3e3f52, 0 0 0 #e1beb9;
-  }
-  73% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  74% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  75% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  76% {
-    text-shadow: 1px 0 0 #3e3f52, -1px 0 0 #e1beb9;
-  }
-  77% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  78% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  79% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  80% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  81% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  82% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  83% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  84% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  85% {
-    text-shadow: 0.5px 0 0 #3e3f52, -0.5px 0 0 #e1beb9;
-  }
-  86% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  87% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  88% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  89% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  90% {
-    text-shadow: -1px 0 0 #3e3f52, 1px 0 0 #e1beb9;
-  }
-  91% {
-    text-shadow: 10px 0 0 #e1beb9, -10px 0 0 #e1beb9;
-  }
-  92% {
-    text-shadow: 0 0 0 #e1beb9, 0 0 0 #e1beb9;
-  }
-  92% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  93% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  94% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  95% {
-    text-shadow: 0.7px 0 0 #e1beb9, -0.7px 0 0 #e1beb9;
-  }
-  96% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  97% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  98% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  99% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
-  }
-  100% {
-    text-shadow: -1px 0 0 #e1beb9, 1px 0 0 #e1beb9;
+    opacity: 0.8;
+    transform: translateY(0);
   }
 }
 </style>
