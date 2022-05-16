@@ -177,13 +177,7 @@
             <div
               v-if="index === 10"
               :key="index"
-              class="
-                marker-underline
-                absolute
-                left-0
-                w-9/12
-                mix-blend-difference
-              "
+              class="marker-underline absolute left-0 w-9/12"
               style="bottom: -10%"
             >
               <svg
@@ -198,7 +192,7 @@
                 <g clip-path="url(#underlinemask)">
                   <path
                     d="M1 10.9999C14.5 7.33321 47.8 3.3 71 4.5C94.2 5.7 111.5 6 145 10.9998C125.5 11.3332 101.586 13.0133 71 14C40 15 28.5 17.5 15 21.4998C21.3333 20.9998 37.9 20.1 49.5 22.5C61.1 24.9 70.3333 29.5 73.5 31"
-                    stroke="#ec7535"
+                    stroke="currentColor"
                     stroke-width="7"
                     style="stroke-linecap: round; stroke-linejoin: round"
                   ></path>
@@ -250,116 +244,95 @@
     </section>
     <section class="home-scroller section relative">
       <div class="relative">
-        <div class="scroller-wrapper m-4 grid lg:grid-cols-12 gap-4 items-top">
-          <!-- <div
-            class="
-              lg:col-start-1 lg:col-end-7 lg:row-start-1 lg:row-end-1
-              self-center
-              z-10
-              mix-blend-difference
-              tracking-tight
-              leading-none
-              uppercase
-              text-5xl
-              sm:text-7xl
-              md:text-8xl
-              lg:text-7xl
-              xl:text-8xl
-              2xl:text-9xl
-              lg:mr-12
-            "
-          >
-            <h2 class="text-right">Recent</h2>
-            <h2 class="text-left">Projects</h2>
+        <div class="scroller-wrapper m-4 grid md:grid-cols-12 gap-4 items-top">
+          <!-- <div class="self-end mix-blend-difference lg:col-span-5">
+            <p class="text-left">
+              <span
+                class="
+                  summary
+                  text-sm
+                  lg:text-base
+                  uppercase
+                  inline-block
+                  mr-16
+                  -mb-4
+                "
+                >(Some of our)</span
+              >
+              <span class="text-2xl lg:text-6xl uppercase">
+                Recent Projects
+              </span>
+            </p>
           </div> -->
           <div
             v-for="project in recentprojects"
             :key="project.id"
-            class="
-              scroller-slide
-              relative
-              overflow-hidden
-              rounded-lg
-              self-start
-              lg:col-span-7
-            "
+            class="scroller-slide relative self-start md:col-span-7 mb-10"
             :data-color="project.data.textColor"
             :data-background="project.data.backgroundColor"
           >
-            <nuxt-link
-              :to="LinkGetter(project)"
-              class="scroller-image-container block overflow-hidden"
-            >
-              <nuxt-img
-                v-if="project.data.image.url"
-                format="webp"
-                :src="project.data.image.url"
-                sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-                :width="project.data.image.dimensions.width"
-                :height="project.data.image.dimensions.height"
-                class="scroller-image image w-full object-cover"
-                loading="lazy"
-              />
-              <div
+            <nuxt-link :to="LinkGetter(project)">
+              <p
                 class="
-                  scroller-title
-                  absolute
-                  top-0
-                  left-0
-                  bottom-0
-                  right-0
-                  z-10
-                  flex flex-col
-                  justify-end
-                  items-start
-                  p-4
-                  pointer-events-none
+                  scroller-meta-tag
+                  text-sm
+                  lg:text-base
+                  uppercase
+                  inline-block
+                  mr-16
+                  mb-2
                 "
               >
-                <div
-                  class="
-                    absolute
-                    top-0
-                    left-0
-                    bottom-0
-                    right-0
-                    opacity-50
-                    transition-colors
-                    duration-300
-                  "
-                  :style="'background:' + project.data.backgroundColor"
-                ></div>
-                <div class="flex flex-col gap-1">
-                  <prismic-rich-text
-                    :field="project.data.title"
-                    :style="'color:' + project.data.textColor"
-                    class="
-                      title
-                      tracking-tight
-                      leading-none
-                      text-3xl
-                      xl:text-4xl
-                      uppercase
-                      header-font
-                      inline-block
-                      z-10
-                    "
-                  />
-                  <prismic-rich-text
-                    :field="project.data.summary"
-                    :style="'color:' + project.data.textColor"
-                    class="
-                      summary
-                      text-sm
-                      lg:text-base
-                      leading-none
-                      lg:leading-none
-                      uppercase
-                      inline-block
-                      z-10
-                    "
-                  />
-                </div>
+                (<span
+                  v-for="(tag, index) in project.tags"
+                  :key="tag"
+                  class="inline-block"
+                  >{{ tag
+                  }}<template v-if="Object.keys(project.tags).length > 1"
+                    ><span
+                      v-if="index != Object.keys(project.tags).length - 1"
+                      class="sep"
+                      >/</span
+                    ></template
+                  ></span
+                >)
+              </p>
+              <div
+                class="
+                  scroller-image-container
+                  block
+                  overflow-hidden
+                  rounded-lg
+                "
+              >
+                <nuxt-img
+                  v-if="project.data.image.url"
+                  format="webp"
+                  :src="project.data.image.url"
+                  sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+                  :width="project.data.image.dimensions.width"
+                  :height="project.data.image.dimensions.height"
+                  class="scroller-image image w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div
+                class="
+                  scroller-meta
+                  text-xl
+                  lg:text-2xl
+                  uppercase
+                  title
+                  my-2
+                  flex
+                  justify-between
+                  tracking-tight
+                "
+              >
+                {{ $prismic.asText(project.data.title) }}
+                <span class="date font-light tracking-normal">{{
+                  $moment(project.data.date).format('MM/YY')
+                }}</span>
               </div>
             </nuxt-link>
           </div>
@@ -396,7 +369,7 @@
             v-for="(word, index) in homedescription"
             :key="index"
             class="home-description-words inline-block serif font-light"
-            >{{ word }}&nbsp;
+            >{{ word }}
           </span>
         </p>
       </div>
@@ -591,20 +564,34 @@ export default {
         duration: 1,
       })
       const scrollerslides = document.getElementsByClassName('scroller-slide')
-      const scrollertitles = document.getElementsByClassName('scroller-title')
       const scrollerimages = document.getElementsByClassName('scroller-image')
+      const scrollermetatags =
+        document.getElementsByClassName('scroller-meta-tag')
+      const scrollermeta = document.getElementsByClassName('scroller-meta')
       const scrollerimagecontainers = document.getElementsByClassName(
         'scroller-image-container'
       )
       for (let i = 0; i < scrollerslides.length; i++) {
-        gsap.set(scrollertitles[i], {
+        gsap.set(scrollermeta[i], {
           opacity: 0,
         })
-        gsap.to(scrollertitles[i], {
+        gsap.set(scrollermetatags[i], {
+          opacity: 0,
+        })
+        gsap.to(scrollermeta[i], {
           scrollTrigger: {
-            trigger: scrollerimagecontainers[i],
-            start: '50% 50%',
-            end: '50% 50%',
+            trigger: scrollermetatags[i],
+            start: '50% 30%',
+            end: '50% 30%',
+            scrub: 1,
+          },
+          opacity: 1,
+        })
+        gsap.to(scrollermetatags[i], {
+          scrollTrigger: {
+            trigger: scrollermetatags[i],
+            start: '50% 30%',
+            end: '50% 30%',
             scrub: 1,
           },
           opacity: 1,
@@ -623,7 +610,7 @@ export default {
         })
         gsap.set(scrollerimages[i], {
           y: '-20%',
-          scale: 1.4,
+          scale: 1.2,
         })
         gsap.to(scrollerimages[i], {
           scrollTrigger: {
@@ -728,12 +715,15 @@ export default {
 .home-description-words {
   padding-right: 0.29em;
 }
-@media (max-width: 1023px) {
+.scroller-image-container {
+  transform: translateZ(0);
+}
+@media (max-width: 767px) {
   .scroller-slide {
     transform: none !important;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .scroller-slide:nth-child(1) {
     grid-column-start: 1;
     grid-row-start: 2;
