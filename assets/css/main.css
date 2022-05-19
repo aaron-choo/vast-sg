@@ -252,7 +252,7 @@ html {
 
 body {
   font-family: 'Freigeist', sans-serif;
-  font-feature-settings: 'calt' 0;
+  font-feature-settings: 'calt' 0, 'ss03' 1, 'ss05' 1;
   background-color: var(--bg);
   color: var(--color);
   transition: background-color 0.3s;
@@ -287,9 +287,14 @@ hr {
   font-family: 'Tropiline', serif;
 }
 
-h1, h2, h3, h4, h5 ,h6, .header-font {
+h1, h2, h3, h4, h5 ,h6, .heading-font {
   font-family: 'PP Neue Machina', sans-serif;
   font-feature-settings: initial;
+}
+
+.body-font {
+  font-family: 'Freigeist', sans-serif;
+  font-feature-settings: 'calt' 0, 'ss03' 1, 'ss05' 1;
 }
 
 .text-outline{
