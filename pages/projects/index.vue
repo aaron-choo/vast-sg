@@ -1,48 +1,166 @@
 <template>
   <main>
     <section class="projects-header z-0 overflow-hidden">
-      <div id="header-text" class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative">
-        <h1 id="header-title" class="tracking-tight leading-none text-5xl lg:text-8xl uppercase mb-4">
-          <span v-for="(word, index) in titleWords" :key="index" class="title-words inline-block overflow-hidden"><span
-              v-for="(letter, index2) in Array.from(word)" :key="index2" class="inline-block">{{ letter }}</span><span
-              class="inline-block text-base align-top tracking-wider relative ml-2">{{ projects.length }}</span></span>
+      <div
+        id="header-text"
+        class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
+      >
+        <h1
+          id="header-title"
+          class="
+            tracking-tight
+            leading-none
+            text-5xl
+            lg:text-8xl
+            uppercase
+            mb-4
+          "
+        >
+          <span
+            v-for="(word, index) in titleWords"
+            :key="index"
+            class="title-words inline-block overflow-hidden"
+            ><span
+              v-for="(letter, index2) in Array.from(word)"
+              :key="index2"
+              class="inline-block"
+              >{{ letter }}</span
+            ><span
+              class="
+                inline-block
+                text-base
+                align-top
+                tracking-wider
+                relative
+                ml-2
+              "
+              >{{ projects.length }}</span
+            ></span
+          >
         </h1>
-        <p id="header-description"
-          class="inline-block tag text-2xl lg:text-3xl transition duration-300 leading-3 transform"
-          :class="{ 'has-scroll-over': scrollOver }">
-          <span class="intro text-sm lg:text-base uppercase inline-block mr-16">({{ $prismic.asText(intro)
-          }})</span><span class="description serif font-light leading-7"><span
-              v-for="(word, index2) in descriptionWords" :key="index2" class="description-words inline-block">{{ word
-              }}</span></span>
+        <p
+          id="header-description"
+          class="
+            inline-block
+            tag
+            text-2xl
+            lg:text-3xl
+            transition
+            duration-300
+            leading-3
+            transform
+          "
+          :class="{ 'has-scroll-over': scrollOver }"
+        >
+          <span class="intro text-sm lg:text-base uppercase inline-block mr-16"
+            >({{ $prismic.asText(intro) }})</span
+          ><span class="description serif font-light leading-7"
+            ><span
+              v-for="(word, index2) in descriptionWords"
+              :key="index2"
+              class="description-words inline-block"
+              >{{ word }}</span
+            ></span
+          >
         </p>
       </div>
     </section>
     <section class="content relative">
       <hr class="h-px w-full opacity-20" />
       <div :class="allTags" class="m-4 mt-5">
-        <ul id="filters" @mouseover="filterOpen = true" @mouseleave="filterOpen = false" @click="filterOpen = false">
+        <ul
+          id="filters"
+          @mouseover="filterOpen = true"
+          @mouseleave="filterOpen = false"
+          @click="filterOpen = false"
+        >
           <li class="inline-block mb-2 mr-1">
             <div class="filter-btn rounded-full text-center overflow-hidden">
               <button
-                class="filter-button selected all btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative"
-                data-filter="*" @click="filter('*'), (currentFilter = 'filter')" @mouseover="filterHover = true"
-                @mouseleave="filterHover = false">
+                class="
+                  filter-button
+                  selected
+                  all
+                  btn-txt-wrap
+                  h-auto
+                  rounded-full
+                  overflow-visible
+                  transition
+                  duration-300
+                  relative
+                "
+                data-filter="*"
+                @click="filter('*'), (currentFilter = 'filter')"
+                @mouseover="filterHover = true"
+                @mouseleave="filterHover = false"
+              >
                 <div
-                  class="btn-txt transition duration-300 px-2 md:px-3 lg:px-4 h-auto flex justify-center items-center relative text-xl lg:text-2xl uppercase tracking-tight">
+                  class="
+                    btn-txt
+                    transition
+                    duration-300
+                    px-2
+                    md:px-3
+                    lg:px-4
+                    h-auto
+                    flex
+                    justify-center
+                    items-center
+                    relative
+                    text-xl
+                    lg:text-2xl
+                    uppercase
+                    tracking-tight
+                  "
+                >
                   All Projects
                 </div>
               </button>
             </div>
           </li>
-          <li v-for="(tag, index) in allTags" :key="index" class="inline-block mr-2 mb-2">
+          <li
+            v-for="(tag, index) in allTags"
+            :key="index"
+            class="inline-block mr-2 mb-2"
+          >
             <div class="filter-btn rounded-full text-center overflow-hidden">
-              <button :class="'filter-button ' + tag" :data-filter="tag"
-                class="btn-txt-wrap h-auto rounded-full overflow-visible transition duration-300 relative" @click="
+              <button
+                :class="'filter-button ' + tag"
+                :data-filter="tag"
+                class="
+                  btn-txt-wrap
+                  h-auto
+                  rounded-full
+                  overflow-visible
+                  transition
+                  duration-300
+                  relative
+                "
+                @click="
                   filter('.' + tag), (currentFilter = tag.replace('-', ' '))
-                " @mouseover="; (filterHover = true), (linkHover = true)"
-                @mouseleave="; (filterHover = false), (linkHover = false)">
+                "
+                @mouseover=";(filterHover = true), (linkHover = true)"
+                @mouseleave=";(filterHover = false), (linkHover = false)"
+              >
                 <div
-                  class="btn-txt transition duration-300 px-2 md:px-3 lg:px-4 h-auto flex justify-center items-center relative text-xl lg:text-2xl uppercase tracking-tight">
+                  class="
+                    btn-txt
+                    transition
+                    duration-300
+                    px-2
+                    md:px-3
+                    lg:px-4
+                    h-auto
+                    flex
+                    justify-center
+                    items-center
+                    relative
+                    text-xl
+                    lg:text-2xl
+                    uppercase
+                    tracking-tight
+                  "
+                >
                   {{ tag.replace('-', ' ') }}
                 </div>
               </button>
@@ -51,45 +169,171 @@
         </ul>
       </div>
       <div v-if="projects.length > 0" class="isotope project-grid px-4 pt-12">
-        <div v-for="project in projects" :key="project.id" :class="
-          project.tags.map(function (item, index) {
-            return item.replace(' ', '-')
-          })
-        " class="grid-item project-link">
+        <div
+          v-for="project in projects"
+          :key="project.id"
+          :class="
+            project.tags.map(function (item, index) {
+              return item.replace(' ', '-')
+            })
+          "
+          class="grid-item project-link relative"
+          :style="
+            '--project-color:' +
+            project.data.textColor +
+            '; --project-bg-color:' +
+            project.data.backgroundColor
+          "
+        >
           <nuxt-link :to="LinkGetter(project)">
-            <p class="text-sm lg:text-base uppercase inline-block mr-16 mb-2">
-              (<span v-for="(tag, index) in project.tags" :key="tag" class="inline-block">{{ tag
-              }}<template v-if="Object.keys(project.tags).length > 1"><span
-                    v-if="index != Object.keys(project.tags).length - 1" class="sep">/</span></template></span>)
+            <div
+              class="
+                item-overlay
+                hidden
+                absolute
+                top-0
+                left-0
+                right-0
+                bottom-0
+                md:block
+                z-10
+                transition
+                duration-300
+                rounded-lg
+                opacity-0
+                pointer-events-none
+              "
+            ></div>
+            <p
+              class="
+                item-meta item-meta-tag
+                text-sm
+                lg:text-base
+                xl:text-lg
+                2xl:text-xl
+                uppercase
+                inline-block
+                mr-16
+                mb-2
+                md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
+                transition
+                duration-300
+                z-10
+                pointer-events-none
+              "
+            >
+              (<span
+                v-for="(tag, index) in project.tags"
+                :key="tag"
+                class="inline-block"
+                >{{ tag
+                }}<template v-if="Object.keys(project.tags).length > 1"
+                  ><span
+                    v-if="index != Object.keys(project.tags).length - 1"
+                    class="sep"
+                    >/</span
+                  ></template
+                ></span
+              >)
             </p>
-            <div class="image-wrapper overflow-hidden rounded-lg">
-              <nuxt-img v-if="project.data.image.url" format="webp" :src="project.data.image.url"
-                sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw" :width="project.data.image.dimensions.width"
-                :height="project.data.image.dimensions.height" class="image transition duration-700 w-full h-full"
-                loading="lazy" />
+            <div class="grid-image-container block overflow-hidden rounded-lg">
+              <nuxt-img
+                v-if="project.data.image.url"
+                format="webp"
+                :src="project.data.image.url"
+                sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
+                :width="project.data.image.dimensions.width"
+                :height="project.data.image.dimensions.height"
+                class="grid-image w-full h-full transition duration-300"
+                loading="lazy"
+              />
             </div>
-            <div class="text-xl lg:text-2xl uppercase title my-2 flex justify-between tracking-tight">
+            <div
+              class="
+                item-meta
+                text-2xl
+                md:text-3xl
+                lg:text-2xl
+                xl:text-3xl
+                2xl:text-4xl
+                uppercase
+                title
+                flex
+                gap-4
+                justify-between
+                items-end
+                tracking-tight
+                md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
+                z-10
+                transition
+                duration-300
+                pointer-events-none
+              "
+            >
               {{ $prismic.asText(project.data.title)
               }}<span class="date font-light tracking-normal">{{
-    $moment(project.data.date).format('MM/YY')
-}}</span>
+                $moment(project.data.date).format('MM/YY')
+              }}</span>
             </div>
           </nuxt-link>
         </div>
         <div :class="allTags" class="grid-item project-link">
           <nuxt-link to="/contact">
-            <p class="text-sm lg:text-base uppercase inline-block mr-16 mb-2">
+            <p
+              class="
+                item-meta
+                text-sm
+                md:text-base
+                lg:text-lg
+                2xl:text-xl
+                uppercase
+                inline-block
+                mr-16
+                mb-2
+                md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
+                transition
+                duration-300
+                z-10
+                pointer-events-none
+              "
+            >
               (<span class="inline-block">Have a great idea?</span>)
             </p>
-            <div class="image-wrapper overflow-hidden rounded-lg">
-              <nuxt-img v-if="page.contactImage.url" format="webp" :src="page.contactImage.url"
-                sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw" :width="page.contactImage.dimensions.width"
-                :height="page.contactImage.dimensions.height" class="image transition duration-700 w-full h-full"
-                loading="lazy" />
+            <div class="grid-image-container overflow-hidden rounded-lg">
+              <nuxt-img
+                v-if="page.contactImage.url"
+                format="webp"
+                :src="page.contactImage.url"
+                sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
+                :width="page.contactImage.dimensions.width"
+                :height="page.contactImage.dimensions.height"
+                class="grid-image w-full h-full transition duration-300"
+                loading="lazy"
+              />
             </div>
-            <div class="text-xl lg:text-2xl uppercase title my-2 flex justify-between tracking-tight">
+            <div
+              class="
+                item-meta
+                text-2xl
+                md:text-3xl
+                xl:text-4xl
+                3xl:text-5xl
+                uppercase
+                title
+                flex
+                gap-4
+                justify-between
+                items-end
+                tracking-tight
+                md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
+                z-10
+                transition
+                duration-300
+                pointer-events-none
+              "
+            >
               Let's get to work!<span class="date font-light tracking-normal">{{
-                  $moment().format('MM/YY')
+                $moment().format('MM/YY')
               }}</span>
             </div>
           </nuxt-link>
@@ -163,7 +407,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.page.metaDescription
+          content: this.page.metaDescription,
         },
       ],
     }
@@ -259,7 +503,7 @@ export default {
       this.iso = new Isotope('.project-grid', {
         itemSelector: '.grid-item',
         layoutMode: 'fitRows',
-        transitionDuration: 700,
+        transitionDuration: 300,
         fitRows: {
           gutter: 16,
         },
@@ -298,13 +542,9 @@ main {
   scroll-behavior: smooth;
 }
 
-.image-wrapper {
+.grid-image-container {
   mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
-}
-
-.image:hover {
-  transform: scale(1.02);
 }
 
 .description-words {
@@ -321,10 +561,23 @@ span.sep {
   margin-bottom: 4rem;
 }
 
+.grid-item:hover .grid-image {
+  transform: scale(1.02);
+}
+
 @media (min-width: 768px) {
+  .item-meta {
+    color: var(--project-color);
+  }
+  .grid-item {
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
   .grid-item {
     width: calc(50% - 24.5px);
-    margin-bottom: 8vw;
+    margin-bottom: 4rem;
   }
 }
 
@@ -347,7 +600,7 @@ span.sep {
 
 .btn-txt-wrap::before {
   background: var(--color);
-  opacity: .2;
+  opacity: 0.2;
 }
 
 .btn-txt-wrap::after {
@@ -371,5 +624,15 @@ span.sep {
 .btn-txt-wrap.selected::after {
   transform: scaleY(1);
   transform-origin: top;
+}
+
+.item-overlay {
+  background: var(--project-bg-color);
+}
+.grid-item:hover .item-overlay {
+  opacity: 0.9;
+}
+.grid-item:hover .item-meta {
+  opacity: 1;
 }
 </style>
