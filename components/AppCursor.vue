@@ -1,6 +1,18 @@
 <template>
-  <div id="app-cursor"
-    class="fixed z-50 mix-blend-difference left-0 right-0 top-0 bottom-0 pointer-events-none opacity-0">
+  <div
+    id="app-cursor"
+    class="
+      fixed
+      z-50
+      mix-blend-difference
+      left-0
+      right-0
+      top-0
+      bottom-0
+      pointer-events-none
+      opacity-0
+    "
+  >
     <svg></svg>
   </div>
 </template>
@@ -13,7 +25,7 @@ export default {
 
     const svgns = 'http://www.w3.org/2000/svg'
     const root = document.querySelector('svg')
-    const ease = 0.9
+    const ease = 0.2
 
     const pointer = {
       x: window.innerWidth / 2,
@@ -27,7 +39,7 @@ export default {
 
     let leader = pointer
 
-    const total = 40
+    const total = 1
     for (let i = 0; i < total; i++) {
       leader = createLine(leader, i)
     }
@@ -36,7 +48,7 @@ export default {
       const line = document.createElementNS(svgns, 'line')
       root.appendChild(line)
 
-      gsap.set(line, { x: -15, y: -15, alpha: (total - i + i) / total })
+      gsap.set(line, { x: -15, y: -15, alpha: (total - i) / total })
 
       gsap.to(line, {
         duration: 100,
@@ -101,6 +113,5 @@ html:not(.desktop) #app-cursor {
   stroke-width: 24;
   stroke-linecap: round;
   stroke-linejoin: round;
-  shape-rendering: geometricPrecision;
 }
 </style>
