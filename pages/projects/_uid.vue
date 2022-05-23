@@ -46,8 +46,9 @@
                 inline-block
                 mr-16
                 -mb-4
+                dot
               "
-              >(Scope)</span
+              >Scope</span
             ><span
               v-for="(tag, index) in tags"
               :key="index"
@@ -91,8 +92,10 @@
                 mr-16
                 mb-2
                 align-top
+                relative
+                dot
               "
-              >({{ $prismic.asText(summary) }})</span
+              >{{ $prismic.asText(summary) }}</span
             ><span
               v-for="(paragraph, index) in description"
               :key="index"
@@ -429,7 +432,6 @@ export default {
   mounted() {
     this.animations()
     this.headerAnimation()
-    window.addEventListener('scroll', this.headerScroll)
     document.documentElement.style.setProperty(
       '--nextbg',
       this.nextBackgroundColor
@@ -456,9 +458,7 @@ export default {
   updated() {
     this.$ScrollTrigger.refresh()
   },
-  destroyed() {
-    window.removeEventListener('scroll', this.headerScroll)
-  },
+  destroyed() {},
   methods: {
     animations() {
       gsap.set('#header-image-wrapper', {
@@ -488,17 +488,6 @@ export default {
         marginTop: 0,
         duration: 1,
       })
-    },
-    headerScroll() {
-      const screenHeight = window.innerHeight
-      if (document.documentElement.scrollTop < screenHeight) {
-        gsap.to('.title-words span', {
-          translateY: document.documentElement.scrollTop / 4,
-          stagger: 0.025,
-          duration: 1,
-          ease: 'Power4.easeOut',
-        })
-      }
     },
     headerAnimation() {
       gsap.set('.title-words span', {

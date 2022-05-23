@@ -1,93 +1,55 @@
 <template>
   <main>
     <section class="about-header z-0 overflow-hidden">
-      <div id="header-text" class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative">
-        <h1 id="header-title" class="tracking-tight text-5xl lg:text-8xl uppercase mb-4">
-          <span v-for="(word, index) in titleWords" :key="index" class="title-words inline-block overflow-hidden"><span
-              v-for="(letter, index2) in Array.from(word)" :key="index2" class="inline-block">{{ letter
-              }}</span>&nbsp;</span>
+      <div
+        id="header-text"
+        class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
+      >
+        <h1
+          id="header-title"
+          class="tracking-tight text-5xl lg:text-8xl uppercase mb-4"
+        >
+          <span
+            v-for="(word, index) in titleWords"
+            :key="index"
+            class="title-words inline-block overflow-hidden"
+            ><span
+              v-for="(letter, index2) in Array.from(word)"
+              :key="index2"
+              class="inline-block"
+              >{{ letter }}</span
+            >&nbsp;</span
+          >
         </h1>
-        <p id="header-description"
-          class="inline-block tag text-2xl lg:text-3xl transition duration-300 leading-3 transform"
-          :class="{ 'has-scroll-over': scrollOver }">
-          <span class="intro text-sm lg:text-base uppercase inline-block mr-16">({{ $prismic.asText(intro)
-          }})</span><span class="description serif leading-7 font-light"><span
-              v-for="(word, index) in descriptionWords" :key="index" class="description-words inline-block">{{ word
-              }}</span></span>
+        <p
+          id="header-description"
+          class="
+            inline-block
+            tag
+            text-2xl
+            lg:text-3xl
+            transition
+            duration-300
+            leading-3
+            transform
+          "
+          :class="{ 'has-scroll-over': scrollOver }"
+        >
+          <span
+            class="intro text-sm lg:text-base uppercase inline-block mr-16 dot"
+            >{{ $prismic.asText(intro) }}</span
+          ><span class="description serif leading-7 font-light"
+            ><span
+              v-for="(word, index) in descriptionWords"
+              :key="index"
+              class="description-words inline-block"
+              >{{ word }}&nbsp;</span
+            ></span
+          >
         </p>
       </div>
     </section>
     <section class="content">
-      <!-- <div class="grid lg:grid-cols-2">
-        <div
-          v-if="image.url !== undefined"
-          id="header-image-wrapper"
-          class="z-0 relative mx-4 mb-4"
-        >
-          <nuxt-img
-            v-if="image.url"
-            id="header-image"
-            format="webp"
-            :src="image.url"
-            sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-            :width="image.dimensions.width"
-            :height="image.dimensions.height"
-            class="w-full rounded-lg object-cover"
-            loading="lazy"
-          />
-          <div class="speech-bubble-position absolute">
-            <div
-              class="speech-bubble relative left-1/2 rounded-xl p-2 px-3 flex items-center"
-            >
-              <span
-                class="text-sm lg:text-base leading-none lg:leading-none uppercase"
-                >Hello From The<br />VAST Lookout!</span
-              ><span
-                class="wave text-2xl lg:text-3xl leading-none lg:leading-none -ml-1 -mr-1"
-                >👋</span
-              >
-            </div>
-            <div class="speech-bubble-origin relative left-1/4 bottom-2">
-              <svg
-                width="14"
-                height="16"
-                viewBox="0 0 14 16"
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-full"
-              >
-                <path
-                  d="M0 0.516602C0 9.06769 3.26836 15.9997 13.7618 15.9997L14 16.0005C13.0623 15.2567 12.2689 14.3944 11.6314 13.4229C10.4112 11.5638 10 9.73924 10 5.406V0.516602H0Z"
-                  fill="#007aff"
-                  data-v-31c4c148=""
-                ></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div
-          class="text-xl lg:text-2xl uppercase tracking-tight leading-tight lg:leading-tight px-4 pb-4"
-        >
-          <span
-            class="text-sm lg:text-base uppercase block w-5/6 ml-auto lg:ml-0"
-            >(Multi-disciplinary design)</span
-          >
-          <div id="about-copy">
-            <p class="w-5/6 ml-auto lg:ml-0">
-              We’re a design practice in the business of crafting identities.
-              From intangible ideas to tactile products; physical spaces to
-              virtual experiences, we craft impactful responses that drive
-              engagement and produce results.
-            </p>
-            <p class="w-5/6 ml-auto">
-              Always embarking on projects with the creativity and rigour of an
-              architectural approach, we are grounded by experience and insights
-              across multiple sectors, in a convergence of culture, innovation
-              and commerce.
-            </p>
-          </div>
-        </div>
-      </div> -->
-      <!-- <hr class="h-px w-full opacity-20" /> -->
       <slice-zone type="about_page" queryType="single" />
     </section>
   </main>
@@ -135,7 +97,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.page.metaDescription
+          content: this.page.metaDescription,
         },
       ],
     }
@@ -150,13 +112,9 @@ export default {
   },
   mounted() {
     this.headerAnimation()
-    window.addEventListener('scroll', this.headerScroll)
   },
-  updated() {
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.headerScroll)
-  },
+  updated() {},
+  destroyed() {},
   methods: {
     headerAnimation() {
       gsap.set('.title-words span', {
@@ -204,17 +162,6 @@ export default {
           ease: 'Power4.easeOut',
         })
         .delay(2)
-    },
-    headerScroll() {
-      const screenHeight = window.innerHeight
-      if (document.documentElement.scrollTop < screenHeight) {
-        gsap.to('.title-words span', {
-          translateY: document.documentElement.scrollTop / 4,
-          stagger: 0.025,
-          duration: 1,
-          ease: 'Power4.easeOut',
-        })
-      }
     },
   },
 }
