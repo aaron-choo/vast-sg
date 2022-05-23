@@ -42,7 +42,6 @@
           id="header-description"
           class="
             inline-block
-            tag
             text-2xl
             lg:text-3xl
             transition
@@ -52,14 +51,15 @@
           "
           :class="{ 'has-scroll-over': scrollOver }"
         >
-          <span class="intro text-sm lg:text-base uppercase inline-block mr-16"
-            >({{ $prismic.asText(intro) }})</span
+          <span
+            class="intro text-sm lg:text-base uppercase inline-block mr-16 dot"
+            >{{ $prismic.asText(intro) }}</span
           ><span class="description serif font-light leading-7"
             ><span
               v-for="(word, index2) in descriptionWords"
               :key="index2"
               class="description-words inline-block"
-              >{{ word }}</span
+              >{{ word }}&nbsp;</span
             ></span
           >
         </p>
@@ -168,7 +168,10 @@
           </li>
         </ul>
       </div>
-      <div v-if="projects.length > 0" class="isotope project-grid px-4 pt-12">
+      <div
+        v-if="projects.length > 0"
+        class="isotope project-grid px-4 pt-12 transition duration-500"
+      >
         <div
           v-for="project in projects"
           :key="project.id"
@@ -209,20 +212,21 @@
                 item-meta item-meta-tag
                 text-sm
                 lg:text-base
-                xl:text-lg
-                2xl:text-xl
+                2xl:text-lg
                 uppercase
                 inline-block
                 mr-16
-                mb-2
+                mb-1
                 md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
+                z-10
                 transition
                 duration-300
-                z-10
                 pointer-events-none
+                relative
+                dot
               "
             >
-              (<span
+              <span
                 v-for="(tag, index) in project.tags"
                 :key="tag"
                 class="inline-block"
@@ -231,10 +235,10 @@
                   ><span
                     v-if="index != Object.keys(project.tags).length - 1"
                     class="sep"
-                    >/</span
-                  ></template
+                    >,&nbsp;
+                  </span></template
                 ></span
-              >)
+              >
             </p>
             <div class="grid-image-container block overflow-hidden rounded-lg">
               <nuxt-img
@@ -244,7 +248,7 @@
                 sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
                 :width="project.data.image.dimensions.width"
                 :height="project.data.image.dimensions.height"
-                class="grid-image w-full h-full transition duration-300"
+                class="grid-image w-full h-full"
                 loading="lazy"
               />
             </div>
@@ -252,10 +256,7 @@
               class="
                 item-meta
                 text-2xl
-                md:text-3xl
-                lg:text-2xl
-                xl:text-3xl
-                2xl:text-4xl
+                2xl:text-3xl
                 uppercase
                 title
                 flex
@@ -263,6 +264,7 @@
                 justify-between
                 items-end
                 tracking-tight
+                mt-1
                 md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
                 z-10
                 transition
@@ -281,23 +283,24 @@
           <nuxt-link to="/contact">
             <p
               class="
-                item-meta
+                item-meta item-meta-tag
                 text-sm
-                md:text-base
-                lg:text-lg
-                2xl:text-xl
+                lg:text-base
+                2xl:text-lg
                 uppercase
                 inline-block
                 mr-16
-                mb-2
+                mb-1
                 md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
+                z-10
                 transition
                 duration-300
-                z-10
                 pointer-events-none
+                relative
+                dot
               "
             >
-              (<span class="inline-block">Have a great idea?</span>)
+              <span class="inline-block">Have a great idea?</span>
             </p>
             <div class="grid-image-container overflow-hidden rounded-lg">
               <nuxt-img
@@ -307,7 +310,7 @@
                 sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
                 :width="page.contactImage.dimensions.width"
                 :height="page.contactImage.dimensions.height"
-                class="grid-image w-full h-full transition duration-300"
+                class="grid-image w-full h-full"
                 loading="lazy"
               />
             </div>
@@ -315,9 +318,7 @@
               class="
                 item-meta
                 text-2xl
-                md:text-3xl
-                xl:text-4xl
-                3xl:text-5xl
+                2xl:text-3xl
                 uppercase
                 title
                 flex
@@ -325,6 +326,7 @@
                 justify-between
                 items-end
                 tracking-tight
+                mt-1
                 md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
                 z-10
                 transition
@@ -422,7 +424,7 @@ export default {
   },
   mounted() {
     this.headerAnimation()
-    window.addEventListener('scroll', this.headerScroll)
+    this.gridAnimation()
     this.isotope()
     const gsap = this.$gsap
     const ExpoScaleEase = this.$ExpoScaleEase
@@ -434,12 +436,44 @@ export default {
   updated() {
     this.$ScrollTrigger.refresh()
   },
-  destroyed() {
-    window.removeEventListener('scroll', this.headerScroll)
-  },
+  destroyed() {},
   methods: {
     LinkGetter(post) {
       return LinkResolver(post)
+    },
+    gridAnimation() {
+      const gridItems = document.getElementsByClassName('grid-item')
+      const gridImages = document.getElementsByClassName('grid-image')
+      const gridimagecontainers = document.getElementsByClassName(
+        'grid-image-container'
+      )
+      for (let i = 0; i < gridItems.length; i++) {
+        gsap.set(gridItems[i], {
+          y: '0%',
+        })
+        gsap.to(gridItems[i], {
+          scrollTrigger: {
+            trigger: gridItems[i],
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+          y: '-0%',
+        })
+        gsap.set(gridImages[i], {
+          y: '-20%',
+          scale: 1.2,
+        })
+        gsap.to(gridImages[i], {
+          scrollTrigger: {
+            trigger: gridimagecontainers[i],
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+          y: '20%',
+        })
+      }
     },
     headerAnimation() {
       gsap.set('.title-words span', {
@@ -488,22 +522,11 @@ export default {
         })
         .delay(1)
     },
-    headerScroll() {
-      const screenHeight = window.innerHeight
-      if (document.documentElement.scrollTop < screenHeight) {
-        gsap.to('.title-words span', {
-          translateY: document.documentElement.scrollTop / 4,
-          stagger: 0.025,
-          duration: 1,
-          ease: 'Power4.easeOut',
-        })
-      }
-    },
     isotope() {
       this.iso = new Isotope('.project-grid', {
         itemSelector: '.grid-item',
         layoutMode: 'fitRows',
-        transitionDuration: 300,
+        transitionDuration: 0,
         fitRows: {
           gutter: 16,
         },
@@ -529,10 +552,15 @@ export default {
       } else {
         document.querySelector('.filter-button' + tag).classList.add('selected')
       }
-      this.iso.arrange({
-        filter: tag,
-      })
-      this.$ScrollTrigger.refresh()
+      const projectGrid = document.querySelector('.project-grid')
+      projectGrid.style.opacity = '0'
+      setTimeout(() => {
+        this.iso.arrange({
+          filter: tag,
+        })
+        projectGrid.style.opacity = '1'
+        this.$ScrollTrigger.refresh()
+      }, '500')
     },
   },
 }
@@ -552,8 +580,8 @@ main {
 }
 
 span.sep {
-  padding-right: 0.29em;
-  padding-left: 0.29em;
+  padding-right: 0.1em;
+  padding-left: 0.1em;
 }
 
 .grid-item {
@@ -566,18 +594,18 @@ span.sep {
 }
 
 @media (min-width: 768px) {
-  .item-meta {
-    color: var(--project-color);
-  }
   .grid-item {
     margin-bottom: 16px;
+  }
+  .item-meta {
+    color: var(--project-color);
   }
 }
 
 @media (min-width: 1024px) {
   .grid-item {
     width: calc(50% - 24.5px);
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
   }
 }
 
@@ -630,9 +658,16 @@ span.sep {
   background: var(--project-bg-color);
 }
 .grid-item:hover .item-overlay {
-  opacity: 0.9;
+  opacity: 0.5;
 }
+
 .grid-item:hover .item-meta {
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .grid-item {
+    transform: none !important;
+  }
 }
 </style>
