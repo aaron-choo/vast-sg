@@ -1,9 +1,6 @@
 <template>
   <section class="section px-4 lg:px-40 my-24" :class="slice.primary.align">
-    <div
-      v-swiper="swiperOption"
-      class="slider-block relative"
-    >
+    <div v-swiper="swiperOption" class="slider-block relative">
       <div class="swiper-wrapper overflow-hidden rounded-lg">
         <div
           v-for="(item, index) in slice.items"
@@ -24,12 +21,7 @@
       </div>
       <div
         slot="pagination"
-        class="
-          swiper-pagination
-          text-xs
-          lg:text-sm
-          mt-3
-        "
+        class="swiper-pagination text-xs lg:text-sm mt-3"
       ></div>
       <div
         slot="button-prev"
@@ -68,6 +60,7 @@ export default {
     return {
       swiperOption: {
         effect: 'fade',
+        grabCursor: 'true',
         fadeEffect: {
           crossFade: true,
         },
