@@ -207,12 +207,12 @@
               style="bottom: 20%"
             >
               <svg
+                id="markerunderline"
                 width="448"
                 height="20"
                 viewBox="0 0 224 10"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                id="markerunderline"
                 style="width: 95%; height: auto"
               >
                 <g clip-path="url(#underlinemask)">
@@ -506,14 +506,13 @@ export default {
       })
       gsap.to('.home-hero-logo', {
         scrollTrigger: {
-          trigger: '.home-header',
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 1,
+          trigger: '.home-hero-text',
+          start: 'top 50%',
+          toggleActions: 'play none none reverse',
         },
         opacity: 0.25,
-        duration: 1,
-        stagger: 1,
+        duration: 0.5,
+        stagger: 0.5,
       })
       gsap.to('#header-text', {
         scrollTrigger: {
@@ -522,7 +521,7 @@ export default {
           end: 'bottom 50%',
           scrub: true,
         },
-        translateY: '-8em',
+        translateY: '0',
       })
       gsap.to('.title-words:nth-child(n+7)', {
         scrollTrigger: {
@@ -603,7 +602,7 @@ export default {
             trigger: scrollerslides[i],
             start: 'top bottom',
             end: 'bottom top',
-            scrub: true,
+            scrub: 1,
           },
           y: '-50%',
           rotate: '-3deg',
