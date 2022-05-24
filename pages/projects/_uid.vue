@@ -1,7 +1,7 @@
 <template>
   <main>
     <section class="project-header">
-      <div class="w-full overflow-hidden">
+      <div class="w-full">
         <div
           id="header-text"
           class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
@@ -13,7 +13,7 @@
             <span
               v-for="(word, index) in titleWords"
               :key="index"
-              class="title-words inline-block overflow-hidden align-top"
+              class="title-words inline-block align-top"
               ><span
                 v-for="(letter, index2) in Array.from(word)"
                 :key="index2"
@@ -57,7 +57,7 @@
               {{ tag
               }}<template v-if="Object.keys(tags).length > 1">
                 <span v-if="index != Object.keys(tags).length - 1" class="sep"
-                  >+</span
+                  >,</span
                 >
               </template>
             </span>
@@ -79,6 +79,17 @@
             class="w-full"
             loading="lazy"
           />
+          <video
+            v-if="video.url"
+            :poster="image.url"
+            class="absolute top-0 w-full"
+            autoplay
+            muted
+            loop
+            playsinline
+          >
+            <source :src="video.url" type="video/mp4" />
+          </video>
         </div>
         <div class="description-section section my-24 px-4 lg:px-40">
           <p class="description-wrapper">
@@ -119,8 +130,10 @@
                 mr-16
                 mb-2
                 align-top
+                relative
+                dot
               "
-              >(Live)</span
+              >Live</span
             ><a
               :href="projectLink"
               target="_blank"
@@ -152,14 +165,16 @@
             <span>{{ date.substring(0, 4) }}</span>
           </div>
           <div class="col-span-6 lg:col-span-3 text-left lg:text-right">
-            <span v-for="(tag, index) in tags" :key="index"
-              >{{ tag
-              }}<template v-if="Object.keys(tags).length > 1"
+            <ul class="scope-list flex-col flex items-end">
+              <li v-for="(tag, index) in tags" :key="index">
+                {{ tag }}
+                <!-- <template v-if="Object.keys(tags).length > 1"
                 ><span v-if="index != Object.keys(tags).length - 1" class="sep"
-                  >+</span
+                  >,</span
                 ></template
-              ></span
-            >
+              > -->
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -352,6 +367,7 @@ export default {
         summary: project.data.summary,
         client: project.data.client,
         image: project.data.image,
+        video: project.data.video,
         backgroundColor: project.data.backgroundColor,
         textColor: project.data.textColor,
         tags: project.tags,
@@ -578,6 +594,5 @@ a.next-project-section:hover img {
 
 span.sep {
   padding-right: 0.29em;
-  padding-left: 0.29em;
 }
 </style>
