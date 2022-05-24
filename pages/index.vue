@@ -318,11 +318,12 @@
               </p>
               <div
                 class="
-                  scroller-image-container
+                  scroller-media-container
                   block
                   overflow-hidden
                   rounded-lg
                 "
+                :class="project.data.kind"
               >
                 <nuxt-img
                   v-if="project.data.image.url"
@@ -601,7 +602,7 @@ export default {
       const scrollerslides = document.getElementsByClassName('scroller-slide')
       const scrollerimages = document.getElementsByClassName('scroller-image')
       const scrollerimagecontainers = document.getElementsByClassName(
-        'scroller-image-container'
+        'scroller-media-container'
       )
       for (let i = 0; i < scrollerslides.length; i++) {
         gsap.set(scrollerslides[i], {
@@ -715,8 +716,12 @@ export default {
 .home-description-words {
   padding-right: 0.29em;
 }
-.scroller-image-container {
+.scroller-media-container {
   transform: translateZ(0);
+}
+
+.scroller-media-container.document * {
+  transform: none !important;
 }
 
 @media (max-width: 767px) {

@@ -208,7 +208,14 @@
                 > -->
               </p>
               <div
-                class="grid-image-container block overflow-hidden rounded-lg"
+                class="
+                  grid-media-container
+                  block
+                  overflow-hidden
+                  rounded-lg
+                  relative
+                "
+                :class="project.data.video.kind"
               >
                 <nuxt-img
                   v-if="project.data.image.url"
@@ -284,7 +291,7 @@
               >
                 <span class="inline-block">Have a great idea?</span>
               </p>
-              <div class="grid-image-container overflow-hidden rounded-lg">
+              <div class="grid-media-container overflow-hidden rounded-lg">
                 <nuxt-img
                   v-if="page.contactImage.url"
                   format="webp"
@@ -432,8 +439,8 @@ export default {
     gridAnimation() {
       const gridItems = document.getElementsByClassName('grid-item')
       const gridImages = document.getElementsByClassName('grid-image')
-      const gridimagecontainers = document.getElementsByClassName(
-        'grid-image-container'
+      const gridmediacontainers = document.getElementsByClassName(
+        'grid-media-container'
       )
       const projectfilters = document.querySelector('#filters')
       const content = document.querySelector('.content')
@@ -469,7 +476,7 @@ export default {
         })
         gsap.to(gridImages[i], {
           scrollTrigger: {
-            trigger: gridimagecontainers[i],
+            trigger: gridmediacontainers[i],
             start: 'top bottom',
             end: 'bottom top',
             scrub: true,
@@ -580,9 +587,13 @@ main {
   scroll-behavior: smooth;
 }
 
-.grid-image-container {
+.grid-media-container {
   mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.grid-media-container.document * {
+  transform: none !important;
 }
 
 span.sep {
