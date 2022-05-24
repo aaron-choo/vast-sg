@@ -50,6 +50,14 @@
           "thumbnails": []
         }
       },
+      "video": {
+        "type": "Link",
+        "config": {
+          "label": "Video",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
       "client": {
         "config": {
           "label": "client",

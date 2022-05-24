@@ -1,18 +1,18 @@
 {
-  "id": "b86cdcc2-9f7b-4351-a665-cbd05ed2bbcd",
-  "uid": "quod-quasi-quis",
+  "id": "163c3679-10c7-479c-8c57-524a0dfa3141",
+  "uid": "sed-excepturi-voluptatem",
   "type": "project",
   "data": {
     "title": [
       {
         "type": "paragraph",
-        "text": "Reprehenderit commodo eu excepteur dolor incididunt ipsum ut. Mollit anim do do reprehenderit culpa sunt. Lorem sit dolore esse reprehenderit enim ipsum minim qui eiusmod labore.",
+        "text": "Exercitation ad consequat eu incididunt.",
         "spans": []
       }
     ],
-    "date": "2012-04-02",
-    "backgroundColor": "#ec765b",
-    "textColor": "#9eda4e",
+    "date": "2022-03-04",
+    "backgroundColor": "#f24669",
+    "textColor": "#cd811a",
     "image": {
       "dimensions": {
         "width": 900,
@@ -20,34 +20,38 @@
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43?w=900&h=500&fit=crop"
+    },
+    "video": {
+      "link_type": "media",
+      "url": "https://source.unsplash.com/daily"
     },
     "client": [
       {
         "type": "paragraph",
-        "text": "Officia fugiat anim minim eu. Qui irure deserunt mollit commodo commodo laborum duis deserunt aute cupidatat tempor aliquip anim. Aliqua duis consequat laboris.",
+        "text": "Nulla nulla dolor quis ut quis. Ad cupidatat cupidatat consequat nisi.",
         "spans": []
       }
     ],
     "summary": [
       {
         "type": "paragraph",
-        "text": "Nisi commodo ut deserunt exercitation qui commodo incididunt. Labore ea cillum dolore ut. Ullamco est irure Lorem fugiat ex ullamco.",
+        "text": "Qui et laborum excepteur nostrud labore ullamco irure ut aute.",
         "spans": []
       }
     ],
     "description": [
       {
         "type": "paragraph",
-        "text": "Enim commodo proident Lorem minim.",
+        "text": "Labore consectetur officia mollit reprehenderit duis cupidatat anim.",
         "spans": []
       }
     ],
     "link": {
       "link_type": "Web",
-      "url": "http://google.com"
+      "url": "https://slicemachine.dev"
     },
-    "metaTitle": "envisioneer B2C web-readiness",
-    "metaDescription": "utilize holistic platforms"
+    "metaTitle": "incubate dot-com infomediaries",
+    "metaDescription": "productize extensible web services"
   }
 }
