@@ -1,13 +1,4 @@
 @font-face {
-  font-family: 'Hiatus';
-  src: url('~assets/fonts/Hiatus.woff2') format('woff2'),
-      url('~assets/fonts/Hiatus.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'PP Mondwest';
   src: url('~assets/fonts/PPMondwest-Regular.woff2') format('woff2'),
         url('~assets/fonts/PPMondwest-Regular.woff') format('woff');
@@ -221,12 +212,12 @@ html {
 }
 
 :root {
-  --color: #666;
-  --color-primary: #666;
+  --color: #e6e6e6;
+  --color-primary: #e6e6e6;
   --color-secondary: #0e2233;
-  --bg: #ccc;
+  --bg: #e4e7eb;
   --bg-secondary: #fff;
-  --border-color: #ddd;
+  --border-color: #e4e7eb;
   --footer-bg: #000;
   --footer-color: #fff;
 
@@ -316,4 +307,16 @@ h1, h2, h3, h4, h5 ,h6, .heading-font {
   height: .68em;
   border-radius: 50%;
   line-height: 1;
+}
+
+.title-words span {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(
+    60deg,
+    var(--color),
+    var(--color),
+   transparent
+  );
 }
