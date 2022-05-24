@@ -310,9 +310,10 @@ h1, h2, h3, h4, h5 ,h6, .heading-font {
   content: '';
   background-color: currentColor;
   position: absolute;
-  top: .44em;
+  top: .4em;
   left: -1.34em;
   width: .68em;
   height: .68em;
   border-radius: 50%;
+  line-height: 1;
 }
