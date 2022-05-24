@@ -292,7 +292,6 @@
                   2xl:text-lg
                   uppercase
                   inline-block
-                  mr-16
                   mb-2
                   md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
                   transition
@@ -302,7 +301,8 @@
                   dot
                 "
               >
-                <span
+                <span>{{ $prismic.asText(project.data.summary) }}</span>
+                <!-- <span
                   v-for="(tag, index) in project.tags"
                   :key="tag"
                   class="inline-block"
@@ -314,7 +314,7 @@
                       >/</span
                     ></template
                   ></span
-                >
+                > -->
               </p>
               <div
                 class="
@@ -334,6 +334,17 @@
                   class="scroller-image w-full object-cover"
                   loading="lazy"
                 />
+                <video
+                  v-if="project.data.video.url"
+                  :poster="project.data.image.url"
+                  class="absolute top-0 w-full"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                >
+                  <source :src="project.data.video.url" type="video/mp4" />
+                </video>
               </div>
               <div
                 class="
@@ -602,7 +613,7 @@ export default {
             trigger: scrollerslides[i],
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 1,
+            scrub: true,
           },
           y: '-50%',
           rotate: '-3deg',
@@ -653,6 +664,7 @@ export default {
   vertical-align: baseline;
   margin-right: 0.1em;
 }
+
 .title-words:nth-child(2) {
   margin-left: 1em;
 }
@@ -666,6 +678,7 @@ export default {
   font-family: 'PP Mondwest', serif;
   font-size: 1.05em;
   font-style: italic;
+  padding-right: 0.1em;
 }
 
 #markerunderline {
@@ -716,20 +729,20 @@ export default {
     color: var(--project-color);
   }
   .scroller-slide:nth-child(1) {
-    grid-column-start: 1;
-    grid-row-start: 2;
-  }
-  .scroller-slide:nth-child(2) {
     grid-column-start: 6;
     grid-row-start: 1;
   }
-  .scroller-slide:nth-child(3) {
+  .scroller-slide:nth-child(2) {
     grid-column-start: 1;
-    grid-row-start: 4;
+    grid-row-start: 2;
   }
-  .scroller-slide:nth-child(4) {
+  .scroller-slide:nth-child(3) {
     grid-column-start: 6;
     grid-row-start: 3;
+  }
+  .scroller-slide:nth-child(4) {
+    grid-column-start: 1;
+    grid-row-start: 4;
   }
 }
 .item-overlay {
