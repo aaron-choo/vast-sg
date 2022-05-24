@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="projects-header z-0 overflow-hidden">
+    <section class="projects-header">
       <div
         id="header-text"
         class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
@@ -19,7 +19,7 @@
           <span
             v-for="(word, index) in titleWords"
             :key="index"
-            class="title-words inline-block overflow-hidden"
+            class="title-words inline-block"
             ><span
               v-for="(letter, index2) in Array.from(word)"
               :key="index2"
@@ -66,11 +66,11 @@
       </div>
     </section>
     <section class="content relative">
-      <hr class="h-px w-full opacity-20" />
       <div class="project-grid-container lg:grid mx-4">
         <div
           class="
-            py-16
+            filter-container
+            py-10
             lg:sticky
             lg:top-0
             lg:h-screen
@@ -84,7 +84,15 @@
         >
           <ul
             id="filters"
-            class="text-sm lg:text-base 2xl:text-lg relative text-right"
+            class="
+              relative
+              flex flex-col
+              gap-2
+              text-sm
+              leading-none
+              lg:text-base lg:text-right lg:leading-none
+              2xl:text-lg 2xl:leading-none
+            "
             @mouseover="filterOpen = true"
             @mouseleave="filterOpen = false"
             @click="filterOpen = false"
@@ -97,8 +105,9 @@
                   selected
                   all
                   uppercase
-                  text-right
-                  tracking-wide
+                  lg:text-right
+                  transition
+                  duration-300
                 "
                 data-filter="*"
                 @click="filter('*'), (currentFilter = 'filter')"
@@ -112,7 +121,7 @@
               <button
                 :class="'filter-button ' + tag"
                 :data-filter="tag"
-                class="uppercase text-right tracking-wide"
+                class="uppercase lg:text-right transition duration-300"
                 @click="
                   filter('.' + tag), (currentFilter = tag.replace('-', ' '))
                 "
@@ -171,18 +180,20 @@
                   2xl:text-lg
                   uppercase
                   inline-block
-                  mr-16
                   mb-1
-                  md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
                   z-10
                   transition
                   duration-300
                   pointer-events-none
                   relative
                   dot
+                  md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
                 "
               >
-                <span
+                <span>
+                  {{ $prismic.asText(project.data.summary) }}
+                </span>
+                <!-- <span
                   v-for="(tag, index) in project.tags"
                   :key="tag"
                   class="inline-block"
@@ -194,7 +205,7 @@
                       >,&nbsp;
                     </span></template
                   ></span
-                >
+                > -->
               </p>
               <div
                 class="grid-image-container block overflow-hidden rounded-lg"
@@ -209,12 +220,25 @@
                   class="grid-image w-full h-full"
                   loading="lazy"
                 />
+                <video
+                  v-if="project.data.video.url"
+                  :poster="project.data.image.url"
+                  class="absolute top-0 w-full"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                >
+                  <source :src="project.data.video.url" type="video/mp4" />
+                </video>
               </div>
               <div
                 class="
                   item-meta
                   text-2xl
-                  2xl:text-3xl
+                  lg:text-3xl
+                  xl:text-4xl
+                  3xl:text-5xl
                   uppercase
                   title
                   flex
@@ -223,11 +247,11 @@
                   items-end
                   tracking-tight
                   mt-1
-                  md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
                   z-10
                   transition
                   duration-300
                   pointer-events-none
+                  md:opacity-0 md:absolute md:bottom-4 md:left-4 md:right-4
                 "
               >
                 {{ $prismic.asText(project.data.title)
@@ -341,9 +365,13 @@ export default {
         textColor: pageContent.textColor,
         projects: projects.results,
         allTags: [
-          'architectural-visualization',
-          'branding',
+          'archviz',
+          'art-direction',
+          'brand-identity',
+          'brand-strategy',
+          'illustration',
           'interior-design',
+          'motion-graphics',
           'product',
           'website',
         ],
@@ -407,18 +435,33 @@ export default {
       const gridimagecontainers = document.getElementsByClassName(
         'grid-image-container'
       )
+      const projectfilters = document.querySelector('#filters')
+      const content = document.querySelector('.content')
+      gsap.set(projectfilters, {
+        opacity: 0,
+      })
+      gsap.to(projectfilters, {
+        scrollTrigger: {
+          trigger: content,
+          start: 'top top',
+          toggleActions: 'play none none none',
+        },
+        opacity: 1,
+        duration: 0.5,
+      })
+
       for (let i = 0; i < gridItems.length; i++) {
         gsap.set(gridItems[i], {
-          rotate: '0deg',
+          rotate: '3deg',
         })
         gsap.to(gridItems[i], {
           scrollTrigger: {
             trigger: gridItems[i],
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 1,
+            scrub: true,
           },
-          rotate: '-0deg',
+          rotate: '-3deg',
         })
         gsap.set(gridImages[i], {
           y: '-20%',
@@ -565,64 +608,31 @@ span.sep {
   }
 }
 
+@media (max-width: 1023px) {
+  #filters {
+    opacity: 1 !important;
+  }
+  .filter-button {
+    margin-left: 1.34em;
+  }
+}
+
 @media (min-width: 1024px) {
   .grid-item {
     margin-bottom: 6rem;
   }
-}
-
-.filter-button {
-  margin-right: 1.34em;
-}
-
-.btn-txt-wrap::after,
-.btn-txt-wrap::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 1em;
-  transition: transform 0.3s, background 0.3s;
-}
-
-.btn-txt-wrap::before {
-  background: var(--color);
-  opacity: 0.2;
-}
-
-.btn-txt-wrap::after {
-  z-index: 1;
-  transform: scaleY(0);
-  transform-origin: bottom;
-  background: var(--color);
-}
-
-.btn-txt {
-  z-index: 2;
-  min-width: 1.8em;
-}
-
-.filter-btn .btn-txt:hover,
-.btn-txt-wrap.selected .btn-txt {
-  color: var(--bg);
-}
-
-.btn-txt-wrap:hover::after,
-.btn-txt-wrap.selected::after {
-  transform: scaleY(1);
-  transform-origin: top;
+  .filter-button {
+    margin-right: 1.34em;
+  }
 }
 
 .project-grid-container {
-  grid-template-columns: 24rem 1fr 4rem;
+  grid-template-columns: 18rem 1fr 4rem;
 }
 
 @media (min-width: 1536px) {
   .project-grid-container {
-    grid-template-columns: 26rem 1fr 4rem;
+    grid-template-columns: 20rem 1fr 4rem;
   }
 }
 
@@ -631,7 +641,7 @@ span.sep {
 }
 
 .grid-item:hover .item-overlay {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .grid-item:hover .item-meta {
@@ -645,47 +655,78 @@ span.sep {
 }
 
 #filters {
-  --filterheight: 7.05em;
+  --filterheight: 14.15em;
+  --filterspace: 0.8em;
 }
+
 @media (min-width: 1024px) {
   #filters {
-    --filterheight: 7.5em;
+    --filterheight: 13.5em;
+  }
+  .tag-dot {
+    right: 0;
   }
 }
 @media (min-width: 1536px) {
   #filters {
-    --filterheight: 7.75em;
+    --filterheight: 13em;
   }
+}
+
+.filter-button.all {
+  margin-bottom: var(--filterspace);
+}
+
+.filter-button:not(.selected) {
+  opacity: 0.35;
+}
+
+.filter-button:hover {
+  opacity: 1;
 }
 .tag-dot {
   background-color: currentColor;
   position: absolute;
-  right: 0;
-  top: 0.45em;
+  top: 0.2em;
   width: 0.68em;
   height: 0.68em;
   border-radius: 50%;
   line-height: 1;
-  transition: 0.3s ease;
+  transition: 0.7s ease;
 }
 
-.tag-dot.\.architectural-visualization {
-  transform: translateY(calc(var(--filterheight) / 5));
+.tag-dot.\.archviz {
+  transform: translateY(calc(var(--filterheight) / 9 + var(--filterspace)));
 }
 
-.tag-dot.\.branding {
-  transform: translateY(calc(var(--filterheight) / 5 * 2));
+.tag-dot.\.art-direction {
+  transform: translateY(calc(var(--filterheight) / 9 * 2 + var(--filterspace)));
 }
 
+.tag-dot.\.brand-identity {
+  transform: translateY(calc(var(--filterheight) / 9 * 3 + var(--filterspace)));
+}
+
+.tag-dot.\.brand-strategy {
+  transform: translateY(calc(var(--filterheight) / 9 * 4 + var(--filterspace)));
+}
+
+.tag-dot.\.illustration {
+  transform: translateY(calc(var(--filterheight) / 9 * 5 + var(--filterspace)));
+}
 .tag-dot.\.interior-design {
-  transform: translateY(calc(var(--filterheight) / 5 * 3));
+  transform: translateY(calc(var(--filterheight) / 9 * 6 + var(--filterspace)));
+}
+
+.tag-dot.\.motion-graphics {
+  transform: translateY(calc(var(--filterheight) / 9 * 7 + var(--filterspace)));
 }
 
 .tag-dot.\.product {
-  transform: translateY(calc(var(--filterheight) / 5 * 4));
+  transform: translateY(calc(var(--filterheight) / 9 * 8 + var(--filterspace)));
 }
 
 .tag-dot.\.website {
-  transform: translateY(var(--filterheight));
+  transform: translateY(calc(var(--filterheight) + var(--filterspace)));
 }
 </style>
