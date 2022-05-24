@@ -46,7 +46,7 @@
             lg:text-3xl
             transition
             duration-300
-            leading-3
+            leading-7
             transform
           "
           :class="{ 'has-scroll-over': scrollOver }"
@@ -54,291 +54,251 @@
           <span
             class="intro text-sm lg:text-base uppercase inline-block mr-16 dot"
             >{{ $prismic.asText(intro) }}</span
-          ><span class="description serif font-light leading-7"
+          ><span class="description serif font-light"
             ><span
               v-for="(word, index2) in descriptionWords"
               :key="index2"
               class="description-words inline-block"
-              >{{ word }}&nbsp;</span
-            ></span
+              >{{ word }}<span class="body-font">&nbsp;</span>
+            </span></span
           >
         </p>
       </div>
     </section>
     <section class="content relative">
       <hr class="h-px w-full opacity-20" />
-      <div :class="allTags" class="m-4 mt-5">
-        <ul
-          id="filters"
-          @mouseover="filterOpen = true"
-          @mouseleave="filterOpen = false"
-          @click="filterOpen = false"
+      <div class="project-grid-container lg:grid mx-4">
+        <div
+          class="
+            py-16
+            lg:sticky
+            lg:top-0
+            lg:h-screen
+            lg:flex
+            lg:flex-col
+            lg:items-end
+            lg:w-full
+            lg:justify-center
+            lg:pr-12
+          "
         >
-          <li class="inline-block mb-2 mr-1">
-            <div class="filter-btn rounded-full text-center overflow-hidden">
+          <ul
+            id="filters"
+            class="text-sm lg:text-base 2xl:text-lg relative text-right"
+            @mouseover="filterOpen = true"
+            @mouseleave="filterOpen = false"
+            @click="filterOpen = false"
+          >
+            <li class="tag-dot *"></li>
+            <li>
               <button
                 class="
                   filter-button
                   selected
                   all
-                  btn-txt-wrap
-                  h-auto
-                  rounded-full
-                  overflow-visible
-                  transition
-                  duration-300
-                  relative
+                  uppercase
+                  text-right
+                  tracking-wide
                 "
                 data-filter="*"
                 @click="filter('*'), (currentFilter = 'filter')"
                 @mouseover="filterHover = true"
                 @mouseleave="filterHover = false"
               >
-                <div
-                  class="
-                    btn-txt
-                    transition
-                    duration-300
-                    px-2
-                    md:px-3
-                    lg:px-4
-                    h-auto
-                    flex
-                    justify-center
-                    items-center
-                    relative
-                    text-xl
-                    lg:text-2xl
-                    uppercase
-                    tracking-tight
-                  "
-                >
-                  All Projects
-                </div>
+                All Projects
               </button>
-            </div>
-          </li>
-          <li
-            v-for="(tag, index) in allTags"
-            :key="index"
-            class="inline-block mr-2 mb-2"
-          >
-            <div class="filter-btn rounded-full text-center overflow-hidden">
+            </li>
+            <li v-for="(tag, index) in allTags" :key="index">
               <button
                 :class="'filter-button ' + tag"
                 :data-filter="tag"
-                class="
-                  btn-txt-wrap
-                  h-auto
-                  rounded-full
-                  overflow-visible
-                  transition
-                  duration-300
-                  relative
-                "
+                class="uppercase text-right tracking-wide"
                 @click="
                   filter('.' + tag), (currentFilter = tag.replace('-', ' '))
                 "
                 @mouseover=";(filterHover = true), (linkHover = true)"
                 @mouseleave=";(filterHover = false), (linkHover = false)"
               >
-                <div
-                  class="
-                    btn-txt
-                    transition
-                    duration-300
-                    px-2
-                    md:px-3
-                    lg:px-4
-                    h-auto
-                    flex
-                    justify-center
-                    items-center
-                    relative
-                    text-xl
-                    lg:text-2xl
-                    uppercase
-                    tracking-tight
-                  "
-                >
-                  {{ tag.replace('-', ' ') }}
-                </div>
+                {{ tag.replace('-', ' ') }}
               </button>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div
-        v-if="projects.length > 0"
-        class="isotope project-grid px-4 pt-12 transition duration-500"
-      >
-        <div
-          v-for="project in projects"
-          :key="project.id"
-          :class="
-            project.tags.map(function (item, index) {
-              return item.replace(' ', '-')
-            })
-          "
-          class="grid-item project-link relative"
-          :style="
-            '--project-color:' +
-            project.data.textColor +
-            '; --project-bg-color:' +
-            project.data.backgroundColor
-          "
-        >
-          <nuxt-link :to="LinkGetter(project)">
-            <div
-              class="
-                item-overlay
-                hidden
-                absolute
-                top-0
-                left-0
-                right-0
-                bottom-0
-                md:block
-                z-10
-                transition
-                duration-300
-                rounded-lg
-                opacity-0
-                pointer-events-none
-              "
-            ></div>
-            <p
-              class="
-                item-meta item-meta-tag
-                text-sm
-                lg:text-base
-                2xl:text-lg
-                uppercase
-                inline-block
-                mr-16
-                mb-1
-                md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
-                z-10
-                transition
-                duration-300
-                pointer-events-none
-                relative
-                dot
-              "
-            >
-              <span
-                v-for="(tag, index) in project.tags"
-                :key="tag"
-                class="inline-block"
-                >{{ tag
-                }}<template v-if="Object.keys(project.tags).length > 1"
-                  ><span
-                    v-if="index != Object.keys(project.tags).length - 1"
-                    class="sep"
-                    >,&nbsp;
-                  </span></template
-                ></span
-              >
-            </p>
-            <div class="grid-image-container block overflow-hidden rounded-lg">
-              <nuxt-img
-                v-if="project.data.image.url"
-                format="webp"
-                :src="project.data.image.url"
-                sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
-                :width="project.data.image.dimensions.width"
-                :height="project.data.image.dimensions.height"
-                class="grid-image w-full h-full"
-                loading="lazy"
-              />
-            </div>
-            <div
-              class="
-                item-meta
-                text-2xl
-                2xl:text-3xl
-                uppercase
-                title
-                flex
-                gap-4
-                justify-between
-                items-end
-                tracking-tight
-                mt-1
-                md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
-                z-10
-                transition
-                duration-300
-                pointer-events-none
-              "
-            >
-              {{ $prismic.asText(project.data.title)
-              }}<span class="date font-light tracking-normal">{{
-                $moment(project.data.date).format('MM/YY')
-              }}</span>
-            </div>
-          </nuxt-link>
+            </li>
+          </ul>
         </div>
-        <div :class="allTags" class="grid-item project-link">
-          <nuxt-link to="/contact">
-            <p
-              class="
-                item-meta item-meta-tag
-                text-sm
-                lg:text-base
-                2xl:text-lg
-                uppercase
-                inline-block
-                mr-16
-                mb-1
-                md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
-                z-10
-                transition
-                duration-300
-                pointer-events-none
-                relative
-                dot
-              "
-            >
-              <span class="inline-block">Have a great idea?</span>
-            </p>
-            <div class="grid-image-container overflow-hidden rounded-lg">
-              <nuxt-img
-                v-if="page.contactImage.url"
-                format="webp"
-                :src="page.contactImage.url"
-                sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
-                :width="page.contactImage.dimensions.width"
-                :height="page.contactImage.dimensions.height"
-                class="grid-image w-full h-full"
-                loading="lazy"
-              />
-            </div>
-            <div
-              class="
-                item-meta
-                text-2xl
-                2xl:text-3xl
-                uppercase
-                title
-                flex
-                gap-4
-                justify-between
-                items-end
-                tracking-tight
-                mt-1
-                md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
-                z-10
-                transition
-                duration-300
-                pointer-events-none
-              "
-            >
-              Let's get to work!<span class="date font-light tracking-normal">{{
-                $moment().format('MM/YY')
-              }}</span>
-            </div>
-          </nuxt-link>
+        <div
+          v-if="projects.length > 0"
+          class="isotope project-grid pt-12 transition duration-700"
+        >
+          <div
+            v-for="project in projects"
+            :key="project.id"
+            :class="
+              project.tags.map(function (item, index) {
+                return item.replace(' ', '-')
+              })
+            "
+            class="grid-item project-link relative"
+            :style="
+              '--project-color:' +
+              project.data.textColor +
+              '; --project-bg-color:' +
+              project.data.backgroundColor
+            "
+          >
+            <nuxt-link :to="LinkGetter(project)">
+              <div
+                class="
+                  item-overlay
+                  hidden
+                  absolute
+                  top-0
+                  left-0
+                  right-0
+                  bottom-0
+                  md:block
+                  z-10
+                  transition
+                  duration-300
+                  rounded-lg
+                  opacity-0
+                  pointer-events-none
+                "
+              ></div>
+              <p
+                class="
+                  item-meta item-meta-tag
+                  text-sm
+                  lg:text-base
+                  2xl:text-lg
+                  uppercase
+                  inline-block
+                  mr-16
+                  mb-1
+                  md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
+                  z-10
+                  transition
+                  duration-300
+                  pointer-events-none
+                  relative
+                  dot
+                "
+              >
+                <span
+                  v-for="(tag, index) in project.tags"
+                  :key="tag"
+                  class="inline-block"
+                  >{{ tag
+                  }}<template v-if="Object.keys(project.tags).length > 1"
+                    ><span
+                      v-if="index != Object.keys(project.tags).length - 1"
+                      class="sep"
+                      >,&nbsp;
+                    </span></template
+                  ></span
+                >
+              </p>
+              <div
+                class="grid-image-container block overflow-hidden rounded-lg"
+              >
+                <nuxt-img
+                  v-if="project.data.image.url"
+                  format="webp"
+                  :src="project.data.image.url"
+                  sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+                  :width="project.data.image.dimensions.width"
+                  :height="project.data.image.dimensions.height"
+                  class="grid-image w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+              <div
+                class="
+                  item-meta
+                  text-2xl
+                  2xl:text-3xl
+                  uppercase
+                  title
+                  flex
+                  gap-4
+                  justify-between
+                  items-end
+                  tracking-tight
+                  mt-1
+                  md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
+                  z-10
+                  transition
+                  duration-300
+                  pointer-events-none
+                "
+              >
+                {{ $prismic.asText(project.data.title)
+                }}<span class="date font-light tracking-normal">{{
+                  $moment(project.data.date).format('MM/YY')
+                }}</span>
+              </div>
+            </nuxt-link>
+          </div>
+          <div :class="allTags" class="grid-item project-link">
+            <nuxt-link to="/contact">
+              <p
+                class="
+                  item-meta item-meta-tag
+                  text-sm
+                  lg:text-base
+                  2xl:text-lg
+                  uppercase
+                  inline-block
+                  mr-16
+                  mb-1
+                  md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
+                  z-10
+                  transition
+                  duration-300
+                  pointer-events-none
+                  relative
+                  dot
+                "
+              >
+                <span class="inline-block">Have a great idea?</span>
+              </p>
+              <div class="grid-image-container overflow-hidden rounded-lg">
+                <nuxt-img
+                  v-if="page.contactImage.url"
+                  format="webp"
+                  :src="page.contactImage.url"
+                  sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
+                  :width="page.contactImage.dimensions.width"
+                  :height="page.contactImage.dimensions.height"
+                  class="grid-image w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+              <div
+                class="
+                  item-meta
+                  text-2xl
+                  2xl:text-3xl
+                  uppercase
+                  title
+                  flex
+                  gap-4
+                  justify-between
+                  items-end
+                  tracking-tight
+                  mt-1
+                  md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
+                  z-10
+                  transition
+                  duration-300
+                  pointer-events-none
+                "
+              >
+                Let's get to work!<span
+                  class="date font-light tracking-normal"
+                  >{{ $moment().format('MM/YY') }}</span
+                >
+              </div>
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </section>
@@ -449,16 +409,16 @@ export default {
       )
       for (let i = 0; i < gridItems.length; i++) {
         gsap.set(gridItems[i], {
-          y: '0%',
+          rotate: '0deg',
         })
         gsap.to(gridItems[i], {
           scrollTrigger: {
             trigger: gridItems[i],
             start: 'top bottom',
             end: 'bottom top',
-            scrub: true,
+            scrub: 1,
           },
-          y: '-0%',
+          rotate: '-0deg',
         })
         gsap.set(gridImages[i], {
           y: '-20%',
@@ -543,16 +503,23 @@ export default {
     filter(tag) {
       const selectedFilter = document.querySelector('.filter-button.selected')
       const currentTag = selectedFilter.getAttribute('data-filter')
+      const tagDot = document.querySelector('.tag-dot')
       if (tag === currentTag) {
         return
       }
       selectedFilter.classList.remove('selected')
+      tagDot.className = 'tag-dot'
       if (tag === '*') {
         document.querySelector('.filter-button.all').classList.add('selected')
+        tagDot.classList.add('*')
       } else {
         document.querySelector('.filter-button' + tag).classList.add('selected')
+        tagDot.classList.add(tag)
       }
       const projectGrid = document.querySelector('.project-grid')
+      document
+        .querySelector('.project-grid-container')
+        .scrollIntoView({ behavior: 'smooth' })
       projectGrid.style.opacity = '0'
       setTimeout(() => {
         this.iso.arrange({
@@ -560,7 +527,7 @@ export default {
         })
         projectGrid.style.opacity = '1'
         this.$ScrollTrigger.refresh()
-      }, '500')
+      }, '700')
     },
   },
 }
@@ -575,17 +542,13 @@ main {
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
-.description-words {
-  padding-right: 0.29em;
-}
-
 span.sep {
   padding-right: 0.1em;
   padding-left: 0.1em;
 }
 
 .grid-item {
-  width: calc(100% - 32px);
+  width: calc(100% - 32px + 32px);
   margin-bottom: 4rem;
 }
 
@@ -595,7 +558,7 @@ span.sep {
 
 @media (min-width: 768px) {
   .grid-item {
-    margin-bottom: 16px;
+    margin-bottom: 4rem;
   }
   .item-meta {
     color: var(--project-color);
@@ -604,13 +567,12 @@ span.sep {
 
 @media (min-width: 1024px) {
   .grid-item {
-    width: calc(50% - 24.5px);
     margin-bottom: 6rem;
   }
 }
 
-.filter-btn {
-  transform: translateZ(0);
+.filter-button {
+  margin-right: 1.34em;
 }
 
 .btn-txt-wrap::after,
@@ -654,9 +616,20 @@ span.sep {
   transform-origin: top;
 }
 
+.project-grid-container {
+  grid-template-columns: 24rem 1fr 4rem;
+}
+
+@media (min-width: 1536px) {
+  .project-grid-container {
+    grid-template-columns: 26rem 1fr 4rem;
+  }
+}
+
 .item-overlay {
   background: var(--project-bg-color);
 }
+
 .grid-item:hover .item-overlay {
   opacity: 0.5;
 }
@@ -669,5 +642,50 @@ span.sep {
   .grid-item {
     transform: none !important;
   }
+}
+
+#filters {
+  --filterheight: 7.05em;
+}
+@media (min-width: 1024px) {
+  #filters {
+    --filterheight: 7.5em;
+  }
+}
+@media (min-width: 1536px) {
+  #filters {
+    --filterheight: 7.75em;
+  }
+}
+.tag-dot {
+  background-color: currentColor;
+  position: absolute;
+  right: 0;
+  top: 0.45em;
+  width: 0.68em;
+  height: 0.68em;
+  border-radius: 50%;
+  line-height: 1;
+  transition: 0.3s ease;
+}
+
+.tag-dot.\.architectural-visualization {
+  transform: translateY(calc(var(--filterheight) / 5));
+}
+
+.tag-dot.\.branding {
+  transform: translateY(calc(var(--filterheight) / 5 * 2));
+}
+
+.tag-dot.\.interior-design {
+  transform: translateY(calc(var(--filterheight) / 5 * 3));
+}
+
+.tag-dot.\.product {
+  transform: translateY(calc(var(--filterheight) / 5 * 4));
+}
+
+.tag-dot.\.website {
+  transform: translateY(var(--filterheight));
 }
 </style>
