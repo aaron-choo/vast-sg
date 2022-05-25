@@ -252,15 +252,16 @@
                 class="
                   item-meta
                   text-2xl
-                  lg:text-3xl
-                  xl:text-4xl
-                  3xl:text-5xl
+                  leading-none
+                  lg:text-3xl lg:leading-none
+                  xl:text-4xl xl:leading-none
+                  3xl:text-5xl 3xl:leading-none
                   uppercase
                   title
                   flex
                   gap-4
                   justify-between
-                  items-end
+                  items-start
                   tracking-tight
                   mt-2
                   z-10
@@ -316,15 +317,16 @@
                 class="
                   item-meta
                   text-2xl
-                  lg:text-3xl
-                  xl:text-4xl
-                  3xl:text-5xl
+                  leading-none
+                  lg:text-3xl lg:leading-none
+                  xl:text-4xl xl:leading-none
+                  3xl:text-5xl 3xl:leading-none
                   uppercase
                   title
                   flex
                   gap-4
                   justify-between
-                  items-end
+                  items-start
                   tracking-tight
                   mt-2
                   z-10
@@ -696,7 +698,7 @@ span.sep {
   transition: 0.7s ease;
 }
 .tag-dot::before {
-  content: '\2b24';
+  content: '\25CF';
 }
 
 .tag-dot.\.archviz {
