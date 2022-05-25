@@ -34,7 +34,7 @@
           leading-none
           cursor-pointer
         "
-        @mousedown="togglebgm()"
+        @mousedown="toggleBgm()"
       >
         <div class="icon block pointer-event-none">
           <svg
@@ -295,9 +295,9 @@
         heading-font
         font-medium
       "
-      :class="{ 'opacity-0 pointer-events-none': !bubblevisible }"
+      :class="{ 'opacity-0 pointer-events-none': !bubbleVisible }"
     >
-      <span>Let's connect!</span>
+      <span>Like what we do?</span>
       <button
         class="
           close-bubble
@@ -308,7 +308,7 @@
           justify-center
           items-center
         "
-        @mousedown="hidebubble()"
+        @mousedown="hideBubble()"
       >
         ×
       </button>
@@ -337,7 +337,7 @@ export default {
     return {
       menuOpen: false,
       scrollOver: false,
-      bubblevisible: false,
+      bubbleVisible: false,
       audio: false,
       linkHover: false,
       colors: [
@@ -350,10 +350,11 @@ export default {
   mounted() {
     window.addEventListener('scroll', this.onScroll)
     window.addEventListener('DOMContentLoaded', (event) => {
-      this.showbubble()
+      console.log('loaded')
+      this.showBubble()
       document
         .querySelector('button.tf-v1-popover-button')
-        .addEventListener('click', this.hidebubble)
+        .addEventListener('click', this.hideBubble)
     })
   },
   beforeDestroy() {
@@ -378,7 +379,7 @@ export default {
       // Set the current scroll position as the last scroll position
       this.lastScrollPosition = currentScrollPosition
     },
-    togglebgm() {
+    toggleBgm() {
       this.audio = !this.audio
       if (this.audio) {
         document.getElementById('bgm').play()
@@ -386,11 +387,11 @@ export default {
         document.getElementById('bgm').pause()
       }
     },
-    showbubble() {
-      this.bubblevisible = true
+    showBubble() {
+      this.bubbleVisible = true
     },
-    hidebubble() {
-      this.bubblevisible = false
+    hideBubble() {
+      this.bubbleVisible = false
     },
   },
 }
@@ -627,9 +628,8 @@ a:hover .u,
 }
 
 .close-bubble {
-  background: #bbb;
-  color: #fff;
-  font-size: 1.1rem;
+  opacity: 0.25;
+  font-size: 1.5rem;
   line-height: 1rem;
   margin: 0.35rem;
 }
