@@ -36,6 +36,33 @@
             "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           },
           "type": "StructuredText"
+        },
+        "device": {
+          "type": "Select",
+          "config": {
+            "label": "Device",
+            "placeholder": "",
+            "options": [
+              "device-mbp-13",
+              "device-iphone-x",
+              "device-ipad-pro-l",
+              "device-ipad-pro-p"
+            ]
+          }
+        },
+        "align": {
+          "type": "Select",
+          "config": {
+            "label": "Align",
+            "placeholder": "",
+            "options": [
+              "center",
+              "left",
+              "right",
+              "full"
+            ],
+            "default_value": "center"
+          }
         }
       },
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"

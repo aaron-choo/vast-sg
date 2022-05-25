@@ -193,6 +193,33 @@
                     "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                   },
                   "type": "StructuredText"
+                },
+                "device": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Device",
+                    "placeholder": "",
+                    "options": [
+                      "device-mbp-13",
+                      "device-iphone-x",
+                      "device-ipad-pro-l",
+                      "device-ipad-pro-p"
+                    ]
+                  }
+                },
+                "align": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Align",
+                    "placeholder": "",
+                    "options": [
+                      "center",
+                      "left",
+                      "right",
+                      "full"
+                    ],
+                    "default_value": "center"
+                  }
                 }
               },
               "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
@@ -241,15 +268,17 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?w=900&h=500&fit=crop"
                 },
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Ipsum voluptate aute nisi nostrud deserunt veniam cupidatat id non incididunt.",
+                    "text": "Consectetur voluptate esse adipisicing nostrud. Magna velit mollit occaecat elit labore in amet sunt dolore ipsum nisi anim commodo.",
                     "spans": []
                   }
-                ]
+                ],
+                "device": "device-iphone-x",
+                "align": "left"
               },
               {
                 "image": {
@@ -259,51 +288,17 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0?w=900&h=500&fit=crop"
                 },
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Do id cupidatat mollit consectetur ut non sit nulla sit in nostrud mollit. Pariatur irure incididunt do sunt dolore dolore veniam ipsum aute dolor eu. Do dolore nisi occaecat ullamco commodo consequat ipsum consectetur aliqua.",
+                    "text": "Culpa aute veniam proident tempor ipsum.",
                     "spans": []
                   }
-                ]
-              },
-              {
-                "image": {
-                  "dimensions": {
-                    "width": 900,
-                    "height": 500
-                  },
-                  "alt": "Placeholder image",
-                  "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a?w=900&h=500&fit=crop"
-                },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Enim eiusmod anim eiusmod enim proident.",
-                    "spans": []
-                  }
-                ]
-              },
-              {
-                "image": {
-                  "dimensions": {
-                    "width": 900,
-                    "height": 500
-                  },
-                  "alt": "Placeholder image",
-                  "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
-                },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Anim ea laboris id non officia fugiat velit voluptate sint officia proident labore.",
-                    "spans": []
-                  }
-                ]
+                ],
+                "device": "device-ipad-pro-l",
+                "align": "center"
               }
             ],
             "primary": {
@@ -323,12 +318,12 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?w=900&h=500&fit=crop"
                 },
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Adipisicing commodo sint voluptate excepteur labore fugiat eu commodo voluptate cillum adipisicing do. Excepteur qui incididunt dolor cupidatat aute ex laboris irure ea qui voluptate tempor incididunt nulla. Exercitation cillum sint cillum ullamco minim elit ad consectetur laboris quis aute culpa.",
+                    "text": "Minim ut id laborum commodo incididunt dolore amet in quis enim.",
                     "spans": []
                   }
                 ]
@@ -341,12 +336,12 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636?w=900&h=500&fit=crop"
                 },
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Deserunt id cupidatat magna aliqua exercitation. Dolore pariatur dolore ipsum dolor ullamco exercitation elit adipisicing ut exercitation cillum ad ullamco.",
+                    "text": "Laborum officia voluptate cupidatat ut exercitation occaecat do occaecat proident labore.",
                     "spans": []
                   }
                 ]
@@ -359,12 +354,30 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=900&h=500&fit=crop"
                 },
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Duis adipisicing excepteur id ipsum aliqua nostrud excepteur deserunt aliqua esse veniam sint ut.",
+                    "text": "Irure pariatur officia aliquip cillum amet. Non est fugiat labore occaecat aliquip nulla.",
+                    "spans": []
+                  }
+                ]
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
+                },
+                "caption": [
+                  {
+                    "type": "paragraph",
+                    "text": "Eiusmod esse veniam sit elit labore incididunt.",
                     "spans": []
                   }
                 ]
@@ -377,18 +390,7 @@
           "fileName": "index",
           "extension": "vue"
         },
-        "screenshotPaths": {
-          "default-slice": {
-            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\ImageBlock\\default-slice\\preview.png",
-            "width": 800,
-            "height": 1867
-          },
-          "fullWidth": {
-            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\ImageBlock\\fullWidth\\preview.png",
-            "width": 800,
-            "height": 1312
-          }
-        }
+        "screenshotPaths": {}
       },
       "slider_block": {
         "library": "slices",
@@ -587,6 +589,118 @@
           "extension": "vue"
         },
         "screenshotPaths": {}
+      },
+      "video_block": {
+        "library": "slices",
+        "id": "video_block",
+        "name": "VideoBlock",
+        "description": "VideoBlock",
+        "model": {
+          "id": "video_block",
+          "type": "SharedSlice",
+          "name": "VideoBlock",
+          "description": "VideoBlock",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "VideoBlock",
+              "primary": {
+                "video": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Video",
+                    "placeholder": "",
+                    "select": "media"
+                  }
+                },
+                "device": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Device",
+                    "placeholder": "",
+                    "options": [
+                      "device-mbp-13",
+                      "device-iphone-x",
+                      "device-ipad-pro-l",
+                      "device-ipad-pro-p"
+                    ]
+                  }
+                },
+                "align": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Align",
+                    "placeholder": "",
+                    "options": [
+                      "center",
+                      "left",
+                      "right",
+                      "full"
+                    ],
+                    "default_value": "center"
+                  }
+                },
+                "poster": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Poster",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "caption": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Caption",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "video_block",
+            "items": [],
+            "primary": {
+              "video": {
+                "link_type": "media",
+                "url": "https://source.unsplash.com/daily"
+              },
+              "device": "device-ipad-pro-l",
+              "align": "center",
+              "poster": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": "Placeholder image",
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
+              },
+              "caption": "incubate dynamic blockchains"
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "vue"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\VideoBlock\\default\\preview.png",
+            "width": 800,
+            "height": 489
+          }
+        }
       }
     }
   }

@@ -1,34 +1,23 @@
 <template>
-  <div :class="slice.variation">
+  <section class="module video-block section my-24 mx-4">
     <div
-      class="module image-block section my-24 mx-4 lg:mx-40 grid gap-4"
-      :class="'grid-cols-' + slice.primary.columns"
+      class="video-container"
+      :class="slice.primary.device + ' ' + slice.primary.align"
     >
-      <div v-for="(item, index) in slice.items" :key="index" class="relative">
-        <div class="image-container" :class="item.device + ' ' + item.align">
-          <nuxt-img
-            v-if="item.image.url"
-            format="webp"
-            :src="item.image.url"
-            sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-            :width="item.image.dimensions.width"
-            :height="item.image.dimensions.height"
-            class="image"
-            loading="lazy"
-          />
-        </div>
-        <prismic-rich-text
-          :field="item.caption"
-          class="image-caption mt-1 uppercase text-xs lg:text-sm"
-        />
-      </div>
+      <video autoplay muted loop playsinline :poster="slice.primary.poster.url">
+        <source :src="slice.primary.video.url" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
-  </div>
+    <figcaption v:if="slice.primary.caption" class="caption">
+      {{ slice.primary.caption }}
+    </figcaption>
+  </section>
 </template>
 
 <script>
 export default {
-  name: 'ImageBlock',
+  name: 'VideoBlock',
   props: {
     slice: {
       type: Object,
@@ -40,20 +29,12 @@ export default {
   },
 }
 </script>
-<style scoped>
-.image-block img {
-  width: 100%;
-}
-.fullWidth .image-block {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-.fullWidth .image-caption {
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-}
 
+<style scoped>
+video {
+  width: 100%;
+  height: auto;
+}
 .device-iphone-x,
 .device-mbp-13,
 .device-ipad-pro-p,
@@ -61,7 +42,6 @@ export default {
   background-blend-mode: luminosity;
   box-sizing: border-box;
 }
-
 .device-mbp-13 {
   background: var(--bg) url(/mbp-13.webp) center no-repeat;
   padding: 8.5% 12.75% 11%;
@@ -108,10 +88,5 @@ export default {
   mask-image: url(/ipad-pro-l-mask.svg);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-}
-
-.image-container:not(.device-iphone-x):not(.device-mbp-13):not(.device-ipad-pro-p):not(.device-ipad-pro-l)
-  img {
-  border-radius: 0.5rem;
 }
 </style>

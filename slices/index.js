@@ -4,12 +4,14 @@ import HomeSlider from './HomeSlider';
 import ImageBlock from './ImageBlock';
 import SliderBlock from './SliderBlock';
 import TextBlock from './TextBlock';
+import VideoBlock from './VideoBlock';
 
 export {
 	HomeSlider,
 	ImageBlock,
 	SliderBlock,
 	TextBlock,
+	VideoBlock,
 };
 
 export const components = {
@@ -17,4 +19,5 @@ export const components = {
 	image_block: ImageBlock,
 	slider_block: SliderBlock,
 	text_block: TextBlock,
+	video_block: VideoBlock,
 };

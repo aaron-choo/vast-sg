@@ -1,18 +1,18 @@
 {
-  "id": "163c3679-10c7-479c-8c57-524a0dfa3141",
-  "uid": "sed-excepturi-voluptatem",
+  "id": "4ffdd9d0-895d-4fff-8c67-b8531fb1c2aa",
+  "uid": "consequatur-expedita-nesciunt",
   "type": "project",
   "data": {
     "title": [
       {
         "type": "paragraph",
-        "text": "Exercitation ad consequat eu incididunt.",
+        "text": "Commodo sunt eu eu duis labore.",
         "spans": []
       }
     ],
-    "date": "2022-03-04",
-    "backgroundColor": "#f24669",
-    "textColor": "#cd811a",
+    "date": "2021-09-21",
+    "backgroundColor": "#ce2eb0",
+    "textColor": "#176ade",
     "image": {
       "dimensions": {
         "width": 900,
@@ -20,7 +20,7 @@
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"
     },
     "video": {
       "link_type": "media",
@@ -29,29 +29,29 @@
     "client": [
       {
         "type": "paragraph",
-        "text": "Nulla nulla dolor quis ut quis. Ad cupidatat cupidatat consequat nisi.",
+        "text": "Esse mollit sit dolor. Ad ex excepteur do ullamco eiusmod ipsum et occaecat pariatur ut cupidatat officia Lorem non. Do fugiat tempor est qui fugiat mollit.",
         "spans": []
       }
     ],
     "summary": [
       {
         "type": "paragraph",
-        "text": "Qui et laborum excepteur nostrud labore ullamco irure ut aute.",
+        "text": "Mollit reprehenderit dolor est nisi ad occaecat ipsum cupidatat id et laboris reprehenderit ipsum amet proident. Minim aute proident non officia sunt in commodo nulla excepteur fugiat ullamco cupidatat.",
         "spans": []
       }
     ],
     "description": [
       {
         "type": "paragraph",
-        "text": "Labore consectetur officia mollit reprehenderit duis cupidatat anim.",
+        "text": "Et sit cillum laboris mollit pariatur excepteur mollit cillum ea officia anim eiusmod ut. Quis ut irure adipisicing ex qui labore velit. Cillum laborum aute sint anim occaecat dolore consequat exercitation Lorem dolor aliquip nisi excepteur.",
         "spans": []
       }
     ],
     "link": {
       "link_type": "Web",
-      "url": "https://slicemachine.dev"
+      "url": "http://twitter.com"
     },
-    "metaTitle": "incubate dot-com infomediaries",
-    "metaDescription": "productize extensible web services"
+    "metaTitle": "engineer magnetic methodologies",
+    "metaDescription": "maximize revolutionary schemas"
   }
 }

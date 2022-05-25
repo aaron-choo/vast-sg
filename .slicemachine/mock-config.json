@@ -53,6 +53,11 @@
           }
         }
       }
+    },
+    "VideoBlock": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

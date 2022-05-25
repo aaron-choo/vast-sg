@@ -1,5 +1,8 @@
 <template>
-  <section class="section px-4 lg:px-40 my-24" :class="slice.primary.align">
+  <section
+    class="module slider-block section px-4 lg:px-40 my-24"
+    :class="slice.primary.align"
+  >
     <div v-swiper="swiperOption" class="slider-block relative">
       <div class="swiper-wrapper overflow-hidden rounded-lg">
         <div

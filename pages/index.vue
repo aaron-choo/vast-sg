@@ -529,9 +529,6 @@ export default {
       gsap.set('#header-text', {
         translateY: '0',
       })
-      gsap.set('.intro', {
-        opacity: 0,
-      })
       gsap.to('.home-hero-logo', {
         scrollTrigger: {
           trigger: '.home-hero-text',
@@ -594,16 +591,6 @@ export default {
         duration: 0.5,
         delay: 0.8,
         ease: 'Power4.easeOut',
-      })
-      gsap.to('.intro', {
-        scrollTrigger: {
-          trigger: '#header-text',
-          start: '90% bottom',
-          end: 'bottom bottom',
-          scrub: 2,
-        },
-        opacity: 1,
-        duration: 1,
       })
       gsap.to('.scroll-down-button', {
         scrollTrigger: {
