@@ -48,7 +48,7 @@ export default {
       const line = document.createElementNS(svgns, 'line')
       root.appendChild(line)
 
-      gsap.set(line, { x: -15, y: -15, alpha: (total - i) / total })
+      gsap.set(line, { x: -15, y: -15, alpha: (total - i + i) / total })
 
       gsap.to(line, {
         duration: 100,
@@ -110,7 +110,7 @@ html:not(.desktop) #app-cursor {
 
 #app-cursor line {
   stroke: var(--color);
-  stroke-width: 24;
+  stroke-width: 28;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
