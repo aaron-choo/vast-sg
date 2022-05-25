@@ -280,6 +280,40 @@
       </div>
     </nav>
     <div
+      id="speech-bubble"
+      class="
+        fixed
+        bottom-10
+        left-12
+        transition
+        duration-300
+        rounded-full
+        flex
+        items-center
+        text-sm
+        pl-4
+        heading-font
+        font-medium
+      "
+      :class="{ 'opacity-0 pointer-events-none': !bubblevisible }"
+    >
+      <span>Let's connect!</span>
+      <button
+        class="
+          close-bubble
+          rounded-full
+          w-4
+          h-4
+          inline-flex
+          justify-center
+          items-center
+        "
+        @mousedown="hidebubble()"
+      >
+        ×
+      </button>
+    </div>
+    <div
       data-tf-popover="JuzMtES9"
       data-tf-custom-icon="https://images.typeform.com/images/DhEkLPECvzxe"
       data-tf-button-color="#FFFFFF"
@@ -303,6 +337,7 @@ export default {
     return {
       menuOpen: false,
       scrollOver: false,
+      bubblevisible: false,
       audio: false,
       linkHover: false,
       colors: [
@@ -314,6 +349,12 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)
+    window.addEventListener('DOMContentLoaded', (event) => {
+      this.showbubble()
+      document
+        .querySelector('button.tf-v1-popover-button')
+        .addEventListener('click', this.hidebubble)
+    })
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll)
@@ -344,6 +385,12 @@ export default {
       } else {
         document.getElementById('bgm').pause()
       }
+    },
+    showbubble() {
+      this.bubblevisible = true
+    },
+    hidebubble() {
+      this.bubblevisible = false
     },
   },
 }
@@ -571,5 +618,27 @@ a:hover .u,
 
 .tf-v1-popover-wrapper iframe {
   box-shadow: 0 0 0 1px #ebe3d750 !important;
+}
+
+#speech-bubble {
+  background: #fffa;
+  color: #222;
+  backdrop-filter: blur(8px);
+}
+
+.close-bubble {
+  background: #bbb;
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1rem;
+  margin: 0.35rem;
+}
+
+#speech-bubble:not(.opacity-0) {
+  transition-delay: 1s;
+}
+
+#speech-bubble.opacity-0 {
+  transition-delay: 0;
 }
 </style>
