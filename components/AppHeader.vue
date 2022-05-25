@@ -337,7 +337,7 @@ export default {
     return {
       menuOpen: false,
       scrollOver: false,
-      bubbleVisible: true,
+      bubbleVisible: false,
       audio: false,
       linkHover: false,
       colors: [
@@ -389,9 +389,11 @@ export default {
     },
     showBubble() {
       this.bubbleVisible = true
+      console.log('bubble visible')
     },
     hideBubble() {
       this.bubbleVisible = false
+      console.log('bubble hidden')
     },
   },
 }
