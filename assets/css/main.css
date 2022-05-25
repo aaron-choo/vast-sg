@@ -8,7 +8,63 @@
 }
 
 @font-face {
-  font-family: 'PP Neue Machina';
+  font-family: 'Bugrino';
+  src: url('~assets/fonts/Bugrino-Regular.woff2') format('woff2'),
+      url('~assets/fonts/Bugrino-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bugrino';
+  src: url('~assets/fonts/Bugrino-Medium.woff2') format('woff2'),
+      url('~assets/fonts/Bugrino-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bugrino';
+  src: url('~assets/fonts/Bugrino-Bold.woff2') format('woff2'),
+      url('~assets/fonts/Bugrino-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bugrino';
+  src: url('~assets/fonts/Bugrino-Light.woff2') format('woff2'),
+      url('~assets/fonts/Bugrino-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bugrino';
+  src: url('~assets/fonts/Bugrino-Thin.woff2') format('woff2'),
+      url('~assets/fonts/Bugrino-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bugrino';
+  src: url('~assets/fonts/Bugrino-Black.woff2') format('woff2'),
+      url('~assets/fonts/Bugrino-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Bugrino', sans-serif;
   src: url('~assets/fonts/PPNeueMachina-Light.woff2') format('woff2'),
       url('~assets/fonts/PPNeueMachina-Light.woff') format('woff');
   font-weight: 300;
@@ -279,7 +335,7 @@ hr {
 }
 
 h1, h2, h3, h4, h5 ,h6, .heading-font {
-  font-family: 'PP Neue Machina', sans-serif;
+  font-family: 'Bugrino', sans-serif;
   font-feature-settings: initial;
 }
 
@@ -293,18 +349,7 @@ h1, h2, h3, h4, h5 ,h6, .heading-font {
   -webkit-text-fill-color: transparent;
 }
 
-.dot {
-  margin-left: 1.34em;
-}
-
 .dot::before {
-  content: '';
-  background-color: currentColor;
-  position: absolute;
-  top: .4em;
-  left: -1.34em;
-  width: .68em;
-  height: .68em;
-  border-radius: 50%;
-  line-height: 1;
+  content: '\2b24';
+  margin-right: .68em;
 }
