@@ -350,6 +350,6 @@ h1, h2, h3, h4, h5 ,h6, .heading-font {
 }
 
 .dot::before {
-  content: '\2b24';
+  content: '\25CF';
   margin-right: .68em;
 }
