@@ -88,8 +88,8 @@
               relative
               flex flex-col
               gap-2
-              text-sm
               leading-none
+              text-sm
               lg:text-base lg:text-right lg:leading-none
               2xl:text-lg 2xl:leading-none
             "
@@ -180,7 +180,7 @@
                   2xl:text-lg
                   uppercase
                   inline-block
-                  mb-1
+                  mb-2
                   z-10
                   transition
                   duration-300
@@ -217,27 +217,36 @@
                 "
                 :class="project.data.video.kind"
               >
-                <nuxt-img
-                  v-if="project.data.image.url"
-                  format="webp"
-                  :src="project.data.image.url"
-                  sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-                  :width="project.data.image.dimensions.width"
-                  :height="project.data.image.dimensions.height"
-                  class="grid-image w-full h-full"
-                  loading="lazy"
-                />
-                <video
-                  v-if="project.data.video.url"
-                  :poster="project.data.image.url"
-                  class="absolute top-0 w-full"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                >
-                  <source :src="project.data.video.url" type="video/mp4" />
-                </video>
+                <div class="grid-media-wrapper">
+                  <nuxt-img
+                    v-if="project.data.image.url"
+                    format="webp"
+                    :src="project.data.image.url"
+                    sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+                    :width="project.data.image.dimensions.width"
+                    :height="project.data.image.dimensions.height"
+                    class="grid-image w-full h-full transition duration-1000"
+                    loading="lazy"
+                  />
+                  <video
+                    v-if="project.data.video.url"
+                    :poster="project.data.image.url"
+                    class="
+                      grid-video
+                      absolute
+                      top-0
+                      w-full
+                      transition
+                      duration-1000
+                    "
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                  >
+                    <source :src="project.data.video.url" type="video/mp4" />
+                  </video>
+                </div>
               </div>
               <div
                 class="
@@ -253,12 +262,13 @@
                   justify-between
                   items-end
                   tracking-tight
-                  mt-1
+                  mt-2
                   z-10
                   transition
                   duration-300
                   pointer-events-none
                   md:opacity-0 md:absolute md:bottom-4 md:left-4 md:right-4
+                  heading-font
                 "
               >
                 {{ $prismic.asText(project.data.title)
@@ -278,15 +288,14 @@
                   2xl:text-lg
                   uppercase
                   inline-block
-                  mr-16
-                  mb-1
-                  md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
+                  mb-2
                   z-10
                   transition
                   duration-300
                   pointer-events-none
                   relative
                   dot
+                  md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
                 "
               >
                 <span class="inline-block">Have a great idea?</span>
@@ -299,7 +308,7 @@
                   sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
                   :width="page.contactImage.dimensions.width"
                   :height="page.contactImage.dimensions.height"
-                  class="grid-image w-full h-full"
+                  class="grid-image w-full h-full transition duration-1000"
                   loading="lazy"
                 />
               </div>
@@ -307,7 +316,9 @@
                 class="
                   item-meta
                   text-2xl
-                  2xl:text-3xl
+                  lg:text-3xl
+                  xl:text-4xl
+                  3xl:text-5xl
                   uppercase
                   title
                   flex
@@ -315,12 +326,13 @@
                   justify-between
                   items-end
                   tracking-tight
-                  mt-1
-                  md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
+                  mt-2
                   z-10
                   transition
                   duration-300
                   pointer-events-none
+                  md:opacity-0 md:absolute md:bottom-4 md:left-4 md:right-4
+                  heading-font
                 "
               >
                 Let's get to work!<span
@@ -438,8 +450,9 @@ export default {
     },
     gridAnimation() {
       const gridItems = document.getElementsByClassName('grid-item')
-      const gridImages = document.getElementsByClassName('grid-image')
-      const gridmediacontainers = document.getElementsByClassName(
+      const gridMediaWrappers =
+        document.getElementsByClassName('grid-media-wrapper')
+      const gridMediaContainers = document.getElementsByClassName(
         'grid-media-container'
       )
       const projectfilters = document.querySelector('#filters')
@@ -459,7 +472,7 @@ export default {
 
       for (let i = 0; i < gridItems.length; i++) {
         gsap.set(gridItems[i], {
-          rotate: '3deg',
+          rotate: '0deg',
         })
         gsap.to(gridItems[i], {
           scrollTrigger: {
@@ -468,20 +481,20 @@ export default {
             end: 'bottom top',
             scrub: true,
           },
-          rotate: '-3deg',
+          rotate: '0deg',
         })
-        gsap.set(gridImages[i], {
-          y: '-20%',
-          scale: 1.2,
+        gsap.set(gridMediaWrappers[i], {
+          y: '-15%',
+          scale: 1.15,
         })
-        gsap.to(gridImages[i], {
+        gsap.to(gridMediaWrappers[i], {
           scrollTrigger: {
-            trigger: gridmediacontainers[i],
+            trigger: gridMediaContainers[i],
             start: 'top bottom',
             end: 'bottom top',
             scrub: true,
           },
-          y: '20%',
+          y: '15%',
         })
       }
     },
@@ -592,10 +605,6 @@ main {
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
-.grid-media-container.document * {
-  transform: none !important;
-}
-
 span.sep {
   padding-right: 0.1em;
   padding-left: 0.1em;
@@ -603,17 +612,15 @@ span.sep {
 
 .grid-item {
   width: calc(100% - 32px + 32px);
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
-.grid-item:hover .grid-image {
+.grid-item:hover .grid-image,
+.grid-item:hover .grid-video {
   transform: scale(1.02);
 }
 
 @media (min-width: 768px) {
-  .grid-item {
-    margin-bottom: 4rem;
-  }
   .item-meta {
     color: var(--project-color);
   }
@@ -624,16 +631,13 @@ span.sep {
     opacity: 1 !important;
   }
   .filter-button {
-    margin-left: 1.34em;
+    margin-left: 1.78em;
   }
 }
 
 @media (min-width: 1024px) {
-  .grid-item {
-    margin-bottom: 6rem;
-  }
   .filter-button {
-    margin-right: 1.34em;
+    margin-right: 1.78em;
   }
 }
 
@@ -666,21 +670,13 @@ span.sep {
 }
 
 #filters {
-  --filterheight: 14.15em;
+  --filterheight: calc(9em + 4.5rem);
   --filterspace: 0.8em;
 }
 
 @media (min-width: 1024px) {
-  #filters {
-    --filterheight: 13.5em;
-  }
   .tag-dot {
     right: 0;
-  }
-}
-@media (min-width: 1536px) {
-  #filters {
-    --filterheight: 13em;
   }
 }
 
@@ -696,14 +692,11 @@ span.sep {
   opacity: 1;
 }
 .tag-dot {
-  background-color: currentColor;
   position: absolute;
-  top: 0.2em;
-  width: 0.68em;
-  height: 0.68em;
-  border-radius: 50%;
-  line-height: 1;
   transition: 0.7s ease;
+}
+.tag-dot::before {
+  content: '\2b24';
 }
 
 .tag-dot.\.archviz {

@@ -174,9 +174,7 @@
             sm:text-5xl
             md:text-6xl
             lg:text-7xl
-            mb-4
-            mt-10
-            body-font
+            my-4
             inline
           "
         >
@@ -190,6 +188,7 @@
               inline-block
               mr-16
               -mb-4
+              body-font
               dot
             "
             >We are VAST</span
@@ -198,7 +197,7 @@
           <span
             v-for="(word, index) in titleWords"
             :key="index"
-            class="title-words inline align-top relative"
+            class="title-words inline align-top relative heading-font"
             >{{ word }}
             <div
               v-if="index === 10"
@@ -325,27 +324,42 @@
                 "
                 :class="project.data.kind"
               >
-                <nuxt-img
-                  v-if="project.data.image.url"
-                  format="webp"
-                  :src="project.data.image.url"
-                  sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-                  :width="project.data.image.dimensions.width"
-                  :height="project.data.image.dimensions.height"
-                  class="scroller-image w-full object-cover"
-                  loading="lazy"
-                />
-                <video
-                  v-if="project.data.video.url"
-                  :poster="project.data.image.url"
-                  class="absolute top-0 w-full"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                >
-                  <source :src="project.data.video.url" type="video/mp4" />
-                </video>
+                <div class="scroller-media-wrapper">
+                  <nuxt-img
+                    v-if="project.data.image.url"
+                    format="webp"
+                    :src="project.data.image.url"
+                    sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+                    :width="project.data.image.dimensions.width"
+                    :height="project.data.image.dimensions.height"
+                    class="
+                      scroller-image
+                      w-full
+                      object-cover
+                      transition
+                      duration-1000
+                    "
+                    loading="lazy"
+                  />
+                  <video
+                    v-if="project.data.video.url"
+                    :poster="project.data.image.url"
+                    class="
+                      scroller-video
+                      absolute
+                      top-0
+                      w-full
+                      transition
+                      duration-1000
+                    "
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                  >
+                    <source :src="project.data.video.url" type="video/mp4" />
+                  </video>
+                </div>
               </div>
               <div
                 class="
@@ -364,6 +378,8 @@
                   transition
                   duration-300
                   pointer-events-none
+                  heading-font
+                  mt-2
                 "
               >
                 {{ $prismic.asText(project.data.title) }}
@@ -600,32 +616,34 @@ export default {
         duration: 1,
       })
       const scrollerslides = document.getElementsByClassName('scroller-slide')
-      const scrollerimages = document.getElementsByClassName('scroller-image')
-      const scrollerimagecontainers = document.getElementsByClassName(
+      const scrollerMediaWrappers = document.getElementsByClassName(
+        'scroller-media-wrapper'
+      )
+      const scrollerMediaContainers = document.getElementsByClassName(
         'scroller-media-container'
       )
       for (let i = 0; i < scrollerslides.length; i++) {
         gsap.set(scrollerslides[i], {
           y: '0%',
-          rotate: '3deg',
+          rotate: '0deg',
         })
         gsap.to(scrollerslides[i], {
           scrollTrigger: {
             trigger: scrollerslides[i],
             start: 'top bottom',
             end: 'bottom top',
-            scrub: true,
+            scrub: 2,
           },
           y: '-50%',
-          rotate: '-3deg',
+          rotate: '0deg',
         })
-        gsap.set(scrollerimages[i], {
+        gsap.set(scrollerMediaWrappers[i], {
           y: '-20%',
           scale: 1.2,
         })
-        gsap.to(scrollerimages[i], {
+        gsap.to(scrollerMediaWrappers[i], {
           scrollTrigger: {
-            trigger: scrollerimagecontainers[i],
+            trigger: scrollerMediaContainers[i],
             start: 'top bottom',
             end: 'bottom top',
             scrub: true,
@@ -667,7 +685,7 @@ export default {
 }
 
 .title-words:nth-child(2) {
-  margin-left: 1em;
+  margin-left: 1.8em;
 }
 .title-words:nth-child(12) {
   font-family: 'IM Fell English', serif;
@@ -720,10 +738,17 @@ export default {
   transform: translateZ(0);
 }
 
+.scroller-slide:hover .scroller-image,
+.scroller-slide:hover .scroller-video {
+  transform: scale(1.02);
+}
+
 .scroller-media-container.document * {
   transform: none !important;
 }
-
+.scroller-slide {
+  margin-bottom: 6rem;
+}
 @media (max-width: 767px) {
   .scroller-slide {
     transform: none !important;
