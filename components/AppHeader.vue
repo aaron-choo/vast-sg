@@ -337,7 +337,7 @@ export default {
     return {
       menuOpen: false,
       scrollOver: false,
-      bubbleVisible: false,
+      bubbleVisible: true,
       audio: false,
       linkHover: false,
       colors: [
