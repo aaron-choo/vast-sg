@@ -1,7 +1,7 @@
 <template>
   <div :class="slice.variation">
     <div
-      class="module image-block section my-24 mx-4 lg:mx-40 grid gap-4"
+      class="module image-block section my-24 mx-4 grid gap-x-4 gap-y-24"
       :class="'grid-cols-' + slice.primary.columns"
     >
       <div v-for="(item, index) in slice.items" :key="index" class="relative">
