@@ -114,83 +114,29 @@
     <section class="home-hero-text">
       <a
         onclick="document.querySelector('#header-text').scrollIntoView({behavior: 'smooth'});"
-        class="
-          scroll-down-button scroll-down
-          absolute
-          right-4
-          bottom-4
-          flex
-          items-center
-          gap-2
-          leading-none
-          cursor-pointer
-        "
+        class="scroll-down-button scroll-down absolute right-4 bottom-4 flex items-center gap-2 leading-none cursor-pointer"
       >
         <p>EXPLORE</p>
         <div class="scroll-down-icon rounded-full w-3 h-3 relative">
           <div
-            class="
-              scroll-down-icon-helper
-              absolute
-              rounded-full
-              top-0
-              left-0
-              w-full
-              h-full
-            "
+            class="scroll-down-icon-helper absolute rounded-full top-0 left-0 w-full h-full"
           ></div>
           <div
-            class="
-              scroll-down-icon-helper
-              absolute
-              rounded-full
-              top-0
-              left-0
-              w-full
-              h-full
-            "
+            class="scroll-down-icon-helper absolute rounded-full top-0 left-0 w-full h-full"
             style="animation-delay: 0.25s"
           ></div>
         </div>
       </a>
       <div
         id="header-text"
-        class="
-          w-full
-          h-screen
-          flex flex-col
-          justify-center
-          p-4
-          relative
-          mix-blend-difference
-        "
+        class="w-full h-screen flex flex-col justify-center p-4 relative mix-blend-difference"
       >
         <h1
           id="header-title"
-          class="
-            tracking-tighter
-            leading-none
-            text-4xl
-            sm:text-5xl
-            md:text-6xl
-            lg:text-7xl
-            my-4
-            inline
-          "
+          class="tracking-tighter leading-none text-4xl sm:text-5xl md:text-6xl lg:text-7xl my-4 inline"
         >
           <span
-            class="
-              relative
-              text-sm
-              lg:text-base
-              tracking-normal
-              uppercase
-              inline-block
-              mr-16
-              -mb-4
-              body-font
-              dot
-            "
+            class="relative text-sm lg:text-base tracking-normal uppercase inline-block mr-16 -mb-4 body-font dot"
             >We are VAST</span
           >
 
@@ -246,14 +192,7 @@
           <div
             v-for="project in recentprojects"
             :key="project.id"
-            class="
-              scroller-slide
-              relative
-              self-start
-              md:col-span-7
-              mb-10
-              md:mb-0
-            "
+            class="scroller-slide relative self-start md:col-span-7 mb-10 md:mb-0"
             :data-color="project.data.textColor"
             :data-background="project.data.backgroundColor"
             :style="
@@ -265,40 +204,10 @@
           >
             <nuxt-link :to="LinkGetter(project)">
               <div
-                class="
-                  item-overlay
-                  hidden
-                  absolute
-                  top-0
-                  left-0
-                  right-0
-                  bottom-0
-                  md:block
-                  z-10
-                  transition
-                  duration-300
-                  rounded-lg
-                  opacity-0
-                  pointer-events-none
-                "
+                class="item-overlay hidden absolute top-0 left-0 right-0 bottom-0 md:block z-10 transition duration-300 rounded-lg opacity-0 pointer-events-none"
               ></div>
               <p
-                class="
-                  relative
-                  item-meta item-meta-tag
-                  text-sm
-                  lg:text-base
-                  2xl:text-lg
-                  uppercase
-                  inline-block
-                  mb-2
-                  md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
-                  transition
-                  duration-300
-                  z-10
-                  pointer-events-none
-                  dot
-                "
+                class="relative item-meta item-meta-tag text-sm lg:text-base 2xl:text-lg uppercase inline-block mb-2 md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4 transition duration-300 z-10 pointer-events-none dot"
               >
                 <span>{{ $prismic.asText(project.data.summary) }}</span>
                 <!-- <span
@@ -316,12 +225,7 @@
                 > -->
               </p>
               <div
-                class="
-                  scroller-media-container
-                  block
-                  overflow-hidden
-                  rounded-lg
-                "
+                class="scroller-media-container block overflow-hidden rounded-lg"
                 :class="project.data.kind"
               >
                 <div class="scroller-media-wrapper">
@@ -332,26 +236,13 @@
                     sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
                     :width="project.data.image.dimensions.width"
                     :height="project.data.image.dimensions.height"
-                    class="
-                      scroller-image
-                      w-full
-                      object-cover
-                      transition
-                      duration-1000
-                    "
+                    class="scroller-image w-full object-cover transition duration-1000"
                     loading="lazy"
                   />
                   <video
                     v-if="project.data.video.url"
                     :poster="project.data.image.url"
-                    class="
-                      scroller-video
-                      absolute
-                      top-0
-                      w-full
-                      transition
-                      duration-1000
-                    "
+                    class="scroller-video absolute top-0 w-full transition duration-1000"
                     autoplay
                     muted
                     loop
@@ -362,25 +253,7 @@
                 </div>
               </div>
               <div
-                class="
-                  item-meta
-                  text-2xl
-                  lg:text-3xl
-                  xl:text-4xl
-                  3xl:text-5xl
-                  uppercase
-                  title
-                  flex
-                  justify-between
-                  tracking-tight
-                  md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
-                  z-10
-                  transition
-                  duration-300
-                  pointer-events-none
-                  heading-font
-                  mt-2
-                "
+                class="item-meta text-2xl lg:text-3xl xl:text-4xl 3xl:text-5xl uppercase title flex justify-between tracking-tight md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4 z-10 transition duration-300 pointer-events-none heading-font mt-2"
               >
                 {{ $prismic.asText(project.data.title) }}
                 <span class="date font-light tracking-normal">{{
@@ -396,29 +269,11 @@
       <div class="description-section section my-24 px-4 lg:px-40">
         <p
           id="home-description"
-          class="
-            inline-block
-            text-2xl
-            lg:text-3xl
-            transition
-            duration-300
-            transform
-            leading-6
-          "
+          class="inline-block text-2xl lg:text-3xl transition duration-300 transform leading-6"
           :class="{ 'has-scroll-over': scrollOver }"
         >
           <span
-            class="
-              summary
-              relative
-              text-sm
-              lg:text-base
-              uppercase
-              inline-block
-              mr-16
-              -mb-4
-              dot
-            "
+            class="summary relative text-sm lg:text-base uppercase inline-block mr-16 -mb-4 dot"
             >Who we are</span
           ><span class="home-description-words inline serif font-light"
             >{{ homedescription }}
@@ -619,7 +474,7 @@ export default {
             trigger: scrollerslides[i],
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 2,
+            scrub: 1,
           },
           y: '-50%',
           rotate: '0deg',
@@ -633,7 +488,7 @@ export default {
             trigger: scrollerMediaContainers[i],
             start: 'top bottom',
             end: 'bottom top',
-            scrub: true,
+            scrub: 1,
           },
           y: '20%',
         })
