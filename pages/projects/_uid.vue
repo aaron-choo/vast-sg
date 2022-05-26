@@ -1,10 +1,19 @@
 <template>
   <main>
     <section class="project-header">
-      <div class="w-full">
+      <div class="project-header-banner">
         <div
           id="header-text"
-          class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
+          class="
+            w-full
+            flex flex-col
+            justify-center
+            p-4
+            py-52
+            pt-60
+            sticky
+            top-0
+          "
         >
           <h1
             id="header-title"
@@ -65,32 +74,43 @@
         </div>
         <div
           v-if="image.url !== undefined"
-          id="header-image-wrapper"
-          class="z-0 relative mx-4 overflow-hidden rounded-lg"
+          class="
+            header-media-container
+            z-0
+            relative
+            mx-4
+            overflow-hidden
+            rounded-lg
+          "
         >
-          <nuxt-img
-            v-if="image.url"
-            id="header-image"
-            format="webp"
-            :src="image.url"
-            sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-            :width="image.dimensions.width"
-            :height="image.dimensions.height"
-            class="w-full"
-            loading="lazy"
-          />
-          <video
-            v-if="video.url"
-            :poster="image.url"
-            class="absolute top-0 w-full"
-            autoplay
-            muted
-            loop
-            playsinline
-          >
-            <source :src="video.url" type="video/mp4" />
-          </video>
+          <div class="header-media-wrapper">
+            <nuxt-img
+              v-if="image.url"
+              id="header-image"
+              format="webp"
+              :src="image.url"
+              sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+              :width="image.dimensions.width"
+              :height="image.dimensions.height"
+              class="w-full"
+              loading="lazy"
+            />
+            <video
+              v-if="video.url"
+              id="header-video"
+              :poster="image.url"
+              class="absolute top-0 w-full"
+              autoplay
+              muted
+              loop
+              playsinline
+            >
+              <source :src="video.url" type="video/mp4" />
+            </video>
+          </div>
         </div>
+      </div>
+      <div class="project-header-info">
         <div class="description-section section my-24 px-4 lg:px-40">
           <p class="description-wrapper">
             <span
@@ -245,21 +265,12 @@
           v-if="nextProject !== undefined"
           id="next-project-section"
           :to="$prismic.linkResolver(nextProject)"
-          class="
-            next-project-section
-            project-panel
-            pb-4
-            mx-4
-            lg:mx-40
-            block
-            transition
-            duration-700
-          "
+          class="next-project-section project-panel pb-4 mx-4 lg:mx-40 block"
         >
           <div class="w-auto relative">
             <div
               v-if="nextProjectImage.url !== undefined"
-              id="next-header-image-wrapper"
+              id="next-header-media-container"
               class="z-0 overflow-hidden w-full rounded-lg h-full"
             >
               <div
@@ -477,49 +488,45 @@ export default {
   destroyed() {},
   methods: {
     animations() {
-      gsap.set('#header-image-wrapper', {
-        marginLeft: '1rem',
-        marginRight: '1rem',
-        borderRadius: '0.5rem',
+      gsap.set('.header-media-wrapper', {
+        y: '-10%',
+        scale: 1.2,
       })
-      gsap.to('#header-image-wrapper', {
+      gsap.to('.header-media-wrapper', {
         scrollTrigger: {
-          trigger: '#header-image-wrapper',
-          start: 'top 500',
-          end: 'top top',
-          scrub: true,
-        },
-        borderRadius: 0,
-        marginLeft: 0,
-        marginRight: 0,
-        duration: 1,
-      })
-      gsap.to('.more-projects-container', {
-        scrollTrigger: {
-          trigger: '#more-projects',
+          trigger: '.header-media-container',
           start: 'top bottom',
-          end: 'top 50%',
+          end: 'bottom top',
           scrub: true,
         },
-        marginTop: 0,
+        y: '10%',
+      })
+      gsap.set('#next-project-section', {
+        translateY: '100%',
+      })
+      gsap.to('#next-project-section', {
+        scrollTrigger: {
+          trigger: '#next-header-text',
+          start: 'center center',
+          toggleActions: 'play none none reverse',
+        },
+        translateY: '0%',
         duration: 1,
+        ease: 'Power4.easeOut',
       })
     },
     headerAnimation() {
       gsap.set('.title-words span', {
         scaleY: 0,
-        rotate: -22,
-        rotateX: 90,
-        transformOrigin: '0% 50% -50',
+        rotate: -18,
+        transformOrigin: '50% 0%',
       })
       gsap.set('#header-scope span', { y: 15, opacity: 0 })
       gsap.set('#header-image', { y: 30, opacity: 0 })
       gsap.to('.title-words span', {
         scaleY: 1,
         rotate: 0,
-        rotateX: 0,
-        opacity: 1,
-        stagger: 0.02,
+        stagger: 0.05,
         duration: 1,
         ease: 'Power4.easeOut',
       })
@@ -551,27 +558,23 @@ export default {
 
 .macos .next-project-section {
   margin-top: -2.75em;
-  transform: translateY(2.75em);
 }
 
 .windows .next-project-section {
   margin-top: -2.35em;
-  transform: translateY(2.35em);
 }
 
 @media (min-width: 1024px) {
   .macos .next-project-section {
     margin-top: -6.55em;
-    transform: translateY(6.55em);
   }
 
   .windows .next-project-section {
     margin-top: -5.65em;
-    transform: translateY(6.55em);
   }
 }
 
-#next-header-image-wrapper {
+#next-header-media {
   transform: translateZ(0);
 }
 
