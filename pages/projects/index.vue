@@ -153,7 +153,7 @@
               project.data.backgroundColor
             "
           >
-            <nuxt-link :to="LinkGetter(project)">
+            <nuxt-link :to="LinkGetter(project)" class="item-container m-auto">
               <div
                 class="
                   item-overlay
@@ -176,8 +176,9 @@
                 class="
                   item-meta item-meta-tag
                   text-sm
-                  lg:text-base
-                  2xl:text-lg
+                  leading-tight
+                  lg:text-base lg:leading-tight
+                  2xl:text-lg 2xl:leading-tight
                   uppercase
                   inline-block
                   mb-2
@@ -458,15 +459,15 @@ export default {
         'grid-media-container'
       )
       const projectfilters = document.querySelector('#filters')
-      const content = document.querySelector('.content')
+
       gsap.set(projectfilters, {
         opacity: 0,
       })
       gsap.to(projectfilters, {
         scrollTrigger: {
-          trigger: content,
-          start: 'top top',
-          toggleActions: 'play none none none',
+          trigger: '.projects-header',
+          start: 'bottom top',
+          toggleActions: 'play none none reverse',
         },
         opacity: 1,
         duration: 0.5,
@@ -503,9 +504,8 @@ export default {
     headerAnimation() {
       gsap.set('.title-words span', {
         scaleY: 0,
-        rotate: -22,
-        rotateX: 90,
-        transformOrigin: '0% 50% -50',
+        rotate: -18,
+        transformOrigin: '50% 0%',
       })
       gsap.set('#header-description .intro', { y: 15, opacity: 0 })
       gsap.set('#header-description .description span', { y: 15, opacity: 0 })
@@ -513,9 +513,7 @@ export default {
       gsap.to('.title-words span', {
         scaleY: 1,
         rotate: 0,
-        rotateX: 0,
-        opacity: 1,
-        stagger: 0.02,
+        stagger: 0.05,
         duration: 1,
         ease: 'Power4.easeOut',
       })
@@ -658,7 +656,7 @@ span.sep {
 }
 
 .grid-item:hover .item-overlay {
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .grid-item:hover .item-meta {
