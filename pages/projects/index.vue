@@ -548,11 +548,8 @@ export default {
     isotope() {
       this.iso = new Isotope('.project-grid', {
         itemSelector: '.grid-item',
-        layoutMode: 'fitRows',
+        layoutMode: 'vertical',
         transitionDuration: 0,
-        fitRows: {
-          gutter: 16,
-        },
         hiddenStyle: {
           opacity: 0,
         },

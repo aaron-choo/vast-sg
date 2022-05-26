@@ -11,8 +11,7 @@
             p-4
             py-52
             pt-60
-            sticky
-            top-0
+            md:sticky md:top-0
           "
         >
           <h1
