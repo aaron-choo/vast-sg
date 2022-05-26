@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="home-header z-0 sticky top-0">
+    <section class="home-header">
       <div
         id="home-hero"
         class="h-screen flex justify-center items-center p-4 sticky top-0"
@@ -110,33 +110,85 @@
           </defs>
         </svg>
       </div>
-    </section>
-    <section class="home-hero-text">
       <a
         onclick="document.querySelector('#header-text').scrollIntoView({behavior: 'smooth'});"
-        class="scroll-down-button scroll-down absolute right-4 bottom-4 flex items-center gap-2 leading-none cursor-pointer"
+        class="
+          scroll-down-button scroll-down
+          absolute
+          right-4
+          bottom-4
+          flex
+          items-center
+          gap-2
+          leading-none
+          cursor-pointer
+        "
       >
         <p>EXPLORE</p>
         <div class="scroll-down-icon rounded-full w-3 h-3 relative">
           <div
-            class="scroll-down-icon-helper absolute rounded-full top-0 left-0 w-full h-full"
+            class="
+              scroll-down-icon-helper
+              absolute
+              rounded-full
+              top-0
+              left-0
+              w-full
+              h-full
+            "
           ></div>
           <div
-            class="scroll-down-icon-helper absolute rounded-full top-0 left-0 w-full h-full"
+            class="
+              scroll-down-icon-helper
+              absolute
+              rounded-full
+              top-0
+              left-0
+              w-full
+              h-full
+            "
             style="animation-delay: 0.25s"
           ></div>
         </div>
       </a>
       <div
         id="header-text"
-        class="w-full h-screen flex flex-col justify-center p-4 relative mix-blend-difference"
+        class="
+          w-full
+          h-screen
+          flex flex-col
+          justify-center
+          p-4
+          relative
+          mix-blend-difference
+        "
       >
         <h1
           id="header-title"
-          class="tracking-tighter leading-none text-4xl sm:text-5xl md:text-6xl lg:text-7xl my-4 inline"
+          class="
+            tracking-tighter
+            leading-none
+            text-4xl
+            sm:text-5xl
+            md:text-6xl
+            lg:text-7xl
+            my-4
+            inline
+          "
         >
           <span
-            class="relative text-sm lg:text-base tracking-normal uppercase inline-block mr-16 -mb-4 body-font dot"
+            class="
+              relative
+              text-sm
+              lg:text-base
+              tracking-normal
+              uppercase
+              inline-block
+              mr-16
+              -mb-4
+              body-font
+              dot
+            "
             >We are VAST</span
           >
 
@@ -188,11 +240,25 @@
     </section>
     <section class="home-scroller section relative">
       <div class="relative">
-        <div class="scroller-wrapper m-4 grid md:grid-cols-12 gap-4 items-top">
+        <div
+          class="
+            scroller-wrapper
+            m-4
+            lg:m-8 lg:grid lg:grid-cols-12 lg:gap-x-4
+            items-top
+          "
+        >
           <div
             v-for="project in recentprojects"
             :key="project.id"
-            class="scroller-slide relative self-start md:col-span-7 mb-10 md:mb-0"
+            class="
+              scroller-slide
+              relative
+              self-start
+              lg:col-span-7
+              mb-10
+              md:mb-0
+            "
             :data-color="project.data.textColor"
             :data-background="project.data.backgroundColor"
             :style="
@@ -204,10 +270,41 @@
           >
             <nuxt-link :to="LinkGetter(project)">
               <div
-                class="item-overlay hidden absolute top-0 left-0 right-0 bottom-0 md:block z-10 transition duration-300 rounded-lg opacity-0 pointer-events-none"
+                class="
+                  item-overlay
+                  hidden
+                  absolute
+                  top-0
+                  left-0
+                  right-0
+                  bottom-0
+                  md:block
+                  z-10
+                  transition
+                  duration-300
+                  rounded-lg
+                  opacity-0
+                  pointer-events-none
+                "
               ></div>
               <p
-                class="relative item-meta item-meta-tag text-sm lg:text-base 2xl:text-lg uppercase inline-block mb-2 md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4 transition duration-300 z-10 pointer-events-none dot"
+                class="
+                  relative
+                  item-meta item-meta-tag
+                  text-sm
+                  leading-tight
+                  lg:text-base lg:leading-tight
+                  2xl:text-lg 2xl:leading-tight
+                  uppercase
+                  inline-block
+                  mb-2
+                  md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
+                  transition
+                  duration-300
+                  z-10
+                  pointer-events-none
+                  dot
+                "
               >
                 <span>{{ $prismic.asText(project.data.summary) }}</span>
                 <!-- <span
@@ -225,7 +322,12 @@
                 > -->
               </p>
               <div
-                class="scroller-media-container block overflow-hidden rounded-lg"
+                class="
+                  scroller-media-container
+                  block
+                  overflow-hidden
+                  rounded-lg
+                "
                 :class="project.data.kind"
               >
                 <div class="scroller-media-wrapper">
@@ -236,13 +338,26 @@
                     sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
                     :width="project.data.image.dimensions.width"
                     :height="project.data.image.dimensions.height"
-                    class="scroller-image w-full object-cover transition duration-1000"
+                    class="
+                      scroller-image
+                      w-full
+                      object-cover
+                      transition
+                      duration-1000
+                    "
                     loading="lazy"
                   />
                   <video
                     v-if="project.data.video.url"
                     :poster="project.data.image.url"
-                    class="scroller-video absolute top-0 w-full transition duration-1000"
+                    class="
+                      scroller-video
+                      absolute
+                      top-0
+                      w-full
+                      transition
+                      duration-1000
+                    "
                     autoplay
                     muted
                     loop
@@ -253,7 +368,25 @@
                 </div>
               </div>
               <div
-                class="item-meta text-2xl lg:text-3xl xl:text-4xl 3xl:text-5xl uppercase title flex justify-between tracking-tight md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4 z-10 transition duration-300 pointer-events-none heading-font mt-2"
+                class="
+                  item-meta
+                  text-2xl
+                  lg:text-3xl
+                  xl:text-4xl
+                  3xl:text-5xl
+                  uppercase
+                  title
+                  flex
+                  justify-between
+                  tracking-tight
+                  md:opacity-0 md:absolute md:left-4 md:bottom-4 md:right-4
+                  z-10
+                  transition
+                  duration-300
+                  pointer-events-none
+                  heading-font
+                  mt-2
+                "
               >
                 {{ $prismic.asText(project.data.title) }}
                 <span class="date font-light tracking-normal">{{
@@ -262,6 +395,11 @@
               </div>
             </nuxt-link>
           </div>
+          <div
+            class="scroller-slide relative self-end lg:col-span-5 mb-10 md:mb-0"
+          >
+            <a>View all projects</a>
+          </div>
         </div>
       </div>
     </section>
@@ -269,11 +407,29 @@
       <div class="description-section section my-24 px-4 lg:px-40">
         <p
           id="home-description"
-          class="inline-block text-2xl lg:text-3xl transition duration-300 transform leading-6"
+          class="
+            inline-block
+            text-2xl
+            lg:text-3xl
+            transition
+            duration-300
+            transform
+            leading-6
+          "
           :class="{ 'has-scroll-over': scrollOver }"
         >
           <span
-            class="summary relative text-sm lg:text-base uppercase inline-block mr-16 -mb-4 dot"
+            class="
+              summary
+              relative
+              text-sm
+              lg:text-base
+              uppercase
+              inline-block
+              mr-16
+              -mb-4
+              dot
+            "
             >Who we are</span
           ><span class="home-description-words inline serif font-light"
             >{{ homedescription }}
@@ -302,7 +458,7 @@ export default {
         $prismic.predicates.at('document.type', 'project'),
         {
           orderings: '[my.project.date desc]',
-          pageSize: 4,
+          pageSize: 5,
         }
       )
       return {
@@ -384,15 +540,18 @@ export default {
       gsap.set('#header-text', {
         translateY: '0',
       })
+      gsap.set('.home-hero-logo', {
+        opacity: '0.15',
+      })
       gsap.to('.home-hero-logo', {
         scrollTrigger: {
-          trigger: '.home-hero-text',
+          trigger: '#header-text',
           start: 'top 50%',
           toggleActions: 'play none none reverse',
         },
-        opacity: 0.25,
+        opacity: 0.05,
         duration: 0.5,
-        stagger: 0.5,
+        stagger: 0.2,
       })
       gsap.to('#header-text', {
         scrollTrigger: {
@@ -465,20 +624,6 @@ export default {
         'scroller-media-container'
       )
       for (let i = 0; i < scrollerslides.length; i++) {
-        gsap.set(scrollerslides[i], {
-          y: '0%',
-          rotate: '0deg',
-        })
-        gsap.to(scrollerslides[i], {
-          scrollTrigger: {
-            trigger: scrollerslides[i],
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1,
-          },
-          y: '-50%',
-          rotate: '0deg',
-        })
         gsap.set(scrollerMediaWrappers[i], {
           y: '-20%',
           scale: 1.2,
@@ -488,7 +633,7 @@ export default {
             trigger: scrollerMediaContainers[i],
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 1,
+            scrub: true,
           },
           y: '20%',
         })
@@ -502,9 +647,7 @@ export default {
   opacity: 0.08;
   transition: opacity 1s ease;
 }
-.home-hero-logo:hover {
-  opacity: 0.5 !important;
-}
+
 .home-hero-logo.logo-v {
   transform: translateX(75%);
 }
@@ -588,9 +731,11 @@ export default {
 .scroller-media-container.document * {
   transform: none !important;
 }
+
 .scroller-slide {
   margin-bottom: 6rem;
 }
+
 @media (max-width: 767px) {
   .scroller-slide {
     transform: none !important;
@@ -600,6 +745,8 @@ export default {
   .item-meta {
     color: var(--project-color);
   }
+}
+@media (min-width: 1024px) {
   .scroller-slide:nth-child(1) {
     grid-column-start: 6;
     grid-row-start: 1;
@@ -615,6 +762,14 @@ export default {
   .scroller-slide:nth-child(4) {
     grid-column-start: 1;
     grid-row-start: 4;
+  }
+  .scroller-slide:nth-child(5) {
+    grid-column-start: 6;
+    grid-row-start: 5;
+  }
+  .scroller-slide:nth-child(6) {
+    grid-column-start: 1;
+    grid-row-start: 5;
   }
 }
 .item-overlay {
