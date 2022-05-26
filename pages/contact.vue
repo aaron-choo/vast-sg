@@ -19,7 +19,7 @@
                 :key="index2"
                 class="inline-block"
                 >{{ letter }}</span
-              >&nbsp;</span
+              ></span
             >
           </h1>
           <p
@@ -52,7 +52,7 @@
                 v-for="(word, index) in descriptionWords"
                 :key="index"
                 class="description-words inline-block"
-                >{{ word }}&nbsp;</span
+                >{{ word }}<span class="body-font">&nbsp;</span></span
               ></span
             >
           </p>
@@ -414,9 +414,8 @@ export default {
     headerAnimation() {
       gsap.set('.title-words span', {
         scaleY: 0,
-        rotate: -22,
-        rotateX: 90,
-        transformOrigin: '0% 50% -50',
+        rotate: -18,
+        transformOrigin: '50% 0%',
       })
       gsap.set('#header-description .intro', { y: 15, opacity: 0 })
       gsap.set('#header-description .description span', { y: 15, opacity: 0 })
@@ -424,9 +423,7 @@ export default {
       gsap.to('.title-words span', {
         scaleY: 1,
         rotate: 0,
-        rotateX: 0,
-        opacity: 1,
-        stagger: 0.02,
+        stagger: 0.05,
         duration: 1,
         ease: 'Power4.easeOut',
       })
@@ -462,10 +459,6 @@ export default {
 }
 </script>
 <style scoped>
-.description-words {
-  padding-right: 0.29em;
-}
-
 .u {
   width: calc(100% - 1px);
   transform: scaleX(0);
