@@ -34,7 +34,8 @@
     "swiper": "5.x",
     "vue-awesome-swiper": "^4.1.1",
     "vue-slicezone": "^0.1.0",
-    "vueisotope": "^3.1.2"
+    "vueisotope": "^3.1.2",
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
@@ -57,6 +58,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.12.1",
+    "html-webpack-plugin": "^5.5.0",
     "husky": "^6.0.0",
     "jest": "^27.0.5",
     "lint-staged": "^10.5.4",
