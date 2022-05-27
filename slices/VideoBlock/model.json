@@ -25,10 +25,10 @@
             "label": "Device",
             "placeholder": "",
             "options": [
-              "device-mbp-13",
-              "device-iphone-x",
-              "device-ipad-pro-l",
-              "device-ipad-pro-p"
+              "device mbp-13",
+              "device iphone-x",
+              "device ipad-pro-l",
+              "device ipad-pro-p"
             ]
           }
         },

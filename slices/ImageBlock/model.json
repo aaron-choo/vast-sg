@@ -17,6 +17,21 @@
             "placeholder": ""
           },
           "type": "Number"
+        },
+        "mobileColumns": {
+          "type": "Number",
+          "config": {
+            "label": "Mobile Columns",
+            "placeholder": ""
+          }
+        },
+        "background": {
+          "type": "Image",
+          "config": {
+            "label": "Background",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {
@@ -43,10 +58,10 @@
             "label": "Device",
             "placeholder": "",
             "options": [
-              "device-mbp-13",
-              "device-iphone-x",
-              "device-ipad-pro-l",
-              "device-ipad-pro-p"
+              "device mbp-13",
+              "device iphone-x",
+              "device ipad-pro-l",
+              "device ipad-pro-p"
             ]
           }
         },

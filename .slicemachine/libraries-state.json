@@ -144,7 +144,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\HomeSlider\\default-slice\\preview.png",
+            "path": "/Users/aaron/Sites/github/vast-sg/.slicemachine/assets/slices/HomeSlider/default-slice/preview.png",
             "width": 800,
             "height": 600
           }
@@ -174,6 +174,21 @@
                     "placeholder": ""
                   },
                   "type": "Number"
+                },
+                "mobileColumns": {
+                  "type": "Number",
+                  "config": {
+                    "label": "Mobile Columns",
+                    "placeholder": ""
+                  }
+                },
+                "background": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Background",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
                 }
               },
               "items": {
@@ -200,10 +215,10 @@
                     "label": "Device",
                     "placeholder": "",
                     "options": [
-                      "device-mbp-13",
-                      "device-iphone-x",
-                      "device-ipad-pro-l",
-                      "device-ipad-pro-p"
+                      "device mbp-13",
+                      "device iphone-x",
+                      "device ipad-pro-l",
+                      "device ipad-pro-p"
                     ]
                   }
                 },
@@ -268,16 +283,36 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51?w=900&h=500&fit=crop"
                 },
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Consectetur voluptate esse adipisicing nostrud. Magna velit mollit occaecat elit labore in amet sunt dolore ipsum nisi anim commodo.",
+                    "text": "Ipsum adipisicing cillum cupidatat eiusmod consequat. Et aliqua tempor minim elit eiusmod reprehenderit anim deserunt non aliquip sint amet. Cupidatat sunt pariatur irure sunt veniam ullamco proident culpa veniam.",
                     "spans": []
                   }
                 ],
-                "device": "device-iphone-x",
+                "device": "device mbp-13",
+                "align": "center"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?w=900&h=500&fit=crop"
+                },
+                "caption": [
+                  {
+                    "type": "paragraph",
+                    "text": "Commodo veniam aute incididunt. Occaecat nulla ea consequat nisi ipsum amet pariatur.",
+                    "spans": []
+                  }
+                ],
+                "device": "device ipad-pro-p",
                 "align": "left"
               },
               {
@@ -288,21 +323,51 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=900&h=500&fit=crop"
                 },
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Culpa aute veniam proident tempor ipsum.",
+                    "text": "Mollit do non do ut do quis do quis consectetur irure tempor magna laborum. Et nisi ipsum incididunt anim ut ut qui minim voluptate velit. Sit in eu ullamco nulla et officia fugiat.",
                     "spans": []
                   }
                 ],
-                "device": "device-ipad-pro-l",
+                "device": "device ipad-pro-p",
+                "align": "center"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
+                },
+                "caption": [
+                  {
+                    "type": "paragraph",
+                    "text": "Non elit pariatur aute excepteur laboris ad consectetur ipsum Lorem laboris dolore reprehenderit aliquip duis dolore. Pariatur proident dolore mollit qui magna ut aute aliquip id. Dolor ad qui commodo qui labore ipsum pariatur ea elit eu sint eiusmod ex velit cillum.",
+                    "spans": []
+                  }
+                ],
+                "device": "device ipad-pro-l",
                 "align": "center"
               }
             ],
             "primary": {
-              "columns": 1
+              "columns": 1,
+              "mobileColumns": 2300,
+              "background": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": "Placeholder image",
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e?w=900&h=500&fit=crop"
+              }
             }
           },
           "fullWidth": {
@@ -318,12 +383,30 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&h=500&fit=crop"
                 },
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Minim ut id laborum commodo incididunt dolore amet in quis enim.",
+                    "text": "Ad id deserunt ut commodo magna pariatur fugiat laborum. Culpa esse officia ex ullamco incididunt aute in. Eiusmod tempor in et anim fugiat laboris eiusmod minim laborum labore et id laboris ipsum.",
+                    "spans": []
+                  }
+                ]
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?w=900&h=500&fit=crop"
+                },
+                "caption": [
+                  {
+                    "type": "paragraph",
+                    "text": "Consectetur cillum in nisi reprehenderit voluptate amet nulla occaecat elit qui.",
                     "spans": []
                   }
                 ]
@@ -341,7 +424,7 @@
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Laborum officia voluptate cupidatat ut exercitation occaecat do occaecat proident labore.",
+                    "text": "Velit est ex tempor id consequat minim cillum exercitation aliquip commodo. Dolore tempor nisi occaecat ullamco laboris consectetur culpa magna excepteur duis minim labore Lorem. Nisi dolor nostrud in ex laborum id cillum mollit laboris id eu.",
                     "spans": []
                   }
                 ]
@@ -354,12 +437,12 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
                 },
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Irure pariatur officia aliquip cillum amet. Non est fugiat labore occaecat aliquip nulla.",
+                    "text": "Nulla cillum sint dolor sint.",
                     "spans": []
                   }
                 ]
@@ -372,12 +455,12 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613?w=900&h=500&fit=crop"
                 },
                 "caption": [
                   {
                     "type": "paragraph",
-                    "text": "Eiusmod esse veniam sit elit labore incididunt.",
+                    "text": "Sint proident sint anim dolor deserunt occaecat tempor dolore consectetur. Esse aliquip esse aliqua qui consectetur occaecat irure anim nisi commodo.",
                     "spans": []
                   }
                 ]
@@ -622,10 +705,10 @@
                     "label": "Device",
                     "placeholder": "",
                     "options": [
-                      "device-mbp-13",
-                      "device-iphone-x",
-                      "device-ipad-pro-l",
-                      "device-ipad-pro-p"
+                      "device mbp-13",
+                      "device iphone-x",
+                      "device ipad-pro-l",
+                      "device ipad-pro-p"
                     ]
                   }
                 },
@@ -675,7 +758,7 @@
                 "link_type": "media",
                 "url": "https://source.unsplash.com/daily"
               },
-              "device": "device-ipad-pro-l",
+              "device": "device iphone-x",
               "align": "center",
               "poster": {
                 "dimensions": {
@@ -684,9 +767,9 @@
                 },
                 "alt": "Placeholder image",
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
+                "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0?w=900&h=500&fit=crop"
               },
-              "caption": "incubate dynamic blockchains"
+              "caption": "embrace best-of-breed e-commerce"
             }
           }
         },
@@ -694,13 +777,7 @@
           "fileName": "index",
           "extension": "vue"
         },
-        "screenshotPaths": {
-          "default": {
-            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\VideoBlock\\default\\preview.png",
-            "width": 800,
-            "height": 489
-          }
-        }
+        "screenshotPaths": {}
       }
     }
   }

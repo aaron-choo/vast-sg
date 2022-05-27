@@ -9,7 +9,7 @@
         "link_type": "media",
         "url": "https://source.unsplash.com/daily"
       },
-      "device": "device-ipad-pro-l",
+      "device": "device iphone-x",
       "align": "center",
       "poster": {
         "dimensions": {
@@ -18,9 +18,9 @@
         },
         "alt": "Placeholder image",
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
+        "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0?w=900&h=500&fit=crop"
       },
-      "caption": "incubate dynamic blockchains"
+      "caption": "embrace best-of-breed e-commerce"
     }
   }
 ]
