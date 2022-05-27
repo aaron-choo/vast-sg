@@ -218,7 +218,7 @@
                     right-0
                     bottom-0
                     md:block md:z-20
-                    transition
+                    transition-opacity
                     duration-300
                     opacity-0
                     pointer-events-none
@@ -229,11 +229,6 @@
                     v-if="project.data.image.url"
                     format="webp"
                     :src="project.data.image.url"
-                    :style="
-                      'background: url(' +
-                      project.data.image.url +
-                      '&w=18);background-size: cover;'
-                    "
                     sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
                     :width="project.data.image.dimensions.width"
                     :height="project.data.image.dimensions.height"
@@ -242,7 +237,7 @@
                       w-full
                       h-full
                       relative
-                      transition
+                      transition-transform
                       duration-1000
                     "
                     loading="lazy"
@@ -256,7 +251,7 @@
                       absolute
                       top-0
                       w-full
-                      transition
+                      transition-transform
                       duration-1000
                     "
                     autoplay

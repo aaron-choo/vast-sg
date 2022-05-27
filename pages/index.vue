@@ -586,7 +586,7 @@ export default {
       })
       gsap.to('#markerunderline', {
         scrollTrigger: {
-          trigger: '.home-hero-text',
+          trigger: '#header-text',
           start: 'top 5%',
           toggleActions: 'play none none reverse',
         },
@@ -597,7 +597,7 @@ export default {
       })
       gsap.to('.digital-underline', {
         scrollTrigger: {
-          trigger: '.home-hero-text',
+          trigger: '#header-text',
           start: 'top 5%',
           toggleActions: 'play none none reverse',
         },
