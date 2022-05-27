@@ -95,7 +95,6 @@
               :width="image.dimensions.width"
               :height="image.dimensions.height"
               class="w-full"
-              loading="lazy"
             />
             <video
               v-if="video.url"
