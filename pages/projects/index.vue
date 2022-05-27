@@ -3,7 +3,16 @@
     <section class="projects-header">
       <div
         id="header-text"
-        class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
+        class="
+          w-full
+          flex flex-col
+          justify-center
+          px-4
+          lg:px-8
+          py-52
+          pt-60
+          relative
+        "
       >
         <h1
           id="header-title"
@@ -66,7 +75,7 @@
       </div>
     </section>
     <section class="content relative">
-      <div class="project-grid-container lg:grid mx-4">
+      <div class="project-grid-container lg:grid mx-4 lg:mx-8">
         <div
           class="
             filter-container
@@ -225,8 +234,34 @@
                     sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
                     :width="project.data.image.dimensions.width"
                     :height="project.data.image.dimensions.height"
-                    class="grid-image w-full h-full transition duration-1000"
+                    class="
+                      grid-image
+                      w-full
+                      h-full
+                      transition
+                      duration-1000
+                      z-10
+                      relative
+                    "
                     loading="lazy"
+                  />
+                  <nuxt-img
+                    v-if="project.data.image.url"
+                    format="webp"
+                    :src="project.data.image.url"
+                    sizes="sm:3"
+                    :width="project.data.image.dimensions.width"
+                    :height="project.data.image.dimensions.height"
+                    class="
+                      grid-image
+                      absolute
+                      top-0
+                      w-full
+                      h-full
+                      transition
+                      duration-1000
+                      z-0
+                    "
                   />
                   <video
                     v-if="project.data.video.url"
@@ -670,7 +705,7 @@ span.sep {
 }
 
 .project-grid-container {
-  grid-template-columns: 18rem 1fr 4rem;
+  grid-template-columns: 16rem 1fr;
 }
 
 @media (min-width: 1536px) {
