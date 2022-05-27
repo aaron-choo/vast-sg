@@ -315,7 +315,7 @@
     </div>
     <div
       data-tf-popover="JuzMtES9"
-      data-tf-custom-icon="https://images.typeform.com/images/DhEkLPECvzxe"
+      data-tf-custom-icon="https://images.prismic.io/vast-sg/16c560b7-ddb4-4ac0-b27b-46e0159d5f08_aaron.gif?auto=compress,format&w=108&h=108&fm=gif"
       data-tf-button-color="#FFFFFF"
       data-tf-button-text="Launch me"
       data-tf-iframe-props="title=VAST Contact Form"
