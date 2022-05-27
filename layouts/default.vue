@@ -52,7 +52,7 @@ export default {
 <style scoped>
 .site-container::before {
   animation: grain 3s steps(3) infinite both;
-  background-image: url(/noise.png);
+  background-image: url(//images.prismic.io/vast-sg/32ea5b0b-973b-43ec-9825-179b03dbb852_noise.png?auto=compress,format&fm=webp);
   content: '';
   left: -150%;
   opacity: 0.68;
