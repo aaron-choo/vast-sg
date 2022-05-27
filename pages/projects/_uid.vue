@@ -113,7 +113,7 @@
         </div>
       </div>
       <div class="project-header-info">
-        <div class="description-section section my-24 px-4 lg:px-40">
+        <div class="description-section section my-24 px-4 lg:px-8">
           <p class="description-wrapper">
             <span
               class="
@@ -137,10 +137,7 @@
             /></span>
           </p>
         </div>
-        <div
-          v-if="projectLink"
-          class="project-link section my-24 px-4 lg:px-40"
-        >
+        <div v-if="projectLink" class="project-link section my-24 px-4 lg:px-8">
           <p class="description-wrapper mt-6">
             <span
               class="
@@ -173,6 +170,7 @@
             mt-4
             mb-24
             mx-4
+            lg:mx-8
             pb-4
             relative
             grid-cols-6
@@ -493,6 +491,17 @@ export default {
       gsap.set('.header-media-wrapper', {
         y: '-10%',
         scale: 1.2,
+      })
+      gsap.to('.header-media-container', {
+        scrollTrigger: {
+          trigger: '.header-media-container',
+          start: 'top 180',
+          end: 'top top',
+          scrub: true,
+        },
+        marginLeft: 0,
+        marginRight: 0,
+        borderRadius: 0,
       })
       gsap.to('.header-media-wrapper', {
         scrollTrigger: {
