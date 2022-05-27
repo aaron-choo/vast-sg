@@ -55,7 +55,7 @@ export default {
   background-image: url(/noise.png);
   content: '';
   left: -150%;
-  opacity: 0.6;
+  opacity: 0.68;
   position: fixed;
   top: -150%;
   width: 300%;

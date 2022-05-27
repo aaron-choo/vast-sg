@@ -8,9 +8,11 @@
             w-full
             flex flex-col
             justify-center
-            p-4
-            py-52
-            pt-60
+            px-4
+            lg:px-8
+            py-32
+            pt-44
+            lg:py-52 lg:pt-60
             md:sticky md:top-0
           "
         >
@@ -77,8 +79,9 @@
             header-media-container
             z-0
             relative
-            mx-4
             overflow-hidden
+            mx-4
+            lg:mx-8
             rounded-lg
           "
         >

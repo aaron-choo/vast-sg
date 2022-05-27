@@ -216,7 +216,6 @@
                   rounded-lg
                   relative
                 "
-                :class="project.data.video.kind"
               >
                 <div class="grid-media-wrapper">
                   <nuxt-img
@@ -280,8 +279,30 @@
               </div>
             </nuxt-link>
           </div>
-          <div :class="allTags" class="grid-item project-link">
+          <div
+            :class="allTags"
+            class="grid-item project-link relative"
+            style="--project-color: white; --project-bg-color: black"
+          >
             <nuxt-link to="/contact">
+              <div
+                class="
+                  item-overlay
+                  hidden
+                  absolute
+                  top-0
+                  left-0
+                  right-0
+                  bottom-0
+                  md:block
+                  z-10
+                  transition
+                  duration-300
+                  rounded-lg
+                  opacity-0
+                  pointer-events-none
+                "
+              ></div>
               <p
                 class="
                   item-meta item-meta-tag
@@ -302,17 +323,27 @@
               >
                 <span class="inline-block">Have a great idea?</span>
               </p>
-              <div class="grid-media-container overflow-hidden rounded-lg">
-                <nuxt-img
-                  v-if="page.contactImage.url"
-                  format="webp"
-                  :src="page.contactImage.url"
-                  sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
-                  :width="page.contactImage.dimensions.width"
-                  :height="page.contactImage.dimensions.height"
-                  class="grid-image w-full h-full transition duration-1000"
-                  loading="lazy"
-                />
+              <div
+                class="
+                  grid-media-container
+                  block
+                  overflow-hidden
+                  rounded-lg
+                  relative
+                "
+              >
+                <div class="grid-media-wrapper">
+                  <nuxt-img
+                    v-if="page.contactImage.url"
+                    format="webp"
+                    :src="page.contactImage.url"
+                    sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
+                    :width="page.contactImage.dimensions.width"
+                    :height="page.contactImage.dimensions.height"
+                    class="grid-image w-full h-full transition duration-1000"
+                    loading="lazy"
+                  />
+                </div>
               </div>
               <div
                 class="
