@@ -163,24 +163,6 @@
             "
           >
             <nuxt-link :to="LinkGetter(project)" class="item-container m-auto">
-              <div
-                class="
-                  item-overlay
-                  hidden
-                  absolute
-                  top-0
-                  left-0
-                  right-0
-                  bottom-0
-                  md:block
-                  z-10
-                  transition
-                  duration-300
-                  rounded-lg
-                  opacity-0
-                  pointer-events-none
-                "
-              ></div>
               <p
                 class="
                   item-meta item-meta-tag
@@ -191,7 +173,7 @@
                   uppercase
                   inline-block
                   mb-2
-                  z-10
+                  z-20
                   transition
                   duration-300
                   pointer-events-none
@@ -226,11 +208,32 @@
                   relative
                 "
               >
+                <div
+                  class="
+                    item-overlay
+                    hidden
+                    absolute
+                    top-0
+                    left-0
+                    right-0
+                    bottom-0
+                    md:block md:z-20
+                    transition
+                    duration-300
+                    opacity-0
+                    pointer-events-none
+                  "
+                ></div>
                 <div class="grid-media-wrapper">
                   <nuxt-img
                     v-if="project.data.image.url"
                     format="webp"
                     :src="project.data.image.url"
+                    :style="
+                      'background: url(' +
+                      project.data.image.url +
+                      '&w=18);background-size: cover;'
+                    "
                     sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
                     :width="project.data.image.dimensions.width"
                     :height="project.data.image.dimensions.height"
@@ -238,31 +241,13 @@
                       grid-image
                       w-full
                       h-full
+                      relative
                       transition
                       duration-1000
-                      z-10
-                      relative
                     "
                     loading="lazy"
                   />
-                  <nuxt-img
-                    v-if="project.data.image.url"
-                    format="webp"
-                    :src="project.data.image.url"
-                    sizes="sm:3"
-                    :width="project.data.image.dimensions.width"
-                    :height="project.data.image.dimensions.height"
-                    class="
-                      grid-image
-                      absolute
-                      top-0
-                      w-full
-                      h-full
-                      transition
-                      duration-1000
-                      z-0
-                    "
-                  />
+
                   <video
                     v-if="project.data.video.url"
                     :poster="project.data.image.url"
@@ -299,7 +284,7 @@
                   items-start
                   tracking-tight
                   mt-2
-                  z-10
+                  z-30
                   transition
                   duration-300
                   pointer-events-none
@@ -372,10 +357,34 @@
                     v-if="page.contactImage.url"
                     format="webp"
                     :src="page.contactImage.url"
+                    sizes="sm:18"
+                    :width="page.contactImage.dimensions.width"
+                    :height="page.contactImage.dimensions.height"
+                    class="
+                      grid-image
+                      image-placeholder
+                      w-full
+                      h-full
+                      relative
+                      z-0
+                    "
+                  />
+                  <nuxt-img
+                    v-if="page.contactImage.url"
+                    format="webp"
+                    :src="page.contactImage.url"
                     sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
                     :width="page.contactImage.dimensions.width"
                     :height="page.contactImage.dimensions.height"
-                    class="grid-image w-full h-full transition duration-1000"
+                    class="
+                      grid-image
+                      w-full
+                      h-full
+                      transition
+                      duration-1000
+                      absolute
+                      top-0
+                    "
                     loading="lazy"
                   />
                 </div>
@@ -719,7 +728,7 @@ span.sep {
 }
 
 .grid-item:hover .item-overlay {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .grid-item:hover .item-meta {
