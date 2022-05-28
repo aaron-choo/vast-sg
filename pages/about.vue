@@ -182,21 +182,3 @@ export default {
   text-indent: 5em;
 }
 </style>
-<style>
-.default-slice:nth-child(3) .image-block {
-  margin-bottom: -5rem;
-}
-
-section.section:first-child {
-  margin-top: 0;
-}
-
-h5 {
-  opacity: 0.5;
-}
-
-.text-block:nth-child(5),
-.text-block:nth-child(6) {
-  margin-bottom: -4rem;
-}
-</style>
