@@ -532,7 +532,7 @@ export default {
         transformOrigin: '50% 0%',
       })
       gsap.set('#header-scope span', { y: 15, opacity: 0 })
-      gsap.set('#header-image', { y: 30, opacity: 0 })
+      gsap.set('.header-media-container', { y: 30, opacity: 0 })
       gsap.to('.title-words span', {
         scaleY: 1,
         rotate: 0,
@@ -541,7 +541,7 @@ export default {
         ease: 'Power4.easeOut',
       })
       gsap
-        .to('#header-image', {
+        .to('.header-media-container', {
           y: 0,
           opacity: 1,
           duration: 0.5,

@@ -439,7 +439,7 @@ export default {
         $prismic.predicates.at('document.type', 'project'),
         {
           orderings: '[my.project.date desc]',
-          pageSize: 9,
+          pageSize: 14,
         }
       )
 
