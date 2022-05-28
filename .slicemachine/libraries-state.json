@@ -181,14 +181,6 @@
                     "label": "Mobile Columns",
                     "placeholder": ""
                   }
-                },
-                "background": {
-                  "type": "Image",
-                  "config": {
-                    "label": "Background",
-                    "constraint": {},
-                    "thumbnails": []
-                  }
                 }
               },
               "items": {
@@ -201,13 +193,11 @@
                   "type": "Image"
                 },
                 "caption": {
+                  "type": "Text",
                   "config": {
-                    "label": "caption",
-                    "placeholder": "",
-                    "allowTargetBlank": true,
-                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-                  },
-                  "type": "StructuredText"
+                    "label": "Caption",
+                    "placeholder": ""
+                  }
                 },
                 "device": {
                   "type": "Select",
@@ -220,20 +210,6 @@
                       "device ipad-pro-l",
                       "device ipad-pro-p"
                     ]
-                  }
-                },
-                "align": {
-                  "type": "Select",
-                  "config": {
-                    "label": "Align",
-                    "placeholder": "",
-                    "options": [
-                      "center",
-                      "left",
-                      "right",
-                      "full"
-                    ],
-                    "default_value": "center"
                   }
                 }
               },
@@ -256,13 +232,73 @@
                   "type": "Image"
                 },
                 "caption": {
+                  "type": "Text",
                   "config": {
-                    "label": "caption",
-                    "placeholder": "",
-                    "allowTargetBlank": true,
-                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                    "label": "Caption",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            },
+            {
+              "id": "gridWithBackground",
+              "name": "Grid with Background",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "ImageBlock",
+              "primary": {
+                "columns": {
+                  "config": {
+                    "label": "columns",
+                    "placeholder": ""
                   },
-                  "type": "StructuredText"
+                  "type": "Number"
+                },
+                "mobileColumns": {
+                  "type": "Number",
+                  "config": {
+                    "label": "Mobile Columns",
+                    "placeholder": ""
+                  }
+                },
+                "background": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Background",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "items": {
+                "image": {
+                  "config": {
+                    "label": "image",
+                    "constraint": {},
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "caption": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Caption",
+                    "placeholder": ""
+                  }
+                },
+                "device": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Device",
+                    "placeholder": "",
+                    "options": [
+                      "device mbp-13",
+                      "device iphone-x",
+                      "device ipad-pro-l",
+                      "device ipad-pro-p"
+                    ]
+                  }
                 }
               },
               "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
@@ -283,17 +319,10 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Ipsum adipisicing cillum cupidatat eiusmod consequat. Et aliqua tempor minim elit eiusmod reprehenderit anim deserunt non aliquip sint amet. Cupidatat sunt pariatur irure sunt veniam ullamco proident culpa veniam.",
-                    "spans": []
-                  }
-                ],
-                "device": "device mbp-13",
-                "align": "center"
+                "caption": "syndicate cutting-edge platforms",
+                "device": "device iphone-x"
               },
               {
                 "image": {
@@ -303,17 +332,10 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Commodo veniam aute incididunt. Occaecat nulla ea consequat nisi ipsum amet pariatur.",
-                    "spans": []
-                  }
-                ],
-                "device": "device ipad-pro-p",
-                "align": "left"
+                "caption": "target granular channels",
+                "device": "device ipad-pro-p"
               },
               {
                 "image": {
@@ -323,17 +345,10 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Mollit do non do ut do quis do quis consectetur irure tempor magna laborum. Et nisi ipsum incididunt anim ut ut qui minim voluptate velit. Sit in eu ullamco nulla et officia fugiat.",
-                    "spans": []
-                  }
-                ],
-                "device": "device ipad-pro-p",
-                "align": "center"
+                "caption": "optimize extensible architectures",
+                "device": "device ipad-pro-l"
               },
               {
                 "image": {
@@ -343,31 +358,41 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Non elit pariatur aute excepteur laboris ad consectetur ipsum Lorem laboris dolore reprehenderit aliquip duis dolore. Pariatur proident dolore mollit qui magna ut aute aliquip id. Dolor ad qui commodo qui labore ipsum pariatur ea elit eu sint eiusmod ex velit cillum.",
-                    "spans": []
-                  }
-                ],
-                "device": "device ipad-pro-l",
-                "align": "center"
+                "caption": "target plug-and-play infrastructures",
+                "device": "device ipad-pro-p"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da?w=900&h=500&fit=crop"
+                },
+                "caption": "recontextualize viral ROI",
+                "device": "device mbp-13"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?w=900&h=500&fit=crop"
+                },
+                "caption": "generate dynamic experiences",
+                "device": "device iphone-x"
               }
             ],
             "primary": {
               "columns": 1,
-              "mobileColumns": 2300,
-              "background": {
-                "dimensions": {
-                  "width": 900,
-                  "height": 500
-                },
-                "alt": "Placeholder image",
-                "copyright": null,
-                "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e?w=900&h=500&fit=crop"
-              }
+              "mobileColumns": 814
             }
           },
           "fullWidth": {
@@ -383,15 +408,66 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Ad id deserunt ut commodo magna pariatur fugiat laborum. Culpa esse officia ex ullamco incididunt aute in. Eiusmod tempor in et anim fugiat laboris eiusmod minim laborum labore et id laboris ipsum.",
-                    "spans": []
-                  }
-                ]
+                "caption": "enhance rich deliverables"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a?w=900&h=500&fit=crop"
+                },
+                "caption": "synthesize bricks-and-clicks schemas"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6?w=900&h=500&fit=crop"
+                },
+                "caption": "iterate cross-media networks"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"
+                },
+                "caption": "enhance vertical web services"
+              }
+            ],
+            "primary": {}
+          },
+          "gridWithBackground": {
+            "variation": "gridWithBackground",
+            "name": "Grid with Background",
+            "slice_type": "image_block",
+            "items": [
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?w=900&h=500&fit=crop"
+                },
+                "caption": "transform B2C supply-chains",
+                "device": "device ipad-pro-p"
               },
               {
                 "image": {
@@ -403,13 +479,8 @@
                   "copyright": null,
                   "url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Consectetur cillum in nisi reprehenderit voluptate amet nulla occaecat elit qui.",
-                    "spans": []
-                  }
-                ]
+                "caption": "unleash innovative experiences",
+                "device": "device ipad-pro-p"
               },
               {
                 "image": {
@@ -419,15 +490,10 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Velit est ex tempor id consequat minim cillum exercitation aliquip commodo. Dolore tempor nisi occaecat ullamco laboris consectetur culpa magna excepteur duis minim labore Lorem. Nisi dolor nostrud in ex laborum id cillum mollit laboris id eu.",
-                    "spans": []
-                  }
-                ]
+                "caption": "leverage wireless channels",
+                "device": "device mbp-13"
               },
               {
                 "image": {
@@ -437,36 +503,25 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Nulla cillum sint dolor sint.",
-                    "spans": []
-                  }
-                ]
-              },
-              {
-                "image": {
-                  "dimensions": {
-                    "width": 900,
-                    "height": 500
-                  },
-                  "alt": "Placeholder image",
-                  "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613?w=900&h=500&fit=crop"
-                },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Sint proident sint anim dolor deserunt occaecat tempor dolore consectetur. Esse aliquip esse aliqua qui consectetur occaecat irure anim nisi commodo.",
-                    "spans": []
-                  }
-                ]
+                "caption": "embrace collaborative channels",
+                "device": "device ipad-pro-p"
               }
             ],
-            "primary": {}
+            "primary": {
+              "columns": 4317,
+              "mobileColumns": 3000,
+              "background": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": "Placeholder image",
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"
+              }
+            }
           }
         },
         "meta": {
@@ -691,39 +746,28 @@
               "version": "sktwi1xtmkfgx8626",
               "description": "VideoBlock",
               "primary": {
+                "columns": {
+                  "type": "Number",
+                  "config": {
+                    "label": "Columns",
+                    "placeholder": ""
+                  }
+                },
+                "mobileColumns": {
+                  "type": "Number",
+                  "config": {
+                    "label": "Mobile Columns",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {
                 "video": {
                   "type": "Link",
                   "config": {
                     "label": "Video",
                     "placeholder": "",
                     "select": "media"
-                  }
-                },
-                "device": {
-                  "type": "Select",
-                  "config": {
-                    "label": "Device",
-                    "placeholder": "",
-                    "options": [
-                      "device mbp-13",
-                      "device iphone-x",
-                      "device ipad-pro-l",
-                      "device ipad-pro-p"
-                    ]
-                  }
-                },
-                "align": {
-                  "type": "Select",
-                  "config": {
-                    "label": "Align",
-                    "placeholder": "",
-                    "options": [
-                      "center",
-                      "left",
-                      "right",
-                      "full"
-                    ],
-                    "default_value": "center"
                   }
                 },
                 "poster": {
@@ -740,9 +784,91 @@
                     "label": "Caption",
                     "placeholder": ""
                   }
+                },
+                "device": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Device",
+                    "placeholder": "",
+                    "options": [
+                      "device mbp-13",
+                      "device iphone-x",
+                      "device ipad-pro-l",
+                      "device ipad-pro-p"
+                    ]
+                  }
                 }
               },
-              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            },
+            {
+              "id": "gridWithBackground",
+              "name": "Grid with Background",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "VideoBlock",
+              "primary": {
+                "columns": {
+                  "type": "Number",
+                  "config": {
+                    "label": "Columns",
+                    "placeholder": ""
+                  }
+                },
+                "mobileColumns": {
+                  "type": "Number",
+                  "config": {
+                    "label": "Mobile Columns",
+                    "placeholder": ""
+                  }
+                },
+                "background": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Background",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "items": {
+                "video": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Video",
+                    "placeholder": "",
+                    "select": "media"
+                  }
+                },
+                "poster": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Poster",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "caption": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Caption",
+                    "placeholder": ""
+                  }
+                },
+                "device": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Device",
+                    "placeholder": "",
+                    "options": [
+                      "device mbp-13",
+                      "device iphone-x",
+                      "device ipad-pro-l",
+                      "device ipad-pro-p"
+                    ]
+                  }
+                }
+              },
               "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
             }
           ]
@@ -752,24 +878,167 @@
             "variation": "default",
             "name": "Default",
             "slice_type": "video_block",
-            "items": [],
-            "primary": {
-              "video": {
-                "link_type": "media",
-                "url": "https://source.unsplash.com/daily"
+            "items": [
+              {
+                "video": {
+                  "link_type": "media",
+                  "url": "https://source.unsplash.com/daily"
+                },
+                "poster": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43?w=900&h=500&fit=crop"
+                },
+                "caption": "grow intuitive vortals",
+                "device": "device ipad-pro-p"
               },
-              "device": "device iphone-x",
-              "align": "center",
-              "poster": {
+              {
+                "video": {
+                  "link_type": "media",
+                  "url": "https://source.unsplash.com/daily"
+                },
+                "poster": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=900&h=500&fit=crop"
+                },
+                "caption": "orchestrate viral users",
+                "device": "device iphone-x"
+              },
+              {
+                "video": {
+                  "link_type": "media",
+                  "url": "https://source.unsplash.com/daily"
+                },
+                "poster": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=900&h=500&fit=crop"
+                },
+                "caption": "target rich models",
+                "device": "device iphone-x"
+              },
+              {
+                "video": {
+                  "link_type": "media",
+                  "url": "https://source.unsplash.com/daily"
+                },
+                "poster": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?w=900&h=500&fit=crop"
+                },
+                "caption": "syndicate killer networks",
+                "device": "device mbp-13"
+              }
+            ],
+            "primary": {
+              "columns": 9718,
+              "mobileColumns": 1189
+            }
+          },
+          "gridWithBackground": {
+            "variation": "gridWithBackground",
+            "name": "Grid with Background",
+            "slice_type": "video_block",
+            "items": [
+              {
+                "video": {
+                  "link_type": "media",
+                  "url": "https://source.unsplash.com/daily"
+                },
+                "poster": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=900&h=500&fit=crop"
+                },
+                "caption": "architect compelling infomediaries",
+                "device": "device mbp-13"
+              },
+              {
+                "video": {
+                  "link_type": "media",
+                  "url": "https://source.unsplash.com/daily"
+                },
+                "poster": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
+                },
+                "caption": "embrace B2B infomediaries",
+                "device": "device mbp-13"
+              },
+              {
+                "video": {
+                  "link_type": "media",
+                  "url": "https://source.unsplash.com/daily"
+                },
+                "poster": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=900&h=500&fit=crop"
+                },
+                "caption": "expedite viral infomediaries",
+                "device": "device iphone-x"
+              },
+              {
+                "video": {
+                  "link_type": "media",
+                  "url": "https://source.unsplash.com/daily"
+                },
+                "poster": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?w=900&h=500&fit=crop"
+                },
+                "caption": "aggregate out-of-the-box schemas",
+                "device": "device iphone-x"
+              }
+            ],
+            "primary": {
+              "columns": 5125,
+              "mobileColumns": 6762,
+              "background": {
                 "dimensions": {
                   "width": 900,
                   "height": 500
                 },
                 "alt": "Placeholder image",
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0?w=900&h=500&fit=crop"
-              },
-              "caption": "embrace best-of-breed e-commerce"
+                "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?w=900&h=500&fit=crop"
+              }
             }
           }
         },

@@ -34,6 +34,12 @@
             "content": 1
           }
         }
+      },
+      "gridWithBackground": {
+        "items": {}
+      },
+      "fullWidth": {
+        "items": {}
       }
     },
     "TextBlock": {
@@ -56,7 +62,8 @@
     },
     "VideoBlock": {
       "default": {
-        "primary": {}
+        "primary": {},
+        "items": {}
       }
     }
   },

@@ -1,50 +1,84 @@
 <template>
-  <div :class="slice.variation">
-    <div
+  <div
+    class="
+      module
+      image-block
+      section
+      my-24
+      mx-4
+      grid
+      items-center
+      gap-4
+      relative
+      rounded-lg
+      lg:mx-8 lg:gap-8
+      bg-cover bg-no-repeat bg-center
+    "
+    :class="
+      'grid-cols-' +
+      slice.primary.mobileColumns +
+      ' md:grid-cols-' +
+      slice.primary.columns +
+      ' ' +
+      slice.variation
+    "
+  >
+    <nuxt-img
+      v-if="slice.primary.background"
+      format="webp"
+      :src="slice.primary.background.url"
+      sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+      :width="slice.primary.background.dimensions.width"
+      :height="slice.primary.background.dimensions.height"
       class="
-        module
-        image-block
-        section
-        py-24
-        px-4
-        mx-4
-        grid
-        gap-4
+        background
+        absolute
+        top-0
+        left-0
+        w-full
+        h-full
         rounded-lg
-        lg:mx-8 lg:gap-8
-        bg-cover bg-no-repeat bg-center
+        object-cover
       "
-      :class="
-        'md:grid-cols-' +
-        slice.primary.columns +
-        ' grid-cols-' +
-        slice.primary.mobileColumns
-      "
-      :style="'background-image: url(' + slice.primary.background.url + ')'"
+      loading="lazy"
+    />
+    <div
+      v-for="(item, index) in slice.items"
+      :key="index"
+      class="col-span-1 relative"
+      :class="'container-' + item.device + '-container'"
     >
-      <div
-        v-for="(item, index) in slice.items"
-        :key="index"
-        class="col-span-1 relative"
-        :class="'container-' + item.device + '-container'"
-      >
-        <div class="image-container" :class="item.device + ' ' + item.align">
-          <nuxt-img
-            v-if="item.image.url"
-            format="webp"
-            :src="item.image.url"
-            sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-            :width="item.image.dimensions.width"
-            :height="item.image.dimensions.height"
-            class="image"
-            loading="lazy"
-          />
-        </div>
-        <prismic-rich-text
-          :field="item.caption"
-          class="image-caption mt-1 uppercase text-xs lg:text-sm"
+      <div v-if="item.device" class="image-container m-4" :class="item.device">
+        <nuxt-img
+          v-if="item.image.url"
+          format="webp"
+          :src="item.image.url"
+          sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+          :width="item.image.dimensions.width"
+          :height="item.image.dimensions.height"
+          class="image"
+          loading="lazy"
+          :alt="item.image.alt"
         />
       </div>
+      <div v-if="!item.device" class="image-container">
+        <nuxt-img
+          v-if="item.image.url"
+          format="webp"
+          :src="item.image.url"
+          sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+          :width="item.image.dimensions.width"
+          :height="item.image.dimensions.height"
+          class="image"
+          loading="lazy"
+        />
+      </div>
+      <figcaption
+        v-if="item.caption"
+        class="image-caption mt-1 uppercase text-xs lg:text-sm"
+      >
+        {{ item.caption }}
+      </figcaption>
     </div>
   </div>
 </template>
@@ -77,45 +111,44 @@ export default {
   top: 1rem;
 }
 
+.gridWithBackground {
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .gridWithBackground {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gridWithBackground {
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .gridWithBackground {
+    padding: 8rem;
+  }
+}
+
 .device {
   box-sizing: border-box;
 }
 
 .mbp-13 {
-  background: url(/mbp-13.webp) center no-repeat;
-  padding: 8.5% 12.75% 11%;
+  background: url(//images.prismic.io/vast-sg/6cc975aa-d409-4e65-a610-a1fe45b83913_mbp-13.png?auto=compress,format&fm=webp)
+    center no-repeat;
+  padding: 3% 11% 7%;
   background-size: contain;
-}
-
-@media (min-width: 768px) {
-  .container-device {
-    margin: 0 5%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-device {
-    margin: 0 10%;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container-device {
-    margin: 0 15%;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container-device {
-    margin: 0 20%;
-  }
 }
 
 .iphone-x {
   background: url(//images.prismic.io/vast-sg/29c187fe-5099-42b1-b56e-ff5d770ca7f2_iphone-x.png?auto=compress,format&fm=webp)
     center no-repeat;
   background-size: contain;
-  padding: 6% 8%;
+  padding: 5% 8%;
 }
 
 .iphone-x img,
@@ -127,8 +160,9 @@ export default {
 }
 
 .ipad-pro-p {
-  background: url(/ipad-pro-p.webp) center no-repeat;
-  padding: 8% 8.4% 7.7%;
+  background: url(//images.prismic.io/vast-sg/516ebd8d-2693-4916-be40-0eb0f7b13403_ipad-pro-p.png?auto=compress,format&fm=webp)
+    center no-repeat;
+  padding: 3.5% 3.5%;
   background-size: contain;
 }
 

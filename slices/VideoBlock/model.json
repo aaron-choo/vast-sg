@@ -11,39 +11,28 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "VideoBlock",
       "primary": {
+        "columns": {
+          "type": "Number",
+          "config": {
+            "label": "Columns",
+            "placeholder": ""
+          }
+        },
+        "mobileColumns": {
+          "type": "Number",
+          "config": {
+            "label": "Mobile Columns",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
         "video": {
           "type": "Link",
           "config": {
             "label": "Video",
             "placeholder": "",
             "select": "media"
-          }
-        },
-        "device": {
-          "type": "Select",
-          "config": {
-            "label": "Device",
-            "placeholder": "",
-            "options": [
-              "device mbp-13",
-              "device iphone-x",
-              "device ipad-pro-l",
-              "device ipad-pro-p"
-            ]
-          }
-        },
-        "align": {
-          "type": "Select",
-          "config": {
-            "label": "Align",
-            "placeholder": "",
-            "options": [
-              "center",
-              "left",
-              "right",
-              "full"
-            ],
-            "default_value": "center"
           }
         },
         "poster": {
@@ -60,9 +49,91 @@
             "label": "Caption",
             "placeholder": ""
           }
+        },
+        "device": {
+          "type": "Select",
+          "config": {
+            "label": "Device",
+            "placeholder": "",
+            "options": [
+              "device mbp-13",
+              "device iphone-x",
+              "device ipad-pro-l",
+              "device ipad-pro-p"
+            ]
+          }
         }
       },
-      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    },
+    {
+      "id": "gridWithBackground",
+      "name": "Grid with Background",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "VideoBlock",
+      "primary": {
+        "columns": {
+          "type": "Number",
+          "config": {
+            "label": "Columns",
+            "placeholder": ""
+          }
+        },
+        "mobileColumns": {
+          "type": "Number",
+          "config": {
+            "label": "Mobile Columns",
+            "placeholder": ""
+          }
+        },
+        "background": {
+          "type": "Image",
+          "config": {
+            "label": "Background",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "Video",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "poster": {
+          "type": "Image",
+          "config": {
+            "label": "Poster",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "caption": {
+          "type": "Text",
+          "config": {
+            "label": "Caption",
+            "placeholder": ""
+          }
+        },
+        "device": {
+          "type": "Select",
+          "config": {
+            "label": "Device",
+            "placeholder": "",
+            "options": [
+              "device mbp-13",
+              "device iphone-x",
+              "device ipad-pro-l",
+              "device ipad-pro-p"
+            ]
+          }
+        }
+      },
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]
