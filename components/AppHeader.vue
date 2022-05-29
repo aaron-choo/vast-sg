@@ -349,13 +349,13 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)
-    window.addEventListener('DOMContentLoaded', (event) => {
+    setTimeout(() => {
       console.log('loaded')
       this.showBubble()
       document
         .querySelector('button.tf-v1-popover-button')
         .addEventListener('click', this.hideBubble)
-    })
+    }, 5000)
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll)
