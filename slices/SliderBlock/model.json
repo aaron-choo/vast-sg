@@ -13,7 +13,7 @@
       "primary": {
         "align": {
           "config": {
-            "label": "align",
+            "label": "Align",
             "placeholder": "",
             "options": [
               "full",
@@ -24,27 +24,86 @@
             "default_value": "full"
           },
           "type": "Select"
+        },
+        "effect": {
+          "type": "Select",
+          "config": {
+            "label": "Effect",
+            "placeholder": "",
+            "options": [
+              "fade",
+              "slide"
+            ],
+            "default_value": "fade"
+          }
+        },
+        "pagination": {
+          "type": "Boolean",
+          "config": {
+            "label": "Pagination",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
+        },
+        "device": {
+          "type": "Select",
+          "config": {
+            "label": "Device",
+            "placeholder": "",
+            "options": [
+              "device mbp-13",
+              "device iphone-x",
+              "device ipad-pro-l",
+              "device ipad-pro-p"
+            ]
+          }
         }
       },
       "items": {
         "image": {
           "config": {
-            "label": "image",
+            "label": "Image",
             "constraint": {},
             "thumbnails": []
           },
           "type": "Image"
         },
         "caption": {
+          "type": "Text",
           "config": {
-            "label": "caption",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-          },
-          "type": "StructuredText"
+            "label": "Caption",
+            "placeholder": ""
+          }
         }
-      }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    },
+    {
+      "id": "imageScroll",
+      "name": "Image Scroll",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "SliderBlock",
+      "primary": {},
+      "items": {
+        "image": {
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          },
+          "type": "Image"
+        },
+        "caption": {
+          "type": "Text",
+          "config": {
+            "label": "Caption",
+            "placeholder": ""
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]
 }

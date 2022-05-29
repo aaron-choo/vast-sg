@@ -65,6 +65,15 @@
         "primary": {},
         "items": {}
       }
+    },
+    "SliderBlock": {
+      "default-slice": {
+        "primary": {},
+        "items": {}
+      },
+      "imageScroll": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

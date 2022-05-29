@@ -12,7 +12,6 @@
       relative
       rounded-lg
       lg:mx-8 lg:gap-8
-      bg-cover bg-no-repeat bg-center
     "
     :class="
       'grid-cols-' +

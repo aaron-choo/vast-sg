@@ -11,7 +11,6 @@
       gap-4
       rounded-lg
       lg:mx-8 lg:gap-8
-      bg-cover bg-no-repeat bg-center
     "
     :class="
       'grid-cols-' +
@@ -29,7 +28,16 @@
       sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
       :width="slice.primary.background.dimensions.width"
       :height="slice.primary.background.dimensions.height"
-      class="background absolute top-0 left-0 w-full h-full rounded-lg"
+      class="
+        background
+        object-cover
+        absolute
+        top-0
+        left-0
+        w-full
+        h-full
+        rounded-lg
+      "
       loading="lazy"
     />
     <div
@@ -105,9 +113,6 @@ video {
   }
 }
 
-.video-container:not(.device) video {
-  border-radius: 0.5rem;
-}
 .device {
   box-sizing: border-box;
 }
@@ -161,5 +166,9 @@ video {
   mask-image: url(/ipad-pro-l-mask.svg);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
+}
+
+.video-container:not(.device) video {
+  border-radius: 0.5rem;
 }
 </style>

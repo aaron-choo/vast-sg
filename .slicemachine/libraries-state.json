@@ -144,7 +144,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "/Users/aaron/Sites/github/vast-sg/.slicemachine/assets/slices/HomeSlider/default-slice/preview.png",
+            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\HomeSlider\\default-slice\\preview.png",
             "width": 800,
             "height": 600
           }
@@ -210,32 +210,6 @@
                       "device ipad-pro-l",
                       "device ipad-pro-p"
                     ]
-                  }
-                }
-              },
-              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
-            },
-            {
-              "id": "fullWidth",
-              "name": "Full Width",
-              "docURL": "...",
-              "version": "sktwi1xtmkfgx8626",
-              "description": "ImageBlock",
-              "primary": {},
-              "items": {
-                "image": {
-                  "config": {
-                    "label": "image",
-                    "constraint": {},
-                    "thumbnails": []
-                  },
-                  "type": "Image"
-                },
-                "caption": {
-                  "type": "Text",
-                  "config": {
-                    "label": "Caption",
-                    "placeholder": ""
                   }
                 }
               },
@@ -550,7 +524,7 @@
               "primary": {
                 "align": {
                   "config": {
-                    "label": "align",
+                    "label": "Align",
                     "placeholder": "",
                     "options": [
                       "full",
@@ -561,25 +535,83 @@
                     "default_value": "full"
                   },
                   "type": "Select"
+                },
+                "effect": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Effect",
+                    "placeholder": "",
+                    "options": [
+                      "fade",
+                      "slide"
+                    ],
+                    "default_value": "fade"
+                  }
+                },
+                "pagination": {
+                  "type": "Boolean",
+                  "config": {
+                    "label": "Pagination",
+                    "placeholder_false": "false",
+                    "placeholder_true": "true",
+                    "default_value": true
+                  }
+                },
+                "device": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Device",
+                    "placeholder": "",
+                    "options": [
+                      "device mbp-13",
+                      "device iphone-x",
+                      "device ipad-pro-l",
+                      "device ipad-pro-p"
+                    ]
+                  }
                 }
               },
               "items": {
                 "image": {
                   "config": {
-                    "label": "image",
+                    "label": "Image",
                     "constraint": {},
                     "thumbnails": []
                   },
                   "type": "Image"
                 },
                 "caption": {
+                  "type": "Text",
                   "config": {
-                    "label": "caption",
-                    "placeholder": "",
-                    "allowTargetBlank": true,
-                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                    "label": "Caption",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            },
+            {
+              "id": "imageScroll",
+              "name": "Image Scroll",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "SliderBlock",
+              "primary": {},
+              "items": {
+                "image": {
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
                   },
-                  "type": "StructuredText"
+                  "type": "Image"
+                },
+                "caption": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Caption",
+                    "placeholder": ""
+                  }
                 }
               },
               "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
@@ -600,15 +632,9 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Do et magna in aute non quis dolore dolore velit nostrud officia labore eu. Anim enim proident pariatur cupidatat id est aute exercitation tempor elit id. Minim aute ad qui qui et eu officia ea consectetur velit aliquip fugiat aliqua laborum.",
-                    "spans": []
-                  }
-                ]
+                "caption": "recontextualize leading-edge vortals"
               },
               {
                 "image": {
@@ -618,15 +644,9 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1593642633279-1796119d5482?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Magna in dolore in cillum magna ex deserunt Lorem do commodo. Elit esse ullamco pariatur fugiat ipsum esse. Lorem duis laborum culpa.",
-                    "spans": []
-                  }
-                ]
+                "caption": "seize scalable e-markets"
               },
               {
                 "image": {
@@ -636,15 +656,70 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab?w=900&h=500&fit=crop"
                 },
-                "caption": [
-                  {
-                    "type": "paragraph",
-                    "text": "Minim consequat cupidatat culpa dolor do ullamco nostrud sunt reprehenderit cupidatat do.",
-                    "spans": []
-                  }
-                ]
+                "caption": "deliver user-centric convergence"
+              }
+            ],
+            "primary": {
+              "align": "full",
+              "effect": "fade",
+              "pagination": false,
+              "device": "device mbp-13"
+            }
+          },
+          "imageScroll": {
+            "variation": "imageScroll",
+            "name": "Image Scroll",
+            "slice_type": "slider_block",
+            "items": [
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88?w=900&h=500&fit=crop"
+                },
+                "caption": "streamline cross-media technologies"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?w=900&h=500&fit=crop"
+                },
+                "caption": "incubate revolutionary channels"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?w=900&h=500&fit=crop"
+                },
+                "caption": "drive seamless convergence"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636?w=900&h=500&fit=crop"
+                },
+                "caption": "cultivate leading-edge portals"
               }
             ],
             "primary": {}
@@ -654,7 +729,13 @@
           "fileName": "index",
           "extension": "vue"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "imageScroll": {
+            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\SliderBlock\\imageScroll\\preview.png",
+            "width": 800,
+            "height": 500
+          }
+        }
       },
       "text_block": {
         "library": "slices",
