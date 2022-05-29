@@ -20,7 +20,16 @@
 <script>
 import gsap from 'gsap'
 export default {
+  watch: {
+    $route() {
+      console.log('route change', this.$route)
+      this.$nextTick(this.init)
+    },
+  },
   mounted() {
+    console.log('mounted')
+    this.$nextTick(this.init)
+
     gsap.defaults({ ease: 'none' })
 
     const svgns = 'http://www.w3.org/2000/svg'
@@ -76,6 +85,39 @@ export default {
       return line
     }
   },
+  beforeDestroy() {
+    console.log('beforeDestroy')
+  },
+  methods: {
+    init() {
+      console.log('init')
+      let links = null
+      console.log(links)
+      setTimeout(() => {
+        links = document.querySelectorAll('a, .send, button, .slider')
+        console.log(links)
+        links.forEach((link) =>
+          link.addEventListener('mouseover', this.enableAnimation)
+        )
+        links.forEach((link) =>
+          link.addEventListener('mouseleave', this.disableAnimation)
+        )
+        document.addEventListener('mousedown', this.enableAnimation)
+        document.addEventListener('mouseup', this.disableAnimation)
+      }, 1000)
+    },
+    changeCursor(a, b) {
+      const mouseCursor = document.querySelector('#app-cursor')
+      mouseCursor.classList.add(a)
+      mouseCursor.classList.remove(b)
+    },
+    enableAnimation() {
+      this.changeCursor('active', 'inactive')
+    },
+    disableAnimation() {
+      this.changeCursor('inactive', 'active')
+    },
+  },
 }
 </script>
 
@@ -113,5 +155,14 @@ html:not(.desktop) #app-cursor {
   stroke-width: 28;
   stroke-linecap: round;
   stroke-linejoin: round;
+  transition: stroke-width 0.3s ease;
+}
+
+#app-cursor.active line {
+  stroke-width: 56;
+}
+
+#app-cursor.click line {
+  stroke-width: 12;
 }
 </style>
