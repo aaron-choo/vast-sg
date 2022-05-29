@@ -97,6 +97,13 @@ export default {
 }
 </script>
 <style scoped>
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 .image-block img {
   width: 100%;
 }

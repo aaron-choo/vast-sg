@@ -153,11 +153,23 @@ export default {
         },
       },
       swiperOptionImageScroll: {
-        slidesPerView: 0.6,
+        slidesPerView: 0.5,
         effect: 'slide',
         grabCursor: true,
         mousewheel: {
-          releaseOnEdges: true,
+          forceToAxis: true,
+        },
+        freeMode: {
+          enabled: true,
+          sticky: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 0.6,
+          },
+          1280: {
+            slidesPerView: 1,
+          },
         },
       },
     }
