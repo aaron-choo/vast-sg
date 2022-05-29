@@ -491,17 +491,6 @@ export default {
         y: '-10%',
         scale: 1.2,
       })
-      gsap.to('.header-media-container', {
-        scrollTrigger: {
-          trigger: '.header-media-container',
-          start: 'top 180',
-          end: 'top top',
-          scrub: true,
-        },
-        marginLeft: 0,
-        marginRight: 0,
-        borderRadius: 0,
-      })
       gsap.to('.header-media-wrapper', {
         scrollTrigger: {
           trigger: '.header-media-container',
