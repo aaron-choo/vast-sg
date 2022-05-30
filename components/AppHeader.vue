@@ -283,8 +283,9 @@
       id="speech-bubble"
       class="
         fixed
-        bottom-10
-        left-12
+        bottom-8
+        left-10
+        xs:bottom-10 xs:left-12
         transition
         duration-300
         rounded-full
@@ -630,8 +631,8 @@ a:hover .u,
 }
 
 .close-bubble {
-  opacity: 0.25;
-  font-size: 1.5rem;
+  opacity: 0.5;
+  font-size: 1rem;
   line-height: 1rem;
   margin: 0.35rem;
 }
