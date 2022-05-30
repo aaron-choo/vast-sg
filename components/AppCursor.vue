@@ -4,16 +4,33 @@
     class="
       fixed
       z-50
-      mix-blend-difference
       left-0
       right-0
       top-0
       bottom-0
       pointer-events-none
       opacity-0
+      mix-blend-difference
     "
   >
-    <svg></svg>
+    <svg class="z-40"></svg>
+    <div
+      class="
+        cursor-text
+        relative
+        w-16
+        h-16
+        -left-8
+        -top-11
+        text-center
+        z-50
+        uppercase
+        heading-font
+        font-medium
+        opacity-0
+      "
+      data-cursor-text=""
+    ></div>
   </div>
 </template>
 
@@ -46,6 +63,10 @@ export default {
       pointer.y = event.clientY
     })
 
+    window.addEventListener('mousemove', (e) => {
+      gsap.to('.cursor-text', 0.1, { x: e.clientX, y: e.clientY })
+    })
+
     let leader = pointer
 
     const total = 1
@@ -56,7 +77,6 @@ export default {
     function createLine(leader, i) {
       const line = document.createElementNS(svgns, 'line')
       root.appendChild(line)
-
       gsap.set(line, { x: -15, y: -15, alpha: (total - i + i) / total })
 
       gsap.to(line, {
@@ -94,16 +114,20 @@ export default {
       let links = null
       console.log(links)
       setTimeout(() => {
-        links = document.querySelectorAll('a, .send, button, .slider')
+        links = document.querySelectorAll('a, button, .swiper-container')
         console.log(links)
         links.forEach((link) =>
-          link.addEventListener('mouseover', this.enableAnimation)
+          link.addEventListener('mouseover', this.startHoverAnimation)
         )
         links.forEach((link) =>
-          link.addEventListener('mouseleave', this.disableAnimation)
+          link.addEventListener('mouseleave', this.endHoverAnimation)
         )
-        document.addEventListener('mousedown', this.enableAnimation)
-        document.addEventListener('mouseup', this.disableAnimation)
+        document.addEventListener('mousedown', this.startClickAnimation)
+        document.addEventListener('mouseup', this.endClickAnimation)
+        this.activateCursor('drag')
+        this.activateCursor('view')
+        this.activateCursor('next')
+        this.activateCursor('prev')
       }, 1000)
     },
     changeCursor(a, b) {
@@ -111,11 +135,34 @@ export default {
       mouseCursor.classList.add(a)
       mouseCursor.classList.remove(b)
     },
-    enableAnimation() {
-      this.changeCursor('active', 'inactive')
+    startHoverAnimation() {
+      this.changeCursor('hover', 'no-hover')
     },
-    disableAnimation() {
-      this.changeCursor('inactive', 'active')
+    endHoverAnimation() {
+      this.changeCursor('no-hover', 'hover')
+    },
+    startClickAnimation() {
+      this.changeCursor('click', 'no-click')
+    },
+    endClickAnimation() {
+      this.changeCursor('no-click', 'click')
+    },
+    activateCursor(a) {
+      const cursorText = document.querySelector('.cursor-text')
+      const enableCursor = function () {
+        cursorText.setAttribute('data-cursor-text', a)
+        cursorText.classList.add('opacity-100')
+      }
+      const disableCursor = function () {
+        cursorText.setAttribute('data-cursor-text', '')
+        cursorText.classList.remove('opacity-100')
+      }
+      document
+        .querySelectorAll('.cursor-' + a)
+        .forEach((link) => link.addEventListener('mouseover', enableCursor))
+      document
+        .querySelectorAll('.cursor-' + a)
+        .forEach((link) => link.addEventListener('mouseleave', disableCursor))
     },
   },
 }
@@ -152,17 +199,26 @@ html:not(.desktop) #app-cursor {
 
 #app-cursor line {
   stroke: var(--color);
-  stroke-width: 28;
+  stroke-width: 24;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transition: stroke-width 0.3s ease;
+  transition: stroke-width 0.1s ease;
 }
 
-#app-cursor.active line {
-  stroke-width: 56;
+#app-cursor.hover line {
+  stroke-width: 48;
 }
 
 #app-cursor.click line {
   stroke-width: 12;
+}
+
+.cursor-text {
+  transition: opacity 0.3s ease;
+}
+
+.cursor-text::after {
+  content: attr(data-cursor-text);
+  color: white;
 }
 </style>
