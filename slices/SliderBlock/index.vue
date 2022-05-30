@@ -10,7 +10,7 @@
         class="swiper-container relative"
         :class="'container-' + slice.primary.device + '-container'"
       >
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper cursor-drag">
           <div
             v-for="(item, index) in slice.items"
             :key="index"
@@ -35,15 +35,11 @@
         ></div>
         <div
           slot="button-prev"
-          class="swiper-button-prev left-0 m-0"
-          @mouseover="cursorPrev()"
-          @mouseleave="cursorReset()"
+          class="swiper-button-prev left-0 m-0 cursor-prev"
         ></div>
         <div
           slot="button-next"
-          class="swiper-button-next right-0 m-0"
-          @mouseover="cursorNext()"
-          @mouseleave="cursorReset()"
+          class="swiper-button-next right-0 m-0 cursor-next"
         ></div>
       </div>
     </div>
@@ -54,7 +50,7 @@
         class="swiper-container relative"
         :class="'container-' + slice.primary.device + '-container'"
       >
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper cursor-drag">
           <div
             v-for="(item, index) in slice.items"
             :key="index"
@@ -79,15 +75,11 @@
         ></div>
         <div
           slot="button-prev"
-          class="swiper-button-prev left-0 m-0"
-          @mouseover="cursorPrev()"
-          @mouseleave="cursorReset()"
+          class="swiper-button-prev left-0 m-0 cursor-prev"
         ></div>
         <div
           slot="button-next"
-          class="swiper-button-next right-0 m-0"
-          @mouseover="cursorNext()"
-          @mouseleave="cursorReset()"
+          class="swiper-button-next right-0 m-0 cursor-next"
         ></div>
       </div>
 
@@ -96,7 +88,7 @@
         v-swiper="swiperOptionImageScroll"
         class="swiper-container relative"
       >
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper cursor-drag">
           <div
             v-for="(item, index) in slice.items"
             :key="index"
@@ -121,7 +113,6 @@
 
 <script>
 import { directive } from 'vue-awesome-swiper'
-import gsap from 'gsap'
 export default {
   name: 'SliderBlock',
   directives: {
@@ -165,39 +156,13 @@ export default {
         },
         breakpoints: {
           768: {
-            slidesPerView: 0.6,
-          },
-          1280: {
-            slidesPerView: 1,
+            slidesPerView: 0.75,
           },
         },
       },
     }
   },
-  methods: {
-    cursorPrev() {
-      const cursor = document.querySelector('.cursor')
-      const cursorSmall = document.querySelector('.cursor-small')
-      document.getElementById('app-cursor').classList.add('prev')
-      gsap.to(cursor, 0.3, { height: 60, width: 60, top: -30, left: -30 })
-      gsap.to(cursorSmall, 0.3, { height: 60, width: 60, top: -30, left: -30 })
-    },
-    cursorNext() {
-      const cursor = document.querySelector('.cursor')
-      const cursorSmall = document.querySelector('.cursor-small')
-      document.getElementById('app-cursor').classList.add('next')
-      gsap.to(cursor, 0.3, { height: 60, width: 60, top: -30, left: -30 })
-      gsap.to(cursorSmall, 0.3, { height: 60, width: 60, top: -30, left: -30 })
-    },
-    cursorReset() {
-      const cursor = document.querySelector('.cursor')
-      const cursorSmall = document.querySelector('.cursor-small')
-      document.getElementById('app-cursor').classList.remove('next')
-      document.getElementById('app-cursor').classList.remove('prev')
-      gsap.to(cursor, 0.3, { height: 16, width: 16, top: -8, left: -8 })
-      gsap.to(cursorSmall, 0.3, { height: 16, width: 16, top: -8, left: -8 })
-    },
-  },
+  methods: {},
 }
 </script>
 <style scoped>

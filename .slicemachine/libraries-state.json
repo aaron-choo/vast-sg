@@ -144,7 +144,7 @@
         },
         "screenshotPaths": {
           "default-slice": {
-            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\HomeSlider\\default-slice\\preview.png",
+            "path": "/Users/aaron/Sites/github/vast-sg/.slicemachine/assets/slices/HomeSlider/default-slice/preview.png",
             "width": 800,
             "height": 600
           }
@@ -731,7 +731,7 @@
         },
         "screenshotPaths": {
           "imageScroll": {
-            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\SliderBlock\\imageScroll\\preview.png",
+            "path": "/Users/aaron/Sites/github/vast-sg/.slicemachine/assets/slices/SliderBlock/imageScroll/preview.png",
             "width": 800,
             "height": 500
           }

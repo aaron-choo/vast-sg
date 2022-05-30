@@ -268,7 +268,7 @@
               project.data.backgroundColor
             "
           >
-            <nuxt-link :to="LinkGetter(project)">
+            <nuxt-link :to="LinkGetter(project)" class="cursor-view">
               <div
                 class="
                   item-overlay
@@ -416,7 +416,6 @@
             transform
             leading-6
           "
-          :class="{ 'has-scroll-over': scrollOver }"
         >
           <span
             class="

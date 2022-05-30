@@ -162,7 +162,10 @@
               project.data.backgroundColor
             "
           >
-            <nuxt-link :to="LinkGetter(project)" class="item-container m-auto">
+            <nuxt-link
+              :to="LinkGetter(project)"
+              class="item-container m-auto cursor-view"
+            >
               <p
                 class="
                   item-meta item-meta-tag
