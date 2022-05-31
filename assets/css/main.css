@@ -302,11 +302,9 @@ body {
   font-feature-settings: 'calt' 0, 'ss03' 1, 'ss05' 1;
   background-color: var(--bg);
   color: var(--color);
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-a {
-  color: var(--color-primary);
-}
+
 hr {
   border-color: var(--color);
 }

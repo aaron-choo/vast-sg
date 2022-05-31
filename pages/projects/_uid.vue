@@ -203,12 +203,7 @@
       <slice-zone type="project" :uid="$route.params.uid" />
     </section>
 
-    <section
-      id="more-projects"
-      class="mt-40 overflow-hidden"
-      style="background: var(--nextbg); color: var(--nextcolor)"
-    >
-      <hr class="h-px w-full opacity-20 mb-10 lg:mb-20" />
+    <section id="more-projects" class="mt-40 px-4 lg:px-8 overflow-hidden">
       <div class="more-projects-container">
         <p
           class="
@@ -218,8 +213,10 @@
             uppercase
             z-0
             m-4
+            lg:my-12
             px-2
             text-center
+            dot
           "
         >
           Next Project
@@ -227,13 +224,9 @@
         <div
           id="next-header-text"
           class="
-            w-full
             flex
             justify-center
-            px-4
-            lg:px-40
-            py-4
-            lg:py-12
+            lg:mx-24 lg:my-12
             text-center
             z-10
             relative
@@ -268,47 +261,37 @@
           v-if="nextProject !== undefined"
           id="next-project-section"
           :to="$prismic.linkResolver(nextProject)"
-          class="
-            next-project-section
-            project-panel
-            pb-4
-            mx-4
-            lg:mx-8
-            block
-            cursor-view
-          "
+          class="block cursor-view transition duration-700 transform"
+          :class="{
+            'opacity-0 translate-y-1/4': !showNextProject,
+            'opacity-100 translate-y-0': showNextProject,
+          }"
         >
-          <div class="w-auto relative">
-            <div
-              v-if="nextProjectImage.url !== undefined"
-              id="next-header-media-container"
-              class="z-0 overflow-hidden w-full rounded-lg h-full"
-            >
-              <div
-                id="next-project-bg"
-                class="h-full w-full pointer-events-none opacity-30 z-10"
-              ></div>
-              <nuxt-img
-                v-if="nextProjectImage.url"
-                id="next-header-image"
-                format="webp"
-                :src="nextProjectImage.url"
-                sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
-                :width="nextProjectImage.dimensions.width"
-                :height="nextProjectImage.dimensions.height"
-                class="
-                  w-full
-                  h-full
-                  object-cover
-                  z-0
-                  pointer-events-none
-                  transform
-                  transition
-                  duration-700
-                "
-                loading="lazy"
-              />
-            </div>
+          <div
+            v-if="nextProjectImage.url !== undefined"
+            id="next-header-media-container"
+            class="z-0 overflow-hidden w-full rounded-lg h-full"
+          >
+            <nuxt-img
+              v-if="nextProjectImage.url"
+              id="next-header-image"
+              format="webp"
+              :src="nextProjectImage.url"
+              sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+              :width="nextProjectImage.dimensions.width"
+              :height="nextProjectImage.dimensions.height"
+              class="
+                w-full
+                h-full
+                object-cover
+                z-0
+                pointer-events-none
+                transform
+                transition
+                duration-1000
+              "
+              loading="lazy"
+            />
           </div>
         </nuxt-link>
       </div>
@@ -421,7 +404,7 @@ export default {
   data() {
     return {
       page: null,
-      scrollOver: false,
+      showNextProject: false,
       swiperOption: {
         slideToClickedSlide: true,
         slidesPerView: 1.2,
@@ -468,6 +451,11 @@ export default {
     )
   },
   mounted() {
+    const gsap = this.$gsap
+    const ExpoScaleEase = this.$ExpoScaleEase
+    const ScrollToPlugin = this.$ScrollToPlugin
+    const ScrollTrigger = this.$ScrollTrigger
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
     this.animations()
     this.headerAnimation()
     document.documentElement.style.setProperty(
@@ -486,21 +474,14 @@ export default {
       '--prevcolor',
       this.prevTextColor
     )
-    const gsap = this.$gsap
-    const ExpoScaleEase = this.$ExpoScaleEase
-    const ScrollToPlugin = this.$ScrollToPlugin
-    const ScrollTrigger = this.$ScrollTrigger
-    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
+    window.addEventListener('scroll', this.changeColors)
     this.$ScrollTrigger.refresh()
   },
   updated() {
     this.$ScrollTrigger.refresh()
   },
   destroyed() {
-    document.documentElement.style.setProperty('--nextbg', '')
-    document.documentElement.style.setProperty('--nextcolor', '')
-    document.documentElement.style.setProperty('--prevbg', '')
-    document.documentElement.style.setProperty('--prevcolor', '')
+    window.removeEventListener('scroll', this.changeColors)
   },
   methods: {
     animations() {
@@ -516,19 +497,6 @@ export default {
           scrub: true,
         },
         y: '10%',
-      })
-      gsap.set('#next-project-section', {
-        translateY: '100%',
-      })
-      gsap.to('#next-project-section', {
-        scrollTrigger: {
-          trigger: '#next-header-text',
-          start: 'bottom 90%',
-          toggleActions: 'play none none reverse',
-        },
-        translateY: '0%',
-        duration: 1,
-        ease: 'Power4.easeOut',
       })
     },
     headerAnimation() {
@@ -564,6 +532,22 @@ export default {
         })
         .delay(0.5)
     },
+    changeColors() {
+      const nextProjectSection = document.querySelector('#more-projects')
+      const scrollFromTop = window.pageYOffset
+      if (
+        scrollFromTop + window.innerHeight / 2 >=
+        nextProjectSection.offsetTop
+      ) {
+        document.body.style.background = 'var(--nextbg)'
+        document.body.style.color = 'var(--nextcolor)'
+        this.showNextProject = true
+      } else {
+        document.body.style.background = 'var(--bg)'
+        document.body.style.color = 'var(--color)'
+        this.showNextProject = false
+      }
+    },
   },
 }
 </script>
@@ -572,38 +556,34 @@ export default {
   margin: 0 0.125em;
 }
 
-.macos .next-project-section {
-  margin-top: -2.75em;
+#next-header-media-container {
+  transform: scaleZ(0);
 }
 
-.windows .next-project-section {
+.macos #next-project-section {
+  margin-top: -1.55em;
+}
+
+.windows #next-project-section {
   margin-top: -2.35em;
 }
 
 @media (min-width: 1024px) {
-  .macos .next-project-section {
-    margin-top: -6.55em;
+  .macos #next-project-section {
+    margin-top: -6.2em;
   }
 
-  .windows .next-project-section {
+  .windows #next-project-section {
     margin-top: -5.65em;
   }
 }
 
-#next-header-media {
-  transform: translateZ(0);
-}
-
-.next-project-section:hover {
-  transform: translateY(0);
-}
-
-a.next-project-section:hover img {
+a#next-project-section:hover img {
   transform: scale(1.02);
 }
 
-#next-project-bg {
-  background: var(--nextbg);
+#next-header-image {
+  min-height: 65vh;
 }
 
 .description:nth-child(n + 3) {

@@ -234,12 +234,6 @@ export default {
 }
 </script>
 <style scoped>
-.footer-container {
-  background: var(--nextbg);
-}
-.footer-container * {
-  color: var(--nextcolor);
-}
 .socials .dot::before {
   color: transparent !important;
   background-clip: text !important;
@@ -285,6 +279,6 @@ a:hover .u,
 
 .u div {
   transform: scaleX(1);
-  background-color: var(--color-primary);
+  background-color: currentColor;
 }
 </style>
