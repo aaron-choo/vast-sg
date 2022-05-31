@@ -685,6 +685,10 @@ span.sep {
   margin-bottom: 6rem;
 }
 
+.grid-item:last-child {
+  margin-bottom: 0;
+}
+
 .grid-item:hover .grid-image,
 .grid-item:hover .grid-video {
   transform: scale(1.02);

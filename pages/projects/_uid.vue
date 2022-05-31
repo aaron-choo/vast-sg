@@ -203,7 +203,11 @@
       <slice-zone type="project" :uid="$route.params.uid" />
     </section>
 
-    <section id="more-projects" class="mt-40 overflow-hidden">
+    <section
+      id="more-projects"
+      class="mt-40 overflow-hidden"
+      style="background: var(--nextbg); color: var(--nextcolor)"
+    >
       <hr class="h-px w-full opacity-20 mb-10 lg:mb-20" />
       <div class="more-projects-container">
         <p
@@ -249,7 +253,7 @@
             <span
               v-for="(word, index) in nextProjectTitleWords"
               :key="index"
-              class="next-title-words inline-block overflow-hidden align-top"
+              class="next-title-words inline-block align-top"
               ><span
                 v-for="(letter, index2) in Array.from(word)"
                 :key="index2"
@@ -264,7 +268,15 @@
           v-if="nextProject !== undefined"
           id="next-project-section"
           :to="$prismic.linkResolver(nextProject)"
-          class="next-project-section project-panel pb-4 mx-4 lg:mx-40 block"
+          class="
+            next-project-section
+            project-panel
+            pb-4
+            mx-4
+            lg:mx-8
+            block
+            cursor-view
+          "
         >
           <div class="w-auto relative">
             <div
@@ -484,7 +496,12 @@ export default {
   updated() {
     this.$ScrollTrigger.refresh()
   },
-  destroyed() {},
+  destroyed() {
+    document.documentElement.style.setProperty('--nextbg', '')
+    document.documentElement.style.setProperty('--nextcolor', '')
+    document.documentElement.style.setProperty('--prevbg', '')
+    document.documentElement.style.setProperty('--prevcolor', '')
+  },
   methods: {
     animations() {
       gsap.set('.header-media-wrapper', {
@@ -506,7 +523,7 @@ export default {
       gsap.to('#next-project-section', {
         scrollTrigger: {
           trigger: '#next-header-text',
-          start: 'center center',
+          start: 'bottom 90%',
           toggleActions: 'play none none reverse',
         },
         translateY: '0%',

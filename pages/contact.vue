@@ -67,15 +67,15 @@
           grid
           gap-8
           md:grid-cols-2
-          text-3xl
-          lg:text-4xl
+          text-2xl
+          lg:text-3xl
           font-light
           uppercase
         "
       >
         <div class="grid gap-8">
           <div>
-            <p class="text-sm lg:text-base uppercase">(Locate Us)</p>
+            <p class="text-sm lg:text-base uppercase dot">Studio</p>
             <a
               class="inline-block relative"
               href="https://maps.google.com/?q=VAST%20632%20Veerasamy%20Road%20#19-102"
@@ -114,7 +114,7 @@
         </div>
         <div class="grid gap-8">
           <div>
-            <p class="text-sm lg:text-base uppercase">(Phone Us)</p>
+            <p class="text-sm lg:text-base uppercase dot">Phone</p>
             <a
               class="inline-block relative"
               href="tel:+6569424062"
@@ -147,7 +147,7 @@
             </a>
           </div>
           <div>
-            <p class="text-sm lg:text-base uppercase">(Email Us)</p>
+            <p class="text-sm lg:text-base uppercase dot">Email</p>
             <a
               class="inline-block relative"
               href="mailto:hello@vast.sg"
@@ -180,7 +180,7 @@
             </a>
           </div>
           <div>
-            <p class="text-sm lg:text-base uppercase">(Follow Us)</p>
+            <p class="text-sm lg:text-base uppercase dot">Follow</p>
             <a
               class="inline-block relative"
               href="https://facebook.com/vast.sg"
