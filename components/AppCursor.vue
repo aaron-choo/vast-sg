@@ -26,7 +26,6 @@
         z-50
         uppercase
         heading-font
-        font-medium
         opacity-0
       "
       data-cursor-text=""
@@ -41,6 +40,8 @@ export default {
     $route() {
       console.log('route change', this.$route)
       this.$nextTick(this.init)
+      this.disableCursorText()
+      this.endHoverAnimation()
     },
   },
   mounted() {
@@ -128,6 +129,10 @@ export default {
         this.activateCursor('view')
         this.activateCursor('next')
         this.activateCursor('prev')
+        this.activateCursor('facebook')
+        this.activateCursor('instagram')
+        this.activateCursor('linkedin')
+        this.activateCursor('dribbble')
       }, 1000)
     },
     changeCursor(a, b) {
@@ -163,6 +168,11 @@ export default {
       document
         .querySelectorAll('.cursor-' + a)
         .forEach((link) => link.addEventListener('mouseleave', disableCursor))
+    },
+    disableCursorText() {
+      const cursorText = document.querySelector('.cursor-text')
+      cursorText.setAttribute('data-cursor-text', '')
+      cursorText.classList.remove('opacity-100')
     },
   },
 }
