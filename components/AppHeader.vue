@@ -375,10 +375,6 @@ export default {
       } else {
         this.scrollOver = false
       }
-      // Here we determine whether we need to show or hide the navbar
-      this.hideOnScroll = currentScrollPosition > this.lastScrollPosition
-      // Set the current scroll position as the last scroll position
-      this.lastScrollPosition = currentScrollPosition
     },
     toggleBgm() {
       this.audio = !this.audio
@@ -565,9 +561,35 @@ a:hover .u,
     transform: rotate(360deg);
   }
 }
+
+#speech-bubble {
+  background: #fffa;
+  color: #222;
+  backdrop-filter: blur(8px);
+}
+
+.close-bubble {
+  opacity: 0.5;
+  font-size: 1rem;
+  line-height: 1rem;
+  margin: 0.35rem;
+}
+
+#speech-bubble:not(.opacity-0) {
+  transition-delay: 1s;
+}
+
+#speech-bubble.opacity-0 {
+  transition-delay: 0;
+}
 </style>
 
 <style>
+.tf-v1-popover {
+  z-index: 20 !important;
+  right: initial !important;
+  left: 16px;
+}
 .tf-v1-popover-button {
   right: initial !important;
   left: 16px;
@@ -615,33 +637,24 @@ a:hover .u,
   filter: drop-shadow(0 2px 6px #00000014);
 }
 
-.tf-v1-popover {
-  right: initial !important;
-  left: 16px;
-}
-
 .tf-v1-popover-wrapper iframe {
   box-shadow: 0 0 0 1px #ebe3d750 !important;
 }
 
-#speech-bubble {
-  background: #fffa;
-  color: #222;
-  backdrop-filter: blur(8px);
+.tf-v1-popover-button-icon::before {
+  content: '';
+  background: url(https://images.prismic.io/vast-sg/b8791049-d501-4dc9-8d1c-6af341544ca0_sunglasses.png?auto=compress,format&fm=webp);
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease;
 }
 
-.close-bubble {
-  opacity: 0.5;
-  font-size: 1rem;
-  line-height: 1rem;
-  margin: 0.35rem;
-}
-
-#speech-bubble:not(.opacity-0) {
-  transition-delay: 1s;
-}
-
-#speech-bubble.opacity-0 {
-  transition-delay: 0;
+.dark-mode .tf-v1-popover-button-icon::before {
+  opacity: 1;
 }
 </style>

@@ -1,40 +1,31 @@
 <template>
-  <footer id="footer" class="footer relative">
-    <hr class="h-px w-full opacity-20" />
+  <footer id="footer" class="footer">
     <div
       class="
-        m-4
-        font-light
-        tracking-tight
-        leading-none
-        text-4xl
-        sm:text-5xl
-        lg:text-7xl
+        footer-container
+        justify-end
+        flex flex-col
+        lg:flex-row
+        gap-4 gap-y-2
+        p-4
+        lg:p-8
+        items-end
         heading-font
         uppercase
-        footer-header-container
-        overflow-hidden
+        text-sm
+        leading-none
+        lg:text-base lg:leading-none
       "
     >
-      <div class="footer-header">
-        <span
-          v-for="(word, index) in footerHeaderWords"
-          :key="index"
-          class="word inline-block overflow-hidden leading-none"
-          ><span
-            v-for="(letter, index2) in Array.from(word)"
-            :key="index2"
-            class="letter inline-block"
-            >{{ letter }}</span
-          >&nbsp;</span
-        >
-      </div>
-    </div>
-    <div class="footer-container relative grid gap-y-2 lg:gap-y-3 m-4 mb-8">
-      <p class="text-sm lg:text-base uppercase">(Socials)</p>
-      <p class="font-light text-2xl sm:text-4xl lg:text-5xl flex gap-x-2">
+      <p
+        class="flex socials gap-4 transition delay-300 duration-700 transform"
+        :class="{
+          'translate-y-0 opacity-100': scrollEnd,
+          '-translate-y-4 opacity-0': !scrollEnd,
+        }"
+      >
         <a
-          class="facebook relative inline-block"
+          class="facebook dot cursor-facebook"
           href="https://facebook.com/vast.sg"
           target="_blank"
           aria-label="Connect with us on Facebook"
@@ -42,48 +33,9 @@
           tabposition="bottom"
           rel="noopener"
         >
-          <div
-            class="
-              social-btn
-              footer-btn
-              rounded-full
-              text-center
-              overflow-hidden
-            "
-          >
-            <div
-              class="
-                btn-txt-wrap
-                h-auto
-                rounded-full
-                overflow-visible
-                transition
-                duration-300
-                relative
-              "
-            >
-              <div
-                class="
-                  btn-txt
-                  transition
-                  duration-300
-                  px-2
-                  md:px-3
-                  lg:px-4
-                  h-auto
-                  flex
-                  justify-center
-                  items-center
-                  relative
-                "
-              >
-                FB
-              </div>
-            </div>
-          </div>
         </a>
         <a
-          class="instagram relative inline-block"
+          class="instagram dot cursor-instagram"
           href="https://instagram.com/vast.sg"
           target="_blank"
           aria-label="Connect with us on Instagram"
@@ -91,48 +43,9 @@
           tabposition="bottom"
           rel="noopener"
         >
-          <div
-            class="
-              social-btn
-              footer-btn
-              rounded-full
-              text-center
-              overflow-hidden
-            "
-          >
-            <div
-              class="
-                btn-txt-wrap
-                h-auto
-                rounded-full
-                overflow-visible
-                transition
-                duration-300
-                relative
-              "
-            >
-              <div
-                class="
-                  btn-txt
-                  transition
-                  duration-300
-                  px-2
-                  md:px-3
-                  lg:px-4
-                  h-auto
-                  flex
-                  justify-center
-                  items-center
-                  relative
-                "
-              >
-                IG
-              </div>
-            </div>
-          </div>
         </a>
         <a
-          class="linkedin relative inline-block"
+          class="linkedin dot cursor-linkedin"
           href="https://www.linkedin.com/company/vast-sg/"
           target="_blank"
           aria-label="Connect with us on LinkedIn"
@@ -140,48 +53,9 @@
           tabposition="bottom"
           rel="noopener"
         >
-          <div
-            class="
-              social-btn
-              footer-btn
-              rounded-full
-              text-center
-              overflow-hidden
-            "
-          >
-            <div
-              class="
-                btn-txt-wrap
-                h-auto
-                rounded-full
-                overflow-visible
-                transition
-                duration-300
-                relative
-              "
-            >
-              <div
-                class="
-                  btn-txt
-                  transition
-                  duration-300
-                  px-2
-                  md:px-3
-                  lg:px-4
-                  h-auto
-                  flex
-                  justify-center
-                  items-center
-                  relative
-                "
-              >
-                IN
-              </div>
-            </div>
-          </div>
         </a>
         <a
-          class="dribbble relative inline-block"
+          class="dribbble dot cursor-dribbble"
           href="https://dribbble.com/vastdesign"
           target="_blank"
           aria-label="Connect with us on Dribbble"
@@ -189,324 +63,193 @@
           tabposition="bottom"
           rel="noopener"
         >
-          <div
-            class="
-              social-btn
-              footer-btn
-              rounded-full
-              text-center
-              overflow-hidden
-            "
+        </a>
+      </p>
+      <p class="flex items-end gap-4 gap-y-2 flex-col lg:flex-row">
+        <span
+          class="flex gap-2 transition delay-400 duration-700 transform"
+          :class="{
+            'translate-y-0 opacity-100': scrollEnd,
+            '-translate-y-4 opacity-0': !scrollEnd,
+          }"
+        >
+          <a
+            class="relative"
+            href="https://maps.google.com/?q=VAST%20632%20Veerasamy%20Road%20#19-102"
+            target="_blank"
+            aria-label="View on map"
+            rel="noopener"
+            ><span>Studio</span>
+            <div
+              class="
+                u
+                left-px
+                origin-right
+                transition
+                duration-500
+                absolute
+                bottom-0
+                h-px
+              "
+            >
+              <div
+                class="
+                  transition-transform
+                  duration-500
+                  origin-left
+                  w-full
+                  h-full
+                "
+              ></div>
+            </div>
+          </a>
+          <a
+            class="relative"
+            href="tel:+6569424062"
+            aria-label="Call us"
+            rel="noopener"
           >
+            <span>Phone</span>
             <div
               class="
-                btn-txt-wrap
-                h-auto
-                rounded-full
-                overflow-visible
+                u
+                left-px
+                origin-right
                 transition
-                duration-300
-                relative
+                duration-500
+                absolute
+                bottom-0
+                h-px
               "
             >
               <div
                 class="
-                  btn-txt
-                  transition
-                  duration-300
-                  px-2
-                  md:px-3
-                  lg:px-4
-                  h-auto
-                  flex
-                  justify-center
-                  items-center
-                  relative
+                  transition-transform
+                  duration-500
+                  origin-left
+                  w-full
+                  h-full
                 "
-              >
-                DR
-              </div>
+              ></div>
             </div>
-          </div>
-        </a>
-      </p>
-      <p class="text-sm lg:text-base uppercase">(Email)</p>
-      <p class="font-light text-2xl sm:text-4xl lg:text-5xl">
-        <a
-          class="relative inline-flex"
-          href="mailto:hello@vast.sg"
-          aria-label="Email us"
-          rel="noopener"
+          </a>
+          <a
+            class="relative"
+            href="mailto:hello@vast.sg"
+            aria-label="Email us"
+            rel="noopener"
+          >
+            <span>Email</span>
+            <div
+              class="
+                u
+                left-px
+                origin-right
+                transition
+                duration-500
+                absolute
+                bottom-0
+                h-px
+              "
+            >
+              <div
+                class="
+                  transition-transform
+                  duration-500
+                  origin-left
+                  w-full
+                  h-full
+                "
+              ></div>
+            </div>
+          </a>
+        </span>
+        <span
+          class="flex gap-4 transition delay-500 duration-700 transform"
+          :class="{
+            'translate-y-0 opacity-50': scrollEnd,
+            '-translate-y-4 opacity-0': !scrollEnd,
+          }"
         >
-          <div class="footer-btn rounded-full text-center overflow-hidden">
+          <a class="relative" href="/" aria-label="Copyright" rel="noopener">
+            <span>Privacy</span>
             <div
               class="
-                btn-txt-wrap
-                h-auto
-                rounded-full
-                overflow-visible
+                u
+                left-px
+                origin-right
                 transition
-                duration-300
-                relative
+                duration-500
+                absolute
+                bottom-0
+                h-px
               "
             >
               <div
                 class="
-                  btn-txt
-                  transition
-                  duration-300
-                  px-2
-                  md:px-3
-                  lg:px-4
-                  h-auto
-                  flex
-                  justify-center
-                  items-center
-                  relative
+                  transition-transform
+                  duration-500
+                  origin-left
+                  w-full
+                  h-full
                 "
-              >
-                HELLO@VAST.SG
-              </div>
+              ></div>
             </div>
-          </div>
-        </a>
+          </a>
+          <p>© 2021-2022</p>
+        </span>
       </p>
-      <p class="text-sm lg:text-base uppercase">(Phone)</p>
-      <p class="font-light text-2xl sm:text-4xl lg:text-5xl">
-        <a
-          class="relative inline-flex"
-          href="tel:+6569424062"
-          aria-label="Call us"
-          rel="noopener"
-        >
-          <div class="footer-btn rounded-full text-center overflow-hidden">
-            <div
-              class="
-                btn-txt-wrap
-                h-auto
-                rounded-full
-                overflow-visible
-                transition
-                duration-300
-                relative
-              "
-            >
-              <div
-                class="
-                  btn-txt
-                  transition
-                  duration-300
-                  px-2
-                  md:px-3
-                  lg:px-4
-                  h-auto
-                  flex
-                  justify-center
-                  items-center
-                  relative
-                "
-              >
-                +65 6942 4062
-              </div>
-            </div>
-          </div>
-        </a>
-      </p>
-      <p class="text-sm lg:text-base uppercase">(Location)</p>
-      <p class="font-light text-2xl sm:text-4xl lg:text-5xl">
-        <a
-          class="relative inline-flex"
-          href="https://maps.google.com/?q=VAST%20632%20Veerasamy%20Road%20#19-102"
-          target="_blank"
-          aria-label="View on map"
-          rel="noopener"
-        >
-          <div class="footer-btn rounded-full text-center overflow-hidden">
-            <div
-              class="
-                btn-txt-wrap
-                h-auto
-                rounded-full
-                overflow-visible
-                transition
-                duration-300
-                relative
-              "
-            >
-              <div
-                class="
-                  btn-txt
-                  transition
-                  duration-300
-                  px-2
-                  md:px-3
-                  lg:px-4
-                  h-auto
-                  flex
-                  justify-center
-                  items-center
-                  relative
-                "
-              >
-                STUDIO VAST
-              </div>
-            </div>
-          </div>
-        </a>
-      </p>
-    </div>
-    <div class="copyright flex items-end justify-end p-4 opacity-50">
-      <div class="copyright-text text-base mr-px">©</div>
-      <div class="footer-logo-container h-6 w-24">
-        <Logo class="logo" />
-      </div>
     </div>
   </footer>
 </template>
 <script>
-import gsap from 'gsap'
-import Logo from '@/components/Logo'
 export default {
   name: 'AppFooter',
-  components: {
-    Logo,
-  },
+  components: {},
   data() {
     return {
+      scrollEnd: false,
       footerHeaderWords: Array.from('Building something awesome?'.split(' ')),
     }
   },
   mounted() {
-    this.animations()
-    const gsap = this.$gsap
-    const ExpoScaleEase = this.$ExpoScaleEase
-    const ScrollToPlugin = this.$ScrollToPlugin
-    const ScrollTrigger = this.$ScrollTrigger
-    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
+    window.addEventListener('scroll', this.checkScrollEnd)
   },
-  updated() {
-    this.animations()
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.checkScrollEnd)
   },
-  destroyed() {},
   methods: {
-    animations() {
-      gsap.set('.footer-header .letter', {
-        scaleY: 0,
-        rotate: -22,
-        rotateX: 90,
-        transformOrigin: '0% 50% -50',
-      })
-      window.onscroll = function (ev) {
-        if (
-          window.innerHeight + window.scrollY >=
-          document.body.offsetHeight - 550
-        ) {
-          gsap.to('.footer-header .letter', {
-            translateY:
-              -(
-                document.body.offsetHeight -
-                window.innerHeight -
-                window.scrollY
-              ) / 4,
-            scaleY:
-              1 -
-              (document.body.offsetHeight -
-                window.innerHeight -
-                window.scrollY) /
-                500,
-            rotate:
-              (-(
-                document.body.offsetHeight -
-                window.innerHeight -
-                window.scrollY
-              ) /
-                500) *
-              22,
-            rotateX:
-              (-(
-                document.body.offsetHeight -
-                window.innerHeight -
-                window.scrollY
-              ) /
-                500) *
-              90,
-            stagger: 0.02,
-            duration: 1,
-            ease: 'Power4.easeOut',
-          })
-        }
+    checkScrollEnd() {
+      if (
+        window.innerHeight + window.scrollY + 32 >=
+        document.body.offsetHeight
+      ) {
+        console.log('reached end')
+        this.scrollEnd = true
+      } else {
+        this.scrollEnd = false
       }
     },
   },
 }
 </script>
 <style scoped>
-#footer {
-  max-width: 100vw;
-}
-
 .footer-container {
-  grid-template-columns: 6em 1fr;
+  background: var(--nextbg);
 }
-
-@media (min-width: 1024px) {
-  .footer-container {
-    grid-template-columns: 9em 1fr;
-  }
+.footer-container * {
+  color: var(--nextcolor);
 }
-
-.footer-header .word:nth-child(n + 2) {
-  margin-top: -0.4em;
+.socials .dot::before {
+  color: transparent !important;
+  background-clip: text !important;
+  margin: 0;
 }
-
-.footer-btn {
-  transform: translateZ(0);
-}
-
-.btn-txt-wrap::after,
-.btn-txt-wrap::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 1em;
-  transition: transform 0.3s, background 0.3s;
-}
-
-.btn-txt-wrap::before {
-  z-index: 0;
-  background-color: var(--color);
-  opacity: 0.1;
-}
-
-.btn-txt-wrap::after {
-  z-index: 1;
-  transform: scaleY(0);
-  transform-origin: top;
-  background: var(--color);
-}
-
-.btn-txt {
-  z-index: 2;
-  min-width: 1.8em;
-}
-
-.btn-txt:hover {
-  color: var(--bg);
-}
-
-.social-btn .btn-txt:hover {
-  color: #fff;
-}
-
-.facebook .btn-txt-wrap::after {
+.facebook.dot::before {
   background: #4267b2;
 }
 
-.instagram .btn-txt-wrap::after {
+.instagram.dot::before {
   background: linear-gradient(
     225deg,
     rgba(79, 91, 213, 1) 0%,
@@ -517,11 +260,11 @@ export default {
   );
 }
 
-.linkedin .btn-txt-wrap::after {
+.linkedin.dot::before {
   background: #2867b2;
 }
 
-.dribbble .btn-txt-wrap::after {
+.dribbble.dot::before {
   background: linear-gradient(
     225deg,
     rgb(219, 73, 130) 0%,
@@ -529,12 +272,19 @@ export default {
   );
 }
 
-.btn-txt-wrap:hover::after {
-  transform: scaleY(1);
-  transform-origin: bottom;
+.u {
+  width: calc(100% - 1px);
+  transform: scaleX(0);
 }
 
-.copyright-text {
-  line-height: 0.7;
+a:hover .u,
+.site-nav-body:not(.hover) .nuxt-link-exact-active .u {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.u div {
+  transform: scaleX(1);
+  background-color: var(--color-primary);
 }
 </style>
