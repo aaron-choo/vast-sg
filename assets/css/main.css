@@ -352,4 +352,5 @@ h1, h2, h3, h4, h5 ,h6, .heading-font {
 .dot::before {
   content: '\25CF';
   margin-right: .68em;
+  font-family: 'Freigeist', sans-serif;
 }
