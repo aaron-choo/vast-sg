@@ -4,7 +4,17 @@
       <div class="w-full overflow-hidden">
         <div
           id="header-text"
-          class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
+          class="
+            w-full
+            flex flex-col
+            justify-center
+            px-4
+            lg:px-8
+            py-32
+            pt-44
+            lg:py-52 lg:pt-60
+            relative
+          "
         >
           <h1
             id="header-title"
@@ -53,6 +63,7 @@
       <div
         class="
           m-4
+          lg:mx-8
           mb-24
           grid
           gap-8
@@ -66,6 +77,7 @@
         <div class="grid gap-8">
           <div>
             <p class="text-sm lg:text-base uppercase dot">Studio</p>
+            <h2>632 Veerasamy Road<br />#19-102 (S)200632</h2>
             <a
               class="inline-block relative"
               href="https://maps.google.com/?q=VAST%20632%20Veerasamy%20Road%20#19-102"
@@ -170,7 +182,7 @@
             </a>
           </div>
           <div>
-            <p class="text-sm lg:text-base uppercase dot">Follow</p>
+            <p class="text-sm lg:text-base uppercase dot">Socials</p>
             <a
               class="inline-block relative"
               href="https://facebook.com/vast.sg"
@@ -311,10 +323,10 @@
       </div>
       <div
         class="
-          m-4
+          mx-4
+          lg:mx-8
           grid
           gap-8
-          md:grid-cols-2
           text-3xl
           lg:text-4xl
           font-light
@@ -448,20 +460,4 @@ export default {
   },
 }
 </script>
-<style scoped>
-.u {
-  width: calc(100% - 1px);
-  transform: scaleX(0);
-}
 
-a:hover .u,
-.site-nav-body:not(.hover) .nuxt-link-exact-active .u {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-.u div {
-  transform: scaleX(1);
-  background-color: var(--color-primary);
-}
-</style>

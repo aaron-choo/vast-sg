@@ -822,21 +822,3 @@ export default {
   opacity: 1;
 }
 </style>
-<style>
-.title *,
-.summary * {
-  display: inline-block;
-}
-
-.summary p::before {
-  content: '(';
-}
-
-.summary p::after {
-  content: ')';
-}
-
-:root.dark-mode .module.slider-block {
-  filter: invert(1);
-}
-</style>

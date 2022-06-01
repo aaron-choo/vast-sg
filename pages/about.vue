@@ -3,7 +3,17 @@
     <section class="about-header z-0 overflow-hidden">
       <div
         id="header-text"
-        class="w-full flex flex-col justify-center p-4 py-52 pt-60 relative"
+        class="
+          w-full
+          flex flex-col
+          justify-center
+          px-4
+          lg:px-8
+          py-32
+          pt-44
+          lg:py-52 lg:pt-60
+          relative
+        "
       >
         <h1
           id="header-title"
@@ -40,6 +50,144 @@
       </div>
     </section>
     <section class="content">
+      <div
+        class="
+          m-4
+          lg:mx-8
+          mb-24
+          grid
+          gap-8
+          md:grid-cols-2
+          text-2xl
+          lg:text-3xl
+          font-light
+        "
+      >
+        <div class="grid gap-8">
+          <div>
+            <p class="text-sm lg:text-base uppercase dot">
+              Multi-Disciplinary Design
+            </p>
+            <p class="heading-font">
+              We’re a design practice in the business of crafting identities.
+              From intangible ideas to tactile products; physical spaces to
+              virtual experiences, we craft impactful responses that drive
+              engagement and produce results.
+            </p>
+            <p class="heading-font indent-16">
+              Always embarking on projects with the creativity and rigour of an
+              architectural approach, we are grounded by experience and insights
+              across multiple sectors, in a convergence of culture, innovation
+              and commerce.
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-8">
+          <div>
+            <p class="text-sm lg:text-base uppercase dot">People</p>
+            <nuxt-img
+              format="webp"
+              :src="image.url"
+              sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+              :width="image.dimensions.width"
+              :height="image.dimensions.height"
+              class="w-2/3 h-auto rounded-lg my-4"
+              loading="lazy"
+            />
+            <a
+              class="inline-block relative"
+              href="mailto:aaron@vast.sg"
+              aria-label="Email Aaron"
+              rel="noopener"
+            >
+              <h2 class="font-normal">Aaron Choo</h2>
+              <div
+                class="
+                  u
+                  left-px
+                  origin-right
+                  transition
+                  duration-500
+                  absolute
+                  bottom-0
+                  h-px
+                "
+              >
+                <div
+                  class="
+                    transition-transform
+                    duration-500
+                    origin-left
+                    w-full
+                    h-full
+                  "
+                ></div>
+              </div>
+            </a>
+            <p class="heading-font">
+              After spending years in architectural firms of varying scales,
+              Aaron saw an opportunity to bring together his passion for digital
+              design and his multi-disciplinary skills honed over a decade of
+              architectural training.
+            </p>
+            <p class="heading-font indent-16">
+              He approaches all projects with a critical eye, and understands
+              the importance of strategic thinking and iterative design in order
+              to drive results.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="m-4 lg:mx-8 mb-24 grid gap-8 text-2xl lg:text-3xl font-light">
+        <div class="grid gap-8">
+          <div>
+            <p class="text-sm lg:text-base uppercase dot">Our Capabilities</p>
+            <div class="grid gap-8 md:grid-cols-3">
+              <div>
+                <h2 class="font-normal mb-4">Branding & Communication</h2>
+                <ul class="heading-font">
+                  <li>Brand strategy</li>
+                  <li>Brand identity</li>
+                  <li>Print</li>
+                  <li>Editorial design</li>
+                  <li>Retail design</li>
+                  <li>Packaging design</li>
+                  <li>Copywriting</li>
+                </ul>
+              </div>
+              <div>
+                <h2 class="font-normal mb-4">
+                  Digital Design & Web Development
+                </h2>
+                <ul class="heading-font">
+                  <li>UI/UX</li>
+                  <li>Headless CMS</li>
+                  <li>E-commerce</li>
+                  <li>Search engine optimization</li>
+                  <li>Responsive design</li>
+                  <li>Accessible design</li>
+                  <li>Process optimization</li>
+                  <li>Systems integration</li>
+                </ul>
+              </div>
+              <div>
+                <h2 class="font-normal mb-4">
+                  Interior Design & Architectural Visualization
+                </h2>
+                <ul class="heading-font">
+                  <li>Residential design</li>
+                  <li>Commercial design</li>
+                  <li>Construction coordination</li>
+                  <li>Technical drafting</li>
+                  <li>BIM</li>
+                  <li>3D modeling</li>
+                  <li>Architectural visualization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <slice-zone type="about_page" queryType="single" />
     </section>
   </main>
@@ -169,5 +317,9 @@ export default {
 
 #about-copy p:not(:first-child) {
   text-indent: 5em;
+}
+
+.indent-16 {
+  text-indent: 4rem;
 }
 </style>

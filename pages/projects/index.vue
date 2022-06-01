@@ -9,8 +9,9 @@
           justify-center
           px-4
           lg:px-8
-          py-52
-          pt-60
+          py-32
+          pt-44
+          lg:py-52 lg:pt-60
           relative
         "
       >
