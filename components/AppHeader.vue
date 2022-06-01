@@ -1,11 +1,19 @@
 <template>
   <header class="header relative z-20">
     <div
-      class="logo-wrap fixed top-4 left-4 transition duration-300"
-      :class="{ 'has-scroll-over opacity-0 pointer-events-none': scrollOver }"
+      class="
+        logo-wrap
+        fixed
+        top-4
+        left-4
+        lg:top-8 lg:left-8
+        transition
+        duration-300
+      "
+      :class="{ 'has-scroll-over': scrollOver }"
     >
       <nuxt-link to="/" class="logo">
-        <Logo class="w-28 logo" />
+        <Logo class="w-24 lg:w-28 logo" />
       </nuxt-link>
     </div>
     <div
@@ -13,7 +21,8 @@
         music-switcher
         fixed
         top-4
-        right-4
+        right-48
+        lg:top-8
         transition
         duration-300
         rounded-full
@@ -43,8 +52,8 @@
             xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px"
             y="0px"
-            height="28"
-            width="28"
+            height="24"
+            width="24"
             viewBox="0 0 60 60"
             style="enable-background: new 0 0 60 60"
             xml:space="preserve"
@@ -64,7 +73,8 @@
         mode-switcher
         fixed
         top-4
-        right-16
+        right-32
+        lg:top-8
         transition
         duration-300
         rounded-full
@@ -82,8 +92,8 @@
             class="
               relative
               flex
-              h-5
-              w-5
+              h-4
+              w-4
               m-1
               justify-center
               leading-none
@@ -97,8 +107,8 @@
           toggle
           bg-current
           absolute
-          h-5
-          w-5
+          h-4
+          w-4
           rounded-full
           top-1
           left-1
@@ -109,12 +119,23 @@
       ></div>
     </div>
     <nav
-      class="site-nav fixed top-4 right-4 transition duration-300 transform"
+      class="
+        site-nav
+        fixed
+        top-4
+        right-4
+        lg:top-8
+        transition
+        duration-300
+        transform
+      "
       :class="{
-        'has-scroll-over pointer-events-none -translate-y-4 md:translate-y-0 translate-x-4 md:translate-x-0':
-          scrollOver,
-        'menu-open pointer-events-auto': menuOpen,
-        '-translate-y-8': !scrollOver,
+        'has-scroll-over pointer-events-none': scrollOver,
+        '-translate-y-4  translate-x-7 lg:-translate-y-4 lg:translate-x-3':
+          scrollOver && !menuOpen,
+        'menu-open pointer-events-auto -translate-y-4 translate-x-4 lg:-translate-y-4  lg:translate-x-0':
+          scrollOver && menuOpen,
+        '-translate-y-14 translate-x-4 mt-px': !scrollOver,
       }"
     >
       <div
@@ -136,7 +157,7 @@
       >
         <a
           href="#"
-          class="flex justify-center items-center px-2 h-14 mt-4 w-full"
+          class="flex justify-center items-center px-2 h-10 mt-2 w-full"
         >
           <div class="menu-btn rounded-full text-center overflow-hidden">
             <div
@@ -161,6 +182,9 @@
                   justify-center
                   items-center
                   relative
+                  heading-font
+                  font-medium
+                  tracking-wider
                 "
               >
                 MENU
@@ -171,7 +195,7 @@
       </div>
       <div class="site-nav-origin">
         <div
-          class="site-nav-body transition duration-300 relative z-10 px-6"
+          class="site-nav-body relative z-10 px-6"
           :class="{
             'opacity-0 pointer-events-none': scrollOver,
             'pointer-events-auto opacity-100 delay-200': menuOpen,
@@ -197,7 +221,7 @@
                     u
                     left-px
                     origin-right
-                    transition
+                    transition-transform
                     duration-500
                     absolute
                     bottom-0
@@ -223,7 +247,7 @@
             >
               <nuxt-link :to="'/' + link" class="relative">
                 <span
-                  class="link-text tracking-tight uppercase"
+                  class="link-text tracking-tight uppercase heading-font"
                   @mouseover="linkHover = true"
                   @mouseleave="linkHover = false"
                   >{{ link }}</span
@@ -233,7 +257,7 @@
                     u
                     left-px
                     origin-right
-                    transition
+                    transition-transform
                     duration-500
                     absolute
                     bottom-0
@@ -401,10 +425,9 @@ export default {
   color: var(--bg);
 }
 
-.has-scroll-over.logo-wrap,
 .has-scroll-over.mode-switcher,
 .has-scroll-over.music-switcher {
-  transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -100%, 0);
 }
 
 .music-switcher,
@@ -426,53 +449,60 @@ export default {
 }
 
 .has-scroll-over.site-nav li a {
-  bottom: 1em;
+  bottom: 1.5em;
   color: var(--bg);
   opacity: 0;
+  transition-property: opacity, bottom;
+  transition-timing-function: ease;
+  transition-duration: 0.6s;
 }
 
 .site-nav:not(.has-scroll-over) li a {
   bottom: 0;
-  transition: 0.6s ease 0.1s, color 0.3s ease;
+  transition-property: opacity, bottom;
+  transition-timing-function: ease;
+  transition-duration: 0.6s;
 }
 
 .site-nav:not(.has-scroll-over) li:nth-child(2) a {
-  transition: 0.6s ease 0.2s, color 0.3s ease;
+  transition-delay: 0.2s;
 }
 
 .site-nav:not(.has-scroll-over) li:nth-child(3) a {
-  transition: 0.6s ease 0.3s, color 0.3s ease;
+  transition-delay: 0.3s;
 }
 
 .site-nav:not(.has-scroll-over) li:nth-child(4) a {
-  transition: 0.6s ease 0.4s, color 0.3s ease;
+  transition-delay: 0.4s;
 }
 
 .site-nav:not(.has-scroll-over) li:nth-child(5) a {
-  transition: 0.6s ease 0.5s, color 0.3s ease;
+  transition-delay: 0.5s;
 }
 
 .has-scroll-over.menu-open.site-nav li a {
   bottom: 0;
   opacity: 1;
   color: var(--bg);
-  transition: 0.6s ease 0.1s, color 0.3s ease;
+  transition-property: opacity, bottom;
+  transition-timing-function: ease;
+  transition-duration: 0.6s;
 }
 
 .has-scroll-over.menu-open.site-nav li:nth-child(2) a {
-  transition: 0.6s ease 0.2s, color 0.3s ease;
+  transition-delay: 0.2s;
 }
 
 .has-scroll-over.menu-open.site-nav li:nth-child(3) a {
-  transition: 0.6s ease 0.3s, color 0.3s ease;
+  transition-delay: 0.3s;
 }
 
 .has-scroll-over.menu-open.site-nav li:nth-child(4) a {
-  transition: 0.6s ease 0.4s, color 0.3s ease;
+  transition-delay: 0.4s;
 }
 
 .has-scroll-over.menu-open.site-nav li:nth-child(5) a {
-  transition: 0.6s ease 0.5s, color 0.3s ease;
+  transition-delay: 0.5s;
 }
 
 .menu-open .btn-txt {
@@ -545,7 +575,7 @@ a:hover .u,
 }
 
 .dark-mode .toggle {
-  transform: translateX(1.75em);
+  transform: translateX(1.5em);
 }
 
 .dark-mode .mode-switcher {
