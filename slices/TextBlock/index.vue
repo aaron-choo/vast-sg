@@ -1,26 +1,16 @@
 <template>
   <div
-    class="
-      module
-      text-block
-      section
-      my-24
-      mx-4
-      lg:mx-40
-      grid grid-cols-12
-      gap-4
-    "
+    class="module text-block section my-24 mx-4 lg:mx-8 grid grid-cols-12 gap-4"
   >
     <h4
       class="
         title
         tracking-tight
         leading-none
-        uppercase
-        text-2xl
-        lg:text-3xl lg:leading-none
-        col-span-10 col-start-3
-        lg:col-start-1 lg:col-span-4
+        text-4xl
+        lg:text-5xl lg:leading-none
+        col-span-10 col-start-1
+        lg:col-start-1 lg:col-span-6
       "
     >
       {{ $prismic.asText(slice.primary.title) }}
@@ -32,8 +22,8 @@
         leading-tight
         text-base
         lg:text-lg lg:leading-tight
-        col-span-10 col-start-3
-        lg:col-start-5 lg:col-span-8
+        col-span-10 col-start-1
+        lg:col-start-8 lg:col-span-5
       "
     />
   </div>

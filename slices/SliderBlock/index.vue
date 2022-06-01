@@ -67,13 +67,69 @@
             class="swiper-slide px-4 lg:px-8"
           >
             <nuxt-img
-              v-if="item.image.url"
+              v-if="
+                item.image.url &&
+                (slice.primary.slidesPerView === 1 ||
+                  !slice.primary.slidesPerView)
+              "
               format="webp"
               :src="item.image.url"
               sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
               :width="item.image.dimensions.width"
               :height="item.image.dimensions.height"
               class="image rounded-lg"
+              loading="lazy"
+            />
+            <nuxt-img
+              v-if="
+                item.image.url &&
+                slice.primary.slidesPerView > 1 &&
+                slice.primary.slidesPerView <= 2
+              "
+              format="webp"
+              :src="item.image.url"
+              sizes="sm:50vw md:50vw lg:50vw xl:50vw 2xl:50vw"
+              :width="item.image.dimensions.width"
+              :height="item.image.dimensions.height"
+              class="image"
+              loading="lazy"
+            />
+            <nuxt-img
+              v-if="
+                item.image.url &&
+                slice.primary.slidesPerView > 2 &&
+                slice.primary.slidesPerView <= 3
+              "
+              format="webp"
+              :src="item.image.url"
+              sizes="sm:33vw md:33vw lg:33vw xl:33vw 2xl:33vw"
+              :width="item.image.dimensions.width"
+              :height="item.image.dimensions.height"
+              class="image"
+              loading="lazy"
+            />
+            <nuxt-img
+              v-if="
+                item.image.url &&
+                slice.primary.slidesPerView > 3 &&
+                slice.primary.slidesPerView <= 4
+              "
+              format="webp"
+              :src="item.image.url"
+              sizes="sm:25vw md:25vw lg:25vw xl:25vw 2xl:25vw"
+              :width="item.image.dimensions.width"
+              :height="item.image.dimensions.height"
+              class="image"
+              loading="lazy"
+            />
+            <nuxt-img
+              v-if="item.image.url && slice.primary.slidesPerView > 4"
+              format="webp"
+              :src="item.image.url"
+              sizes="sm:20vw md:20vw lg:20vw xl:20vw 2xl:20vw"
+              :width="item.image.dimensions.width"
+              :height="item.image.dimensions.height"
+              class="image"
               loading="lazy"
             />
           </div>
@@ -147,10 +203,17 @@ export default {
   data() {
     return {
       swiperOption: {
-        effect: this.slice.primary.effect,
+        effect: this.slice.primary.effect || 'fade',
+        slidesPerView: this.slice.primary.slidesPerView
+          ? this.slice.primary.slidesPerView
+          : 1,
+        autoplay: this.slice.primary.autoplay
+          ? { delay: 1500, disableOnInteraction: false }
+          : false,
         grabCursor: true,
         autoHeight: true,
         loop: true,
+        centeredSlides: true,
         pagination: {
           el: '.swiper-pagination',
           type: 'fraction',
@@ -159,10 +222,26 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+        breakpoints: {
+          768: {
+            slidesPerView: this.slice.primary.slidesPerView
+              ? this.slice.primary.slidesPerView + 1
+              : 1,
+          },
+          1024: {
+            slidesPerView: this.slice.primary.slidesPerView
+              ? this.slice.primary.slidesPerView + 2
+              : 1,
+          },
+          1280: {
+            slidesPerView: this.slice.primary.slidesPerView
+              ? this.slice.primary.slidesPerView + 3
+              : 1,
+          },
+        },
       },
       swiperOptionImageScroll: {
-        slidesPerView: 0.5,
-        effect: 'slide',
+        slidesPerView: 0.55,
         grabCursor: true,
 
         breakpoints: {
@@ -209,6 +288,8 @@ img {
   position: absolute;
   mix-blend-mode: difference;
   color: white;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 .swiper-container {
   mask-image: -webkit-radial-gradient(white, black);

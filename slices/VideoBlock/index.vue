@@ -11,6 +11,7 @@
       gap-4
       rounded-lg
       lg:mx-8 lg:gap-8
+      items-center
     "
     :class="
       'grid-cols-' +
@@ -86,13 +87,6 @@ export default {
 </script>
 
 <style scoped>
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 video {
   width: 100%;
   height: auto;

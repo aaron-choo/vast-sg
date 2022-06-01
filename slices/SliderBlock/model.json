@@ -58,6 +58,22 @@
               "device ipad-pro-p"
             ]
           }
+        },
+        "slidesPerView": {
+          "type": "Number",
+          "config": {
+            "label": "Slides Per View",
+            "placeholder": ""
+          }
+        },
+        "autoplay": {
+          "type": "Boolean",
+          "config": {
+            "label": "Autoplay",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {

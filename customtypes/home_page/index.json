@@ -49,7 +49,13 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "home_slider": {
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "slider_block": {
+              "type": "SharedSlice"
+            },
+            "video_block": {
               "type": "SharedSlice"
             },
             "text_block": {
