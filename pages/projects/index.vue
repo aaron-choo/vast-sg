@@ -49,16 +49,7 @@
         </h1>
         <p
           id="header-description"
-          class="
-            inline-block
-            text-2xl
-            lg:text-3xl
-            transition
-            duration-300
-            leading-7
-            transform
-          "
-          :class="{ 'has-scroll-over': scrollOver }"
+          class="inline-block text-2xl lg:text-3xl leading-7 transform"
         >
           <span
             class="intro text-sm lg:text-base uppercase inline-block mr-16 dot"
@@ -355,22 +346,6 @@
                     v-if="page.contactImage.url"
                     format="webp"
                     :src="page.contactImage.url"
-                    sizes="sm:18"
-                    :width="page.contactImage.dimensions.width"
-                    :height="page.contactImage.dimensions.height"
-                    class="
-                      grid-image
-                      image-placeholder
-                      w-full
-                      h-full
-                      relative
-                      z-0
-                    "
-                  />
-                  <nuxt-img
-                    v-if="page.contactImage.url"
-                    format="webp"
-                    :src="page.contactImage.url"
                     sizes="sm:100vw md:100vw lg:100vw xl:50vw 2xl:50vw"
                     :width="page.contactImage.dimensions.width"
                     :height="page.contactImage.dimensions.height"
@@ -378,10 +353,9 @@
                       grid-image
                       w-full
                       h-full
-                      transition
+                      relative
+                      transition-transform
                       duration-1000
-                      absolute
-                      top-0
                     "
                     loading="lazy"
                   />
@@ -481,7 +455,6 @@ export default {
     return {
       page: null,
       filterOpen: false,
-      scrollOver: false,
       linkHover: false,
     }
   },
@@ -498,12 +471,9 @@ export default {
     }
   },
   beforeMount() {
-    document.documentElement.style.setProperty('--bg', this.backgroundColor)
-    document.documentElement.style.setProperty(
-      '--color-primary',
-      this.textColor
-    )
-    document.documentElement.style.setProperty('--color', this.textColor)
+    this.rootVariable('--bg', this.backgroundColor)
+    this.rootVariable('--color-primary', this.textColor)
+    this.rootVariable('--color', this.textColor)
   },
   mounted() {
     this.headerAnimation()
@@ -523,6 +493,9 @@ export default {
   methods: {
     LinkGetter(post) {
       return LinkResolver(post)
+    },
+    rootVariable(a, b) {
+      document.documentElement.style.setProperty(a, b)
     },
     gridAnimation() {
       const gridItems = document.getElementsByClassName('grid-item')

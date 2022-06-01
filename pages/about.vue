@@ -23,17 +23,7 @@
         </h1>
         <p
           id="header-description"
-          class="
-            inline-block
-            tag
-            text-2xl
-            lg:text-3xl
-            transition
-            duration-300
-            leading-3
-            transform
-          "
-          :class="{ 'has-scroll-over': scrollOver }"
+          class="inline-block tag text-2xl lg:text-3xl leading-3 transform"
         >
           <span
             class="intro text-sm lg:text-base uppercase inline-block mr-16 dot"
@@ -87,7 +77,6 @@ export default {
   data() {
     return {
       page: null,
-      scrollOver: false,
     }
   },
   head() {
@@ -103,12 +92,9 @@ export default {
     }
   },
   beforeMount() {
-    document.documentElement.style.setProperty('--bg', this.backgroundColor)
-    document.documentElement.style.setProperty(
-      '--color-primary',
-      this.textColor
-    )
-    document.documentElement.style.setProperty('--color', this.textColor)
+    this.rootVariable('--bg', this.backgroundColor)
+    this.rootVariable('--color-primary', this.textColor)
+    this.rootVariable('--color', this.textColor)
   },
   mounted() {
     this.headerAnimation()
@@ -116,6 +102,9 @@ export default {
   updated() {},
   destroyed() {},
   methods: {
+    rootVariable(a, b) {
+      document.documentElement.style.setProperty(a, b)
+    },
     headerAnimation() {
       gsap.set('.title-words span', {
         scaleY: 0,

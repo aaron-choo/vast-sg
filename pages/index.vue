@@ -398,23 +398,39 @@
           <div
             class="scroller-slide relative self-end lg:col-span-5 mb-10 md:mb-0"
           >
-            <a>View all projects</a>
+            <nuxt-link
+              to="/projects"
+              class="
+                link
+                inline-block
+                uppercase
+                font-light
+                text-2xl
+                lg:text-3xl
+                leading-none
+                lg:leading-none
+              "
+              >View all projects
+              <span class="link-arrow inline-block align-bottom"
+                >→</span
+              ></nuxt-link
+            >
           </div>
         </div>
       </div>
     </section>
     <section>
-      <div class="description-section section my-24 px-4 lg:px-40">
+      <div class="description-section section grid my-24 px-4 lg:px-8">
         <p
           id="home-description"
           class="
             inline-block
+            leading-none
             text-2xl
-            lg:text-3xl
+            lg:text-3xl lg:leading-none
             transition
             duration-300
             transform
-            leading-6
           "
         >
           <span
@@ -429,23 +445,48 @@
               -mb-4
               dot
             "
-            >Who we are</span
-          ><span class="home-description-words inline serif font-light"
-            >{{ homedescription }}
-          </span>
+            >Multi-disciplinary Design Studio</span
+          ><span class="home-description serif font-light"
+            >Vast is a design studio with a focus on branding and communication,
+            digital design and web development, as well as interior design and
+            architectural visualization.<br />Founded in 2021, the studio
+            provides branding and design services to small- and medium sized
+            businesses.</span
+          >
         </p>
+        <nuxt-link
+          to="/about"
+          class="
+            link
+            inline-block
+            uppercase
+            font-light
+            text-2xl
+            lg:text-3xl
+            leading-none
+            lg:leading-none
+            mt-8
+            text-right
+          "
+          >About us
+          <span class="link-arrow inline-block align-bottom">→</span></nuxt-link
+        >
       </div>
     </section>
+    <slice-zone type="home_page" queryType="single" />
   </main>
 </template>
 
 <script>
 import gsap from 'gsap'
 import { directive } from 'vue-awesome-swiper'
+import SliceZone from 'vue-slicezone'
 import LinkResolver from '~/plugins/link-resolver.js'
 export default {
   name: 'HomePage',
-  components: {},
+  components: {
+    SliceZone,
+  },
   directives: {
     swiper: directive,
   },
@@ -468,8 +509,6 @@ export default {
         textColor: pageContent.textColor,
         recentprojects: recentprojects.results,
         intro: pageContent.intro,
-        homedescription:
-          'Vast is a design studio with a focus on branding and communication, digital design and web development, as well as interior design and architectural visualization.',
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -505,12 +544,9 @@ export default {
     }
   },
   beforeMount() {
-    document.documentElement.style.setProperty('--bg', this.backgroundColor)
-    document.documentElement.style.setProperty(
-      '--color-primary',
-      this.textColor
-    )
-    document.documentElement.style.setProperty('--color', this.textColor)
+    this.rootVariable('--bg', this.backgroundColor)
+    this.rootVariable('--color-primary', this.textColor)
+    this.rootVariable('--color', this.textColor)
   },
   mounted() {
     window.addEventListener('scroll', this.headerScroll)
@@ -531,6 +567,9 @@ export default {
   methods: {
     LinkGetter(post) {
       return LinkResolver(post)
+    },
+    rootVariable(a, b) {
+      document.documentElement.style.setProperty(a, b)
     },
     heroAnimation() {
       gsap.set('.title-words:nth-child(n+7)', {
@@ -715,9 +754,6 @@ export default {
     transform: translateY(0);
   }
 }
-.home-description-words {
-  padding-right: 0.29em;
-}
 .scroller-media-container {
   transform: translateZ(0);
 }
@@ -733,6 +769,11 @@ export default {
 
 .scroller-slide {
   margin-bottom: 6rem;
+}
+
+.scroller-slide:nth-child(5),
+.scroller-slide:nth-child(6) {
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 767px) {
@@ -793,5 +834,9 @@ export default {
 
 .summary p::after {
   content: ')';
+}
+
+:root.dark-mode .module.slider-block {
+  filter: invert(1);
 }
 </style>

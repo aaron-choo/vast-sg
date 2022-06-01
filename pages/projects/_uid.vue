@@ -40,12 +40,9 @@
               capitalize
               text-2xl
               lg:text-3xl
-              transition
-              duration-300
               transform
               leading-6
             "
-            :class="{ 'has-scroll-over': scrollOver }"
           >
             <span
               class="
@@ -155,9 +152,19 @@
             ><a
               :href="projectLink"
               target="_blank"
-              class="live-link uppercase font-light text-2xl lg:text-3xl"
+              class="
+                live-link
+                inline-block
+                uppercase
+                font-light
+                text-2xl
+                leading-none
+                lg:text-3xl lg:leading-none
+              "
               >Visit Website
-              <span class="live-link-arrow inline-block">↗</span></a
+              <span class="live-link-arrow inline-block align-bottom"
+                >↗</span
+              ></a
             >
           </p>
         </div>
@@ -209,12 +216,9 @@
           class="
             next-project-label
             text-sm
-            lg:text-lg
+            lg:text-base
             uppercase
             z-0
-            m-4
-            lg:my-12
-            px-2
             text-center
             dot
           "
@@ -223,14 +227,7 @@
         </p>
         <div
           id="next-header-text"
-          class="
-            flex
-            justify-center
-            lg:mx-24 lg:my-12
-            text-center
-            z-10
-            relative
-          "
+          class="flex justify-center my-6 lg:mx-24 lg:my-8 text-center relative"
         >
           <h3
             id="next-header-title"
@@ -270,7 +267,7 @@
           <div
             v-if="nextProjectImage.url !== undefined"
             id="next-header-media-container"
-            class="z-0 overflow-hidden w-full rounded-lg h-full"
+            class="overflow-hidden w-full rounded-lg h-full relative"
           >
             <nuxt-img
               v-if="nextProjectImage.url"
@@ -285,13 +282,31 @@
                 h-full
                 object-cover
                 z-0
-                pointer-events-none
-                transform
-                transition
+                relative
+                transition-transform
                 duration-1000
               "
               loading="lazy"
             />
+
+            <video
+              v-if="nextProjectVideo.url"
+              :poster="nextProjectImage.url"
+              class="
+                absolute
+                top-0
+                h-full
+                transition-transform
+                duration-1000
+                object-cover
+              "
+              autoplay
+              muted
+              loop
+              playsinline
+            >
+              <source :src="nextProjectVideo.url" type="video/mp4" />
+            </video>
           </div>
         </nuxt-link>
       </div>
@@ -384,6 +399,7 @@ export default {
         ),
         nextProjectTags: NextProject.tags,
         nextProjectImage: NextProject.data.image,
+        nextProjectVideo: NextProject.data.video,
         nextTextColor: NextProject.data.textColor,
         nextBackgroundColor: NextProject.data.backgroundColor,
         prevProject: PrevProject,
@@ -437,18 +453,13 @@ export default {
     }
   },
   beforeMount() {
-    document.documentElement.style.setProperty(
-      '--bg',
-      this.page.data.backgroundColor
-    )
-    document.documentElement.style.setProperty(
-      '--color-primary',
-      this.page.data.textColor
-    )
-    document.documentElement.style.setProperty(
-      '--color',
-      this.page.data.textColor
-    )
+    this.rootVariable('--bg', this.page.data.backgroundColor)
+    this.rootVariable('--color-primary', this.page.data.textColor)
+    this.rootVariable('--color', this.page.data.textColor)
+    this.rootVariable('--nextbg', this.nextBackgroundColor)
+    this.rootVariable('--nextcolor', this.nextTextColor)
+    this.rootVariable('--prevbg', this.prevBackgroundColor)
+    this.rootVariable('--prevcolor', this.prevTextColor)
   },
   mounted() {
     const gsap = this.$gsap
@@ -456,24 +467,7 @@ export default {
     const ScrollToPlugin = this.$ScrollToPlugin
     const ScrollTrigger = this.$ScrollTrigger
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ExpoScaleEase)
-    this.animations()
     this.headerAnimation()
-    document.documentElement.style.setProperty(
-      '--nextbg',
-      this.nextBackgroundColor
-    )
-    document.documentElement.style.setProperty(
-      '--nextcolor',
-      this.nextTextColor
-    )
-    document.documentElement.style.setProperty(
-      '--prevbg',
-      this.prevBackgroundColor
-    )
-    document.documentElement.style.setProperty(
-      '--prevcolor',
-      this.prevTextColor
-    )
     window.addEventListener('scroll', this.changeColors)
     this.$ScrollTrigger.refresh()
   },
@@ -484,21 +478,6 @@ export default {
     window.removeEventListener('scroll', this.changeColors)
   },
   methods: {
-    animations() {
-      gsap.set('.header-media-wrapper', {
-        y: '-10%',
-        scale: 1.2,
-      })
-      gsap.to('.header-media-wrapper', {
-        scrollTrigger: {
-          trigger: '.header-media-container',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        },
-        y: '10%',
-      })
-    },
     headerAnimation() {
       gsap.set('.title-words span', {
         scaleY: 0,
@@ -531,6 +510,22 @@ export default {
           ease: 'Power4.easeOut',
         })
         .delay(0.5)
+      gsap.set('.header-media-wrapper', {
+        y: '-10%',
+        scale: 1.2,
+      })
+      gsap.to('.header-media-wrapper', {
+        scrollTrigger: {
+          trigger: '.header-media-container',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+        y: '10%',
+      })
+    },
+    rootVariable(a, b) {
+      document.documentElement.style.setProperty(a, b)
     },
     changeColors() {
       const nextProjectSection = document.querySelector('#more-projects')
@@ -539,12 +534,12 @@ export default {
         scrollFromTop + window.innerHeight / 2 >=
         nextProjectSection.offsetTop
       ) {
-        document.body.style.background = 'var(--nextbg)'
-        document.body.style.color = 'var(--nextcolor)'
+        this.rootVariable('--bg', this.nextBackgroundColor)
+        this.rootVariable('--color', this.nextTextColor)
         this.showNextProject = true
       } else {
-        document.body.style.background = 'var(--bg)'
-        document.body.style.color = 'var(--color)'
+        this.rootVariable('--bg', this.page.data.backgroundColor)
+        this.rootVariable('--color', this.page.data.textColor)
         this.showNextProject = false
       }
     },
@@ -557,28 +552,21 @@ export default {
 }
 
 #next-header-media-container {
-  transform: scaleZ(0);
+  transform: translateZ(0);
 }
 
-.macos #next-project-section {
-  margin-top: -1.55em;
-}
-
-.windows #next-project-section {
-  margin-top: -2.35em;
+#next-project-section {
+  margin-top: -3.1em;
 }
 
 @media (min-width: 1024px) {
-  .macos #next-project-section {
-    margin-top: -6.2em;
-  }
-
-  .windows #next-project-section {
-    margin-top: -5.65em;
+  #next-project-section {
+    margin-top: -5.1em;
   }
 }
 
-a#next-project-section:hover img {
+#next-project-section:hover img,
+#next-project-section:hover video {
   transform: scale(1.02);
 }
 
@@ -593,5 +581,41 @@ a#next-project-section:hover img {
 
 span.sep {
   padding-right: 0.29em;
+}
+
+.live-link-arrow {
+  position: relative;
+  overflow: hidden;
+  color: transparent;
+}
+.live-link-arrow::before {
+  color: var(--color);
+  content: '↗';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.live-link-arrow::after {
+  color: var(--color);
+  content: '↗';
+  position: absolute;
+  right: 1em;
+  bottom: -1em;
+  width: 100%;
+  height: 100%;
+}
+.live-link:hover .live-link-arrow::before,
+.live-link:hover .live-link-arrow::after {
+  animation: livelinkarrow 1s infinite;
+}
+@keyframes livelinkarrow {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(1em, -1em);
+  }
 }
 </style>
