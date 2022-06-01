@@ -298,7 +298,7 @@
       "
       :class="{ 'opacity-0 pointer-events-none': !bubbleVisible }"
     >
-      <span>Like what we do?</span>
+      <span>Hello there!👋</span>
       <button
         class="
           close-bubble
@@ -573,6 +573,7 @@ a:hover .u,
   font-size: 1rem;
   line-height: 1rem;
   margin: 0.35rem;
+  margin-left: 0.1rem;
 }
 
 #speech-bubble:not(.opacity-0) {
@@ -586,7 +587,7 @@ a:hover .u,
 
 <style>
 .tf-v1-popover {
-  z-index: 20 !important;
+  z-index: 50 !important;
   right: initial !important;
   left: 16px;
 }

@@ -18,10 +18,18 @@
       "
     >
       <p
-        class="flex socials gap-4 transition delay-300 duration-700 transform"
+        class="
+          flex
+          socials
+          gap-4
+          transition-opacity
+          delay-300
+          duration-700
+          transform
+        "
         :class="{
-          'translate-y-0 opacity-100': scrollEnd,
-          '-translate-y-4 opacity-0': !scrollEnd,
+          'opacity-100': scrollEnd,
+          'opacity-0': !scrollEnd,
         }"
       >
         <a
@@ -67,10 +75,10 @@
       </p>
       <p class="flex items-end gap-4 gap-y-2 flex-col lg:flex-row">
         <span
-          class="flex gap-2 transition delay-400 duration-700 transform"
+          class="flex gap-2 transition-opacity delay-400 duration-700 transform"
           :class="{
-            'translate-y-0 opacity-100': scrollEnd,
-            '-translate-y-4 opacity-0': !scrollEnd,
+            'opacity-100': scrollEnd,
+            'opacity-0': !scrollEnd,
           }"
         >
           <a
@@ -165,13 +173,18 @@
           </a>
         </span>
         <span
-          class="flex gap-4 transition delay-500 duration-700 transform"
+          class="flex gap-4 transition-opacity delay-500 duration-700 transform"
           :class="{
-            'translate-y-0 opacity-50': scrollEnd,
-            '-translate-y-4 opacity-0': !scrollEnd,
+            'opacity-100': scrollEnd,
+            'opacity-0': !scrollEnd,
           }"
         >
-          <a class="relative" href="/" aria-label="Copyright" rel="noopener">
+          <nuxt-link
+            class="relative opacity-50"
+            to="/"
+            aria-label="Privacy Policy"
+            rel="noopener"
+          >
             <span>Privacy</span>
             <div
               class="
@@ -195,8 +208,8 @@
                 "
               ></div>
             </div>
-          </a>
-          <p>© 2021-2022</p>
+          </nuxt-link>
+          <p class="opacity-50">© 2021-2022</p>
         </span>
       </p>
     </div>
