@@ -7,6 +7,12 @@ module.exports = {
         './pages/**.vue',
         './pages/**/*.vue',
     ],
+    safelist: [
+        {
+            pattern: /grid-cols-(2|3|4|5|6)/,
+            variants: ['lg'],
+        }
+    ],
     theme: {
         screens: {
             'xs': '480px',
@@ -25,6 +31,12 @@ module.exports = {
                 '900': '900ms',
                 '1100': '1100ms',
                 '1200': '1200ms',
+            },
+            spacing: {
+                '1/5': '20%',
+                '2/5': '40%',
+                '3/5': '60%',
+                '4/5': '80%',
             }
         },
     },

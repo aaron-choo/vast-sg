@@ -388,3 +388,27 @@ h1, h2, h3, h4, h5 ,h6, .heading-font {
     transform: translateX(1em);
   }
 }
+
+.module:last-child {
+  margin-bottom: 0;
+}
+
+:root.dark-mode .module.dark-invert-true {
+  filter:invert(1);
+}
+
+.u {
+  width: calc(100% - 1px);
+  transform: scaleX(0);
+}
+
+a:hover .u,
+.site-nav-body:not(.hover) .nuxt-link-exact-active .u {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.u div {
+  transform: scaleX(1);
+  background-color: var(--color-primary);
+}
