@@ -1,7 +1,13 @@
 <template>
   <div
     class="module slider-block section my-24"
-    :class="slice.primary.align + ' ' + slice.primary.device"
+    :class="
+      slice.primary.align +
+      ' ' +
+      slice.primary.device +
+      ' dark-invert-' +
+      slice.primary.darkModeInvert
+    "
   >
     <div
       v-if="slice.primary.device"

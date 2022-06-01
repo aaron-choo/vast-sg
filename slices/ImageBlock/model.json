@@ -24,6 +24,15 @@
             "label": "Mobile Columns",
             "placeholder": ""
           }
+        },
+        "darkModeInvert": {
+          "type": "Boolean",
+          "config": {
+            "label": "Dark Mode Invert",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
         }
       },
       "items": {
