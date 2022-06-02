@@ -111,46 +111,52 @@
       </div>
       <div class="m-4 lg:mx-8 mb-24 grid gap-8 text-2xl lg:text-3xl font-light">
         <div class="grid gap-8">
-          <div>
-            <p class="text-sm lg:text-base uppercase dot">Our Capabilities</p>
-            <div class="grid gap-4 md:grid-cols-3">
-              <div>
-                <h2>Branding & Communication</h2>
-                <ul class="text-base lg:text-lg">
-                  <li>Brand strategy</li>
-                  <li>Brand identity</li>
-                  <li>Print</li>
-                  <li>Editorial design</li>
-                  <li>Retail design</li>
-                  <li>Packaging design</li>
-                  <li>Copywriting</li>
-                </ul>
-              </div>
-              <div>
-                <h2>Digital Design & Web Development</h2>
-                <ul class="text-base lg:text-lg">
-                  <li>UI/UX</li>
-                  <li>Headless CMS</li>
-                  <li>E-commerce</li>
-                  <li>Search engine optimization</li>
-                  <li>Responsive design</li>
-                  <li>Accessible design</li>
-                  <li>Process optimization</li>
-                  <li>Systems integration</li>
-                </ul>
-              </div>
-              <div>
-                <h2>Interior Design & Architectural Visualization</h2>
-                <ul class="text-base lg:text-lg">
-                  <li>Residential design</li>
-                  <li>Commercial design</li>
-                  <li>Construction coordination</li>
-                  <li>Technical drafting</li>
-                  <li>BIM</li>
-                  <li>3D modeling</li>
-                  <li>Architectural visualization</li>
-                </ul>
-              </div>
+          <div class="grid gap-8 md:grid-cols-2">
+            <div>
+              <p class="text-sm lg:text-base uppercase dot">Our Capabilities</p>
+              <p class="heading-font">
+                We help brands connect with their audience through methodical
+                research, strategic thinking, progressive technology and
+                responsible design.
+              </p>
+            </div>
+            <div></div>
+            <div>
+              <h2>Branding & Communication</h2>
+              <ul class="text-base lg:text-lg">
+                <li>Brand strategy</li>
+                <li>Brand identity</li>
+                <li>Print</li>
+                <li>Editorial design</li>
+                <li>Retail design</li>
+                <li>Packaging design</li>
+                <li>Copywriting</li>
+              </ul>
+            </div>
+            <div>
+              <h2>Digital Design & Web Development</h2>
+              <ul class="text-base lg:text-lg">
+                <li>UI/UX</li>
+                <li>Headless CMS</li>
+                <li>E-commerce</li>
+                <li>Search engine optimization</li>
+                <li>Responsive design</li>
+                <li>Accessible design</li>
+                <li>Process optimization</li>
+                <li>Systems integration</li>
+              </ul>
+            </div>
+            <div>
+              <h2>Interior Design & Architectural Visualization</h2>
+              <ul class="text-base lg:text-lg">
+                <li>Residential design</li>
+                <li>Commercial design</li>
+                <li>Construction coordination</li>
+                <li>Technical drafting</li>
+                <li>BIM</li>
+                <li>3D modeling</li>
+                <li>Architectural visualization</li>
+              </ul>
             </div>
           </div>
         </div>
