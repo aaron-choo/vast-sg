@@ -13,7 +13,7 @@
       :class="{ 'has-scroll-over': scrollOver }"
     >
       <nuxt-link to="/" class="logo">
-        <Logo class="w-24 lg:w-28 logo" />
+        <Logo class="w-24 logo" />
       </nuxt-link>
     </div>
     <div
@@ -21,8 +21,8 @@
         music-switcher
         fixed
         top-4
-        right-48
-        lg:top-8
+        right-20
+        lg:right-24 lg:top-8
         transition
         duration-300
         rounded-full
@@ -73,8 +73,8 @@
         mode-switcher
         fixed
         top-4
-        right-32
-        lg:top-8
+        right-4
+        lg:right-8 lg:top-8
         transition
         duration-300
         rounded-full
@@ -131,11 +131,11 @@
       "
       :class="{
         'has-scroll-over pointer-events-none': scrollOver,
-        '-translate-y-4  translate-x-7 lg:-translate-y-4 lg:translate-x-3':
+        '-translate-y-4 lg:-translate-y-4 translate-x-4 lg:translate-x-0':
           scrollOver && !menuOpen,
-        'menu-open pointer-events-auto -translate-y-4 translate-x-4 lg:-translate-y-4  lg:translate-x-0':
+        'menu-open pointer-events-auto -translate-y-4  lg:-translate-y-4 translate-x-4 lg:translate-x-0':
           scrollOver && menuOpen,
-        '-translate-y-14 translate-x-4 mt-px': !scrollOver,
+        '-translate-y-2 translate-x-4 lg:translate-x-0': !scrollOver,
       }"
     >
       <div
@@ -148,17 +148,14 @@
           z-10
           relative
           transform
-          scale-90
+          scale-100
         "
         :class="{ 'pointer-events-auto opacity-100 scale-100': scrollOver }"
         @mouseover="menuOpen = true"
         @mouseleave="menuOpen = false"
         @click.prevent="menuOpen = true"
       >
-        <a
-          href="#"
-          class="flex justify-center items-center px-2 h-10 mt-2 w-full"
-        >
+        <a href="#" class="flex justify-end items-center px-4 h-6 mt-4 w-full">
           <div class="menu-btn rounded-full text-center overflow-hidden">
             <div
               class="
@@ -171,24 +168,7 @@
                 relative
               "
             >
-              <div
-                class="
-                  btn-txt
-                  transition
-                  duration-300
-                  px-2
-                  h-auto
-                  flex
-                  justify-center
-                  items-center
-                  relative
-                  heading-font
-                  font-medium
-                  tracking-wider
-                "
-              >
-                MENU
-              </div>
+              <div class="btn-txt transition duration-300 p-3 relative"></div>
             </div>
           </div>
         </a>
@@ -203,7 +183,7 @@
           }"
         >
           <ul
-            class="pb-6"
+            class="pb-6 heading-font"
             @mouseover="menuOpen = true"
             @mouseleave="menuOpen = false"
             @click="menuOpen = false"
@@ -247,7 +227,7 @@
             >
               <nuxt-link :to="'/' + link" class="relative">
                 <span
-                  class="link-text tracking-tight uppercase heading-font"
+                  class="link-text tracking-tight uppercase"
                   @mouseover="linkHover = true"
                   @mouseleave="linkHover = false"
                   >{{ link }}</span
@@ -289,7 +269,8 @@
             left-0
             p-1
             opacity-0
-            scale-90
+            transform
+            scale-95
             z-0
             transition
             duration-300
@@ -322,7 +303,7 @@
       "
       :class="{ 'opacity-0 pointer-events-none': !bubbleVisible }"
     >
-      <span>Hello there!👋</span>
+      <span>Hi there!👋</span>
       <button
         class="
           close-bubble
@@ -420,14 +401,9 @@ export default {
 }
 </script>
 <style scoped>
-.menu-btn {
-  background-color: var(--color);
-  color: var(--bg);
-}
-
 .has-scroll-over.mode-switcher,
 .has-scroll-over.music-switcher {
-  transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -25%, 0);
 }
 
 .music-switcher,
@@ -504,11 +480,6 @@ export default {
 .has-scroll-over.menu-open.site-nav li:nth-child(5) a {
   transition-delay: 0.5s;
 }
-
-.menu-open .btn-txt {
-  color: var(--color);
-}
-
 .btn-txt-wrap::after,
 .btn-txt-wrap::before {
   content: '';
@@ -531,7 +502,8 @@ export default {
   z-index: 1;
   transform: scaleY(0);
   transform-origin: bottom;
-  background-color: var(--bg);
+  background: var(--bg);
+  opacity: 0.25;
 }
 
 .menu-open .btn-txt-wrap::after {

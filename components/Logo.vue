@@ -67,7 +67,7 @@
         w-full
         transition
         duration-700
-        opacity-70
+        opacity-80
       "
     >
       <svg
@@ -179,14 +179,15 @@ svg {
   transition-timing-function: ease;
   transition-duration: 0.7s;
 }
+
 .logo-block.has-scroll-over svg:nth-child(2) {
-  transform: translateX(-50%);
+  transform: translateX(-30%);
 }
 .logo-block.has-scroll-over svg:nth-child(3) {
-  transform: translateX(-100%);
+  transform: translateX(-60%);
 }
 .logo-block.has-scroll-over svg:nth-child(4) {
-  transform: translateX(-150%);
+  transform: translateX(-90%);
 }
 .logo-block.has-scroll-over:hover svg {
   transform: translateX(0);
