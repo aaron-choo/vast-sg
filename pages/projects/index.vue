@@ -71,7 +71,7 @@
         <div
           class="
             filter-container
-            pt-14
+            pt-16
             lg:sticky
             lg:top-0
             lg:h-screen
@@ -110,6 +110,7 @@
                   lg:text-right
                   transition
                   duration-300
+                  cursor-filter
                 "
                 data-filter="*"
                 @click="filter('*'), (currentFilter = 'filter')"
@@ -123,7 +124,13 @@
               <button
                 :class="'filter-button ' + tag"
                 :data-filter="tag"
-                class="uppercase lg:text-right transition duration-300"
+                class="
+                  cursor-filter
+                  uppercase
+                  lg:text-right
+                  transition
+                  duration-300
+                "
                 @click="
                   filter('.' + tag), (currentFilter = tag.replace('-', ' '))
                 "
@@ -133,11 +140,63 @@
                 {{ tag.replace('-', ' ') }}
               </button>
             </li>
+
+            <li
+              class="
+                view-mode
+                absolute
+                bottom-0
+                right-0
+                lg:relative
+                flex
+                justify-end
+                mt-4
+                gap-3
+                lg:mr-8
+              "
+            >
+              <button
+                class="list-view-button cursor-list"
+                @mousedown="activateListView()"
+              >
+                <span class="block w-5 relative" style="padding-top: 75%">
+                  <span
+                    class="
+                      absolute
+                      top-0
+                      left-0
+                      w-full
+                      h-full
+                      flex flex-col
+                      justify-between
+                    "
+                  >
+                    <span class="color-fill h-1/4"></span>
+                    <span class="color-fill h-1/4"></span>
+                    <span class="color-fill h-1/4"></span>
+                  </span>
+                </span>
+              </button>
+              <button
+                class="grid-view-button active cursor-grid"
+                @mousedown="activateGridView()"
+              >
+                <span
+                  class="block w-5 color-fill relative"
+                  style="padding-top: 75%"
+                >
+                </span>
+              </button>
+            </li>
           </ul>
         </div>
         <div
           v-if="projects.length > 0"
-          class="isotope project-grid pt-12 transition duration-700"
+          class="isotope project-grid transition duration-700"
+          :class="{
+            'pt-10 list-view': listView,
+            'pt-16 grid-view': !listView,
+          }"
         >
           <div
             v-for="project in projects"
@@ -168,15 +227,20 @@
                   2xl:text-lg 2xl:leading-tight
                   uppercase
                   inline-block
-                  mb-2
                   z-20
                   transition
                   duration-300
                   pointer-events-none
                   relative
                   dot
-                  md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
+                  mb-2
                 "
+                :class="{
+                  'md:opacity-100 md:relative md:top-0 md:left-0 md:right-0 mt-6':
+                    listView,
+                  'md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4':
+                    !listView,
+                }"
               >
                 <span>
                   {{ $prismic.asText(project.data.summary) }}
@@ -196,12 +260,10 @@
                 > -->
               </p>
               <div
-                class="
-                  grid-media-container
-                  block
-                  overflow-hidden
-                  rounded-lg
-                  relative
+                class="grid-media-container overflow-hidden rounded-lg block"
+                :class="
+                  ({ ' relative': !listView },
+                  { 'hidden pointer-events-none': listView })
                 "
               >
                 <div
@@ -274,14 +336,18 @@
                   justify-between
                   items-start
                   tracking-tight
-                  mt-2
                   z-30
                   transition
                   duration-300
                   pointer-events-none
-                  md:opacity-0 md:absolute md:bottom-4 md:left-4 md:right-4
                   heading-font
                 "
+                :class="{
+                  'md:opacity-100 md:relative md:bottom-0 md:left-0 md:right-0 mb-6':
+                    listView,
+                  'mt-2 md:opacity-0 md:absolute md:bottom-4 md:left-4 md:right-4':
+                    !listView,
+                }"
               >
                 {{ $prismic.asText(project.data.title)
                 }}<span class="date font-light tracking-normal">{{
@@ -289,6 +355,13 @@
                 }}</span>
               </div>
             </nuxt-link>
+            <div
+              class="list-separator"
+              :class="{
+                'block h-px w-full opacity-25': listView,
+                'hidden pointer-events-none': !listView,
+              }"
+            ></div>
           </div>
           <div
             :class="allTags"
@@ -296,53 +369,55 @@
             style="--project-color: white; --project-bg-color: black"
           >
             <nuxt-link to="/contact">
-              <div
-                class="
-                  item-overlay
-                  hidden
-                  absolute
-                  top-0
-                  left-0
-                  right-0
-                  bottom-0
-                  md:block
-                  z-10
-                  transition
-                  duration-300
-                  rounded-lg
-                  opacity-0
-                  pointer-events-none
-                "
-              ></div>
               <p
                 class="
                   item-meta item-meta-tag
                   text-sm
-                  lg:text-base
-                  2xl:text-lg
+                  leading-tight
+                  lg:text-base lg:leading-tight
+                  2xl:text-lg 2xl:leading-tight
                   uppercase
                   inline-block
-                  mb-2
-                  z-10
+                  z-20
                   transition
                   duration-300
                   pointer-events-none
                   relative
                   dot
-                  md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4
+                  mb-2
                 "
+                :class="{
+                  'md:opacity-100 md:relative md:top-0 md:left-0 md:right-0 mt-6':
+                    listView,
+                  'md:opacity-0 md:absolute md:top-4 md:left-4 md:right-4':
+                    !listView,
+                }"
               >
                 <span class="inline-block">Have a great idea?</span>
               </p>
               <div
-                class="
-                  grid-media-container
-                  block
-                  overflow-hidden
-                  rounded-lg
-                  relative
+                class="grid-media-container block overflow-hidden rounded-lg"
+                :class="
+                  ({ ' relative': !listView },
+                  { 'hidden pointer-events-none': listView })
                 "
               >
+                <div
+                  class="
+                    item-overlay
+                    hidden
+                    absolute
+                    top-0
+                    left-0
+                    right-0
+                    bottom-0
+                    md:block md:z-20
+                    transition-opacity
+                    duration-300
+                    opacity-0
+                    pointer-events-none
+                  "
+                ></div>
                 <div class="grid-media-wrapper">
                   <nuxt-img
                     v-if="page.contactImage.url"
@@ -378,14 +453,18 @@
                   justify-between
                   items-start
                   tracking-tight
-                  mt-2
-                  z-10
+                  z-30
                   transition
                   duration-300
                   pointer-events-none
-                  md:opacity-0 md:absolute md:bottom-4 md:left-4 md:right-4
                   heading-font
                 "
+                :class="{
+                  'md:opacity-100 md:relative md:bottom-0 md:left-0 md:right-0 mb-6':
+                    listView,
+                  'mt-2 md:opacity-0 md:absolute md:bottom-4 md:left-4 md:right-4':
+                    !listView,
+                }"
               >
                 Let's get to work!<span
                   class="date font-light tracking-normal"
@@ -458,6 +537,7 @@ export default {
       page: null,
       filterOpen: false,
       linkHover: false,
+      listView: false,
     }
   },
   head() {
@@ -637,6 +717,40 @@ export default {
         this.$ScrollTrigger.refresh()
       }, '700')
     },
+    activateListView() {
+      document.querySelector('.list-view-button').classList.add('active')
+      document.querySelector('.grid-view-button').classList.remove('active')
+      const projectGrid = document.querySelector('.project-grid')
+      document
+        .querySelector('.project-grid-container')
+        .scrollIntoView({ behavior: 'smooth' })
+      projectGrid.style.opacity = '0'
+      setTimeout(() => {
+        this.listView = true
+      }, '700')
+      setTimeout(() => {
+        this.iso.layout()
+        projectGrid.style.opacity = '1'
+        this.$ScrollTrigger.refresh()
+      }, '750')
+    },
+    activateGridView() {
+      document.querySelector('.list-view-button').classList.remove('active')
+      document.querySelector('.grid-view-button').classList.add('active')
+      const projectGrid = document.querySelector('.project-grid')
+      document
+        .querySelector('.project-grid-container')
+        .scrollIntoView({ behavior: 'smooth' })
+      projectGrid.style.opacity = '0'
+      setTimeout(() => {
+        this.listView = false
+      }, '700')
+      setTimeout(() => {
+        this.iso.layout()
+        projectGrid.style.opacity = '1'
+        this.$ScrollTrigger.refresh()
+      }, '750')
+    },
   },
 }
 </script>
@@ -657,20 +771,21 @@ span.sep {
 
 .grid-item {
   width: calc(100% - 32px + 32px);
-  margin-bottom: 6rem;
 }
-
 .grid-item:last-child {
   margin-bottom: 0;
 }
 
+.project-grid:not(.list-view) .grid-item {
+  margin-bottom: 6rem;
+}
 .grid-item:hover .grid-image,
 .grid-item:hover .grid-video {
   transform: scale(1.02);
 }
 
 @media (min-width: 768px) {
-  .item-meta {
+  .project-grid:not(.list-view) .item-meta {
     color: var(--project-color);
   }
 }
@@ -734,7 +849,7 @@ span.sep {
 }
 
 .filter-button:not(.selected) {
-  opacity: 0.35;
+  opacity: 0.4;
 }
 
 .filter-button:hover {
@@ -784,5 +899,24 @@ span.sep {
 
 .tag-dot.\.website {
   transform: translateY(calc(var(--filterheight) + var(--filterspace)));
+}
+.view-mode svg {
+  fill: var(--color);
+}
+
+button span.color-fill,
+.list-separator {
+  background: var(--color);
+}
+
+.list-view-button,
+.grid-view-button {
+  opacity: 0.5;
+  transition: 0.7s ease;
+}
+
+.list-view-button.active,
+.grid-view-button.active {
+  opacity: 1;
 }
 </style>
