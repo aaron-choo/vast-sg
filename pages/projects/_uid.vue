@@ -160,9 +160,10 @@
                 text-2xl
                 leading-none
                 lg:text-3xl lg:leading-none
+                heading-font
               "
               >Visit Website
-              <span class="live-link-arrow inline-block align-bottom"
+              <span class="live-link-arrow inline-block align-bottom body-font"
                 >↗</span
               ></a
             >

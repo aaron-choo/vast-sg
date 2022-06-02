@@ -94,43 +94,14 @@
               class="w-2/3 h-auto rounded-lg my-4"
               loading="lazy"
             />
-            <a
-              class="inline-block relative"
-              href="mailto:aaron@vast.sg"
-              aria-label="Email Aaron"
-              rel="noopener"
-            >
-              <h2 class="font-normal">Aaron Choo</h2>
-              <div
-                class="
-                  u
-                  left-px
-                  origin-right
-                  transition
-                  duration-500
-                  absolute
-                  bottom-0
-                  h-px
-                "
-              >
-                <div
-                  class="
-                    transition-transform
-                    duration-500
-                    origin-left
-                    w-full
-                    h-full
-                  "
-                ></div>
-              </div>
-            </a>
-            <p class="heading-font">
+            <h2>Aaron Choo</h2>
+            <p class="text-base lg:text-lg">
               After spending years in architectural firms of varying scales,
               Aaron saw an opportunity to bring together his passion for digital
               design and his multi-disciplinary skills honed over a decade of
               architectural training.
             </p>
-            <p class="heading-font indent-16">
+            <p class="text-base lg:text-lg indent-16">
               He approaches all projects with a critical eye, and understands
               the importance of strategic thinking and iterative design in order
               to drive results.
@@ -142,10 +113,10 @@
         <div class="grid gap-8">
           <div>
             <p class="text-sm lg:text-base uppercase dot">Our Capabilities</p>
-            <div class="grid gap-8 md:grid-cols-3">
+            <div class="grid gap-4 md:grid-cols-3">
               <div>
-                <h2 class="font-normal mb-4">Branding & Communication</h2>
-                <ul class="heading-font">
+                <h2>Branding & Communication</h2>
+                <ul class="text-base lg:text-lg">
                   <li>Brand strategy</li>
                   <li>Brand identity</li>
                   <li>Print</li>
@@ -156,10 +127,8 @@
                 </ul>
               </div>
               <div>
-                <h2 class="font-normal mb-4">
-                  Digital Design & Web Development
-                </h2>
-                <ul class="heading-font">
+                <h2>Digital Design & Web Development</h2>
+                <ul class="text-base lg:text-lg">
                   <li>UI/UX</li>
                   <li>Headless CMS</li>
                   <li>E-commerce</li>
@@ -171,10 +140,8 @@
                 </ul>
               </div>
               <div>
-                <h2 class="font-normal mb-4">
-                  Interior Design & Architectural Visualization
-                </h2>
-                <ul class="heading-font">
+                <h2>Interior Design & Architectural Visualization</h2>
+                <ul class="text-base lg:text-lg">
                   <li>Residential design</li>
                   <li>Commercial design</li>
                   <li>Construction coordination</li>

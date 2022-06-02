@@ -71,7 +71,7 @@
         <div
           class="
             filter-container
-            py-10
+            pt-14
             lg:sticky
             lg:top-0
             lg:h-screen
@@ -93,6 +93,7 @@
               text-sm
               lg:text-base lg:text-right lg:leading-none
               2xl:text-lg 2xl:leading-none
+              heading-font
             "
             @mouseover="filterOpen = true"
             @mouseleave="filterOpen = false"
@@ -745,6 +746,9 @@ span.sep {
 }
 .tag-dot::before {
   content: '\25CF';
+  font-size: 1.8em;
+  line-height: 0.4;
+  margin-left: -1px;
 }
 
 .tag-dot.\.archviz {

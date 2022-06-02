@@ -396,22 +396,32 @@
             </nuxt-link>
           </div>
           <div
-            class="scroller-slide relative self-end lg:col-span-5 mb-10 md:mb-0"
+            class="
+              scroller-slide
+              relative
+              self-end
+              lg:col-span-5
+              flex
+              justify-end
+              lg:justify-start
+            "
           >
             <nuxt-link
               to="/projects"
               class="
                 link
                 inline-block
+                mt-6
                 uppercase
                 font-light
                 text-2xl
                 lg:text-3xl
                 leading-none
                 lg:leading-none
+                heading-font
               "
               >View all projects
-              <span class="link-arrow inline-block align-bottom"
+              <span class="link-arrow inline-block align-bottom body-font"
                 >→</span
               ></nuxt-link
             >
@@ -458,7 +468,7 @@
           to="/about"
           class="
             link
-            inline-block
+            block
             uppercase
             font-light
             text-2xl
@@ -466,10 +476,13 @@
             leading-none
             lg:leading-none
             mt-8
-            text-right
+            ml-auto
+            heading-font
           "
           >About us
-          <span class="link-arrow inline-block align-bottom">→</span></nuxt-link
+          <span class="link-arrow inline-block align-bottom body-font"
+            >→</span
+          ></nuxt-link
         >
       </div>
     </section>
