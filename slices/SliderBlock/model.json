@@ -83,6 +83,15 @@
             "placeholder_true": "true",
             "default_value": false
           }
+        },
+        "crossFade": {
+          "type": "Boolean",
+          "config": {
+            "label": "Cross Fade",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {

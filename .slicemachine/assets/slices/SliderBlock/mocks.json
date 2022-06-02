@@ -12,9 +12,9 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a?w=900&h=500&fit=crop"
         },
-        "caption": "generate frictionless functionalities"
+        "caption": "repurpose extensible infomediaries"
       },
       {
         "image": {
@@ -24,9 +24,9 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88?w=900&h=500&fit=crop"
         },
-        "caption": "deploy enterprise eyeballs"
+        "caption": "target plug-and-play functionalities"
       },
       {
         "image": {
@@ -36,19 +36,20 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?w=900&h=500&fit=crop"
         },
-        "caption": "cultivate mission-critical markets"
+        "caption": "brand seamless vortals"
       }
     ],
     "primary": {
-      "align": "full",
+      "align": "right",
       "effect": "fade",
-      "pagination": false,
-      "device": "device iphone-x",
-      "slidesPerView": 3034,
+      "pagination": true,
+      "device": "device ipad-pro-l",
+      "slidesPerView": 4833,
       "autoplay": true,
-      "darkModeInvert": true
+      "darkModeInvert": true,
+      "crossFade": false
     }
   },
   {
@@ -64,21 +65,9 @@
           },
           "alt": "Placeholder image",
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
+          "url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?w=900&h=500&fit=crop"
         },
-        "caption": "embrace out-of-the-box niches"
-      },
-      {
-        "image": {
-          "dimensions": {
-            "width": 900,
-            "height": 500
-          },
-          "alt": "Placeholder image",
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?w=900&h=500&fit=crop"
-        },
-        "caption": "engage sticky communities"
+        "caption": "recontextualize real-time methodologies"
       },
       {
         "image": {
@@ -90,7 +79,19 @@
           "copyright": null,
           "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?w=900&h=500&fit=crop"
         },
-        "caption": "redefine compelling e-services"
+        "caption": "syndicate ubiquitous platforms"
+      },
+      {
+        "image": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": "Placeholder image",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?w=900&h=500&fit=crop"
+        },
+        "caption": "matrix bricks-and-clicks blockchains"
       }
     ],
     "primary": {}

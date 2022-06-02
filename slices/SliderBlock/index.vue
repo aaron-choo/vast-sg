@@ -38,7 +38,7 @@
           </div>
         </div>
         <div
-          v-if="slice.primary.pagination"
+          v-if="slice.primary.pagination != false"
           slot="pagination"
           class="swiper-pagination text-xs lg:text-sm mb-1 px-5 lg:px-9"
         ></div>
@@ -210,6 +210,9 @@ export default {
     return {
       swiperOption: {
         effect: this.slice.primary.effect || 'fade',
+        fadeEffect: {
+          crossFade: this.slice.primary.crossFade,
+        },
         slidesPerView: this.slice.primary.slidesPerView
           ? this.slice.primary.slidesPerView
           : 1,
