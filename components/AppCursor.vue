@@ -133,6 +133,9 @@ export default {
         this.activateCursor('instagram')
         this.activateCursor('linkedin')
         this.activateCursor('dribbble')
+        this.activateCursor('filter')
+        this.activateCursor('grid')
+        this.activateCursor('list')
       }, 1000)
     },
     changeCursor(a, b) {
