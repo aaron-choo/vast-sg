@@ -152,14 +152,15 @@
                 justify-end
                 mt-4
                 gap-3
+                mr-6
                 lg:mr-8
               "
             >
-              <button
-                class="list-view-button cursor-list"
-                @mousedown="activateListView()"
-              >
-                <span class="block w-5 relative" style="padding-top: 75%">
+              <button class="list-view-button" @mousedown="activateListView()">
+                <span
+                  class="block w-5 relative overflow-hidden rounded-sm"
+                  style="padding-top: 75%"
+                >
                   <span
                     class="
                       absolute
@@ -178,11 +179,11 @@
                 </span>
               </button>
               <button
-                class="grid-view-button active cursor-grid"
+                class="grid-view-button active"
                 @mousedown="activateGridView()"
               >
                 <span
-                  class="block w-5 color-fill relative"
+                  class="block w-5 color-fill relative rounded-sm"
                   style="padding-top: 75%"
                 >
                 </span>
