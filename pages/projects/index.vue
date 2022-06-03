@@ -152,7 +152,6 @@
                 justify-end
                 mt-4
                 gap-3
-                mr-6
                 lg:mr-8
               "
             >
