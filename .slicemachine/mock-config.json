@@ -26,17 +26,31 @@
       "default-slice": {
         "items": {
           "image": {
-            "content": "https://images.prismic.io/vast-sg/3cad0de3-05fc-4847-9110-450e1438136e_christophe-meyer-czQvX1aa5RI-unsplash.jpg"
+            "content": "https://images.prismic.io/vast-sg/843be796-b235-40ec-8fc0-ae7d55f6106d_henley-gardens-kitchen-3.png"
           }
         },
         "primary": {
           "columns": {
+            "content": 2
+          },
+          "mobileColumns": {
             "content": 1
+          },
+          "darkModeInvert": {
+            "content": false
           }
         }
       },
       "gridWithBackground": {
-        "items": {}
+        "items": {},
+        "primary": {
+          "columns": {
+            "content": 2
+          },
+          "mobileColumns": {
+            "content": 2
+          }
+        }
       },
       "fullWidth": {
         "items": {}

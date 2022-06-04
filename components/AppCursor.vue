@@ -115,7 +115,7 @@ export default {
       let links = null
       console.log(links)
       setTimeout(() => {
-        links = document.querySelectorAll('a, button, .swiper-container')
+        links = document.querySelectorAll('a, button, .swiper-container, .iiz')
         console.log(links)
         links.forEach((link) =>
           link.addEventListener('mouseover', this.startHoverAnimation)
@@ -134,6 +134,7 @@ export default {
         this.activateCursor('linkedin')
         this.activateCursor('dribbble')
         this.activateCursor('filter')
+        this.activateCursor('zoom')
       }, 1000)
     },
     changeCursor(a, b) {

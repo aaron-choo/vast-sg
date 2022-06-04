@@ -63,8 +63,31 @@
         />
       </div>
       <div v-if="!item.device" class="image-container">
+        <inner-image-zoom
+          v-if="item.image.url && slice.primary.imageZoom"
+          class="rounded-lg cursor-zoom"
+          fadeDuration="300"
+          fullscreenOnMobile="true"
+          hideHint="true"
+          hideCloseButton="true"
+          type="webp"
+          :src="item.image.url + '&w=' + '&fm=webp'"
+          :srcSet="
+            item.image.url +
+            '&w=640&fm=webp 640w, ' +
+            item.image.url +
+            '&w=768&fm=webp 768w, ' +
+            item.image.url +
+            '&w=1024&fm=webp 1024w, ' +
+            item.image.url +
+            '&w=1280&fm=webp 1280w, ' +
+            item.image.url +
+            '&w=1536&fm=webp 1536w'
+          "
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 100vw, 100vw"
+        />
         <nuxt-img
-          v-if="item.image.url"
+          v-if="item.image.url && !slice.primary.imageZoom"
           format="webp"
           :src="item.image.url"
           sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
