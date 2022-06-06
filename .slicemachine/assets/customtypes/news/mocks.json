@@ -1,0 +1,35 @@
+{
+  "id": "71eee501-074f-4719-ae54-565fa174a6ca",
+  "uid": "quod-doloremque-assumenda",
+  "type": "news",
+  "data": {
+    "title": "streamline seamless niches",
+    "date": "2016-02-18",
+    "backgroundColor": "#c8a205",
+    "textColor": "#bfbee8",
+    "image": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": "Placeholder image",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&h=500&fit=crop"
+    },
+    "video": {
+      "link_type": "media",
+      "url": "https://source.unsplash.com/daily"
+    },
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Tempor proident qui laboris proident laboris reprehenderit laboris nostrud ullamco exercitation magna.",
+        "spans": []
+      }
+    ],
+    "link": {
+      "link_type": "Web",
+      "url": "http://google.com"
+    }
+  }
+}

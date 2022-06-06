@@ -2,6 +2,7 @@
 
 import HomeSlider from './HomeSlider';
 import ImageBlock from './ImageBlock';
+import NewsSlider from './NewsSlider';
 import SliderBlock from './SliderBlock';
 import TextBlock from './TextBlock';
 import VideoBlock from './VideoBlock';
@@ -9,6 +10,7 @@ import VideoBlock from './VideoBlock';
 export {
 	HomeSlider,
 	ImageBlock,
+	NewsSlider,
 	SliderBlock,
 	TextBlock,
 	VideoBlock,
@@ -17,6 +19,7 @@ export {
 export const components = {
 	home_slider: HomeSlider,
 	image_block: ImageBlock,
+	news_slider: NewsSlider,
 	slider_block: SliderBlock,
 	text_block: TextBlock,
 	video_block: VideoBlock,

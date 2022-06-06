@@ -74,17 +74,16 @@
           :src="item.image.url + '&w=' + '&fm=webp'"
           :srcSet="
             item.image.url +
-            '&w=640&fm=webp 640w, ' +
+            '&w=960&fm=webp 640w, ' +
             item.image.url +
-            '&w=768&fm=webp 768w, ' +
+            '&w=1152&fm=webp 768w, ' +
             item.image.url +
-            '&w=1024&fm=webp 1024w, ' +
+            '&w=1536&fm=webp 1024w, ' +
             item.image.url +
-            '&w=1280&fm=webp 1280w, ' +
+            '&w=1920&fm=webp 1280w, ' +
             item.image.url +
-            '&w=1536&fm=webp 1536w'
+            '&w=2304&fm=webp 1536w'
           "
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 100vw, 100vw"
         />
         <nuxt-img
           v-if="item.image.url && !slice.primary.imageZoom"

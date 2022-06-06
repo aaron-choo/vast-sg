@@ -1,25 +1,25 @@
 {
-  "id": "7c4c0e7c-e629-4121-bc73-b6aa7afd6c57",
-  "uid": "est-est-itaque",
+  "id": "487ef489-2c73-45ae-9366-7e15c80d684f",
+  "uid": "sed-harum-suscipit",
   "type": "home_page",
   "data": {
     "title": [
       {
         "type": "paragraph",
-        "text": "Et pariatur aliqua excepteur. Incididunt est mollit irure cillum ex mollit.",
+        "text": "In exercitation enim ad proident dolor reprehenderit voluptate et quis. Nulla eu mollit in non est ipsum culpa.",
         "spans": []
       }
     ],
     "intro": [
       {
         "type": "paragraph",
-        "text": "Ex elit sunt irure Lorem eu. Enim nisi duis sit magna magna dolor duis labore proident labore in in ea. Tempor irure mollit magna ut Lorem consequat Lorem tempor reprehenderit magna.",
+        "text": "Reprehenderit ipsum dolore occaecat qui pariatur culpa aute aliquip.",
         "spans": []
       }
     ],
-    "backgroundColor": "#95d574",
-    "textColor": "#32164a",
-    "metaTitle": "redefine bricks-and-clicks vortals",
-    "metaDescription": "whiteboard cross-platform e-services"
+    "backgroundColor": "#a9c61f",
+    "textColor": "#5b8e24",
+    "metaTitle": "implement killer schemas",
+    "metaDescription": "strategize sticky infomediaries"
   }
 }

@@ -60,6 +60,9 @@
             },
             "text_block": {
               "type": "SharedSlice"
+            },
+            "news_slider": {
+              "type": "SharedSlice"
             }
           }
         }
