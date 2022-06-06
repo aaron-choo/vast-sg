@@ -38,7 +38,6 @@ export default {
   plugins: [
     { src: '~plugins/vue-awesome-swiper', mode: 'client' },
     { src: "~plugins/isotope.js", mode: 'client' },
-    { src: "~plugins/vue-inner-image-zoom.js", mode: 'client' }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
