@@ -50,6 +50,19 @@ export default {
 }
 </script>
 <style scoped>
+.site-container::after {
+  content: '';
+  background: linear-gradient(0deg, var(--color) 0%, transparent 80%);
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.25;
+  position: fixed;
+  transition: background 0.3s ease;
+}
 .site-container::before {
   animation: grain 3s steps(3) infinite both;
   background-image: url(//images.prismic.io/vast-sg/32ea5b0b-973b-43ec-9825-179b03dbb852_noise.png?auto=compress,format&fm=webp);
