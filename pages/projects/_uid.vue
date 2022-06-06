@@ -163,7 +163,8 @@
                 heading-font
               "
               >Visit Website
-              <span class="live-link-arrow inline-block align-bottom body-font"
+              <span
+                class="live-link-arrow inline-block align-text-top body-font"
                 >↗</span
               ></a
             >
@@ -207,10 +208,10 @@
       </div>
     </section>
 
-    <section class="content">
+    <section class="content pb-4 lg:pb-8">
       <slice-zone type="project" :uid="$route.params.uid" />
     </section>
-
+    <hr class="h-px w-full opacity-20" />
     <section id="more-projects" class="mt-40 px-4 lg:px-8 overflow-hidden">
       <div class="more-projects-container">
         <p
@@ -309,6 +310,27 @@
               <source :src="nextProjectVideo.url" type="video/mp4" />
             </video>
           </div>
+        </nuxt-link>
+        <nuxt-link
+          to="/projects"
+          class="
+            link
+            block
+            uppercase
+            font-light
+            text-2xl
+            lg:text-3xl
+            leading-none
+            lg:leading-none
+            mt-8
+            ml-auto
+            heading-font
+          "
+          style="width: fit-content"
+          ><span class="link-arrow inline-block body-font align-text-top"
+            >→</span
+          >
+          View all projects
         </nuxt-link>
       </div>
     </section>

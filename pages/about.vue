@@ -122,7 +122,7 @@
             </div>
             <div></div>
             <div>
-              <h2>Branding & Communication</h2>
+              <h2 class="mb-2">Branding & Communication</h2>
               <ul class="text-base lg:text-lg">
                 <li>Brand strategy</li>
                 <li>Brand identity</li>
@@ -134,7 +134,7 @@
               </ul>
             </div>
             <div>
-              <h2>Digital Design & Web Development</h2>
+              <h2 class="mb-2">Digital Design & Web Development</h2>
               <ul class="text-base lg:text-lg">
                 <li>UI/UX</li>
                 <li>Headless CMS</li>
@@ -147,7 +147,9 @@
               </ul>
             </div>
             <div>
-              <h2>Interior Design & Architectural Visualization</h2>
+              <h2 class="mb-2">
+                Interior Design & Architectural Visualization
+              </h2>
               <ul class="text-base lg:text-lg">
                 <li>Residential design</li>
                 <li>Commercial design</li>

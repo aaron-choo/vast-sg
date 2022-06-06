@@ -153,15 +153,7 @@
       </a>
       <div
         id="header-text"
-        class="
-          w-full
-          h-screen
-          flex flex-col
-          justify-center
-          p-4
-          relative
-          mix-blend-difference
-        "
+        class="w-full h-screen flex flex-col justify-center p-4 relative"
       >
         <h1
           id="header-title"
@@ -410,25 +402,26 @@
               to="/projects"
               class="
                 link
-                inline-block
-                mt-6
+                block
                 uppercase
                 font-light
                 text-2xl
                 lg:text-3xl
                 leading-none
                 lg:leading-none
+                mt-8
                 heading-font
               "
-              >View all projects
-              <span class="link-arrow inline-block align-bottom body-font"
+              ><span class="link-arrow inline-block body-font align-text-top"
                 >→</span
-              ></nuxt-link
-            >
+              >
+              View all projects
+            </nuxt-link>
           </div>
         </div>
       </div>
     </section>
+    <hr class="h-px w-full opacity-20" />
     <section>
       <div class="description-section section grid my-24 px-4 lg:px-8">
         <p
@@ -455,13 +448,11 @@
               -mb-4
               dot
             "
-            >Multi-disciplinary Design Studio</span
+            >We Craft Identities</span
           ><span class="home-description serif font-light"
             >Vast is a design studio with a focus on branding and communication,
             digital design and web development, as well as interior design and
-            architectural visualization.<br />Founded in 2021, the studio
-            provides branding and design services to small- and medium sized
-            businesses.</span
+            architectural visualization.</span
           >
         </p>
         <nuxt-link
@@ -479,13 +470,14 @@
             ml-auto
             heading-font
           "
-          >About us
-          <span class="link-arrow inline-block align-bottom body-font"
+          ><span class="link-arrow inline-block body-font align-text-top"
             >→</span
-          ></nuxt-link
-        >
+          >
+          About us
+        </nuxt-link>
       </div>
     </section>
+    <hr class="h-px w-full opacity-20" />
     <slice-zone type="home_page" queryType="single" />
   </main>
 </template>
