@@ -190,15 +190,6 @@
                     "placeholder_true": "true",
                     "default_value": false
                   }
-                },
-                "imageZoom": {
-                  "type": "Boolean",
-                  "config": {
-                    "label": "Image Zoom",
-                    "placeholder_false": "false",
-                    "placeholder_true": "true",
-                    "default_value": false
-                  }
                 }
               },
               "items": {
@@ -311,9 +302,9 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613?w=900&h=500&fit=crop"
                 },
-                "caption": "recontextualize web-enabled experiences",
+                "caption": "utilize visionary applications",
                 "device": "device iphone-x"
               },
               {
@@ -324,17 +315,16 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a?w=900&h=500&fit=crop"
                 },
-                "caption": "deliver interactive infomediaries",
-                "device": "device iphone-x"
+                "caption": "e-enable magnetic e-business",
+                "device": "device mbp-13"
               }
             ],
             "primary": {
               "columns": 2,
               "mobileColumns": 1,
-              "darkModeInvert": true,
-              "imageZoom": false
+              "darkModeInvert": false
             }
           },
           "gridWithBackground": {
@@ -350,9 +340,9 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
                 },
-                "caption": "transform transparent models",
+                "caption": "implement vertical vortals",
                 "device": "device iphone-x"
               },
               {
@@ -363,10 +353,10 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117?w=900&h=500&fit=crop"
                 },
-                "caption": "enable synergistic metrics",
-                "device": "device ipad-pro-l"
+                "caption": "morph rich infrastructures",
+                "device": "device mbp-13"
               },
               {
                 "image": {
@@ -376,10 +366,10 @@
                   },
                   "alt": "Placeholder image",
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6?w=900&h=500&fit=crop"
+                  "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
                 },
-                "caption": "e-enable end-to-end web-readiness",
-                "device": "device iphone-x"
+                "caption": "recontextualize interactive eyeballs",
+                "device": "device mbp-13"
               }
             ],
             "primary": {
@@ -392,7 +382,7 @@
                 },
                 "alt": "Placeholder image",
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?w=900&h=500&fit=crop"
+                "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=900&h=500&fit=crop"
               }
             }
           }
@@ -401,7 +391,18 @@
           "fileName": "index",
           "extension": "vue"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "default-slice": {
+            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\ImageBlock\\default-slice\\preview.png",
+            "width": 800,
+            "height": 243
+          },
+          "gridWithBackground": {
+            "path": "C:\\Users\\Aaron Choo\\Sites\\vast\\.slicemachine\\assets\\slices\\ImageBlock\\gridWithBackground\\preview.png",
+            "width": 800,
+            "height": 519
+          }
+        }
       },
       "news_slider": {
         "library": "slices",

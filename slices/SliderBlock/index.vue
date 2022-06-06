@@ -165,13 +165,13 @@
       <div
         v-if="slice.variation === 'imageScroll'"
         v-swiper="swiperOptionImageScroll"
-        class="swiper-container relative"
+        class="swiper-container relative image-scroll"
       >
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper cursor-zoom">
           <div
             v-for="(item, index) in slice.items"
             :key="index"
-            class="swiper-slide px-4 lg:px-8"
+            class="swiper-slide mx-4 lg:mx-8 rounded-lg overflow-hidden"
           >
             <div class="swiper-zoom-container">
               <nuxt-img
@@ -255,6 +255,8 @@ export default {
         slidesPerView: 1,
         zoom: {
           maxRatio: 2,
+          containerClass: 'swiper-zoom-container',
+          zoomedSlideClass: 'swiper-slide-zoomed',
         },
       },
     }
@@ -265,6 +267,21 @@ export default {
 <style scoped>
 img {
   width: 100%;
+}
+.image-scroll .swiper-slide {
+  width: calc(100% - 32px) !important;
+}
+@media (min-width: 1024px) {
+  .image-scroll .swiper-slide {
+    width: calc(100% - 64px) !important;
+  }
+}
+.swiper-zoom-container {
+  cursor: zoom-in;
+}
+
+.swiper-slide-zoomed .swiper-zoom-container {
+  cursor: zoom-out;
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {

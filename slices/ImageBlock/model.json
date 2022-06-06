@@ -33,15 +33,6 @@
             "placeholder_true": "true",
             "default_value": false
           }
-        },
-        "imageZoom": {
-          "type": "Boolean",
-          "config": {
-            "label": "Image Zoom",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": false
-          }
         }
       },
       "items": {
