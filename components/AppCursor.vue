@@ -211,6 +211,7 @@ html:not(.desktop) #app-cursor {
 
 #app-cursor line {
   stroke: var(--color);
+  stroke: white;
   stroke-width: 24;
   stroke-linecap: round;
   stroke-linejoin: round;
