@@ -323,7 +323,6 @@
             leading-none
             lg:leading-none
             mt-8
-            ml-auto
             heading-font
           "
           style="width: fit-content"
