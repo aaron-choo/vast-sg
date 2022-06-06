@@ -52,14 +52,14 @@ export default {
 <style scoped>
 .site-container::after {
   content: '';
-  background: linear-gradient(0deg, var(--color) 0%, transparent 80%);
+  background: linear-gradient(0deg, var(--color) 0%, transparent 90%);
   left: 0;
   bottom: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.25;
+  opacity: 0.2;
   position: fixed;
   transition: background 0.3s ease;
 }
