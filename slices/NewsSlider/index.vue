@@ -135,7 +135,7 @@
               v-if="item.data.image.url"
               format="webp"
               :src="item.data.image.url"
-              sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+              sizes="sm:65vw md:45vw lg:40vw xl:40vw 2xl:30vw"
               :width="item.data.image.dimensions.width"
               :height="item.data.image.dimensions.height"
               class="image rounded-lg"
