@@ -167,22 +167,24 @@
         v-swiper="swiperOptionImageScroll"
         class="swiper-container relative"
       >
-        <div class="swiper-wrapper cursor-drag">
+        <div class="swiper-wrapper">
           <div
             v-for="(item, index) in slice.items"
             :key="index"
             class="swiper-slide px-4 lg:px-8"
           >
-            <nuxt-img
-              v-if="item.image.url"
-              format="webp"
-              :src="item.image.url"
-              sizes="sm:140vw md:140vw lg:140vw xl:140vw 2xl:140vw"
-              :width="item.image.dimensions.width"
-              :height="item.image.dimensions.height"
-              class="image rounded-lg"
-              loading="lazy"
-            />
+            <div class="swiper-zoom-container">
+              <nuxt-img
+                v-if="item.image.url"
+                format="webp"
+                :src="item.image.url"
+                sizes="sm:140vw md:140vw lg:140vw xl:140vw 2xl:140vw"
+                :width="item.image.dimensions.width"
+                :height="item.image.dimensions.height"
+                class="image rounded-lg"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -250,13 +252,9 @@ export default {
         },
       },
       swiperOptionImageScroll: {
-        slidesPerView: 0.55,
-        grabCursor: true,
-
-        breakpoints: {
-          768: {
-            slidesPerView: 0.75,
-          },
+        slidesPerView: 1,
+        zoom: {
+          maxRatio: 2,
         },
       },
     }

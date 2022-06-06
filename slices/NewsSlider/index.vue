@@ -3,7 +3,7 @@
     <div class="slider-container">
       <div v-swiper="swiperOption" class="swiper-container relative">
         <div class="swiper-wrapper">
-          <div class="swiper-slide px-4 lg:px-8 self-end">
+          <div class="swiper-slide px-4 lg:px-8 self-start">
             <p
               class="
                 summary
@@ -17,7 +17,7 @@
                 dot
               "
             >
-              Latest News
+              We are dynamic
             </p>
             <p
               class="text-2xl lg:text-3xl font-light heading-font pr-8"
@@ -198,7 +198,6 @@ export default {
         effect: 'slide',
         freeMode: {
           enabled: true,
-          sticky: true,
         },
         mousewheel: {
           forceToAxis: true,
@@ -241,9 +240,14 @@ export default {
     width: 37.5%;
   }
 }
+@media (min-width: 1024px) {
+  .swiper-slide {
+    width: 30%;
+  }
+}
 @media (min-width: 1280px) {
   .swiper-slide {
-    width: 27.5%;
+    width: 24%;
   }
 }
 img {
