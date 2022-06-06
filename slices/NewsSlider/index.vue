@@ -23,8 +23,107 @@
               class="text-2xl lg:text-3xl font-light heading-font pr-8"
               style="max-width: 18em"
             >
-              Stay up-to-date on our latest news by following us on Facebook,
-              LinkedIn and Instagram.
+              Stay up-to-date on our latest news by following us on
+              <a
+                class="inline-block relative"
+                href="https://facebook.com/vast.sg"
+                target="_blank"
+                aria-label="Connect with us on Facebook"
+                tabindex="0"
+                tabposition="bottom"
+                rel="noopener"
+              >
+                <h2>Facebook</h2>
+                <div
+                  class="
+                    u
+                    left-px
+                    origin-right
+                    transition
+                    duration-500
+                    absolute
+                    bottom-0
+                    h-px
+                  "
+                >
+                  <div
+                    class="
+                      transition-transform
+                      duration-500
+                      origin-left
+                      w-full
+                      h-full
+                    "
+                  ></div>
+                </div> </a
+              >,
+              <a
+                class="inline-block relative"
+                href="https://instagram.com/vast.sg"
+                target="_blank"
+                aria-label="Connect with us on Instagram"
+                tabindex="0"
+                tabposition="bottom"
+                rel="noopener"
+              >
+                <h2>Instagram</h2>
+                <div
+                  class="
+                    u
+                    left-px
+                    origin-right
+                    transition
+                    duration-500
+                    absolute
+                    bottom-0
+                    h-px
+                  "
+                >
+                  <div
+                    class="
+                      transition-transform
+                      duration-500
+                      origin-left
+                      w-full
+                      h-full
+                    "
+                  ></div>
+                </div>
+              </a>
+              and
+              <a
+                class="inline-block relative"
+                href="https://www.linkedin.com/company/vast-sg/"
+                target="_blank"
+                aria-label="Connect with us on LinkedIn"
+                tabindex="0"
+                tabposition="bottom"
+                rel="noopener"
+              >
+                <h2>LinkedIn</h2>
+                <div
+                  class="
+                    u
+                    left-px
+                    origin-right
+                    transition
+                    duration-500
+                    absolute
+                    bottom-0
+                    h-px
+                  "
+                >
+                  <div
+                    class="
+                      transition-transform
+                      duration-500
+                      origin-left
+                      w-full
+                      h-full
+                    "
+                  ></div>
+                </div> </a
+              >.
             </p>
           </div>
           <div
@@ -131,9 +230,15 @@ export default {
   min-width: 340px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .swiper-slide {
     width: 45%;
+  }
+}
+
+@media (min-width: 768px) {
+  .swiper-slide {
+    width: 40%;
   }
 }
 @media (min-width: 1280px) {
@@ -143,25 +248,6 @@ export default {
 }
 img {
   width: 100%;
-}
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  content: none;
-}
-.swiper-button-next,
-.swiper-button-prev {
-  width: 50%;
-  height: auto;
-  top: 0;
-  margin-top: 0;
-}
-
-.swiper-button-next {
-  right: 0;
-}
-
-.swiper-button-prev {
-  left: 0;
 }
 
 .swiper-container {
