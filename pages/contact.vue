@@ -326,7 +326,9 @@
           mx-4
           lg:mx-8
           grid
-          gap-8
+          lg:grid-cols-2
+          gap-4
+          lg:gap-8
           text-3xl
           lg:text-4xl
           font-light
