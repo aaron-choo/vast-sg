@@ -238,12 +238,12 @@ export default {
 
 @media (min-width: 768px) {
   .swiper-slide {
-    width: 40%;
+    width: 37.5%;
   }
 }
 @media (min-width: 1280px) {
   .swiper-slide {
-    width: 30%;
+    width: 27.5%;
   }
 }
 img {
