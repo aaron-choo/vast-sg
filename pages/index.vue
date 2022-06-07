@@ -394,7 +394,7 @@
               self-end
               lg:col-span-5
               flex
-              justify-end
+              justify-start
               lg:justify-start
             "
           >
@@ -409,7 +409,8 @@
                 lg:text-3xl
                 leading-none
                 lg:leading-none
-                mt-8
+                my-8
+                lg:my-0
                 heading-font
               "
               ><span class="link-arrow inline-block body-font align-text-top"
@@ -448,7 +449,7 @@
               -mb-4
               dot
             "
-            >We Craft Identities</span
+            >We are Multidisciplinary</span
           ><span class="home-description serif font-light"
             >Vast is a design studio with a focus on branding and communication,
             digital design and web development, as well as interior design and
@@ -467,7 +468,7 @@
             leading-none
             lg:leading-none
             mt-8
-            ml-auto
+            mr-auto
             heading-font
           "
           ><span class="link-arrow inline-block body-font align-text-top"
