@@ -413,9 +413,7 @@
                 lg:my-0
                 heading-font
               "
-              ><span class="link-arrow inline-block body-font align-text-top"
-                >→</span
-              >
+              ><span class="link-arrow">→</span>
               View all projects
             </nuxt-link>
           </div>
@@ -471,9 +469,7 @@
             mr-auto
             heading-font
           "
-          ><span class="link-arrow inline-block body-font align-text-top"
-            >→</span
-          >
+          ><span class="link-arrow">→</span>
           About us
         </nuxt-link>
       </div>

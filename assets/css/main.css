@@ -353,7 +353,36 @@ h1, h2, h3, h4, h5 ,h6, .heading-font {
   font-family: 'Freigeist', sans-serif;
 }
 
-.link-arrow {
+.module:last-child {
+  margin-bottom: 0;
+}
+
+:root.dark-mode .module.dark-invert-true {
+  filter:invert(1);
+}
+
+.u {
+  width: calc(100% - 1px);
+  transform: scaleX(0);
+}
+
+a:hover .u,
+.site-nav-body:not(.hover) .nuxt-link-exact-active .u {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.u div {
+  transform: scaleX(1);
+  background-color: var(--color-primary);
+}
+
+.link-arrow,
+.live-link-arrow {
+  font-family: 'Freigeist', sans-serif;
+  height:100%;
+  display:inline-flex;
+  align-items: center;
   position: relative;
   overflow: hidden;
   color: transparent;
@@ -389,26 +418,33 @@ h1, h2, h3, h4, h5 ,h6, .heading-font {
   }
 }
 
-.module:last-child {
-  margin-bottom: 0;
+.live-link-arrow::before {
+  color: var(--color);
+  content: '↗';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }
-
-:root.dark-mode .module.dark-invert-true {
-  filter:invert(1);
+.live-link-arrow::after {
+  color: var(--color);
+  content: '↗';
+  position: absolute;
+  right: 1em;
+  bottom: -1em;
+  width: 100%;
+  height: 100%;
 }
-
-.u {
-  width: calc(100% - 1px);
-  transform: scaleX(0);
+.live-link:hover .live-link-arrow::before,
+.live-link:hover .live-link-arrow::after {
+  animation: livelinkarrow 1s infinite;
 }
-
-a:hover .u,
-.site-nav-body:not(.hover) .nuxt-link-exact-active .u {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-.u div {
-  transform: scaleX(1);
-  background-color: var(--color-primary);
+@keyframes livelinkarrow {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(1em, -1em);
+  }
 }

@@ -162,11 +162,7 @@
                 target="_blank"
                 :href="item.data.link.url"
                 >{{ item.data.link.url.slice(8) }}
-                <span
-                  data-v-1521915d=""
-                  class="live-link-arrow inline-block align-top body-font"
-                  >↗</span
-                ></a
+                <span data-v-1521915d="" class="live-link-arrow">↗</span></a
               >
             </article>
           </div>
@@ -257,41 +253,5 @@ img {
 .swiper-container {
   mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
-}
-
-.live-link-arrow {
-  position: relative;
-  overflow: hidden;
-  color: transparent;
-}
-.live-link-arrow::before {
-  color: var(--color);
-  content: '↗';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-.live-link-arrow::after {
-  color: var(--color);
-  content: '↗';
-  position: absolute;
-  right: 1em;
-  bottom: -1em;
-  width: 100%;
-  height: 100%;
-}
-.live-link:hover .live-link-arrow::before,
-.live-link:hover .live-link-arrow::after {
-  animation: livelinkarrow 1s infinite;
-}
-@keyframes livelinkarrow {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(1em, -1em);
-  }
 }
 </style>

@@ -162,11 +162,7 @@
                 lg:text-3xl lg:leading-none
                 heading-font
               "
-              >Visit Website
-              <span
-                class="live-link-arrow inline-block align-text-top body-font"
-                >↗</span
-              ></a
+              >Visit Website <span class="live-link-arrow">↗</span></a
             >
           </p>
         </div>
@@ -326,9 +322,7 @@
             heading-font
           "
           style="width: fit-content"
-          ><span class="link-arrow inline-block body-font align-text-top"
-            >→</span
-          >
+          ><span class="link-arrow">→</span>
           View all projects
         </nuxt-link>
       </div>

@@ -165,9 +165,9 @@
       <div
         v-if="slice.variation === 'imageScroll'"
         v-swiper="swiperOptionImageScroll"
-        class="swiper-container relative image-scroll"
+        class="swiper-container relative image-scroll cursor-double-click"
       >
-        <div class="swiper-wrapper cursor-zoom">
+        <div class="swiper-wrapper">
           <div
             v-for="(item, index) in slice.items"
             :key="index"

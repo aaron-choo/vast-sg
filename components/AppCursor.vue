@@ -18,10 +18,10 @@
       class="
         cursor-text
         relative
-        w-16
-        h-16
-        -left-8
-        -top-11
+        w-48
+        h-48
+        -left-24
+        -top-12
         text-center
         z-50
         uppercase
@@ -135,6 +135,7 @@ export default {
         this.activateCursor('dribbble')
         this.activateCursor('filter')
         this.activateCursor('zoom')
+        this.activateCursor('double-click')
       }, 1000)
     },
     changeCursor(a, b) {
@@ -157,7 +158,7 @@ export default {
     activateCursor(a) {
       const cursorText = document.querySelector('.cursor-text')
       const enableCursor = function () {
-        cursorText.setAttribute('data-cursor-text', a)
+        cursorText.setAttribute('data-cursor-text', a.replace(/-/g, ' '))
         cursorText.classList.add('opacity-100')
       }
       const disableCursor = function () {
