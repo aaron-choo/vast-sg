@@ -270,6 +270,7 @@ img {
 }
 .image-scroll .swiper-slide {
   width: calc(100% - 32px) !important;
+  transform: translateZ(0);
 }
 @media (min-width: 1024px) {
   .image-scroll .swiper-slide {

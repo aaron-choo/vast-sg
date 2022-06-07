@@ -3,7 +3,7 @@
     <div class="slider-container">
       <div v-swiper="swiperOption" class="swiper-container relative">
         <div class="swiper-wrapper">
-          <div class="swiper-slide px-4 lg:px-8 self-start">
+          <div class="swiper-slide px-4 lg:px-8 self-end">
             <p
               class="
                 summary
