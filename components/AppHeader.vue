@@ -303,7 +303,7 @@
       "
       :class="{ 'opacity-0 pointer-events-none': !bubbleVisible }"
     >
-      <span>Hi there! <span class="wave">👋</span></span>
+      <span>Hello there! <span class="wave">👋</span></span>
       <button
         class="
           close-bubble
