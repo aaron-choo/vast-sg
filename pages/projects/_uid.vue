@@ -598,40 +598,4 @@ export default {
 span.sep {
   padding-right: 0.29em;
 }
-
-.live-link-arrow {
-  position: relative;
-  overflow: hidden;
-  color: transparent;
-}
-.live-link-arrow::before {
-  color: var(--color);
-  content: '↗';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-.live-link-arrow::after {
-  color: var(--color);
-  content: '↗';
-  position: absolute;
-  right: 1em;
-  bottom: -1em;
-  width: 100%;
-  height: 100%;
-}
-.live-link:hover .live-link-arrow::before,
-.live-link:hover .live-link-arrow::after {
-  animation: livelinkarrow 1s infinite;
-}
-@keyframes livelinkarrow {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(1em, -1em);
-  }
-}
 </style>
